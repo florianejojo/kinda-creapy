@@ -1,6 +1,8 @@
 import { artworks } from "../data/artwork";
 import { Artwork } from "../data/artwork";
 import Image from "next/image";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -16,7 +18,7 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
                 {artworks.map((artwork) => (
-                    <div>
+                    <Link href={`/gallery/${artwork.id}`}>
                         <div className="p-4 bg-tan-400 border-8 border-brown-700 rounded-lg">
                             <div className="p-4 bg-white border-4 border-white">
                                 <div className="p-1 bg-beige-300 border-4 border-white">
@@ -31,6 +33,7 @@ export default function Home() {
                                 </div>
                             </div>
                         </div>
+
                         <div className="p-4 text-end">
                             <h2 className="text-xl font-extralight">
                                 {artwork.title}
@@ -42,9 +45,20 @@ export default function Home() {
                                     : artwork.description}
                             </p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </main>
     );
 }
+
+// export const getStaticProps: GetStaticProps = async () => {
+//     // Simuler la récupération de données (par exemple, à partir d'un fichier ou d'une API)
+//     const data = artworks;
+
+//     return {
+//         props: {
+//             artworks: data,
+//         },
+//     };
+// };
