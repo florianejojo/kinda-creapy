@@ -19,13 +19,8 @@ export default function ArtworkPage({ params }: ArtworkProps) {
     }
 
     return (
-        <div className="container mx-auto p-4  max-w-5xl">
-            <header></header>
-            <h1 className="text-3xl font-bold text-center my-10">
-                {artwork.title}
-            </h1>
-
-            <div className="grid grid-cols-2">
+        <div className="container mx-auto p-4  max-w-5xl ">
+            <div className="grid grid-cols-2  my-24">
                 <div className="p-4 bg-tan-400 border-8 border-brown-700 rounded-lg">
                     <div className="p-4 bg-white border-4 border-white">
                         <div className="p-1 bg-beige-300 border-4 border-white">
@@ -40,7 +35,10 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                         </div>
                     </div>
                 </div>
-                <div className="bg-beige-100 px-24 text-justify flex items-center ">
+                <div className="bg-beige-100 px-24 text-justify flex items-center flex-col my-auto">
+                    <h1 className="text-3xl font-bold text-center my-10">
+                        {artwork.title}
+                    </h1>
                     <p className="text-gray-600">{artwork.description}</p>
                 </div>
             </div>

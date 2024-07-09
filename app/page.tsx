@@ -1,24 +1,22 @@
 import { artworks } from "../data/artwork";
-import { Artwork } from "../data/artwork";
 import Image from "next/image";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Link from "next/link";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10 lg:p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10 ">
             <header>
                 <h1 className="text-7xl font-extralight text-center">
-                    KINDA CREAPY
+                    KINDA CREEPY
                 </h1>
                 <h2 className="text-sm font-extralight text-end mt-10">
                     R. VERROEULST.
                 </h2>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center">
                 {artworks.map((artwork) => (
-                    <Link href={`/gallery/${artwork.id}`}>
+                    <Link href={`/gallery/${artwork.id}`} key={artwork.id}>
                         <div className="p-4 bg-tan-400 border-8 border-brown-700 rounded-lg">
                             <div className="p-4 bg-white border-4 border-white">
                                 <div className="p-1 bg-beige-300 border-4 border-white">

@@ -26,15 +26,15 @@ export const artworks: Artwork[] = [
         technique: "Aquarelle",
         size: "80x60 cm",
     },
-    {
-        id: 3,
-        title: "Feu Sacré",
-        description:
-            "Dans les profondeurs d'une clairière sombre, un feu sacré brûle avec une intensité mystique. Les flammes, d'un bleu profond, éclairent les visages des anciens qui se rassemblent autour, leurs yeux reflétant des siècles de sagesse et de secrets. Ce feu n'est pas seulement une source de chaleur, mais un portail vers le royaume des esprits. Chaque crépitement raconte une histoire de bravoure, de sacrifice et de connexion spirituelle. Les ombres dansantes forment des figures énigmatiques, rappelant à ceux qui regardent que la lumière et l'obscurité sont deux faces d'une même pièce.",
-        image: "/images/oeuvres/IMG_3004.webp",
-        technique: "Gouache",
-        size: "70x70 cm",
-    },
+    // {
+    //     id: 3,
+    //     title: "Feu Sacré",
+    //     description:
+    //         "Dans les profondeurs d'une clairière sombre, un feu sacré brûle avec une intensité mystique. Les flammes, d'un bleu profond, éclairent les visages des anciens qui se rassemblent autour, leurs yeux reflétant des siècles de sagesse et de secrets. Ce feu n'est pas seulement une source de chaleur, mais un portail vers le royaume des esprits. Chaque crépitement raconte une histoire de bravoure, de sacrifice et de connexion spirituelle. Les ombres dansantes forment des figures énigmatiques, rappelant à ceux qui regardent que la lumière et l'obscurité sont deux faces d'une même pièce.",
+    //     image: "/images/oeuvres/IMG_3004.webp",
+    //     technique: "Gouache",
+    //     size: "70x70 cm",
+    // },
     {
         id: 4,
         title: "Sentier des Astres",
@@ -62,15 +62,15 @@ export const artworks: Artwork[] = [
         technique: "Acrylique",
         size: "90x120 cm",
     },
-    {
-        id: 7,
-        title: "Crépuscule Enchanté",
-        description:
-            "À l'heure où le jour cède la place à la nuit, la forêt se transforme en un royaume enchanté. Le crépuscule enveloppe les arbres d'une lumière dorée, tandis que des créatures mystiques commencent à émerger de leurs cachettes. Des fées lumineuses dansent autour des fleurs, et des esprits de la forêt murmurent des contes anciens. Cette heure magique, où la réalité et la fantaisie se confondent, invite chacun à se perdre dans la beauté et la sérénité du moment. Les couleurs du ciel, changeantes et vibrantes, peignent un tableau de pure merveille.",
-        image: "/images/oeuvres/IMG_4802.webp",
-        technique: "Fusain",
-        size: "80x100 cm",
-    },
+    // {
+    //     id: 7,
+    //     title: "Crépuscule Enchanté",
+    //     description:
+    //         "À l'heure où le jour cède la place à la nuit, la forêt se transforme en un royaume enchanté. Le crépuscule enveloppe les arbres d'une lumière dorée, tandis que des créatures mystiques commencent à émerger de leurs cachettes. Des fées lumineuses dansent autour des fleurs, et des esprits de la forêt murmurent des contes anciens. Cette heure magique, où la réalité et la fantaisie se confondent, invite chacun à se perdre dans la beauté et la sérénité du moment. Les couleurs du ciel, changeantes et vibrantes, peignent un tableau de pure merveille.",
+    //     image: "/images/oeuvres/IMG_4802.webp",
+    //     technique: "Fusain",
+    //     size: "80x100 cm",
+    // },
     {
         id: 8,
         title: "Forêt des Chimères",
