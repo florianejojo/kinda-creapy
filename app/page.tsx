@@ -1,6 +1,7 @@
 import { artworks } from "../data/artwork";
 import Image from "next/image";
 import Link from "next/link";
+import { Frame } from "./components/Frame";
 
 export default function Home() {
     return (
@@ -17,22 +18,15 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center">
                 {artworks.map((artwork) => (
                     <Link href={`/gallery/${artwork.id}`} key={artwork.id}>
-                        <div className="border-4 border-b-orange-900/50  border-r-orange-900/50  border-t-black border-l-black">
-                            <div className="border-8 border-orange-900">
-                                <div className="bg-yellow-100/90 p-10">
-                                    <div className="border-4 border-white/55">
-                                        <Image
-                                            src={artwork.image}
-                                            alt={artwork.title}
-                                            width={200}
-                                            height={200}
-                                            layout="responsive"
-                                            // className="rounded-md"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Frame>
+                            <Image
+                                src={artwork.image}
+                                alt={artwork.title}
+                                width={200}
+                                height={200}
+                                layout="responsive"
+                            />
+                        </Frame>
 
                         <div className="p-4 text-end">
                             <h2 className="text-xl font-extralight">
@@ -52,13 +46,3 @@ export default function Home() {
     );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//     // Simuler la récupération de données (par exemple, à partir d'un fichier ou d'une API)
-//     const data = artworks;
-
-//     return {
-//         props: {
-//             artworks: data,
-//         },
-//     };
-// };
