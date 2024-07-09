@@ -17,17 +17,19 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center">
                 {artworks.map((artwork) => (
                     <Link href={`/gallery/${artwork.id}`} key={artwork.id}>
-                        <div className="p-4 bg-tan-400 border-8 border-brown-700 rounded-lg">
-                            <div className="p-4 bg-white border-4 border-white">
-                                <div className="p-1 bg-beige-300 border-4 border-white">
-                                    <Image
-                                        src={artwork.image}
-                                        alt={artwork.title}
-                                        width={200}
-                                        height={200}
-                                        layout="responsive"
-                                        className="rounded-md"
-                                    />
+                        <div className="border-4 border-b-orange-900/50  border-r-orange-900/50  border-t-black border-l-black">
+                            <div className="border-8 border-orange-900">
+                                <div className="bg-yellow-100/90 p-10">
+                                    <div className="border-4 border-white/55">
+                                        <Image
+                                            src={artwork.image}
+                                            alt={artwork.title}
+                                            width={200}
+                                            height={200}
+                                            layout="responsive"
+                                            // className="rounded-md"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
