@@ -8,14 +8,14 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10 ">
             <header>
                 <h1 className="text-7xl font-extralight text-center">
-                    KINDA CREEPY
+                    KINDA CREAPY
                 </h1>
                 <h2 className="text-sm font-extralight text-end mt-10">
                     R. VERROEULST.
                 </h2>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center ">
                 {artworks.map((artwork) => (
                     <Link href={`/gallery/${artwork.id}`} key={artwork.id}>
                         <Frame>

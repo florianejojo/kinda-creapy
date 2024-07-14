@@ -1,6 +1,8 @@
-import Image from "next/image";
+type FrameProps = {
+    children: React.ReactNode;
+};
 
-export const Frame = ({ children }) => {
+export const Frame = ({ children }: FrameProps) => {
     return (
         <div className="border-4 border-b-orange-900/90 border-r-orange-900/90  border-t-black border-l-black">
             <div className="border-8 border-orange-900/70">
