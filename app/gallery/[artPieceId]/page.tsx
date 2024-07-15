@@ -23,7 +23,10 @@ export default function ArtworkPage({ params }: ArtworkProps) {
     return (
         <div>
             <header>
-                <Link className="text-4xl font-extralight text-start p-2 m-2 border-b">
+                <Link
+                    href="/"
+                    className="text-4xl font-extralight text-start p-2 m-2 border-b"
+                >
                     KINDA CREAPY
                 </Link>
             </header>
