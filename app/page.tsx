@@ -2,11 +2,16 @@ import { artworks } from "../data/artwork";
 import Image from "next/image";
 import Link from "next/link";
 import { Frame } from "./components/Frame";
+import { TreeCanvas } from "./components/TreeCanvas";
 
 export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10 ">
-            <header>
+            {/* TreeCanvas en arrière-plan */}
+            <div className="absolute inset-0 z-0">
+                <TreeCanvas />
+            </div>
+            <header className="relative z-10">
                 <h1 className="text-7xl font-extralight text-center">
                     KINDA CREAPY
                 </h1>
@@ -15,10 +20,10 @@ export default function Home() {
                 </h2>
             </header>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center ">
+            <div className=" relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 mt-10 items-center ">
                 {artworks.map((artwork) => (
                     <Link href={`/gallery/${artwork.id}`} key={artwork.id}>
-                        <Frame>
+                        <Frame color={artwork.color}>
                             <Image
                                 src={artwork.image}
                                 alt={artwork.title}
