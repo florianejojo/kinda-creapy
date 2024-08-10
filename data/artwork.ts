@@ -5,6 +5,7 @@ export type Artwork = {
     image: string;
     technique: string;
     size: string; // @todo change
+    color: string;
 };
 
 export const artworks: Artwork[] = [
@@ -16,6 +17,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/orobouros.webp",
         technique: "Peinture à l'huile",
         size: "100x100 cm",
+        color: "#726D92",
     },
     {
         id: 2,
@@ -25,6 +27,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_3003.webp",
         technique: "Aquarelle",
         size: "80x60 cm",
+        color: "#30180C",
     },
     // {
     //     id: 3,
@@ -43,6 +46,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_3237.webp",
         technique: "Pastel",
         size: "50x70 cm",
+        color: "#381314",
     },
     {
         id: 5,
@@ -52,6 +56,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_3846.webp",
         technique: "Encre",
         size: "60x90 cm",
+        color: "#1C1127",
     },
     {
         id: 6,
@@ -61,6 +66,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4784.webp",
         technique: "Acrylique",
         size: "90x120 cm",
+        color: "#3F0000",
     },
     // {
     //     id: 7,
@@ -79,6 +85,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4811.webp",
         technique: "Peinture numérique",
         size: "100x150 cm",
+        color: "#272424",
     },
     {
         id: 9,
@@ -88,6 +95,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4919.webp",
         technique: "Gravure",
         size: "70x110 cm",
+        color: "#272424",
     },
     {
         id: 10,
@@ -97,6 +105,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4930.webp",
         technique: "Peinture en spray",
         size: "100x100 cm",
+        color: "#272424",
     },
     {
         id: 11,
@@ -106,6 +115,7 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4939.webp",
         technique: "Encre et lavis",
         size: "50x70 cm",
+        color: "#875D57",
     },
     {
         id: 12,
@@ -115,5 +125,6 @@ export const artworks: Artwork[] = [
         image: "/images/oeuvres/IMG_4942.webp",
         technique: "Aquarelle et encre",
         size: "60x80 cm",
+        color: "#673532",
     },
 ];
