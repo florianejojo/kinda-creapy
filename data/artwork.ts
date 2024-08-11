@@ -6,6 +6,7 @@ export type Artwork = {
     technique: string;
     size: string; // @todo change
     color: string;
+    isSpinable: boolean;
 };
 
 export const artworks: Artwork[] = [
@@ -18,6 +19,7 @@ export const artworks: Artwork[] = [
         technique: "Peinture à l'huile",
         size: "100x100 cm",
         color: "#726D92",
+        isSpinable: true,
     },
     {
         id: 2,
@@ -28,6 +30,7 @@ export const artworks: Artwork[] = [
         technique: "Aquarelle",
         size: "80x60 cm",
         color: "#30180C",
+        isSpinable: false,
     },
     // {
     //     id: 3,
@@ -47,6 +50,7 @@ export const artworks: Artwork[] = [
         technique: "Pastel",
         size: "50x70 cm",
         color: "#381314",
+        isSpinable: false,
     },
     {
         id: 5,
@@ -57,6 +61,7 @@ export const artworks: Artwork[] = [
         technique: "Encre",
         size: "60x90 cm",
         color: "#1C1127",
+        isSpinable: false,
     },
     {
         id: 6,
@@ -67,6 +72,7 @@ export const artworks: Artwork[] = [
         technique: "Acrylique",
         size: "90x120 cm",
         color: "#3F0000",
+        isSpinable: false,
     },
     // {
     //     id: 7,
@@ -86,6 +92,7 @@ export const artworks: Artwork[] = [
         technique: "Peinture numérique",
         size: "100x150 cm",
         color: "#272424",
+        isSpinable: false,
     },
     {
         id: 9,
@@ -96,6 +103,7 @@ export const artworks: Artwork[] = [
         technique: "Gravure",
         size: "70x110 cm",
         color: "#272424",
+        isSpinable: false,
     },
     {
         id: 10,
@@ -106,6 +114,7 @@ export const artworks: Artwork[] = [
         technique: "Peinture en spray",
         size: "100x100 cm",
         color: "#272424",
+        isSpinable: false,
     },
     {
         id: 11,
@@ -116,6 +125,7 @@ export const artworks: Artwork[] = [
         technique: "Encre et lavis",
         size: "50x70 cm",
         color: "#875D57",
+        isSpinable: false,
     },
     {
         id: 12,
@@ -126,5 +136,6 @@ export const artworks: Artwork[] = [
         technique: "Aquarelle et encre",
         size: "60x80 cm",
         color: "#673532",
+        isSpinable: false,
     },
 ];
