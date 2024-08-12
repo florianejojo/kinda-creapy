@@ -29,5 +29,9 @@ export const WordByWordText: React.FC<WordByWordTextProps> = ({
         }
     }, [index, interval, words]);
 
-    return <div>{displayedText}</div>;
+    return (
+        <div className="text-xs p-10 leading-7 font-extralight text-center border border-red-800 rounded w-full flex items-center justify-center">
+            {displayedText}
+        </div>
+    );
 };
