@@ -8,13 +8,12 @@ export type Artwork = {
     color: string;
     isSpinable: boolean;
 };
-
 export const artworks: Artwork[] = [
     {
         id: 1,
         title: "Ouroboros Mystique",
         description:
-            "L'Ouroboros, un symbole d'éternité et de cyclicité, serpente à travers une forêt mystique. Les arbres, enveloppés de brume, semblent chuchoter des secrets anciens. À chaque pas, le sol résonne d'un murmure presque inaudible, rappelant que la fin est toujours un nouveau commencement. Cet environnement enchanté invite les visiteurs à réfléchir sur le cycle sans fin de la vie, de la mort et de la renaissance, tout en étant captivés par la beauté et la sérénité de la nature qui les entoure.",
+            "L'Ouroboros, un symbole d'éternité et de cyclicité, serpente à travers une forêt enchantée, où chaque arbre semble sorti d'un surréalisme profond. Dans ce monde mystique, les illusions se mêlent à la réalité, créant un espace où les images doubles se dévoilent aux yeux des initiés. Cet environnement, à la fois fractal et hypnotique, reflète la nature cyclique de la vie et de la mort, invitant à une introspection profonde sur l'existence.",
         image: "/images/oeuvres/orobouros.webp",
         technique: "Peinture à l'huile",
         size: "100x100 cm",
@@ -25,27 +24,18 @@ export const artworks: Artwork[] = [
         id: 2,
         title: "Sanctuaire Lunaire",
         description:
-            "Au cœur de la nuit, un sanctuaire sacré s'illumine sous la douce lumière de la lune. Ce refuge, caché aux yeux du monde, est un havre de paix pour les âmes en quête de réconfort. Les pierres anciennes qui composent le sanctuaire sont gravées de runes mystérieuses, témoignant des rituels ésotériques qui y étaient autrefois pratiqués. La lumière argentée de la lune danse sur les surfaces, créant un spectacle éthéré qui inspire à la fois tranquillité et admiration. Ici, le temps semble s'arrêter, permettant à chacun de se reconnecter à son essence spirituelle.",
+            "Sous la douce lumière de la lune, un sanctuaire sacré se dévoile au cœur d'une forêt de Huelgoat. Les pierres anciennes, gravées de runes, semblent être les gardiennes d'illusions visuelles, où chaque symbole reflète une histoire oubliée des artistes surréalistes. Ce lieu mystique, protégé par des créatures invisibles, inspire un voyage spirituel au-delà du monde physique, dans un espace où la tranquillité et l'émerveillement cohabitent.",
         image: "/images/oeuvres/IMG_3003.webp",
         technique: "Aquarelle",
         size: "80x60 cm",
         color: "#30180C",
         isSpinable: false,
     },
-    // {
-    //     id: 3,
-    //     title: "Feu Sacré",
-    //     description:
-    //         "Dans les profondeurs d'une clairière sombre, un feu sacré brûle avec une intensité mystique. Les flammes, d'un bleu profond, éclairent les visages des anciens qui se rassemblent autour, leurs yeux reflétant des siècles de sagesse et de secrets. Ce feu n'est pas seulement une source de chaleur, mais un portail vers le royaume des esprits. Chaque crépitement raconte une histoire de bravoure, de sacrifice et de connexion spirituelle. Les ombres dansantes forment des figures énigmatiques, rappelant à ceux qui regardent que la lumière et l'obscurité sont deux faces d'une même pièce.",
-    //     image: "/images/oeuvres/IMG_3004.webp",
-    //     technique: "Gouache",
-    //     size: "70x70 cm",
-    // },
     {
         id: 4,
         title: "Sentier des Astres",
         description:
-            "Un sentier sinueux, éclairé par les constellations, guide les voyageurs à travers la nuit céleste. Ce chemin, souvent visible uniquement aux rêveurs et aux visionnaires, est pavé de pierres luminescentes qui brillent sous les pieds. Chaque étoile au-dessus semble chuchoter des secrets anciens, guidant les âmes perdues vers leur destinée. En parcourant ce sentier, on se sent enveloppé par l'immensité de l'univers, chaque pas résonnant avec les battements de cœur des étoiles. Le voyage est à la fois introspectif et expansif, rappelant la connexion entre le microcosme et le macrocosme.",
+            "Un sentier céleste, guidé par les constellations, traverse une forêt d'illusions visuelles. Ce chemin, souvent emprunté par les rêveurs et les artistes surréalistes, reflète la beauté mystérieuse du cosmos. Chaque pas sur ce sentier mène plus loin dans un monde de fractales et de visions mystiques, où le réel et l'imaginaire se fondent pour révéler la grandeur infinie de l'univers. Ce parcours invite à une exploration profonde de l'inconscient collectif.",
         image: "/images/oeuvres/IMG_3237.webp",
         technique: "Pastel",
         size: "50x70 cm",
@@ -56,7 +46,7 @@ export const artworks: Artwork[] = [
         id: 5,
         title: "Cachot des Esprits",
         description:
-            "Au plus profond des bois, un cachot oublié abrite les esprits des anciens gardiens de la forêt. Ce lieu sombre et humide est imprégné d'une énergie palpable, où chaque pierre semble respirer la mémoire des âmes qui y résident. Les murs, couverts de mousse et de lierre, murmurent des incantations oubliées. Les esprits, bienveillants mais puissants, protègent ce sanctuaire des intrus. En s'aventurant dans ce cachot, on ressent une connexion profonde avec les forces de la nature, une invitation à respecter et à honorer les anciens.",
+            "Au plus profond de la Forêt des Chimères, un cachot dissimule des secrets millénaires. Les murs humides résonnent d'incantations oubliées, évoquant les légendes d'une époque où les créatures mystiques et les esprits des arbres dominaient le monde. Ce lieu, chargé d'une énergie palpable, incarne l'essence du surréalisme, où chaque ombre cache une illusion, et où chaque coin révèle une nouvelle facette du mystère de la vie.",
         image: "/images/oeuvres/IMG_3846.webp",
         technique: "Encre",
         size: "60x90 cm",
@@ -67,27 +57,18 @@ export const artworks: Artwork[] = [
         id: 6,
         title: "Temple du Suréel",
         description:
-            "Perché sur une colline enveloppée de brouillard, le Temple du Suréel émerge comme un bastion de mystères ésotériques. Ce lieu sacré, construit avec des pierres scintillantes, reflète la lumière des astres, créant un spectacle hypnotique. À l'intérieur, des fresques anciennes racontent des histoires de dieux oubliés et de créatures mythiques. Les visiteurs sont souvent pris dans un état de transe, leurs esprits voyageant entre les dimensions. Chaque coin du temple recèle des secrets, attendant d'être découverts par ceux qui osent explorer ses profondeurs.",
+            "Perché sur une colline mystique, le Temple du Suréel est un sanctuaire d'artistes surréalistes et d'illusions visuelles. Les murs, recouverts de fresques fractales, racontent des histoires de créatures mystiques et de dieux oubliés. Ce temple, baigné dans une lumière dorée, transporte les visiteurs dans un autre monde, où le surréalisme se confond avec la réalité. Chaque recoin de cet endroit sacré offre une nouvelle perspective sur les mystères de l'existence.",
         image: "/images/oeuvres/IMG_4784.webp",
         technique: "Acrylique",
         size: "90x120 cm",
         color: "#3F0000",
         isSpinable: false,
     },
-    // {
-    //     id: 7,
-    //     title: "Crépuscule Enchanté",
-    //     description:
-    //         "À l'heure où le jour cède la place à la nuit, la forêt se transforme en un royaume enchanté. Le crépuscule enveloppe les arbres d'une lumière dorée, tandis que des créatures mystiques commencent à émerger de leurs cachettes. Des fées lumineuses dansent autour des fleurs, et des esprits de la forêt murmurent des contes anciens. Cette heure magique, où la réalité et la fantaisie se confondent, invite chacun à se perdre dans la beauté et la sérénité du moment. Les couleurs du ciel, changeantes et vibrantes, peignent un tableau de pure merveille.",
-    //     image: "/images/oeuvres/IMG_4802.webp",
-    //     technique: "Fusain",
-    //     size: "80x100 cm",
-    // },
     {
         id: 8,
         title: "Forêt des Chimères",
         description:
-            "La Forêt des Chimères est un lieu où les frontières entre le réel et l'imaginaire s'estompent. Les arbres, imposants et anciens, abritent des créatures fantastiques qui ne peuvent être vues qu'à la lueur de la lune. Les chimères, avec leurs formes hybrides et leurs pouvoirs mystiques, errent librement, protégeant la forêt de tout mal. Les visiteurs de ce lieu sont souvent pris dans des visions oniriques, chaque pas révélant de nouvelles merveilles et des mystères cachés. La forêt elle-même semble être vivante, respirant et observant ceux qui osent s'aventurer en son sein.",
+            "Dans la Forêt des Chimères, les illusions visuelles et les créatures fantastiques règnent en maîtres. Cette forêt, empreinte de mysticisme, abrite des arbres qui murmurent des contes anciens et des chimères qui errent sous le clair de lune. À chaque coin de cette forêt enchantée, des scènes surréalistes se dévoilent, mêlant rêve et réalité dans un ballet hypnotique de formes et de couleurs. Cette œuvre capture l'essence du mystique et du surréaliste, une invitation à explorer l'inconnu.",
         image: "/images/oeuvres/IMG_4811.webp",
         technique: "Peinture numérique",
         size: "100x150 cm",
@@ -98,7 +79,7 @@ export const artworks: Artwork[] = [
         id: 9,
         title: "Rite Occulte",
         description:
-            "Sous un ciel étoilé, un cercle d'initiés se rassemble pour un rite occulte. Les constellations au-dessus semblent veiller sur eux, leurs lumières formant des motifs sacrés. Les chants et les incantations résonnent dans l'air, créant une énergie vibrante qui enveloppe le groupe. Ce rituel, transmis de génération en génération, est une communion avec les forces cosmiques, une tentative de comprendre et de canaliser le pouvoir des astres. Les participants, en transe, sont transportés dans des dimensions supérieures, explorant les mystères de l'univers.",
+            "Sous les constellations, un cercle d'artistes surréalistes s'assemble pour un rite occulte. Les étoiles au-dessus créent des illusions visuelles fascinantes, guidant les initiés dans une danse mystique. Les chants résonnent dans la nuit, attirant les créatures de la forêt pour une communion sacrée. Ce rituel, ancré dans la tradition des anciens, est une célébration des forces cosmiques, un hommage à la beauté fractale de l'univers.",
         image: "/images/oeuvres/IMG_4919.webp",
         technique: "Gravure",
         size: "70x110 cm",
@@ -109,7 +90,7 @@ export const artworks: Artwork[] = [
         id: 10,
         title: "Vortex Céleste",
         description:
-            "Un vortex d'énergie céleste tourbillonne au centre de l'univers, attirant à lui étoiles et planètes. Ce phénomène cosmique, à la fois magnifique et terrifiant, est une manifestation du pouvoir brut de l'espace. Les astronomes et les mystiques se rassemblent pour observer ce spectacle, espérant entrevoir les secrets du cosmos. Chaque rotation du vortex révèle des éclats de lumière et des ombres profondes, un ballet éternel de création et de destruction. Le Vortex Céleste est un rappel de la grandeur et du mystère de l'univers, une invitation à explorer l'inconnu.",
+            "Au centre de l'univers, un vortex céleste capte l'attention des artistes et des mystiques. Ce phénomène cosmique, à la fois puissant et hypnotique, est une manifestation parfaite de l'art surréaliste. Les illusions visuelles créées par le vortex dévoilent des formes fractales qui évoluent sans cesse, invitant les spectateurs à plonger dans un monde où les limites entre le réel et l'imaginaire s'effacent. Cette œuvre est une exploration de l'infini, une quête pour comprendre les mystères du cosmos.",
         image: "/images/oeuvres/IMG_4930.webp",
         technique: "Peinture en spray",
         size: "100x100 cm",
@@ -120,7 +101,7 @@ export const artworks: Artwork[] = [
         id: 11,
         title: "Gardien des Ombres",
         description:
-            "Dans les recoins les plus sombres de la forêt, un Gardien des Ombres veille. Cette créature mythique, mi-homme, mi-bête, est le protecteur des secrets et des anciens rituels. Ses yeux, brillants comme des étoiles, scrutent l'obscurité à la recherche de toute menace. Les voyageurs égarés ressentent souvent une présence avant de le voir, un sentiment d'être observé et protégé. Le Gardien des Ombres incarne la dualité de la lumière et des ténèbres, une figure imposante qui rappelle que la nuit est aussi pleine de vie que le jour.",
+            "Dans les profondeurs d'une forêt mystique, le Gardien des Ombres veille sur les secrets anciens. Mi-homme, mi-bête, cette créature protège les âmes perdues et les anciens rituels. Ses yeux, comme des étoiles, éclairent le chemin des voyageurs qui s'égarent dans ce labyrinthe de mystère et d'illusions. Le Gardien est un symbole du surréalisme, une figure qui incarne la dualité de l'existence et la beauté cachée dans les ombres.",
         image: "/images/oeuvres/IMG_4939.webp",
         technique: "Encre et lavis",
         size: "50x70 cm",
@@ -131,7 +112,7 @@ export const artworks: Artwork[] = [
         id: 12,
         title: "Éveil Astral",
         description:
-            "Un voyage spirituel à travers les sphères astrales commence par l'Éveil Astral. Les méditants, allongés sur un cercle de pierres anciennes, ressentent leur âme se détacher doucement de leur corps. Ils sont transportés à travers les étoiles, visitant des planètes lointaines et des mondes invisibles. Chaque étape du voyage est une leçon, une révélation des mystères de l'existence. L'Éveil Astral est une quête de connaissance et de compréhension, une exploration de l'infini qui lie chaque être à l'univers. À leur retour, les voyageurs rapportent des visions et des sagesses qui changent à jamais leur perception du monde.",
+            "Un voyage au cœur du mystique commence par l'Éveil Astral. Les méditants, allongés sur des pierres anciennes, se détachent de leur enveloppe terrestre pour explorer les secrets du cosmos. Les illusions visuelles créées lors de cet éveil révèlent des mondes cachés et des vérités profondes sur l'univers. Cette œuvre, ancrée dans la tradition surréaliste, est une invitation à explorer les frontières de la réalité et de l'imaginaire, un appel à découvrir les mystères de l'existence.",
         image: "/images/oeuvres/IMG_4942.webp",
         technique: "Aquarelle et encre",
         size: "60x80 cm",
