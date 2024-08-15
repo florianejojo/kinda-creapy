@@ -11,7 +11,6 @@ const sitemapConfig = {
     async additionalPaths() {
         const paths = [];
         const artPiecesNamesIds = artworks.map((artwork) => {
-            console.log(artworks, { artwork });
             return formatNameToId(artwork.name);
         });
 

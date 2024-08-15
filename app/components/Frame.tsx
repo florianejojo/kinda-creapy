@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { classNames } from "./utils";
+import { classNames } from "../utils/utils";
 
 type FrameProps = {
     children: React.ReactNode;
