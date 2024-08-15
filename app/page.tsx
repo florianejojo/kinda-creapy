@@ -21,9 +21,9 @@ export default function Home() {
                 Site en construction
             </div>
             <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10 max-w-6xl mx-auto tracking-widest">
-                {/* <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0">
                     <TreeCanvas />
-                </div> */}
+                </div>
                 <h1 className="text-xl font-extralight text-center mt-10 md:hidden">
                     KINDA CREAPY
                 </h1>
