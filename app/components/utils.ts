@@ -1,5 +1,3 @@
-import { artworks } from "@/data/artwork";
-
 type ClassValue = string | false | null | undefined;
 
 export function classNames(...classes: ClassValue[]): string {
@@ -15,5 +13,10 @@ export function shuffleArray(array: any[]) {
 }
 
 export const formatNameToId = (name: string) => {
-    return name.toLowerCase().split(" ").join("-");
+    return name
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .split(" ")
+        .join("-");
 };

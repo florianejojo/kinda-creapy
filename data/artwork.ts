@@ -1,4 +1,14 @@
-export const artworks = [
+export type Artwork = {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    technique: string;
+    size: string; // @todo change
+    color: string;
+    isSpinable: boolean;
+};
+export const artworks: Artwork[] = [
     {
         id: 1,
         name: "Ouroboros Mystique",
