@@ -7,7 +7,9 @@ export type Artwork = {
     size: string; // @todo change
     color: string;
     isSpinable: boolean;
+    alt: string; // Ajout du champ alt
 };
+
 export const artworks: Artwork[] = [
     {
         id: 1,
@@ -19,6 +21,7 @@ export const artworks: Artwork[] = [
         size: "100x100 cm",
         color: "#726D92",
         isSpinable: true,
+        alt: "Ouroboros Mystique - Peinture à l'huile représentant un Ouroboros serpentant à travers une forêt enchantée.",
     },
     {
         id: 2,
@@ -30,6 +33,7 @@ export const artworks: Artwork[] = [
         size: "80x60 cm",
         color: "#30180C",
         isSpinable: false,
+        alt: "Sanctuaire Lunaire - Aquarelle d'un sanctuaire éclairé par la lumière de la lune dans une forêt mystique.",
     },
     {
         id: 4,
@@ -41,6 +45,7 @@ export const artworks: Artwork[] = [
         size: "50x70 cm",
         color: "#381314",
         isSpinable: false,
+        alt: "Sentier des Astres - Pastel représentant un chemin céleste guidé par les constellations.",
     },
     {
         id: 5,
@@ -52,6 +57,7 @@ export const artworks: Artwork[] = [
         size: "60x90 cm",
         color: "#1C1127",
         isSpinable: false,
+        alt: "Cachot des Esprits - Encre d'un cachot mystique caché dans une forêt.",
     },
     {
         id: 6,
@@ -63,6 +69,7 @@ export const artworks: Artwork[] = [
         size: "90x120 cm",
         color: "#3F0000",
         isSpinable: false,
+        alt: "Temple du Suréel - Acrylique d'un temple mystique sur une colline baignée de lumière dorée.",
     },
     {
         id: 8,
@@ -74,6 +81,7 @@ export const artworks: Artwork[] = [
         size: "100x150 cm",
         color: "#272424",
         isSpinable: false,
+        alt: "Forêt des Chimères - Peinture numérique d'une forêt enchantée avec des créatures mystiques.",
     },
     {
         id: 9,
@@ -85,6 +93,7 @@ export const artworks: Artwork[] = [
         size: "70x110 cm",
         color: "#272424",
         isSpinable: false,
+        alt: "Rite Occulte - Gravure représentant un cercle d'artistes surréalistes sous un ciel étoilé.",
     },
     {
         id: 10,
@@ -96,6 +105,7 @@ export const artworks: Artwork[] = [
         size: "100x100 cm",
         color: "#272424",
         isSpinable: false,
+        alt: "Vortex Céleste - Peinture en spray d'un vortex cosmique hypnotique.",
     },
     {
         id: 11,
@@ -107,6 +117,7 @@ export const artworks: Artwork[] = [
         size: "50x70 cm",
         color: "#875D57",
         isSpinable: false,
+        alt: "Gardien des Ombres - Encre et lavis représentant une créature mi-homme mi-bête dans une forêt mystique.",
     },
     {
         id: 12,
@@ -118,6 +129,7 @@ export const artworks: Artwork[] = [
         size: "60x80 cm",
         color: "#673532",
         isSpinable: false,
+        alt: "Éveil Astral - Aquarelle et encre représentant des méditants explorant les secrets du cosmos.",
     },
     {
         id: 13,
@@ -129,5 +141,6 @@ export const artworks: Artwork[] = [
         size: "70x100 cm",
         color: "#007E5A",
         isSpinable: false,
+        alt: "Métamorphose Sauvage - Techniques mixtes représentant la fusion de l'esprit humain avec celui du loup.",
     },
 ];

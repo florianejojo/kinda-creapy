@@ -9,9 +9,10 @@ type FrameProps = {
     isSpinable?: boolean;
     image: string;
     name: string;
+    alt: string;
 };
 
-export const Frame = ({ isSpinable = false, image, name }: FrameProps) => {
+export const Frame = ({ isSpinable = false, image, name, alt }: FrameProps) => {
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => {
             e.preventDefault();
@@ -45,8 +46,9 @@ export const Frame = ({ isSpinable = false, image, name }: FrameProps) => {
         >
             <Image
                 src={imageMap[image as keyof typeof imageMap]}
-                alt={name}
+                alt={alt}
                 placeholder="blur"
+                layout="responsive"
             />
         </div>
     );

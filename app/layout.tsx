@@ -25,7 +25,6 @@ export default function RootLayout({
                     as="image"
                     href="/static/media/your-lcp-image.webp"
                 />
-                {/* Ajoutez d'autres balises <link> ou <meta> ici si nécessaire */}
             </Head>
             <body className={inter.className}>{children}</body>
         </html>
