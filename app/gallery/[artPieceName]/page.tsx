@@ -38,7 +38,11 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                 <p className="text-end text-xs my-5  ">
                     {artwork.technique} - {artwork.size}
                 </p>
-                <Frame image={artwork.image} name={artwork.name} />
+                <Frame
+                    image={artwork.image}
+                    name={artwork.name}
+                    alt={artwork.alt}
+                />
             </div>
             <p className="text-xs font-extralight text-right w-full pt-10 text-gray-300 overflow-scroll self-start">
                 <WordByWordText text={artwork.description} interval={50} />
