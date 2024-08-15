@@ -2,14 +2,16 @@
 
 import { useEffect } from "react";
 import { classNames } from "../utils/utils";
+import Image from "next/image";
+import imageMap from "@/imageImports";
 
 type FrameProps = {
-    children: React.ReactNode;
-    color: string;
     isSpinable?: boolean;
+    image: string;
+    name: string;
 };
 
-export const Frame = ({ children, color, isSpinable = false }: FrameProps) => {
+export const Frame = ({ isSpinable = false, image, name }: FrameProps) => {
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => {
             e.preventDefault();
@@ -41,10 +43,7 @@ export const Frame = ({ children, color, isSpinable = false }: FrameProps) => {
                 isSpinable && "motion-safe:animate-spin-slow"
             )}
         >
-            {children}
-            <div className="absolute bottom-2 right-2 text-white opacity-50 max-x-10 font-extralight">
-                KINDA CREAPY
-            </div>
+            <Image src={imageMap[image as keyof typeof imageMap]} alt={name} />
         </div>
     );
 };
