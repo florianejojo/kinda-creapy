@@ -42,8 +42,9 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                             <Image
                                 src={artwork.image}
                                 alt={artwork.name}
-                                width={200}
-                                height={200}
+                                width={1920}
+                                height={1080}
+                                quality={100}
                                 layout="responsive"
                             />
                         </Frame>

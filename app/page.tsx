@@ -91,18 +91,16 @@ export default function Home() {
                                             <Image
                                                 src={artwork.image}
                                                 alt={artwork.name}
-                                                width={200}
-                                                height={200}
-                                                layout="responsive"
+                                                width={1920}
+                                                height={1080}
+                                                quality={100}
+                                                // layout
                                             />
                                         </Frame>
                                     </div>
 
                                     <h2 className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-                                        <WordByWordText
-                                            text={artwork.name}
-                                            interval={100}
-                                        />
+                                        {artwork.name}
                                     </h2>
                                 </Link>
                             );
