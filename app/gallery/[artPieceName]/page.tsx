@@ -5,19 +5,20 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Frame } from "@/app/components/Frame";
 import Link from "next/link";
+import { formatNameToId } from "@/app/components/utils";
 
 type ArtworkProps = {
-    params: { artPieceId: string };
+    params: { artPieceName: string };
 };
 
 export default function ArtworkPage({ params }: ArtworkProps) {
     const artwork = artworks.find((artwork) => {
-        return artwork.id === Number(params.artPieceId);
+        return formatNameToId(artwork.name) === params.artPieceName;
     });
 
     if (!artwork) {
         notFound();
-        return null; // Ajoutez une return pour arrêter l'exécution si notFound est appelé
+        return null;
     }
 
     return (
@@ -62,6 +63,6 @@ export default function ArtworkPage({ params }: ArtworkProps) {
 
 export async function generateStaticParams() {
     return artworks.map((artwork) => ({
-        id: artwork.id.toString(),
+        id: formatNameToId(artwork.name),
     }));
 }
