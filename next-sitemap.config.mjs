@@ -14,7 +14,7 @@ const sitemapConfig = {
 
         artPiecesNames.forEach((name) => {
             paths.push({
-                loc: `/gallery/${name.split(" ").join("-")}`,
+                loc: `/gallery/${name.toLowerCase().split(" ").join("-")}`,
                 changefreq: "monthly",
                 priority: 0.7,
                 lastmod: new Date().toISOString().split("T")[0],

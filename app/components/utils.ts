@@ -15,5 +15,5 @@ export function shuffleArray(array: any[]) {
 }
 
 export const formatNameToId = (name: string) => {
-    return name.split(" ").join("-");
+    return name.toLowerCase().split(" ").join("-");
 };
