@@ -6,18 +6,16 @@ import { TreeCanvas } from "./components/TreeCanvas";
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from "@headlessui/react";
 import { categories } from "@/data/categories";
 import { WordByWordText } from "./components/WordByWordText";
-import { shuffleArray } from "./components/utils";
+import { formatNameToId, shuffleArray } from "./components/utils";
 
 export default function Home() {
     const shuffled = shuffleArray(artworks);
     return (
         <>
-            {" "}
             <div className="w-full bg-white text-black uppercase font-extralight text-center">
                 Site en construction
-            </div>{" "}
+            </div>
             <main className="flex min-h-screen flex-col items-center justify-between p-5 md:p-10">
-                {/* TreeCanvas en arrière-plan */}
                 <div className="absolute inset-0 z-0">
                     <TreeCanvas />
                 </div>
@@ -35,18 +33,6 @@ export default function Home() {
                             </div>
                         );
                     })}
-
-                    {/* {categories.map((category) => {
-                    return (
-                        <div
-                            className={
-                                "border border-white rounded p-1 m-1 data-[headlessui-state=selected]:border-red-800 data-[headlessui-state=over active]:border-red-800"
-                            }
-                        >
-                            {category.name}
-                        </div>
-                    );
-                })} */}
 
                     <h1 className="text-xl font-extralight text-center hidden sm:block">
                         KINDA CREAPY
@@ -67,16 +53,18 @@ export default function Home() {
                         );
                     })}
 
-                    {/* <h2 className="text-sm font-extralight text-end mt-10">
-                    R. VERROEULST.
-                </h2> */}
+                    <h2 className="text-sm font-extralight text-end mt-10 hidden">
+                        Remy VERROEULST
+                    </h2>
                 </header>
                 <div className=" relative z-10 flex flex-col gap-20 sm:grid  md:grid-cols-2 lg:grid-cols-3 mt-10 items-center sm:gap-20">
                     {shuffled.map(
                         (artwork, index) =>
                             index < 4 && (
                                 <Link
-                                    href={`/gallery/${artwork.id}`}
+                                    href={`/gallery/${formatNameToId(
+                                        artwork.name
+                                    )}`}
                                     key={artwork.id}
                                 >
                                     <Frame
@@ -85,7 +73,7 @@ export default function Home() {
                                     >
                                         <Image
                                             src={artwork.image}
-                                            alt={artwork.title}
+                                            alt={artwork.name}
                                             width={200}
                                             height={200}
                                             layout="responsive"
@@ -94,16 +82,8 @@ export default function Home() {
 
                                     <div className="p-4 text-end">
                                         <h2 className="text-sm font-extralight">
-                                            {artwork.title}
+                                            {artwork.name}
                                         </h2>
-                                        {/* <p className="text-xs text-gray-600 font-light">
-                                        {artwork.description.length > 150
-                                            ? artwork.description.substring(
-                                                  0,
-                                                  150
-                                              ) + "..."
-                                            : artwork.description}
-                                    </p> */}
                                     </div>
                                 </Link>
                             )
@@ -116,7 +96,9 @@ export default function Home() {
                         (artwork, index) =>
                             index >= 4 && (
                                 <Link
-                                    href={`/gallery/${artwork.id}`}
+                                    href={`/gallery/${formatNameToId(
+                                        artwork.name
+                                    )}`}
                                     key={artwork.id}
                                 >
                                     <Frame
@@ -125,7 +107,7 @@ export default function Home() {
                                     >
                                         <Image
                                             src={artwork.image}
-                                            alt={artwork.title}
+                                            alt={artwork.name}
                                             width={200}
                                             height={200}
                                             layout="responsive"
@@ -134,31 +116,13 @@ export default function Home() {
 
                                     <div className="p-4 text-end">
                                         <h2 className="text-sm font-extralight">
-                                            {artwork.title}
+                                            {artwork.name}
                                         </h2>
-                                        {/* <p className="text-xs text-gray-600 font-light">
-                                        {artwork.description.length > 150
-                                            ? artwork.description.substring(
-                                                  0,
-                                                  150
-                                              ) + "..."
-                                            : artwork.description}
-                                    </p> */}
                                     </div>
                                 </Link>
                             )
                     )}
                 </div>
-                {/* {categories.map((category) => {
-                return (
-                    <div>
-                        <WordByWordText
-                            text={category.description}
-                            interval={0}
-                        />
-                    </div>
-                );
-            })} */}
             </main>
         </>
     );

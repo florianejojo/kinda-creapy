@@ -1,5 +1,5 @@
 // app/gallery/[id].tsx
-import { Artwork, artworks } from "@/data/artwork";
+import { artworks } from "@/data/artwork";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -40,7 +40,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                         <Frame color={artwork.color}>
                             <Image
                                 src={artwork.image}
-                                alt={artwork.title}
+                                alt={artwork.name}
                                 width={200}
                                 height={200}
                                 layout="responsive"
@@ -50,7 +50,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
 
                     <div className="bg-beige-100 text-justify flex items-center flex-col my-auto">
                         <h1 className="text-3xl font-bold text-center my-10">
-                            {artwork.title}
+                            {artwork.name}
                         </h1>
                         <p className="text-gray-600">{artwork.description}</p>
                     </div>
