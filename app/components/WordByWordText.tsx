@@ -1,10 +1,9 @@
 "use client";
-
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface WordByWordTextProps {
     text: string;
-    interval?: number; // Intervalle de temps entre chaque mot en millisecondes
+    interval?: number;
 }
 
 export const WordByWordText: React.FC<WordByWordTextProps> = ({
@@ -14,24 +13,18 @@ export const WordByWordText: React.FC<WordByWordTextProps> = ({
     const [displayedText, setDisplayedText] = useState<string>("");
     const [index, setIndex] = useState<number>(0);
 
-    const words = text.split(" ");
+    const characters = text.split("");
 
     useEffect(() => {
-        if (index < words.length) {
+        if (index < characters.length) {
             const timer = setTimeout(() => {
-                setDisplayedText(
-                    (prev) => prev + (index > 0 ? " " : "") + words[index]
-                );
+                setDisplayedText((prev) => prev + characters[index]);
                 setIndex(index + 1);
             }, interval);
 
             return () => clearTimeout(timer);
         }
-    }, [index, interval, words]);
+    }, [index, interval, characters]);
 
-    return (
-        <div className="text-xs p-10 leading-7 font-extralight text-center border border-red-800 rounded w-full flex items-center justify-center">
-            {displayedText}
-        </div>
-    );
+    return <div>{displayedText}</div>;
 };

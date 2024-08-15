@@ -32,7 +32,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                 </Link>
             </header>
 
-            <div className="container mx-auto p-4 my-auto max-w-2xl">
+            <div className="container mx-auto p-4 my-auto ">
                 <div className="items-center">
                     <div>
                         <p className="text-end text-sm my-5">

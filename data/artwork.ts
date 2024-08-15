@@ -119,4 +119,15 @@ export const artworks: Artwork[] = [
         color: "#673532",
         isSpinable: false,
     },
+    {
+        id: 13,
+        name: "Métamorphose Sauvage",
+        description:
+            "Dans les profondeurs de la forêt mystique, la frontière entre l'homme et la bête s'efface, révélant une métamorphose surréaliste. Cette œuvre capture l'instant où l'esprit humain se fond avec celui du loup, symbolisant la dualité de la nature et de l'âme. Les lignes abstraites et les couleurs vibrantes créent une illusion visuelle, où chaque détail se transforme, offrant une nouvelle perspective à chaque regard. C'est une exploration du subconscient, où le réel et l'imaginaire se rencontrent dans un ballet envoûtant de formes et de teintes.",
+        image: "/images/oeuvres/IMG_4802.webp",
+        technique: "Techniques mixtes",
+        size: "70x100 cm",
+        color: "#007E5A",
+        isSpinable: false,
+    },
 ];
