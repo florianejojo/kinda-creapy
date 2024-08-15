@@ -9,7 +9,7 @@ const config: Config = {
     theme: {
         extend: {
             animation: {
-                "spin-slow": "spin 120s infinite", // Changez "3s" à la durée souhaitée
+                "spin-slow": "spin 120s infinite",
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

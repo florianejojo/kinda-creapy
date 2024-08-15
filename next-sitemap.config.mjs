@@ -7,7 +7,7 @@ import { formatNameToId } from "./build/components/utils.js";
 const sitemapConfig = {
     siteUrl: "https://kindacreapy.art",
     generateRobotsTxt: true,
-    //   exclude: ['/admin/*'], // Si vous avez des pages à exclure
+    //   exclude: ['/admin/*'],
     async additionalPaths() {
         const paths = [];
         const artPiecesNamesIds = artworks.map((artwork) => {
