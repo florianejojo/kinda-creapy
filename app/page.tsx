@@ -10,13 +10,9 @@ import { classNames, formatNameToId, shuffleArray } from "./utils/utils";
 import imageMap from "../imageImports";
 
 export default function Home() {
-    const shuffledArtworks = shuffleArray(artworks);
+    // const shuffledArtworks = shuffleArray(artworks);
 
-    const cards = [
-        ...shuffledArtworks.slice(0, 4),
-        null,
-        ...shuffledArtworks.slice(4),
-    ];
+    const cards = [...artworks.slice(0, 4), null, ...artworks.slice(4)];
 
     return (
         <>

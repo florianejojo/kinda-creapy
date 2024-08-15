@@ -47,7 +47,6 @@ export const Frame = ({ isSpinable = false, image, name }: FrameProps) => {
                 src={imageMap[image as keyof typeof imageMap]}
                 alt={name}
                 placeholder="blur"
-                loading="eager"
             />
         </div>
     );
