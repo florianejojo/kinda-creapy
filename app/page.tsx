@@ -51,7 +51,7 @@ export default function Home() {
                     ))}
                 </header>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 items-baseline z-10">
-                    {cards.map((artwork) => {
+                    {cards.map((artwork, index) => {
                         if (artwork === null)
                             return (
                                 <div
@@ -80,8 +80,8 @@ export default function Home() {
                                         <Frame
                                             isSpinable={artwork.isSpinable}
                                             image={artwork.image}
-                                            name={artwork.name}
                                             alt={artwork.alt}
+                                            isLazyLoaded={index > 5}
                                         />
                                     </div>
 

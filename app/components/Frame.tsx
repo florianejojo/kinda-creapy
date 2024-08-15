@@ -8,11 +8,16 @@ import imageMap from "@/imageImports";
 type FrameProps = {
     isSpinable?: boolean;
     image: string;
-    name: string;
     alt: string;
+    isLazyLoaded: boolean;
 };
 
-export const Frame = ({ isSpinable = false, image, name, alt }: FrameProps) => {
+export const Frame = ({
+    isSpinable = false,
+    image,
+    alt,
+    isLazyLoaded,
+}: FrameProps) => {
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => {
             e.preventDefault();
@@ -49,6 +54,7 @@ export const Frame = ({ isSpinable = false, image, name, alt }: FrameProps) => {
                 alt={alt}
                 placeholder="blur"
                 layout="responsive"
+                loading={isLazyLoaded ? "lazy" : "eager"}
             />
         </div>
     );
