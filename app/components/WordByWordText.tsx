@@ -26,5 +26,5 @@ export const WordByWordText: React.FC<WordByWordTextProps> = ({
         }
     }, [index, interval, characters]);
 
-    return <div>{displayedText}</div>;
+    return <p>{displayedText}</p>;
 };

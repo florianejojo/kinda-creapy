@@ -7,6 +7,7 @@ import { Frame } from "@/app/components/Frame";
 import Link from "next/link";
 import image from "../../../public/images/artpieces/IMG_3237.webp";
 import { formatNameToId } from "@/app/utils/utils";
+import { WordByWordText } from "@/app/components/WordByWordText";
 
 type ArtworkProps = {
     params: { artPieceName: string };
@@ -23,39 +24,25 @@ export default function ArtworkPage({ params }: ArtworkProps) {
     }
 
     return (
-        <div>
-            <header>
-                <Link
-                    href="/"
-                    className="text-md font-extralight text-start p-2 m-2 border-b"
-                >
-                    KINDA CREAPY
+        <div className="max-w-4xl mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen">
+            <header className="flex self-start justify-between items-center mt-10">
+                <Link href="/" className="text-md font-extralight border-b ">
+                    Retour
                 </Link>
+                <h1 className="text-2xl font-bol text-center ">
+                    {artwork.name}
+                </h1>
             </header>
 
-            <div className="container mx-auto p-4 my-auto ">
-                <div className="items-center">
-                    <div>
-                        <p className="text-end text-sm my-5">
-                            {artwork.technique} - {artwork.size}
-                        </p>
-                        {/* <Frame color={artwork.color}>
-                            <Image
-                                src={image}
-                                alt={artwork.name}
-                                placeholder="blur"
-                            />
-                        </Frame> */}
-                    </div>
-
-                    <div className="bg-beige-100 text-justify flex items-center flex-col my-auto">
-                        <h1 className="text-3xl font-bold text-center my-10">
-                            {artwork.name}
-                        </h1>
-                        <p className="text-gray-600">{artwork.description}</p>
-                    </div>
-                </div>
+            <div className="items-center ">
+                <p className="text-end text-xs my-5  ">
+                    {artwork.technique} - {artwork.size}
+                </p>
+                <Frame image={artwork.image} name={artwork.name} />
             </div>
+            <p className="text-xs font-extralight text-right w-full pt-10 text-gray-300 overflow-scroll self-start">
+                <WordByWordText text={artwork.description} interval={50} />
+            </p>
         </div>
     );
 }
