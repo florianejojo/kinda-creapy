@@ -5,7 +5,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { Frame } from "@/app/components/Frame";
 import Link from "next/link";
-import { formatNameToId } from "@/app/components/utils";
+import image from "../../../public/images/artpieces/IMG_3237.webp";
+import { formatNameToId } from "@/app/utils/utils";
 
 type ArtworkProps = {
     params: { artPieceName: string };
@@ -38,16 +39,13 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                         <p className="text-end text-sm my-5">
                             {artwork.technique} - {artwork.size}
                         </p>
-                        <Frame color={artwork.color}>
+                        {/* <Frame color={artwork.color}>
                             <Image
-                                src={artwork.image}
+                                src={image}
                                 alt={artwork.name}
-                                width={1920}
-                                height={1080}
-                                quality={80}
-                                layout="responsive"
+                                placeholder="blur"
                             />
-                        </Frame>
+                        </Frame> */}
                     </div>
 
                     <div className="bg-beige-100 text-justify flex items-center flex-col my-auto">

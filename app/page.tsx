@@ -5,7 +5,9 @@ import { Frame } from "./components/Frame";
 import { TreeCanvas } from "./components/TreeCanvas";
 import { categories } from "@/data/categories";
 import { WordByWordText } from "./components/WordByWordText";
-import { classNames, formatNameToId, shuffleArray } from "./components/utils";
+import { classNames, formatNameToId, shuffleArray } from "./utils/utils";
+
+import imageMap from "../imageImports";
 
 export default function Home() {
     const shuffledArtworks = shuffleArray(artworks);
@@ -69,7 +71,8 @@ export default function Home() {
                                     />
                                 </div>
                             );
-                        if (artwork)
+                        if (artwork) {
+                            console.log({ imageMap }, artwork.image);
                             return (
                                 <Link
                                     href={`/gallery/${formatNameToId(
@@ -89,12 +92,8 @@ export default function Home() {
                                             isSpinable={artwork.isSpinable}
                                         >
                                             <Image
-                                                src={artwork.image}
+                                                src={imageMap[artwork.image]}
                                                 alt={artwork.name}
-                                                width={1920}
-                                                height={1080}
-                                                quality={80}
-                                                // layout
                                             />
                                         </Frame>
                                     </div>
@@ -104,6 +103,7 @@ export default function Home() {
                                     </h2>
                                 </Link>
                             );
+                        }
                     })}
                 </div>
             </main>
