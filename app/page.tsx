@@ -30,7 +30,7 @@ export default function Home() {
                 <h1 className="text-xl font-extralight text-center mt-10 md:hidden">
                     KINDA CREAPY
                 </h1>
-                <header className="relative z-1 text-xs grid grid-cols-3 gap-5 font-extralight justify-center max-w-3xl my-10 sm:grid-cols-7">
+                <header className="border-t p-5 relative z-1 text-xs grid grid-cols-3 gap-5 font-extralight justify-center max-w-3xl sm:grid-cols-7 mb-10">
                     {categories.map((category) => (
                         <div
                             key={category.name}

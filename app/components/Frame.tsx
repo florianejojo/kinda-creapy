@@ -43,7 +43,12 @@ export const Frame = ({ isSpinable = false, image, name }: FrameProps) => {
                 isSpinable && "motion-safe:animate-spin-slow"
             )}
         >
-            <Image src={imageMap[image as keyof typeof imageMap]} alt={name} />
+            <Image
+                src={imageMap[image as keyof typeof imageMap]}
+                alt={name}
+                placeholder="blur"
+                loading="eager"
+            />
         </div>
     );
 };
