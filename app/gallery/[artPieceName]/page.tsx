@@ -1,11 +1,8 @@
 // app/gallery/[id].tsx
 import { artworks } from "@/data/artwork";
-import { GetStaticPaths, GetStaticProps } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import { Frame } from "@/app/components/Frame";
 import Link from "next/link";
-import image from "../../../public/images/artpieces/IMG_3237.webp";
 import { formatNameToId } from "@/app/utils/utils";
 import { WordByWordText } from "@/app/components/WordByWordText";
 
@@ -40,8 +37,8 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                 </p>
                 <Frame
                     image={artwork.image}
-                    name={artwork.name}
                     alt={artwork.alt}
+                    isLazyLoaded={false}
                 />
             </div>
             <p className="text-xs font-extralight text-right w-full pt-10 text-gray-300 overflow-scroll self-start">
