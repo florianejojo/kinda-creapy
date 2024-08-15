@@ -2,19 +2,22 @@
 
 import { artworks } from "./build/data/artwork.js";
 
+import { formatNameToId } from "./build/components/utils.js";
+
 const sitemapConfig = {
     siteUrl: "https://kindacreapy.art",
     generateRobotsTxt: true,
     //   exclude: ['/admin/*'], // Si vous avez des pages à exclure
     async additionalPaths() {
         const paths = [];
-        const artPiecesNames = artworks.map((artwork) =>
-            artwork.name.toString()
-        );
+        const artPiecesNamesIds = artworks.map((artwork) => {
+            console.log(artworks, { artwork });
+            return formatNameToId(artwork.name);
+        });
 
-        artPiecesNames.forEach((name) => {
+        artPiecesNamesIds.forEach((name) => {
             paths.push({
-                loc: `/gallery/${name.toLowerCase().split(" ").join("-")}`,
+                loc: `/gallery/${name}`,
                 changefreq: "monthly",
                 priority: 0.7,
                 lastmod: new Date().toISOString().split("T")[0],
