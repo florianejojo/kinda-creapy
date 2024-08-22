@@ -26,5 +26,5 @@ export const WordByWordText: React.FC<WordByWordTextProps> = ({
         }
     }, [index, interval, characters]);
 
-    return <p>{displayedText}</p>;
+    return <p className="min-h-80 w-full">{displayedText}</p>;
 };

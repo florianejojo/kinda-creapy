@@ -7,10 +7,11 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "sitemap": "npx tsc data/artwork.ts --outDir build/data && next-sitemap --config next-sitemap.config.mjs"
+        "postbuild": "npx tsc data/artwork.ts --outDir build/data && next-sitemap --config next-sitemap.config.mjs"
     },
     "dependencies": {
         "@headlessui/react": "^2.1.2",
+        "@vercel/speed-insights": "^1.0.12",
         "next": "14.2.4",
         "next-sitemap": "^4.2.3",
         "react": "^18",

@@ -27,7 +27,8 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "data/artwork.ts",
-        "app/components/utils.js"
+        "app/components/utils.js",
+        "sitemap.js"
     ],
     "exclude": ["node_modules"]
 }
