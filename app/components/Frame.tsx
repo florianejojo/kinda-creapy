@@ -1,23 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { classNames } from "../utils/utils";
 import Image from "next/image";
 import imageMap from "@/imageImports";
 
 type FrameProps = {
-    isSpinable?: boolean;
     image: string;
     alt: string;
     isLazyLoaded: boolean;
 };
 
-export const Frame = ({
-    isSpinable = false,
-    image,
-    alt,
-    isLazyLoaded,
-}: FrameProps) => {
+export const Frame = ({ image, alt, isLazyLoaded }: FrameProps) => {
     useEffect(() => {
         const handleContextMenu = (e: MouseEvent) => {
             e.preventDefault();
@@ -43,21 +36,12 @@ export const Frame = ({
     }, []);
 
     return (
-        <div
-            className={classNames(
-                "max-w-max relative",
-                isSpinable && "motion-safe:animate-spin-slow"
-            )}
-        >
-            <Image
-                src={imageMap[image as keyof typeof imageMap]}
-                alt={alt}
-                placeholder="blur"
-                layout="responsive"
-                loading={isLazyLoaded ? "lazy" : "eager"}
-                quality={70}
-                sizes="(max-width: 768px) 100vw, 768px"
-            />
-        </div>
+        <Image
+            {...imageMap[image as keyof typeof imageMap]}
+            alt={alt}
+            placeholder="blur"
+            loading={isLazyLoaded ? "lazy" : "eager"}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
     );
 };
