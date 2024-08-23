@@ -23,9 +23,9 @@ export default function Home() {
             <div className="w-full bg-white text-black uppercase font-extralight text-center tracking-tight">
                 Site en construction
             </div>
-            {/* <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0">
                 <TreeCanvas />
-            </div> */}
+            </div>
             <main className="flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-6xl mx-auto z-10">
                 <header className="relative flex flex-col wrap z-1 text-xs mb-10 py-3 gap-5 font-extralight justify-center sm:max-w-3xl  w-full sm:border-t">
                     <h1 className="text-xl font-extralight text-center w-full pb-5 sm:hidden  border-b">
@@ -55,7 +55,7 @@ export default function Home() {
                         ))}
                     </div>
                 </header>
-                <div className="w-full">
+                <div className="w-full z-10">
                     <GridFilledLayout
                         elements={[...cards, ...cards].map((artwork, index) => {
                             return (
