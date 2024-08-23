@@ -7,12 +7,25 @@ import { formatNameToId } from "@/app/utils/utils";
 import { WordByWordText } from "@/app/components/WordByWordText";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Art Piece",
-    // description:
-    //     "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
-    // icons: "remy_verroeulst.png",
-};
+export async function generateMetadata({
+    params,
+}: ArtworkProps): Promise<Metadata> {
+    const artwork = artworks.find((artwork) => {
+        return formatNameToId(artwork.name) === params.artPieceName;
+    });
+
+    return {
+        title: artwork && formatNameToId(artwork.name),
+        description: artwork?.description,
+        // openGraph: {
+        //     images: [
+        //         {
+        //             url: "",
+        //         },
+        //     ],
+        // },
+    };
+}
 
 type ArtworkProps = {
     params: { artPieceName: string };
@@ -27,6 +40,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
         notFound();
         return null;
     }
+    console.log({ artwork });
 
     return (
         <div className="max-w-md  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen">
