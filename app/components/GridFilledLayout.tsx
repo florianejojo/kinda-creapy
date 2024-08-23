@@ -1,14 +1,43 @@
-export const GridFilledLayout = ({ gap, colNumbers = 3, elements }) => {
-    const makeCols = () => {
+"use client";
+
+import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+
+type GridFilledLayoutProps = {
+    elements: ReactNode[];
+};
+
+export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
+    const [colNumbers, setColNumbers] = useState(1);
+    const gap = 20;
+    const makeCols = useCallback(() => {
         const columns = Array.from({ length: colNumbers }, () => []);
 
-        elements.forEach((element, index) => {
+        elements.forEach((element: ReactNode, index) => {
             const colIndex = index % colNumbers;
-            columns[colIndex].push(<div>{element}</div>);
+            columns[colIndex].push(
+                <div className="self-center">{element}</div>
+            );
         });
 
         return columns;
+    }, [colNumbers, elements]);
+
+    const updateColNumber = () => {
+        console.log("risze");
+        if (window.innerWidth >= 1024) {
+            setColNumbers(3);
+        } else if (window.innerWidth >= 768) {
+            setColNumbers(2);
+        } else {
+            setColNumbers(1);
+        }
     };
+
+    useEffect(() => {
+        updateColNumber();
+        window.addEventListener("resize", updateColNumber);
+        return () => window.removeEventListener("resize", updateColNumber);
+    }, []);
 
     const columns = makeCols();
 
@@ -18,7 +47,7 @@ export const GridFilledLayout = ({ gap, colNumbers = 3, elements }) => {
                 return (
                     <div
                         key={index}
-                        className={`flex flex-col gap-${10} w-full h-full`}
+                        className={`flex flex-col gap-${gap}  w-full h-full`}
                     >
                         {col}
                     </div>
