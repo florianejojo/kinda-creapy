@@ -21,7 +21,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
     }
 
     return (
-        <div className="max-w-4xl  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen">
+        <div className="max-w-md  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen">
             <header className="flex self-start justify-between items-center mt-10 border-b">
                 <Link href="/" className="text-md font-extralight">
                     Retour
@@ -31,21 +31,20 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                 </h1>
             </header>
 
-            <div className="md:flex">
-                <div className="items-center max-w-sm mx-auto">
-                    <Frame
-                        image={artwork.image}
-                        alt={artwork.alt}
-                        isLazyLoaded={false}
-                    />
-                    <p className="text-end text-xs my-5  ">
-                        {artwork.technique} - {artwork.size}
-                    </p>
-                </div>
-                <p className="text-xs font-extralight text-left w-full pt-10 text-gray-300 overflow-scroll self-start md:pl-20">
-                    <WordByWordText text={artwork.description} interval={50} />
+            <div className="items-center max-w-sm mx-auto ">
+                <Frame
+                    image={artwork.image}
+                    alt={artwork.alt}
+                    isLazyLoaded={false}
+                />
+                <p className="text-end text-xs my-5  ">
+                    {artwork.technique} - {artwork.size}
                 </p>
             </div>
+
+            <p className="text-xs w-full font-extralight text-justify max-w-sm mx-auto pt-10 text-gray-300 overflow-scroll self-start">
+                <WordByWordText text={artwork.description} interval={50} />
+            </p>
         </div>
     );
 }
