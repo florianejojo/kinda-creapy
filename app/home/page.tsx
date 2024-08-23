@@ -52,9 +52,9 @@ export default function Home() {
                 </header>
                 <div className="w-full">
                     <GridFilledLayout
-                        colNumbers={3}
-                        gap={10}
-                        elements={cards.map((artwork, index) => {
+                        // colNumbers={1}
+                        // gap={20}
+                        elements={[...cards, ...cards].map((artwork, index) => {
                             return (
                                 <div
                                     className={gridItem}
