@@ -23,7 +23,6 @@ export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     }, [colNumbers, elements]);
 
     const updateColNumber = () => {
-        console.log("risze");
         if (window.innerWidth >= 1024) {
             setColNumbers(3);
         } else if (window.innerWidth >= 768) {
