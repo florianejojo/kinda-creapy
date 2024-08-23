@@ -8,7 +8,7 @@ type GridFilledLayoutProps = {
 
 export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const [colNumbers, setColNumbers] = useState(1);
-    const gap = 20;
+
     const makeCols = useCallback(() => {
         const columns: ReactNode[][] = Array.from(
             { length: colNumbers },
@@ -45,12 +45,12 @@ export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const columns = makeCols();
 
     return (
-        <div className={`grid grid-cols-${colNumbers} gap-${gap}`}>
+        <div className={`grid grid-cols-${colNumbers} gap-20`}>
             {columns.map((col, index) => {
                 return (
                     <div
                         key={index}
-                        className={`flex flex-col gap-${gap}  w-full h-full`}
+                        className={`flex flex-col gap-20  w-full h-full`}
                     >
                         {col}
                     </div>
