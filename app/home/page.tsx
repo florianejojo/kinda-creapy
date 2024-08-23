@@ -27,33 +27,36 @@ export default function Home() {
                 <TreeCanvas />
             </div> */}
             <main className="flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-6xl mx-auto z-10">
-                <header className="border-t relative z-1 text-xs grid grid-cols-3 gap-5 font-extralight justify-center max-w-3xl sm:grid-cols-7 mb-10 py-3">
-                    {categories.map((category) => (
-                        <div
-                            key={category.name}
-                            className="text-center uppercase"
-                        >
-                            {category.name}
-                        </div>
-                    ))}
-
-                    <h1 className="text-xl font-extralight text-center hidden sm:block">
+                <header className="relative flex flex-col wrap z-1 text-xs mb-10 py-3 gap-5 font-extralight justify-center sm:max-w-3xl  w-full sm:border-t">
+                    <h1 className="text-xl font-extralight text-center w-full pb-5 sm:hidden  border-b">
                         KINDA CREAPY
                     </h1>
+                    <div className="justify-center grid grid-cols-3 sm:grid-cols-7">
+                        {categories.map((category) => (
+                            <div
+                                key={category.name}
+                                className="text-center uppercase"
+                            >
+                                {category.name}
+                            </div>
+                        ))}
 
-                    {["Infos", "News", "Contact"].map((item) => (
-                        <div
-                            key={item}
-                            className="text-center uppercase hidden sm:block"
-                        >
-                            {item}
-                        </div>
-                    ))}
+                        <h1 className="text-xl font-extralight text-center w-full pb-5 hidden sm:block">
+                            KINDA CREAPY
+                        </h1>
+
+                        {["Infos", "News", "Contact"].map((item) => (
+                            <div
+                                key={item}
+                                className="text-center uppercase hidden sm:block"
+                            >
+                                {item}
+                            </div>
+                        ))}
+                    </div>
                 </header>
                 <div className="w-full">
                     <GridFilledLayout
-                        // colNumbers={1}
-                        // gap={20}
                         elements={[...cards, ...cards].map((artwork, index) => {
                             return (
                                 <div
