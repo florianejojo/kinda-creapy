@@ -5,6 +5,14 @@ import { Frame } from "@/app/components/Frame";
 import Link from "next/link";
 import { formatNameToId } from "@/app/utils/utils";
 import { WordByWordText } from "@/app/components/WordByWordText";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Art Piece",
+    // description:
+    //     "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
+    // icons: "remy_verroeulst.png",
+};
 
 type ArtworkProps = {
     params: { artPieceName: string };
@@ -42,7 +50,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                 </p>
             </div>
 
-            <p className="text-xs w-full font-extralight text-justify max-w-sm mx-auto pt-10 text-gray-300 overflow-scroll self-start">
+            <p className="text-xs w-full font-extralight text-justify max-w-smm mx-auto pt-10 text-gray-300 overflow-scroll self-start">
                 <WordByWordText text={artwork.description} interval={50} />
             </p>
         </div>

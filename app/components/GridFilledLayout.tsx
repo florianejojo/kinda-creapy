@@ -10,13 +10,17 @@ export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const [colNumbers, setColNumbers] = useState(1);
     const gap = 20;
     const makeCols = useCallback(() => {
-        const columns = Array.from({ length: colNumbers }, () => []);
+        const columns: ReactNode[][] = Array.from(
+            { length: colNumbers },
+            () => []
+        );
 
         elements.forEach((element: ReactNode, index) => {
             const colIndex = index % colNumbers;
-            columns[colIndex].push(
-                <div className="self-center">{element}</div>
-            );
+            if (columns[colIndex])
+                columns[colIndex].push(
+                    <div className="self-center">{element}</div>
+                );
         });
 
         return columns;

@@ -7,7 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-    title: "Kinda Creapy",
+    title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },
     description:
         "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
     icons: "remy_verroeulst.png",
