@@ -4,17 +4,14 @@ import { Frame } from "../components/Frame";
 import { TreeCanvas } from "../components/TreeCanvas";
 import { categories } from "@/data/categories";
 import { WordByWordText } from "../components/WordByWordText";
-import { classNames, formatNameToId, shuffleArray } from "../utils/utils";
+import { classNames, formatNameToId } from "../utils/utils";
 import { GridFilledLayout } from "../components/GridFilledLayout";
+import { fetchArtworkAndSaveImages } from "../api/notion/getArtwork";
 
-export default function Home() {
-    const shuffledArtworks = shuffleArray(artworks);
+export default async function Home() {
+    const cards = await fetchArtworkAndSaveImages();
 
-    const cards = [
-        ...shuffledArtworks.slice(0, 4),
-        null,
-        ...shuffledArtworks.slice(4),
-    ];
+    console.log({ cards });
 
     const gridItem = " w-80 h-auto z-10 flex items-end";
 
@@ -57,7 +54,8 @@ export default function Home() {
                 </header>
                 <div className="w-full z-10">
                     <GridFilledLayout
-                        elements={[...cards, ...cards].map((artwork, index) => {
+                        elements={[...cards].map((artwork, index) => {
+                            console.log({ artwork });
                             return (
                                 <div
                                     className={gridItem}
@@ -77,7 +75,7 @@ export default function Home() {
                                             }
                                         >
                                             <Frame
-                                                image={artwork.image}
+                                                image={artwork.images[0]}
                                                 alt={artwork.alt}
                                                 isLazyLoaded={index > 5}
                                             />
@@ -107,3 +105,5 @@ export default function Home() {
         </>
     );
 }
+
+

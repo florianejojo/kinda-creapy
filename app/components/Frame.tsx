@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import imageMap from "@/imageImports";
+import imageMap from "../imageImports5";
 
 type FrameProps = {
     image: string;
@@ -35,13 +35,20 @@ export const Frame = ({ image, alt, isLazyLoaded }: FrameProps) => {
         };
     }, []);
 
+    console.log({ imageMap }, image, imageMap[image]);
+
     return (
-        <Image
-            {...imageMap[image as keyof typeof imageMap]}
-            alt={alt}
-            placeholder="blur"
-            loading={isLazyLoaded ? "lazy" : "eager"}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        <div className="border-2 w-full h-full">
+            <Image
+                blurDataURL={imageMap[image].blurDataURL}
+                {...imageMap[image as keyof typeof imageMap]}
+                // src={image[0]}
+                alt={alt}
+                objectFit="cover"
+                placeholder="blur"
+                loading={isLazyLoaded ? "lazy" : "eager"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+        </div>
     );
 };

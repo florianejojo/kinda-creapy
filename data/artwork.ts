@@ -7,7 +7,7 @@ export type Artwork = {
     size: string; // @todo change
     color: string;
     isSpinable: boolean;
-    alt: string; // Ajout du champ alt
+    alt: string;
 };
 
 export const artworks: Artwork[] = [
