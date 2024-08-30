@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
-import { artworks } from "../data/artwork";
-import { formatNameToId } from "./utils/utils";
+import { artworks } from "./api/artwork";
+import { formatNameToId } from "../utils/generic.utils";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const artWorkEntries: MetadataRoute.Sitemap = artworks.map((artwork) => {

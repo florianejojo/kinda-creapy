@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require("path");
+import fs from "fs";
+import path from "path";
 
 export function generateImageImports() {
     const imagesDir = path.resolve("./public/images/ici");

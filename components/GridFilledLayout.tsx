@@ -19,7 +19,9 @@ export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
             const colIndex = index % colNumbers;
             if (columns[colIndex])
                 columns[colIndex].push(
-                    <div className="self-center">{element}</div>
+                    <div className="self-center" key={index}>
+                        {element}
+                    </div>
                 );
         });
 

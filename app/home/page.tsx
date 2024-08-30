@@ -1,17 +1,17 @@
-import { artworks } from "../../data/artwork";
 import Link from "next/link";
-import { Frame } from "../components/Frame";
-import { TreeCanvas } from "../components/TreeCanvas";
-import { categories } from "@/data/categories";
-import { WordByWordText } from "../components/WordByWordText";
-import { classNames, formatNameToId } from "../utils/utils";
-import { GridFilledLayout } from "../components/GridFilledLayout";
-import { fetchArtworkAndSaveImages } from "../api/notion/getArtwork";
+import { Frame } from "../../components/Frame";
+import { TreeCanvas } from "../../components/TreeCanvas";
+import { categories } from "@/app/api/categories";
+import { WordByWordText } from "../../components/WordByWordText";
+import { classNames, formatNameToId } from "../../utils/generic.utils";
+import { GridFilledLayout } from "../../components/GridFilledLayout";
+import { fetchArtworkAndSaveImages } from "../api/fetchArtworkAndSaveImages";
+import { addAllArtworks } from "../api/addArtPieceToNotion";
 
 export default async function Home() {
-    const cards = await fetchArtworkAndSaveImages();
+    const artPieces = await fetchArtworkAndSaveImages();
+    await addAllArtworks();
 
-    console.log({ cards });
 
     const gridItem = " w-80 h-auto z-10 flex items-end";
 
@@ -54,34 +54,33 @@ export default async function Home() {
                 </header>
                 <div className="w-full z-10">
                     <GridFilledLayout
-                        elements={[...cards].map((artwork, index) => {
-                            console.log({ artwork });
+                        elements={[...artPieces].map((artPiece, index) => {
                             return (
                                 <div
                                     className={gridItem}
                                     key={
-                                        artwork
-                                            ? artwork.id
+                                        artPiece
+                                            ? artPiece.id
                                             : "categoryDescription"
                                     }
                                 >
-                                    {artwork ? (
+                                    {artPiece ? (
                                         <Link
                                             href={`/gallery/${formatNameToId(
-                                                artwork.name
+                                                artPiece.name
                                             )}`}
                                             className={
                                                 "grid grid-rows-[1fr_auto]"
                                             }
                                         >
                                             <Frame
-                                                image={artwork.images[0]}
-                                                alt={artwork.alt}
+                                                image={artPiece.images[0]}
+                                                alt={artPiece.alt}
                                                 isLazyLoaded={index > 5}
                                             />
 
                                             <h2 className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-                                                {artwork.name}
+                                                {artPiece.name}
                                             </h2>
                                         </Link>
                                     ) : (
@@ -105,5 +104,3 @@ export default async function Home() {
         </>
     );
 }
-
-
