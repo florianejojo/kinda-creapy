@@ -1,20 +1,17 @@
-import { artworks } from "../../data/artwork";
 import Link from "next/link";
-import { Frame } from "../components/Frame";
-import { TreeCanvas } from "../components/TreeCanvas";
-import { categories } from "@/data/categories";
-import { WordByWordText } from "../components/WordByWordText";
-import { classNames, formatNameToId, shuffleArray } from "../utils/utils";
-import { GridFilledLayout } from "../components/GridFilledLayout";
+import { Frame } from "../../components/Frame";
+import { TreeCanvas } from "../../components/TreeCanvas";
+import { categories } from "@/app/api/categories";
+import { WordByWordText } from "../../components/WordByWordText";
+import { classNames, formatNameToId } from "../../utils/generic.utils";
+import { GridFilledLayout } from "../../components/GridFilledLayout";
+import { fetchArtworkAndSaveImages } from "../api/fetchArtworkAndSaveImages";
+import { addAllArtworks } from "../api/addArtPieceToNotion";
 
-export default function Home() {
-    const shuffledArtworks = shuffleArray(artworks);
+export default async function Home() {
+    const artPieces = await fetchArtworkAndSaveImages();
+    await addAllArtworks();
 
-    const cards = [
-        ...shuffledArtworks.slice(0, 4),
-        null,
-        ...shuffledArtworks.slice(4),
-    ];
 
     const gridItem = " w-80 h-auto z-10 flex items-end";
 
@@ -57,33 +54,33 @@ export default function Home() {
                 </header>
                 <div className="w-full z-10">
                     <GridFilledLayout
-                        elements={[...cards, ...cards].map((artwork, index) => {
+                        elements={[...artPieces].map((artPiece, index) => {
                             return (
                                 <div
                                     className={gridItem}
                                     key={
-                                        artwork
-                                            ? artwork.id
+                                        artPiece
+                                            ? artPiece.id
                                             : "categoryDescription"
                                     }
                                 >
-                                    {artwork ? (
+                                    {artPiece ? (
                                         <Link
                                             href={`/gallery/${formatNameToId(
-                                                artwork.name
+                                                artPiece.name
                                             )}`}
                                             className={
                                                 "grid grid-rows-[1fr_auto]"
                                             }
                                         >
                                             <Frame
-                                                image={artwork.image}
-                                                alt={artwork.alt}
+                                                image={artPiece.images[0]}
+                                                alt={artPiece.alt}
                                                 isLazyLoaded={index > 5}
                                             />
 
                                             <h2 className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-                                                {artwork.name}
+                                                {artPiece.name}
                                             </h2>
                                         </Link>
                                     ) : (

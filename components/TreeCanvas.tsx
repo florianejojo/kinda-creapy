@@ -95,13 +95,13 @@ export const TreeCanvas: React.FC = () => {
         rafRef.current = window.requestAnimationFrame(draw);
 
         // Arrêter l'animation après un délai aléatoire entre 5 et 20 secondes
-        const randomTimeout = Math.random() * 15000 + 10000; // Entre 5s et 20s
+        const randomTimeout = Math.random() * (10 - 5) + 5;
         const stopTimeout = setTimeout(() => {
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, randomTimeout);
+        }, randomTimeout * 1000);
 
         // Nettoyage
         return () => {
