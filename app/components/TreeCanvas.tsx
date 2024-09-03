@@ -117,7 +117,7 @@ export const TreeCanvas: React.FC = () => {
             ref={canvasRef}
             width={isClient ? window.innerWidth : 0}
             height={isClient ? window.innerHeight : 0}
-            className="bg-inherit fixed z-0"
+            className="bg-inherit z-0 fixed inset-0"
         />
     );
 };

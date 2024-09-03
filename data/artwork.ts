@@ -4,10 +4,11 @@ export type Artwork = {
     description: string;
     image: string;
     technique: string;
-    size: string; // @todo change
+    size: string;
     color: string;
     isSpinable: boolean;
-    alt: string; // Ajout du champ alt
+    alt: string;
+    categories: ("Arbres" | "Bestiaires" | "Illusions")[];
 };
 
 export const artworks: Artwork[] = [
@@ -22,6 +23,7 @@ export const artworks: Artwork[] = [
         color: "#726D92",
         isSpinable: true,
         alt: "Ouroboros Mystique - Peinture à l'huile représentant un Ouroboros serpentant à travers une forêt enchantée.",
+        categories: ["Illusions"],
     },
     {
         id: 2,
@@ -34,6 +36,7 @@ export const artworks: Artwork[] = [
         color: "#30180C",
         isSpinable: false,
         alt: "Sanctuaire Lunaire - Aquarelle d'un sanctuaire éclairé par la lumière de la lune dans une forêt mystique.",
+        categories: ["Arbres", "Illusions"],
     },
     {
         id: 4,
@@ -46,6 +49,7 @@ export const artworks: Artwork[] = [
         color: "#381314",
         isSpinable: false,
         alt: "Sentier des Astres - Pastel représentant un chemin céleste guidé par les constellations.",
+        categories: ["Bestiaires"],
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ export const artworks: Artwork[] = [
         color: "#1C1127",
         isSpinable: false,
         alt: "Cachot des Esprits - Encre d'un cachot mystique caché dans une forêt.",
+        categories: ["Arbres", "Bestiaires"],
     },
     {
         id: 6,
@@ -70,6 +75,7 @@ export const artworks: Artwork[] = [
         color: "#3F0000",
         isSpinable: false,
         alt: "Temple du Suréel - Acrylique d'un temple mystique sur une colline baignée de lumière dorée.",
+        categories: ["Arbres"],
     },
     {
         id: 8,
@@ -82,6 +88,7 @@ export const artworks: Artwork[] = [
         color: "#272424",
         isSpinable: false,
         alt: "Forêt des Chimères - Peinture numérique d'une forêt enchantée avec des créatures mystiques.",
+        categories: ["Arbres"],
     },
     {
         id: 9,
@@ -94,6 +101,7 @@ export const artworks: Artwork[] = [
         color: "#272424",
         isSpinable: false,
         alt: "Rite Occulte - Gravure représentant un cercle d'artistes surréalistes sous un ciel étoilé.",
+        categories: ["Arbres"],
     },
     {
         id: 10,
@@ -106,6 +114,7 @@ export const artworks: Artwork[] = [
         color: "#272424",
         isSpinable: false,
         alt: "Vortex Céleste - Peinture en spray d'un vortex cosmique hypnotique.",
+        categories: ["Illusions"],
     },
     {
         id: 11,
@@ -118,6 +127,7 @@ export const artworks: Artwork[] = [
         color: "#875D57",
         isSpinable: false,
         alt: "Gardien des Ombres - Encre et lavis représentant une créature mi-homme mi-bête dans une forêt mystique.",
+        categories: ["Arbres", "Illusions", "Bestiaires"],
     },
     {
         id: 12,
@@ -130,6 +140,7 @@ export const artworks: Artwork[] = [
         color: "#673532",
         isSpinable: false,
         alt: "Éveil Astral - Aquarelle et encre représentant des méditants explorant les secrets du cosmos.",
+        categories: ["Arbres"],
     },
     {
         id: 13,
@@ -142,5 +153,6 @@ export const artworks: Artwork[] = [
         color: "#007E5A",
         isSpinable: false,
         alt: "Métamorphose Sauvage - Techniques mixtes représentant la fusion de l'esprit humain avec celui du loup.",
+        categories: ["Illusions"],
     },
 ];
