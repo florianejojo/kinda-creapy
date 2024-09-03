@@ -1,13 +1,56 @@
 "use client";
 
 import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { ArtPiece } from "./ArtPiece";
+import { WordByWordText } from "./WordByWordText";
+import { categories } from "@/data/categories";
+import { useSearchParams } from "next/navigation";
+import { classNames, shuffleArray } from "./utils";
+import { artworks } from "@/data/artwork";
 
-type GridFilledLayoutProps = {
-    elements: ReactNode[];
-};
+export const GridFilledLayout = () => {
+    const searchParams = useSearchParams();
+    const filterBy = searchParams.get("filterBy");
+    const shuffledArtworks = shuffleArray(artworks);
 
-export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const [colNumbers, setColNumbers] = useState(1);
+    const gridItem = " w-80 h-auto z-10 flex items-end";
+    const cards = [
+        ...shuffledArtworks.slice(0, 4),
+        null,
+        ...shuffledArtworks.slice(4),
+    ];
+
+    const elements = cards
+        .filter((artPiece) => {
+            return (
+                (artPiece && artPiece.categories.includes(filterBy)) ||
+                !filterBy
+            );
+        })
+        .map((artPiece, index) => {
+            return (
+                <div
+                    className={gridItem}
+                    key={artPiece ? artPiece.id : "categoryDescription"}
+                >
+                    {artPiece ? (
+                        <ArtPiece artPiece={artPiece} position={index} />
+                    ) : (
+                        <div
+                            className={classNames(
+                                "text-xs font-extralight p-5 leading-5 text-left flex items-center justify-center self-center border border-red-800"
+                            )}
+                        >
+                            <WordByWordText
+                                text={categories[0].description}
+                                interval={70}
+                            />
+                        </div>
+                    )}
+                </div>
+            );
+        });
 
     const makeCols = useCallback(() => {
         const columns: ReactNode[][] = Array.from(

@@ -2,7 +2,7 @@ export const categories = [
     {
         name: "Arbres",
         description:
-            "Cette collection de tableaux met en lumière des arbres qui ne sont pas de simples végétaux, mais les témoins silencieux d'époques révolues et les réceptacles de forces mystiques. Chaque arbre est représenté avec une attention minutieuse aux détails, révélant des formes envoûtantes et des textures qui semblent vibrer d'une énergie ancienne. Ces œuvres capturent non seulement la majesté naturelle des arbres, mais aussi leur dimension spirituelle, en tant que gardiens des secrets et des légendes de la nature.",
+            "L'arbre n'est pas un décor. Là où l'on a troqué son rôle alimentaire pour devenir artifice de nos villes à l'agonie, malgré les hybridations et les conditionnements pour tenter de le faire rentrer dans quelque case et utilisation décorative, l'arbre survit, vibre, sage et puissant. Il porte le message de la vie, vit au rythme du temps, en harmonie, sans froisser aucune des trames de la toile du vivant. Porteur de lumière, concentré de savoir, l'arbre est multiple, chacun a son enseignement spécifique, et là où les un(e)s le voient décor, je le perçois comme 'des corps'.",
     },
     {
         name: "Bestiaires",
