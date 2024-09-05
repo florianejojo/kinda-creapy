@@ -1,10 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { Frame } from "./Frame";
-import { formatNameToId } from "./utils";
+import { ArtPiece as ArtPieceType } from "@/data/artwork";
+import { formatNameToId } from "@/app/utils/utils";
+import { Frame } from "@/app/components/Frame";
 
-export const ArtPiece = ({ artPiece, position }) => {
+type ArtPieceProps = {
+    artPiece: ArtPieceType;
+    position: number;
+};
+export const ArtPiece = ({ artPiece, position }: ArtPieceProps) => {
     return (
         <Link
             href={`/gallery/${formatNameToId(artPiece.name)}`}

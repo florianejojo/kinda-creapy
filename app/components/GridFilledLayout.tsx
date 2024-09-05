@@ -1,25 +1,20 @@
 "use client";
 
-import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { ArtPiece } from "./ArtPiece";
 import { WordByWordText } from "./WordByWordText";
 import { categories } from "@/data/categories";
 import { useSearchParams } from "next/navigation";
 import { classNames, shuffleArray } from "./utils";
-import { artworks } from "@/data/artwork";
+import { artworks, Category } from "@/data/artwork";
 
 export const GridFilledLayout = () => {
     const searchParams = useSearchParams();
-    const filterBy = searchParams.get("filterBy");
-    const shuffledArtworks = shuffleArray(artworks);
+    const filterBy = searchParams.get("filterBy") as Category;
 
     const [colNumbers, setColNumbers] = useState(1);
     const gridItem = " w-80 h-auto z-10 flex items-end";
-    const cards = [
-        ...shuffledArtworks.slice(0, 4),
-        null,
-        ...shuffledArtworks.slice(4),
-    ];
+    const cards = [...artworks.slice(0, 4), null, ...artworks.slice(4)];
 
     const elements = cards
         .filter((artPiece) => {
@@ -35,11 +30,13 @@ export const GridFilledLayout = () => {
                     key={artPiece ? artPiece.id : "categoryDescription"}
                 >
                     {artPiece ? (
-                        <ArtPiece artPiece={artPiece} position={index} />
+                        <div className="hover:transition-transform transform hover:scale-105 duration-300">
+                            <ArtPiece artPiece={artPiece} position={index} />
+                        </div>
                     ) : (
                         <div
                             className={classNames(
-                                "text-xs font-extralight p-5 leading-5 text-left flex items-center justify-center self-center border border-red-800"
+                                "text-xs font-extralight p-5 leading-5 text-left flex items-center justify-center self-center border border-red-800 "
                             )}
                         >
                             <WordByWordText

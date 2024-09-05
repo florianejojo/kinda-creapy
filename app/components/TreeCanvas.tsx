@@ -91,19 +91,15 @@ export const TreeCanvas: React.FC = () => {
             rafRef.current = window.requestAnimationFrame(draw);
         }
 
-        // Démarrer l'animation dès que le composant est monté
         rafRef.current = window.requestAnimationFrame(draw);
 
-        // Arrêter l'animation après un délai aléatoire entre 5 et 20 secondes
-        const randomTimeout = Math.random() * 15000 + 10000; // Entre 5s et 20s
         const stopTimeout = setTimeout(() => {
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, randomTimeout);
+        }, 10000);
 
-        // Nettoyage
         return () => {
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
@@ -117,7 +113,7 @@ export const TreeCanvas: React.FC = () => {
             ref={canvasRef}
             width={isClient ? window.innerWidth : 0}
             height={isClient ? window.innerHeight : 0}
-            className="bg-inherit z-0 fixed inset-0"
+            className="bg-inherit fixed z-0 "
         />
     );
 };

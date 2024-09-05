@@ -35,7 +35,6 @@ export default imageMap;
 
     fs.writeFileSync(path.join(__dirname, "imageImports.js"), output);
 
-    console.log("Image imports and mappings generated successfully!");
 }
 
 generateImports(imagesDirectory);
