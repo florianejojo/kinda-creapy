@@ -33,7 +33,7 @@ export const Header = () => {
             >
                 KINDA CREAPY
             </h1>
-            {...categories.map((category) => (
+            {Object.values(categories).map((category) => (
                 <span
                     className="col-span-1 py-3 hover:border-t-2 cursor-pointer"
                     onClick={() => {
