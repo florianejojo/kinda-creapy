@@ -40,10 +40,9 @@ export default function ArtworkPage({ params }: ArtworkProps) {
         notFound();
         return null;
     }
-    console.log({ artwork });
 
     return (
-        <div className="max-w-md  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen">
+        <div className="max-w-md  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen ">
             <header className="flex self-start justify-between items-center mt-10 border-b">
                 <Link href="/" className="text-md font-extralight">
                     Retour
