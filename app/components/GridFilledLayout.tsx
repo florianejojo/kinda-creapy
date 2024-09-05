@@ -1,20 +1,25 @@
 "use client";
 
-import { ReactNode, useCallback, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { ArtPiece } from "./ArtPiece";
 import { WordByWordText } from "./WordByWordText";
-import { categories } from "@/data/categories";
+import { CATEGORIES, categories } from "@/data/categories";
 import { useSearchParams } from "next/navigation";
-import { classNames, shuffleArray } from "./utils";
-import { artworks, Category } from "@/data/artwork";
+import { classNames } from "./utils";
+import { artworks } from "@/data/artwork";
 
 export const GridFilledLayout = () => {
     const searchParams = useSearchParams();
-    const filterBy = searchParams.get("filterBy") as Category;
+    const filterBy = searchParams.get("filterBy") as CATEGORIES;
 
     const [colNumbers, setColNumbers] = useState(1);
     const gridItem = " w-80 h-auto z-10 flex items-end";
-    const cards = [...artworks.slice(0, 4), null, ...artworks.slice(4)];
+    const cards = useMemo(() => {
+        return artworks;
+        // return categories[filterBy]
+        //     ? [...artworks.slice(0, 4), null, ...artworks.slice(4)]
+        //     : artworks;
+    }, [filterBy]);
 
     const elements = cards
         .filter((artPiece) => {
@@ -40,7 +45,7 @@ export const GridFilledLayout = () => {
                             )}
                         >
                             <WordByWordText
-                                text={categories[0].description}
+                                text={categories[filterBy].description}
                                 interval={70}
                             />
                         </div>
