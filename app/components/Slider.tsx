@@ -15,7 +15,7 @@ export function Slider({
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0); // Position initiale du clic ou touch
     const [translateX, setTranslateX] = useState<string>(
-        position === PATHS.curriculum ? "0" : "100%"
+        position === PATHS.home ? "0" : "100%"
     );
 
     const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
@@ -64,7 +64,6 @@ export function Slider({
     };
     const handleMouseUp = () => setIsDragging(false);
     useEffect(() => {
-        // Événements tactiles natifs
         const handleNativeTouchMove = (e: TouchEvent) => {
             if (!isDragging) return;
             e.preventDefault();
@@ -105,7 +104,7 @@ export function Slider({
     return (
         <div
             id="slider"
-            className={`cursor-pointer w-64 text-white text-scenter flex flex-row transition-all duration-500 transform hover:scale-105 overflow-hidden ${className}`}
+            className={`cursor-pointer w-80 text-white text-scenter flex flex-row transition-all duration-500 transform hover:scale-105 overflow-hidden ${className}`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
@@ -116,7 +115,7 @@ export function Slider({
             {slides.map((slide, index) => (
                 <div
                     key={index}
-                    className="transition-all duration-500 transform min-w-64"
+                    className="transition-all duration-500 transform min-w-80"
                     style={{ transform: `translateX(-${translateX})` }}
                 >
                     {slide}

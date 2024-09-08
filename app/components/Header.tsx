@@ -2,7 +2,6 @@
 import { Slider } from "@/app/components/Slider";
 import { NavItem, PATHS } from "@/app/types/types";
 import { getNav } from "@/app/utils/getNav";
-import { categories } from "@/data/categories";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -12,7 +11,7 @@ export const Header = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const [slidePosition, setSlidePosition] = useState<PATHS>(
-        pathname === "/home" ? PATHS.home : PATHS.curriculum
+        pathname === PATHS.home ? PATHS.home : PATHS.curriculum
     );
     const handleFilterBy = (categoryName: string) => {
         const params = new URLSearchParams(searchParams);
@@ -27,10 +26,12 @@ export const Header = () => {
     };
 
     useEffect(() => {
-        if (pathname == PATHS.home && slidePosition !== pathname) {
-            router.push(slidePosition);
+        if (slidePosition === pathname) {
+            if (slidePosition === PATHS.home) {
+                router.push(PATHS.curriculum);
+            } else router.push(PATHS.home);
         }
-    }, [slidePosition, pathname, router]);
+    }, [slidePosition]);
 
     const nav = getNav(pathname as PATHS);
     return (
@@ -39,8 +40,15 @@ export const Header = () => {
                 <Slider
                     className="text-3xl font-extralight text-center py-3 hover:font-normal "
                     slides={[
-                        <h1 key="1">Curry-cul l'homme</h1>,
                         <h1 key="0">KINDA CREAPY</h1>,
+                        <h1
+                            key="1"
+                            onClick={() => {
+                                router.push(PATHS.home);
+                            }}
+                        >
+                            Curry-cul l'homme
+                        </h1>,
                     ]}
                     position={slidePosition}
                     setPosition={setSlidePosition}
@@ -52,7 +60,6 @@ export const Header = () => {
                     key={navItem.name}
                     className="col-span-1 py-3 hover:border-t-2 cursor-pointer"
                     onClick={() => {
-                        console.log(navItem);
                         if (pathname === PATHS.home)
                             handleFilterBy(navItem.name);
                         else if (navItem.path) router.push(navItem.path);
