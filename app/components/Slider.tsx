@@ -15,7 +15,7 @@ export function Slider({
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0); // Position initiale du clic ou touch
     const [translateX, setTranslateX] = useState<string>(
-        position === PATHS.about ? "0" : "100%"
+        position === PATHS.curriculum ? "0" : "100%"
     );
 
     const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
@@ -55,7 +55,7 @@ export function Slider({
         if (isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("0%");
             handleMouseUp();
-            setPosition(PATHS.about);
+            setPosition(PATHS.curriculum);
         } else if (!isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("100%");
             handleMouseUp();
@@ -64,24 +64,41 @@ export function Slider({
     };
     const handleMouseUp = () => setIsDragging(false);
     useEffect(() => {
-        const handleTouchMove = (e: TouchEvent) => {
+        // Événements tactiles natifs
+        const handleNativeTouchMove = (e: TouchEvent) => {
             if (!isDragging) return;
             e.preventDefault();
+            handleDrag(e.touches[0].clientX);
         };
 
+        const handleNativeTouchStart = (e: TouchEvent) => {
+            setIsDragging(true);
+            setStartX(e.touches[0].clientX);
+        };
         const sliderElement = document.getElementById("slider");
         if (sliderElement) {
-            sliderElement.addEventListener("touchmove", handleTouchMove, {
+            sliderElement.addEventListener("touchmove", handleNativeTouchMove, {
                 passive: false,
             });
-            sliderElement.addEventListener("touchstart", handleTouchStart, {
-                passive: false,
-            });
+            sliderElement.addEventListener(
+                "touchstart",
+                handleNativeTouchStart,
+                {
+                    passive: false,
+                }
+            );
         }
 
         return () => {
             if (sliderElement) {
-                sliderElement.removeEventListener("touchmove", handleTouchMove);
+                sliderElement.removeEventListener(
+                    "touchmove",
+                    handleNativeTouchMove
+                );
+                sliderElement.removeEventListener(
+                    "touchstart",
+                    handleNativeTouchStart
+                );
             }
         };
     }, [isDragging]);

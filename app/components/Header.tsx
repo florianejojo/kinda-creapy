@@ -12,7 +12,7 @@ export const Header = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const [slidePosition, setSlidePosition] = useState<PATHS>(
-        pathname === "/home" ? PATHS.home : PATHS.about
+        pathname === "/home" ? PATHS.home : PATHS.curriculum
     );
     const handleFilterBy = (categoryName: string) => {
         const params = new URLSearchParams(searchParams);
@@ -27,22 +27,19 @@ export const Header = () => {
     };
 
     useEffect(() => {
-        if (slidePosition !== pathname) {
+        if (pathname == PATHS.home && slidePosition !== pathname) {
             router.push(slidePosition);
         }
     }, [slidePosition, pathname, router]);
+
     const nav = getNav(pathname as PATHS);
     return (
         <header className="grid grid-cols-3 w-full text-center uppercase font-extralight text-sm max-w-3xl mx-auto my-10 ">
-            {/* <span className="sm:block hidden cursor-pointer">Infos</span>
-            <span className="sm:block hidden cursor-pointer">Shop</span>
-            <span className="sm:block hidden cursor-pointer">Contact</span> */}
-
             <div className="w-full col-span-3 flex justify-center border-b">
                 <Slider
                     className="text-3xl font-extralight text-center py-3 hover:font-normal "
                     slides={[
-                        <h1 key="1">R. VERROEULST</h1>,
+                        <h1 key="1">Curry-cul l'homme</h1>,
                         <h1 key="0">KINDA CREAPY</h1>,
                     ]}
                     position={slidePosition}
@@ -55,7 +52,11 @@ export const Header = () => {
                     key={navItem.name}
                     className="col-span-1 py-3 hover:border-t-2 cursor-pointer"
                     onClick={() => {
-                        handleFilterBy(navItem.name);
+                        console.log(navItem);
+                        if (pathname === PATHS.home)
+                            handleFilterBy(navItem.name);
+                        else if (navItem.path) router.push(navItem.path);
+                        else console.log("something else ! ");
                     }}
                 >
                     {navItem.name}
