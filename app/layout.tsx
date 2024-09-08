@@ -4,6 +4,9 @@ import "./globals.css";
 import Head from "next/head";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Header } from "@/app/components/Header";
+import { Suspense } from "react";
+import { TreeCanvas } from "@/app/components/TreeCanvas";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +34,17 @@ export default function RootLayout({
             <Analytics />
             <SpeedInsights />
 
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <div className="absolute insite-0 z-0">
+                    <TreeCanvas />
+                </div>
+                <div className="relative z-10">
+                    <Suspense>
+                        <Header />
+                    </Suspense>
+                </div>
+                {children}
+            </body>
         </html>
     );
 }

@@ -1,27 +1,22 @@
-import { PAGE } from "@/app/components/Header";
-import {
-    MouseEvent,
-    MouseEventHandler,
-    ReactNode,
-    SyntheticEvent,
-    useEffect,
-    useState,
-} from "react";
+import { PATHS } from "@/app/types/types";
+import { MouseEvent, ReactNode, useEffect, useState } from "react";
 type SliderProps = {
     slides: ReactNode[];
-    position: PAGE;
-    setPosition: (position: PAGE) => void;
+    position: PATHS;
+    setPosition: (position: PATHS) => void;
     className: string;
 };
 export function Slider({
     slides,
-    // position,
+    position,
     setPosition,
     className,
 }: SliderProps) {
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0); // Position initiale du clic ou touch
-    const [translateX, setTranslateX] = useState<string>("100%");
+    const [translateX, setTranslateX] = useState<string>(
+        position === PATHS.about ? "0" : "100%"
+    );
 
     const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
         setIsDragging(true);
@@ -44,7 +39,7 @@ export function Slider({
         handleDrag(e.touches[0].clientX);
     };
 
-    function handleDrag(currentX: number) {
+    const handleDrag = (currentX: number) => {
         const sliderElement = document.getElementById("slider");
         const isSwippingRight = startX - currentX < 0;
         const diff = currentX - startX;
@@ -60,31 +55,18 @@ export function Slider({
         if (isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("0%");
             handleMouseUp();
-            setPosition(PAGE.about);
+            setPosition(PATHS.about);
         } else if (!isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("100%");
             handleMouseUp();
-            setPosition(PAGE.home);
+            setPosition(PATHS.home);
         } else setTranslateX(percent + "%");
-    }
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
     };
-
-    const handleTouchEnd = () => {
-        setIsDragging(false);
-    };
-
+    const handleMouseUp = () => setIsDragging(false);
     useEffect(() => {
         const handleTouchMove = (e: TouchEvent) => {
             if (!isDragging) return;
-
-            e.preventDefault(); // Empêche le comportement par défaut
-        };
-
-        const handleTouchEnd = () => {
-            setIsDragging(false);
+            e.preventDefault();
         };
 
         const sliderElement = document.getElementById("slider");
@@ -92,17 +74,17 @@ export function Slider({
             sliderElement.addEventListener("touchmove", handleTouchMove, {
                 passive: false,
             });
-            sliderElement.addEventListener("touchend", handleTouchEnd);
+            sliderElement.addEventListener("touchstart", handleTouchStart, {
+                passive: false,
+            });
         }
 
         return () => {
             if (sliderElement) {
                 sliderElement.removeEventListener("touchmove", handleTouchMove);
-                sliderElement.removeEventListener("touchend", handleTouchEnd);
             }
         };
     }, [isDragging]);
-
     return (
         <div
             id="slider"
@@ -111,9 +93,8 @@ export function Slider({
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            onTouchStart={handleTouchStart} // Gestion des événements tactiles
+            onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
         >
             {slides.map((slide, index) => (
                 <div

@@ -1,4 +1,4 @@
-import { CATEGORIES } from "@/data/categories";
+import { CATEGORIES } from "@/app/types/types";
 
 export type ArtPiece = {
     id: number;

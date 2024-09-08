@@ -1,8 +1,4 @@
-export enum CATEGORIES {
-    trees = "Arbres",
-    beasts = "Bestiaires",
-    illusions = "Illusions",
-}
+import { CATEGORIES } from "@/app/types/types";
 
 export const categories = {
     [CATEGORIES.trees]: {

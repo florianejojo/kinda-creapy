@@ -64,7 +64,9 @@ export const GridFilledLayout = () => {
             const colIndex = index % colNumbers;
             if (columns[colIndex])
                 columns[colIndex].push(
-                    <div className="self-center">{element}</div>
+                    <div className="self-center" key={"col-" + colIndex}>
+                        {element}
+                    </div>
                 );
         });
 

@@ -34,10 +34,14 @@ export const Frame = ({ image, alt, isLazyLoaded }: FrameProps) => {
             });
         };
     }, []);
+    const img = imageMap[image as keyof typeof imageMap];
 
     return (
         <Image
-            {...imageMap[image as keyof typeof imageMap]}
+            src={img.src}
+            width={img.width}
+            height={img.height}
+            blurDataURL={img.blurDataURL}
             alt={alt}
             placeholder="blur"
             loading={isLazyLoaded ? "lazy" : "eager"}
