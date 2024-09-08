@@ -4,12 +4,14 @@ import { categories } from "@/data/categories";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
+export enum PAGE {
+    home = "kindaCreapy",
+    about = "theArtist",
+}
 export const Header = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
-    const [slidePosition, setSlidePosition] = useState<
-        "kindaCreapy" | "theArtist"
-    >("kindaCreapy");
+    const [slidePosition, setSlidePosition] = useState<PAGE>(PAGE.home);
     const handleFilterBy = (categoryName: string) => {
         const params = new URLSearchParams(searchParams);
         params.set("filterBy", categoryName);

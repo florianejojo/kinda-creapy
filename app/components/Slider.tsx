@@ -1,32 +1,50 @@
-import { useEffect, useState } from "react";
-
-export function Slider({ slides, position, setPosition, className }) {
+import { PAGE } from "@/app/components/Header";
+import {
+    MouseEvent,
+    MouseEventHandler,
+    ReactNode,
+    SyntheticEvent,
+    useEffect,
+    useState,
+} from "react";
+type SliderProps = {
+    slides: ReactNode[];
+    position: PAGE;
+    setPosition: (position: PAGE) => void;
+    className: string;
+};
+export function Slider({
+    slides,
+    // position,
+    setPosition,
+    className,
+}: SliderProps) {
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0); // Position initiale du clic ou touch
     const [translateX, setTranslateX] = useState<string>("100%");
 
-    const handleMouseDown = (e) => {
+    const handleMouseDown = (e: MouseEvent<HTMLDivElement>) => {
         setIsDragging(true);
-        setStartX(e.clientX); // Enregistre la position initiale du clic
+        setStartX(e.clientX);
     };
 
-    const handleTouchStart = (e) => {
+    const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
         setIsDragging(true);
-        setStartX(e.touches[0].clientX); // Enregistre la position initiale du touch
+        setStartX(e.touches[0].clientX);
     };
 
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
         if (!isDragging) return;
-        handleDrag(e.clientX); // Utilise la même logique pour le mouvement de la souris
+        handleDrag(e.clientX);
     };
 
-    const handleTouchMove = (e) => {
+    const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
         if (!isDragging) return;
-        // e.preventDefault(); // Empêche le comportement par défaut
-        handleDrag(e.touches[0].clientX); // Utilise la même logique pour le mouvement tactile
+
+        handleDrag(e.touches[0].clientX);
     };
 
-    const handleDrag = (currentX) => {
+    function handleDrag(currentX: number) {
         const sliderElement = document.getElementById("slider");
         const isSwippingRight = startX - currentX < 0;
         const diff = currentX - startX;
@@ -42,24 +60,24 @@ export function Slider({ slides, position, setPosition, className }) {
         if (isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("0%");
             handleMouseUp();
-            setPosition("theArtist");
+            setPosition(PAGE.about);
         } else if (!isSwippingRight && Math.abs(diff) > 40) {
             setTranslateX("100%");
             handleMouseUp();
-            setPosition("kindaCreapy");
+            setPosition(PAGE.home);
         } else setTranslateX(percent + "%");
-    };
+    }
 
     const handleMouseUp = () => {
-        setIsDragging(false); // Fin du drag
+        setIsDragging(false);
     };
 
     const handleTouchEnd = () => {
-        setIsDragging(false); // Fin du drag tactile
+        setIsDragging(false);
     };
 
     useEffect(() => {
-        const handleTouchMove = (e) => {
+        const handleTouchMove = (e: TouchEvent) => {
             if (!isDragging) return;
 
             e.preventDefault(); // Empêche le comportement par défaut
@@ -88,7 +106,7 @@ export function Slider({ slides, position, setPosition, className }) {
     return (
         <div
             id="slider"
-            className={`cursor-pointer w-64 text-white text-center flex flex-row transition-all duration-500 transform hover:scale-105 overflow-hidden ${className}`}
+            className={`cursor-pointer w-64 text-white text-scenter flex flex-row transition-all duration-500 transform hover:scale-105 overflow-hidden ${className}`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
