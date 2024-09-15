@@ -1,47 +1,28 @@
 "use client";
 import { categories } from "@/data/categories";
-import { usePathname, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
-    const searchParams = useSearchParams();
     const pathname = usePathname();
 
-    const handleFilterBy = (categoryName: string) => {
-        const params = new URLSearchParams(searchParams);
-        params.set("filterBy", categoryName);
-        window.history.pushState({}, "", `${pathname}?${params.toString()}`);
-    };
-
+    const firstLevelNav = pathname.split("/")[1];
+    const title =
+        firstLevelNav === "artwork" ? "KINDA CREAPY" : "R. VERROEULST";
     return (
-        <header className="grid grid-cols-3 w-full text-center uppercase font-extralight text-sm max-w-3xl mx-auto my-10">
-            {/* <span className="sm:block hidden cursor-pointer">Infos</span>
-            <span className="sm:block hidden cursor-pointer">Shop</span>
-            <span className="sm:block hidden cursor-pointer">Contact</span> */}
-
-            <h1
-                className="text-3xl font-extralight text-center w-full border-b col-span-3 py-3 hover:font-normal cursor-pointer"
-                onClick={() => {
-                    const params = new URLSearchParams(searchParams);
-                    params.delete("filterBy");
-                    window.history.pushState(
-                        {},
-                        "",
-                        `${pathname}?${params.toString()}`
-                    );
-                }}
-            >
-                KINDA CREAPY
+        <header className="z-10 grid grid-cols-3 w-full text-center uppercase font-extralight text-sm max-w-3xl mx-auto my-10">
+            <h1 className="text-3xl font-extralight text-center w-full border-b col-span-3 py-3 hover:font-normal cursor-pointer">
+                {title}
             </h1>
+
             {Object.values(categories).map((category) => (
-                <span
+                <Link
+                    href={category.name}
+                    key={category.name}
                     className="col-span-1 py-3 hover:border-t-2 cursor-pointer"
-                    onClick={() => {
-                        handleFilterBy(category.name);
-                    }}
                 >
                     {category.name}
-                </span>
+                </Link>
             ))}
         </header>
     );
