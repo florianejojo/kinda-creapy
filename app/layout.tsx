@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/app/components/Header";
 import { Suspense } from "react";
 import { TreeCanvas } from "@/app/components/TreeCanvas";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 

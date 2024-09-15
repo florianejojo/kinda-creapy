@@ -20,9 +20,9 @@ export default function Curriculum() {
 
                 <a
                     className={paragraphSectionStyle}
-                    href="tel:0643800622"
+                    href="tel:0620133373"
                     target="_blank"
-                    title="06 43 80 06 22"
+                    title="06 20 13 33 73"
                     rel="noreferrer"
                 >
                     +33 6 20 13 33 73

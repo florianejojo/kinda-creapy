@@ -38,13 +38,20 @@ export const Header = () => {
         <header className="grid grid-cols-3 w-full text-center uppercase font-extralight text-sm max-w-3xl mx-auto my-10 ">
             <div className="w-full col-span-3 flex justify-center border-b">
                 <Slider
-                    className="text-3xl font-extralight text-center py-3 hover:font-normal "
+                    className="text-3xl font-extralight text-center py-3 "
                     slides={[
-                        <h1 key="0">KINDA CREAPY</h1>,
+                        <h1
+                            key="0"
+                            onClick={() => {
+                                setSlidePosition(PATHS.curriculum);
+                            }}
+                        >
+                            KINDA CREAPY
+                        </h1>,
                         <h1
                             key="1"
                             onClick={() => {
-                                router.push(PATHS.home);
+                                setSlidePosition(PATHS.home);
                             }}
                         >
                             Curry-cul l'homme

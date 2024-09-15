@@ -104,7 +104,7 @@ export function Slider({
     return (
         <div
             id="slider"
-            className={`cursor-pointer w-80 text-white text-scenter flex flex-row transition-all duration-500 transform hover:scale-105 overflow-hidden ${className}`}
+            className={`cursor-pointer w-80 text-white text-scenter flex flex-row transition-all duration-500 transform overflow-hidden ${className}`}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
