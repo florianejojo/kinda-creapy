@@ -2,7 +2,11 @@
 
 import { ReactNode, useCallback, useEffect, useState } from "react";
 
-export const GridFilledLayout = ({ elements }) => {
+type GridFilledLayoutProps = {
+    elements: ReactNode[];
+};
+
+export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const [colNumbers, setColNumbers] = useState(1);
 
     const makeCols = useCallback(() => {
