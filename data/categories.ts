@@ -5,9 +5,9 @@ export enum CATEGORIES {
 }
 
 export const categories = {
-
     [CATEGORIES.trees]: {
         name: CATEGORIES.trees,
+
         description:
             "L'arbre n'est pas un décor. Là où l'on a troqué son rôle alimentaire pour devenir artifice de nos villes à l'agonie, malgré les hybridations et les conditionnements pour tenter de le faire rentrer dans quelque case et utilisation décorative, l'arbre survit, vibre, sage et puissant. Il porte le message de la vie, vit au rythme du temps, en harmonie, sans froisser aucune des trames de la toile du vivant. Porteur de lumière, concentré de savoir, l'arbre est multiple, chacun a son enseignement spécifique, et là où les un(e)s le voient décor, je le perçois comme 'des corps'.",
     },
