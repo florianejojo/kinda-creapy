@@ -5,6 +5,7 @@ export enum CATEGORIES {
 }
 
 export const categories = {
+
     [CATEGORIES.trees]: {
         name: CATEGORIES.trees,
         description:
