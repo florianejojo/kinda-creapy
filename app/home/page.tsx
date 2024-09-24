@@ -49,6 +49,6 @@
 //     return <GridFilledLayout elements={elements} />;
 // }
 
-export default function Test2() {
-    return <div>TEST</div>;
+export default function Home() {
+    return <div>Home</div>;
 }

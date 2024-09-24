@@ -4,17 +4,20 @@
 // };
 
 export type NavItem = { name: string; description?: string; path?: PATHS };
-
-//** enums */
-export enum PATHS {
-    home = "/home",
-    curriculum = "/curriculum",
-    inspirations = "/inspirations",
-    contact = "/contact",
-}
-
 export enum CATEGORIES {
     trees = "Arbres",
     beasts = "Bestiaires",
     illusions = "Illusions",
 }
+
+//** enums */
+export enum PATHS {
+    home = "home",
+    trees = CATEGORIES.trees,
+    beasts = CATEGORIES.beasts,
+    illusions = CATEGORIES.illusions,
+    curriculum = "curriculum",
+    inspirations = "inspirations",
+    contact = "contact",
+}
+
