@@ -10,7 +10,7 @@ export const BurgerMenu = () => {
     };
 
     const navStyle =
-        " text-sm m-2 p-2 bg-gradient-to-t from-slate-950 via-black to-black text-white rounded-lg hover:bg-gradient-to-t hover:from-slate-950 hover:via-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform cursor-pointer text-center"; // Style pour les liens
+        "text-sm m-0.5 p-1 bg-gradient-to-t from-slate-950 via-black to-black text-white rounded-lg hover:bg-gradient-to-t hover:from-slate-950 hover:via-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform cursor-pointer text-center"; // Style pour les liens
 
     return (
         <div className="relative">
@@ -29,15 +29,18 @@ export const BurgerMenu = () => {
 
             {/* Menu déroulant */}
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-48  rounded-lg shadow-lg bg-slate-900 z-20 flex flex-col">
+                <div className="absolute right-0 mt-2 w-48 bg-slate-950 rounded-lg shadow-lg z-20 flex flex-col p-1">
+                    <Link href="/home" className={navStyle}>
+                        GALLERIE
+                    </Link>
                     <Link href="/artist" className={navStyle}>
-                        ARTISTE
+                        INTERVIEW
                     </Link>
                     <Link href="/shop" className={navStyle}>
                         SHOP
                     </Link>
                     <Link href="/contact" className={navStyle}>
-                        CONTACTER
+                        CONTACT
                     </Link>
                 </div>
             )}
