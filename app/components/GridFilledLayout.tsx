@@ -3,10 +3,11 @@
 import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
 import { ArtPiece } from "./ArtPiece";
 import { WordByWordText } from "./WordByWordText";
-import { CATEGORIES, categories } from "@/data/categories";
+import { categories } from "@/data/categories";
 import { useSearchParams } from "next/navigation";
 import { classNames } from "./utils";
 import { artworks } from "@/data/artwork";
+import { CATEGORIES } from "@/app/types/types";
 
 export const GridFilledLayout = () => {
     const searchParams = useSearchParams();
@@ -64,7 +65,9 @@ export const GridFilledLayout = () => {
             const colIndex = index % colNumbers;
             if (columns[colIndex])
                 columns[colIndex].push(
-                    <div className="self-center">{element}</div>
+                    <div className="self-center" key={"col-" + Math.random()}>
+                        {element}
+                    </div>
                 );
         });
 
