@@ -1,20 +1,11 @@
-export default function ShopPage({
-    params,
-}: {
-    params: { categoryId: string };
-}) {
-    const { categoryId } = params;
-    return "SHOP";
-    return (
-        <div>
-            <h1>Shop Page - Category: {categoryId}</h1>
-            {/* Utilisation du composant CategoryFilter avec le chemin de base pour Shop */}
-            {/* <CategoryFilter basePath="/home/shop" /> */}
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-            {/* Afficher les produits filtrés en fonction de la catégorie */}
-            <div>
-                <p>Produits pour la catégorie : {categoryId}</p>
-            </div>
+export default function ShopPage({}: { params: { categoryId: string } }) {
+    return (
+        <div className=" min-h-40 flex items-center flex-col justify-between ">
+            <h1>SOON ... </h1>
+            <FontAwesomeIcon icon={faCartShopping} className="text-6xl" />
         </div>
     );
 }

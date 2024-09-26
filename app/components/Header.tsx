@@ -1,45 +1,60 @@
 "use client";
 import { BurgerMenu } from "@/app/components/BurgerMenu";
 import { HEADER_TITLE, PATHS } from "@/app/types/types";
-import { categories } from "@/data/categories";
-import { faDog } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
-import { useMemo } from "react";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
     const pathname = usePathname();
 
-    const firstLevelNav: PATHS = pathname.split("/")[1];
+    const firstLevelNav: PATHS = pathname.split("/")[1] as PATHS;
 
-    const navElements = useMemo(() => {
-        console.log(firstLevelNav);
+    // const navElements = useMemo(() => {
+    //     console.log(firstLevelNav);
 
-        if (firstLevelNav === "home") {
-            return Object.values(categories);
-        }
-        return [
-            { name: "Interview", path: "artist" },
-            { name: "Inspirations", path: "inspirations" },
-            { name: "Contact", path: "contact" },
-        ];
-    }, [firstLevelNav]);
+    //     if (firstLevelNav === "home") {
+    //         return Object.values(categories);
+    //     }
+    //     return [
+    //         { name: "Interview", path: "artist" },
+    //         { name: "Inspirations", path: "inspirations" },
+    //         { name: "Contact", path: "contact" },
+    //     ];
+    // }, [firstLevelNav]);
 
-    const navStyle =
-        "bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out m-5";
+    // const navStyle =
+    //     "bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out m-5";
 
     return (
         <header className="z-10 text-center uppercase font-extralight mx-5 my-10">
-            <div className="text-right">
-                <BurgerMenu />
+            <div className="flex flex-row items-center justify-end  text-xl gap-5">
+                <a
+                    href="mailto:verroeulst.remy@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <FontAwesomeIcon icon={faEnvelope} />
+                </a>
 
-                <Link href={PATHS.home}>
-                    <h1 className="text-3xl font-extralight text-center border-b py-3 hover:font-normal cursor-pointer ">
-                        {HEADER_TITLE[firstLevelNav]}
-                    </h1>
-                </Link>
+                <a
+                    href="tel:+33620133373"
+                    target="_blank"
+                    title="+33 6 20 13 33 73"
+                    rel="noreferrer"
+                >
+                    <FontAwesomeIcon icon={faPhone} />
+                </a>
+
+                <BurgerMenu />
             </div>
+
+            <Link href={PATHS.home}>
+                <h1 className="text-3xl font-extralight text-center border-b py-3 mt-10 hover:font-normal cursor-pointer">
+                    {HEADER_TITLE[firstLevelNav]}
+                </h1>
+            </Link>
 
             {/* <nav className="flex justify-center">
                 {navElements.map((navItem) => (
