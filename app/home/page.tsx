@@ -5,7 +5,7 @@ import { classNames } from "@/app/utils/utils";
 import { artworks } from "@/data/artwork";
 
 export default function Home() {
-    const gridItem = " w-80 h-auto z-10 flex items-end";
+    const gridItem = " w-80 h-auto flex items-end";
 
     const elements = artworks.map((artPiece, index) => {
         return (

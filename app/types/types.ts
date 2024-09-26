@@ -8,9 +8,9 @@ export enum CATEGORIES {
 
 //** enums */
 export enum PATHS {
-    home = "home",
-    artist = "artist",
-    shop = "shop",
+    home = "/home",
+    artist = "/artist",
+    shop = "/shop",
 }
 
 export enum TECHNIQUES {

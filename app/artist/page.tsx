@@ -16,14 +16,16 @@ export default function ArtistPage({
     };
 
     return (
-        <div className="bg-black text-white-100 min-h-screen p-8">
+        <div className="bg-black text-white-100 min-h-screen p-8 bg-transparent">
             <div className="max-w-4xl mx-auto">
                 <div className="p-5 bg-transparent rounded-lg shadow-lg">
                     {interview.map((item, index) => (
                         <div key={index} className="mb-6">
                             <button
-                                onClick={() => toggleAnswer(index)}
-                                className="w-full text-left px-4 py-3 border-slate-800 border text-gray-100 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:bg-gray-700"
+                                onClick={() => {
+                                    // toggleAnswer(index);
+                                }}
+                                className="w-full text-left px-4 py-3 border-slate-800 border text-gray-100 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:border-3"
                             >
                                 <span className="flex justify-between items-center">
                                     <h2 className="text-lg ">

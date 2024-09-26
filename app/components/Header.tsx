@@ -9,8 +9,6 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
     const pathname = usePathname();
 
-    const firstLevelNav: PATHS = pathname.split("/")[1] as PATHS;
-
     // const navElements = useMemo(() => {
     //     console.log(firstLevelNav);
 
@@ -28,7 +26,7 @@ export const Header = () => {
     //     "bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out m-5";
 
     return (
-        <header className="z-10 text-center uppercase font-extralight mx-5 my-10">
+        <header className="text-center uppercase font-extralight mx-5 my-10">
             <div className="flex flex-row items-center justify-end  text-xl gap-5">
                 <a
                     href="mailto:verroeulst.remy@gmail.com"
@@ -52,7 +50,7 @@ export const Header = () => {
 
             <Link href={PATHS.home}>
                 <h1 className="text-3xl font-extralight text-center border-b py-3 mt-10 hover:font-normal cursor-pointer">
-                    {HEADER_TITLE[firstLevelNav]}
+                    {HEADER_TITLE[pathname as PATHS]}
                 </h1>
             </Link>
 

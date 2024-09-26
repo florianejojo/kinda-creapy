@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import Image from "next/image";
 import imageMap from "@/imageImports";
 
@@ -36,16 +35,19 @@ export const Frame = ({ image, alt, isLazyLoaded }: FrameProps) => {
     // }, []);
     const img = imageMap[image as keyof typeof imageMap];
 
+
     return (
-        <Image
-            src={img.src}
-            width={img.width}
-            height={img.height}
-            blurDataURL={img.blurDataURL}
-            alt={alt}
-            placeholder="blur"
-            loading={isLazyLoaded ? "lazy" : "eager"}
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
+        img && (
+            <Image
+                src={img.src}
+                width={img.width}
+                height={img.height}
+                blurDataURL={img.blurDataURL}
+                alt={alt}
+                placeholder="blur"
+                loading={isLazyLoaded ? "lazy" : "eager"}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+        )
     );
 };

@@ -1,1 +1,1 @@
-export const gridItem = "w-80 h-auto z-10 flex items-end";
+export const gridItem = "w-80 h-auto flex items-end";

@@ -27,11 +27,13 @@ export default function RootLayout({
             <SpeedInsights />
 
             <body className={inter.className}>
-                <div className="absolute insite-0 z-0">
+                <div className="absolute z-0">
                     <AlgoBlood />
                 </div>
-                <Header />
-                <main className="z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-7xl mx-auto">
+                <div className="relative z-10 ">
+                    <Header />
+                </div>
+                <main className="relative z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-7xl mx-auto">
                     {children}
                 </main>
             </body>
