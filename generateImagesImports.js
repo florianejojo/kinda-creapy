@@ -6,9 +6,9 @@ const imagesDirectory = path.join(__dirname, "public/images/artpieces");
 function generateImports(directory) {
     const files = fs.readdirSync(directory);
 
-    const imageFiles = files.filter((file) => path.extname(file) === ".webp");
+    // const imageFiles = files.filter((file) => path.extname(file) === ".webp");
 
-    const imports = imageFiles
+    const imports = files
         .map((file, index) => {
             const variableName = `img${index + 1}`;
             const importPath = `./public/images/artpieces/${file}`;
@@ -17,7 +17,7 @@ function generateImports(directory) {
         .join("\n");
 
     // Créer le mapping des images
-    const mappings = imageFiles
+    const mappings = files
         .map((file, index) => {
             const variableName = `img${index + 1}`;
             return `"${file}": ${variableName},`;
@@ -34,7 +34,6 @@ export default imageMap;
 `;
 
     fs.writeFileSync(path.join(__dirname, "imageImports.js"), output);
-
 }
 
 generateImports(imagesDirectory);
