@@ -29,18 +29,18 @@ export const BurgerMenu = () => {
 
             {/* Menu déroulant */}
             {isOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-slate-950 rounded-lg shadow-lg z-20 flex flex-col p-1">
+                <div
+                    className="absolute right-0 mt-2 w-48 bg-slate-950 rounded-lg shadow-lg z-20 flex flex-col p-1"
+                    onClick={toggleMenu}
+                >
                     <Link href="/home" className={navStyle}>
                         GALLERIE
                     </Link>
                     <Link href="/artist" className={navStyle}>
-                        INTERVIEW
+                        ARTISTE
                     </Link>
                     <Link href="/shop" className={navStyle}>
                         SHOP
-                    </Link>
-                    <Link href="/contact" className={navStyle}>
-                        CONTACT
                     </Link>
                 </div>
             )}
