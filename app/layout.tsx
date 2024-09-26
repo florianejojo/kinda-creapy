@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { Header } from "@/app/components/Header";
 import { TreeCanvas } from "@/app/components/TreeCanvas";
+import { AlgoBlood } from "@/app/components/AlgoBlood";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,9 +27,9 @@ export default function RootLayout({
             <SpeedInsights />
 
             <body className={inter.className}>
-                {/* <div className="absolute insite-0 z-0">
-                    <TreeCanvas />
-                </div> */}
+                <div className="absolute insite-0 z-0">
+                    <AlgoBlood />
+                </div>
                 <Header />
                 <main className="z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-7xl mx-auto">
                     {children}
