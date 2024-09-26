@@ -148,17 +148,17 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.beasts],
     },
 
-    {
-        id: 10,
-        name: "Vortex Céleste",
-        description:
-            "Au centre de l'univers, un vortex céleste capte l'attention des artistes et des mystiques. Ce phénomène cosmique, à la fois puissant et hypnotique, est une manifestation parfaite de l'art surréaliste. Les illusions visuelles créées par le vortex dévoilent des formes fractales qui évoluent sans cesse, invitant les spectateurs à plonger dans un monde où les limites entre le réel et l'imaginaire s'effacent. Cette œuvre est une exploration de l'infini, une quête pour comprendre les mystères du cosmos.",
-        image: "IMG_4930.webp",
-        technique: "Feutre - aérosol",
-        size: "50x50 cm",
-        color: "#272424",
-        isSpinable: false,
-        alt: "Vortex Céleste - Peinture d'un vortex cosmique hypnotique.",
-        categories: [CATEGORIES.illusions],
-    },
+    // {
+    //     id: 10,
+    //     name: "Vortex Céleste",
+    //     description:
+    //         "Au centre de l'univers, un vortex céleste capte l'attention des artistes et des mystiques. Ce phénomène cosmique, à la fois puissant et hypnotique, est une manifestation parfaite de l'art surréaliste. Les illusions visuelles créées par le vortex dévoilent des formes fractales qui évoluent sans cesse, invitant les spectateurs à plonger dans un monde où les limites entre le réel et l'imaginaire s'effacent. Cette œuvre est une exploration de l'infini, une quête pour comprendre les mystères du cosmos.",
+    //     image: "IMG_4930.webp",
+    //     technique: "Feutre - aérosol",
+    //     size: "50x50 cm",
+    //     color: "#272424",
+    //     isSpinable: false,
+    //     alt: "Vortex Céleste - Peinture d'un vortex cosmique hypnotique.",
+    //     categories: [CATEGORIES.illusions],
+    // },
 ];
