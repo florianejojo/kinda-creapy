@@ -1,6 +1,6 @@
 "use client";
 import { BurgerMenu } from "@/app/components/BurgerMenu";
-import { PATHS } from "@/app/types/types";
+import { HEADER_TITLE, PATHS } from "@/app/types/types";
 import { categories } from "@/data/categories";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -9,10 +9,11 @@ import { useMemo } from "react";
 export const Header = () => {
     const pathname = usePathname();
 
-    const firstLevelNav = pathname.split("/")[1];
-    const title = firstLevelNav === "home" ? "KINDA CREAPY" : "R. VERROEULST";
+    const firstLevelNav: PATHS = pathname.split("/")[1];
 
     const navElements = useMemo(() => {
+        console.log(firstLevelNav);
+
         if (firstLevelNav === "home") {
             return Object.values(categories);
         }
@@ -32,12 +33,12 @@ export const Header = () => {
 
                 <Link href={PATHS.home}>
                     <h1 className="text-3xl font-extralight text-center border-b py-3 hover:font-normal cursor-pointer ">
-                        {title}
+                        {HEADER_TITLE[firstLevelNav]}
                     </h1>
                 </Link>
             </div>
 
-            <nav className="flex justify-center">
+            {/* <nav className="flex justify-center">
                 {navElements.map((navItem) => (
                     <Link
                         href={{
@@ -53,7 +54,7 @@ export const Header = () => {
                         {navItem.name}
                     </Link>
                 ))}
-            </nav>
+            </nav> */}
         </header>
     );
 };

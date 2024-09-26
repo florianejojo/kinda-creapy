@@ -1,9 +1,5 @@
-//** types */
-// export type NavItem = {
-//     [key in PATHS]: { name: string; description: string };
-// };
-
 export type NavItem = { name: string; description?: string; path?: PATHS };
+
 export enum CATEGORIES {
     trees = "Arbres",
     beasts = "Bestiaires",
@@ -13,11 +9,23 @@ export enum CATEGORIES {
 //** enums */
 export enum PATHS {
     home = "home",
-    trees = CATEGORIES.trees,
-    beasts = CATEGORIES.beasts,
-    illusions = CATEGORIES.illusions,
-    curriculum = "curriculum",
-    inspirations = "inspirations",
-    contact = "contact",
+    artist = "artist",
+    shop = "shop",
 }
 
+export enum TECHNIQUES {
+    acrylique = "Acrylique",
+    oil = "Huile",
+    fire = "Feu",
+    posca = "Posca",
+    mixte = "Mixte",
+    automatic = "Automatique",
+    bic = "Bic",
+    wax = "Wax",
+}
+
+export const HEADER_TITLE = {
+    [PATHS.home]: "KINDA CREAPY",
+    [PATHS.artist]: "R. VERROEULST",
+    [PATHS.shop]: "KINDA CREAPY",
+};
