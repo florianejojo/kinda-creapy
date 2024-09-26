@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Header } from "@/app/components/Header";
+import { TreeCanvas } from "@/app/components/TreeCanvas";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,17 +22,18 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="fr">
-            <Head>
-                <link
-                    rel="preload"
-                    as="image"
-                    href="/static/media/your-lcp-image.webp"
-                />
-            </Head>
             <Analytics />
             <SpeedInsights />
 
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                {/* <div className="absolute insite-0 z-0">
+                    <TreeCanvas />
+                </div> */}
+                <Header />
+                <main className="z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest sm:max-w-7xl mx-auto">
+                    {children}
+                </main>
+            </body>
         </html>
     );
 }

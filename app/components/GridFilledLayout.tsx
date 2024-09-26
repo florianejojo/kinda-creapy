@@ -1,58 +1,13 @@
 "use client";
 
-import { ReactNode, useCallback, useEffect, useMemo, useState } from "react";
-import { ArtPiece } from "./ArtPiece";
-import { WordByWordText } from "./WordByWordText";
-import { CATEGORIES, categories } from "@/data/categories";
-import { useSearchParams } from "next/navigation";
-import { classNames } from "./utils";
-import { artworks } from "@/data/artwork";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 
-export const GridFilledLayout = () => {
-    const searchParams = useSearchParams();
-    const filterBy = searchParams.get("filterBy") as CATEGORIES;
+type GridFilledLayoutProps = {
+    elements: ReactNode[];
+};
 
+export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
     const [colNumbers, setColNumbers] = useState(1);
-    const gridItem = " w-80 h-auto z-10 flex items-end";
-    const cards = useMemo(() => {
-        return artworks;
-        // return categories[filterBy]
-        //     ? [...artworks.slice(0, 4), null, ...artworks.slice(4)]
-        //     : artworks;
-    }, [filterBy]);
-
-    const elements = cards
-        .filter((artPiece) => {
-            return (
-                (artPiece && artPiece.categories.includes(filterBy)) ||
-                !filterBy
-            );
-        })
-        .map((artPiece, index) => {
-            return (
-                <div
-                    className={gridItem}
-                    key={artPiece ? artPiece.id : "categoryDescription"}
-                >
-                    {artPiece ? (
-                        <div className="hover:transition-transform transform hover:scale-105 duration-300">
-                            <ArtPiece artPiece={artPiece} position={index} />
-                        </div>
-                    ) : (
-                        <div
-                            className={classNames(
-                                "text-xs font-extralight p-5 leading-5 text-left flex items-center justify-center self-center border border-red-800 "
-                            )}
-                        >
-                            <WordByWordText
-                                text={categories[filterBy].description}
-                                interval={70}
-                            />
-                        </div>
-                    )}
-                </div>
-            );
-        });
 
     const makeCols = useCallback(() => {
         const columns: ReactNode[][] = Array.from(
@@ -64,7 +19,9 @@ export const GridFilledLayout = () => {
             const colIndex = index % colNumbers;
             if (columns[colIndex])
                 columns[colIndex].push(
-                    <div className="self-center">{element}</div>
+                    <div key={"col-" + index} className="self-center">
+                        {element}
+                    </div>
                 );
         });
 
