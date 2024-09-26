@@ -2,6 +2,8 @@
 import { BurgerMenu } from "@/app/components/BurgerMenu";
 import { HEADER_TITLE, PATHS } from "@/app/types/types";
 import { categories } from "@/data/categories";
+import { faDog } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useMemo } from "react";
@@ -26,6 +28,7 @@ export const Header = () => {
 
     const navStyle =
         "bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out m-5";
+
     return (
         <header className="z-10 text-center uppercase font-extralight mx-5 my-10">
             <div className="text-right">
