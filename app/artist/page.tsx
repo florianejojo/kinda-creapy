@@ -23,7 +23,7 @@ export default function ArtistPage({
                         <div key={index} className="mb-6">
                             <button
                                 onClick={() => {
-                                    // toggleAnswer(index);
+                                    toggleAnswer(index);
                                 }}
                                 className="w-full text-left px-4 py-3 border-slate-800 border text-gray-100 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:border-3"
                             >
