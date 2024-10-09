@@ -105,7 +105,7 @@ export const AlgoBlood: React.FC = () => {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, 13000);
+        }, 11000);
 
         return () => {
             if (rafRef.current) {
