@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "images": "node /Users/florianelefebvre/Desktop/remy-portfolio/convertImagesToWebp.js node /Users/florianelefebvre/Desktop/remy-portfolio/generateImagesImports.js"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.6.0",
