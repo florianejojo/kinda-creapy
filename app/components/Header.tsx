@@ -9,22 +9,7 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
     const pathname = usePathname();
 
-    // const navElements = useMemo(() => {
-    //     console.log(firstLevelNav);
-
-    //     if (firstLevelNav === "home") {
-    //         return Object.values(categories);
-    //     }
-    //     return [
-    //         { name: "Interview", path: "artist" },
-    //         { name: "Inspirations", path: "inspirations" },
-    //         { name: "Contact", path: "contact" },
-    //     ];
-    // }, [firstLevelNav]);
-
-    // const navStyle =
-    //     "bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out m-5";
-
+  
     return (
         <header className="text-center uppercase font-extralight mx-5 my-10">
             <div className="flex flex-row items-center justify-end  text-xl gap-5">
@@ -53,24 +38,6 @@ export const Header = () => {
                     {HEADER_TITLE[pathname as PATHS]}
                 </h1>
             </Link>
-
-            {/* <nav className="flex justify-center">
-                {navElements.map((navItem) => (
-                    <Link
-                        href={{
-                            pathname:
-                                firstLevelNav === "home"
-                                    ? "/home"
-                                    : navItem.path,
-                            query: { category: navItem.name.toLowerCase() },
-                        }}
-                        key={navItem.name}
-                        className="flex-1 text-sm m-2 p-2 bg-gradient-to-t from-slate-950 via-black to-black text-white rounded-lg hover:bg-gradient-to-t hover:from-slate-950 hover:via-gray-900 hover:to-black hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out transform cursor-pointer text-center"
-                    >
-                        {navItem.name}
-                    </Link>
-                ))}
-            </nav> */}
         </header>
     );
 };

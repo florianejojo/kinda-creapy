@@ -59,7 +59,7 @@ export const AlgoBlood: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const rafRef = useRef<number | null>(null);
     const pixelsRef = useRef<Pixel[]>([]);
-    const [pixelColor, setPixelColor] = useState("yellow");
+    const [pixelColor, setPixelColor] = useState("brown");
 
     const [isClient, setIsClient] = useState(false);
 
@@ -105,7 +105,7 @@ export const AlgoBlood: React.FC = () => {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, 1000000);
+        }, 13000);
 
         return () => {
             if (rafRef.current) {
