@@ -352,4 +352,92 @@ export const artworks: ArtPiece[] = [
         alt: "Visage émergeant des profondeurs, marqué par le temps.",
         categories: [],
     },
+    {
+        id: "BA024PK02",
+        name: "Naissance Électrique",
+        description:
+            "Un coquillage mystérieux émerge d'une mer de lignes fractales sous un ciel zébré de foudre, symbolisant la naissance de l'énergie cosmique.",
+        image: "BA024PK02.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Coquillage sous des éclairs dans une mer fractale.",
+        categories: [],
+    },
+    {
+        id: "BD024B01",
+        name: "Hurlement de la Bête",
+        description:
+            "Un loup à deux têtes hurle à l'infini, ses gueules déformées capturant la colère et la sauvagerie primordiales.",
+        image: "BD024B01.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Loup à deux têtes hurlant, exprimant la sauvagerie.",
+        categories: [],
+    },
+    {
+        id: "BD024PK04",
+        name: "Cercles de l'Œil Mystique",
+        description:
+            "Une figure centrale ornée de symboles colorés et de multiples yeux entourée d'orbes flottantes, évoquant la divinité et l'œil omniscient.",
+        image: "BD024PK04.webp",
+        technique: "Techniques mixtes",
+        size: "50x50 cm",
+        alt: "Figure mystique entourée d'orbes avec des yeux.",
+        categories: [],
+    },
+    {
+        id: "BEC004OIL01",
+        name: "Chute dans le Vide",
+        description:
+            "Une scène surréaliste d'une chute vertigineuse dans un abîme abstrait, peinte à l'huile avec des couleurs vibrantes et des textures intrigantes.",
+        image: "BEC004OIL01.webp",
+        technique: "Peinture à l'huile",
+        size: "50x40 cm",
+        alt: "Personnage tombant dans un abîme surréaliste.",
+        categories: [],
+    },
+    {
+        id: "BL024B05",
+        name: "Souffle des Anciens",
+        description:
+            "Des visages ancestraux surgissent d'un tourbillon de lignes, leurs expressions marquées par le poids du temps et de l'histoire.",
+        image: "BL024B05.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Visages ancestraux dans un tourbillon de lignes.",
+        categories: [],
+    },
+    {
+        id: "BL024B06",
+        name: "Ascension de l'Éther",
+        description:
+            "Une silhouette éthérée s'élève dans des volutes de fumée bleuâtre, traversant des mondes inconnus entre réalité et rêve.",
+        image: "BL024B06.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Silhouette éthérée montant dans des volutes de fumée.",
+        categories: [],
+    },
+    {
+        id: "BL024B07",
+        name: "Double Conscience",
+        description:
+            "Deux visages enchevêtrés luttent pour émerger d'une forme chaotique, symbolisant le conflit intérieur et la dualité de l'esprit.",
+        image: "BL024B07.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Deux visages enchevêtrés, représentant une dualité intérieure.",
+        categories: [],
+    },
+    {
+        id: "BL024B08",
+        name: "Mémoire des Ombres",
+        description:
+            "Un visage mystérieux se dissout dans les ombres, capturant des fragments de souvenirs et de rêves perdus.",
+        image: "BL024B08.webp",
+        technique: "Bic - Techniques mixtes",
+        size: "40x30 cm",
+        alt: "Visage dissous dans les ombres, évoquant des souvenirs flous.",
+        categories: [],
+    },
 ];
