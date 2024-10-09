@@ -264,17 +264,17 @@ export const artworks: ArtPiece[] = [
     //     alt: "Vortex Céleste - Peinture d'un vortex cosmique hypnotique.",
     //     categories: [CATEGORIES.illusions],
     // },
-    {
-        id: "AB024B01",
-        name: "Arbre des Âmes Captives",
-        description:
-            "Une représentation abstraite d'un arbre dont les racines semblent se tordre dans des mouvements fluides, symbolisant les âmes en transition.",
-        image: "AB024B01.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Arbre abstrait aux racines torsadées, symbolisant des âmes en transition.",
-        categories: [],
-    },
+    // {
+    //     id: "AB024B01",
+    //     name: "Arbre des Âmes Captives",
+    //     description:
+    //         "Une représentation abstraite d'un arbre dont les racines semblent se tordre dans des mouvements fluides, symbolisant les âmes en transition.",
+    //     image: "AB024B01.webp",
+    //     technique: "Bic - Dessin automatique",
+    //     size: "40x30 cm",
+    //     alt: "Arbre abstrait aux racines torsadées, symbolisant des âmes en transition.",
+    //     categories: [],
+    // },
     {
         id: "AC024PK02",
         name: "Forêt des Visions",
@@ -297,39 +297,39 @@ export const artworks: ArtPiece[] = [
         alt: "Arbre solitaire avec un animal caché à sa base, symbole de protection dans la forêt.",
         categories: [],
     },
-    {
-        id: "B001B01",
-        name: "Porteurs de Mystères",
-        description:
-            "Des figures élancées traversent un paysage onirique, leurs silhouettes se fondant dans les illusions de la nuit.",
-        image: "B001B01.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Figures élancées dans un paysage surréaliste.",
-        categories: [],
-    },
-    {
-        id: "BL024B01",
-        name: "Chant des Ombres",
-        description:
-            "Une forme humanoïde se dissout dans un tourbillon d'ombres, un chant silencieux résonnant dans le vide.",
-        image: "BL024B01.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Silhouette humanoïde se dissolvant dans des ombres tourbillonnantes.",
-        categories: [],
-    },
-    {
-        id: "BL024B02",
-        name: "Rituel des Brumes",
-        description:
-            "Une silhouette se fond dans un nuage de brumes sombres, évoquant un rituel ancien perdu dans le temps.",
-        image: "BL024B02.webp",
-        technique: "Bic - Techniques mixtes",
-        size: "40x30 cm",
-        alt: "Silhouette humanoïde dans un nuage de brumes sombres, symbolisant un rituel mystique.",
-        categories: [],
-    },
+    // {
+    //     id: "B001B01",
+    //     name: "Porteurs de Mystères",
+    //     description:
+    //         "Des figures élancées traversent un paysage onirique, leurs silhouettes se fondant dans les illusions de la nuit.",
+    //     image: "B001B01.webp",
+    //     technique: "Techniques mixtes",
+    //     size: "50x40 cm",
+    //     alt: "Figures élancées dans un paysage surréaliste.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "BL024B01",
+    //     name: "Chant des Ombres",
+    //     description:
+    //         "Une forme humanoïde se dissout dans un tourbillon d'ombres, un chant silencieux résonnant dans le vide.",
+    //     image: "BL024B01.webp",
+    //     technique: "Bic - Dessin automatique",
+    //     size: "40x30 cm",
+    //     alt: "Silhouette humanoïde se dissolvant dans des ombres tourbillonnantes.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "BL024B02",
+    //     name: "Rituel des Brumes",
+    //     description:
+    //         "Une silhouette se fond dans un nuage de brumes sombres, évoquant un rituel ancien perdu dans le temps.",
+    //     image: "BL024B02.webp",
+    //     technique: "Bic - Techniques mixtes",
+    //     size: "40x30 cm",
+    //     alt: "Silhouette humanoïde dans un nuage de brumes sombres, symbolisant un rituel mystique.",
+    //     categories: [],
+    // },
     {
         id: "BL024B03",
         name: "Serment des Créatures",
@@ -352,40 +352,18 @@ export const artworks: ArtPiece[] = [
         alt: "Visage émergeant des profondeurs, marqué par le temps.",
         categories: [],
     },
-    {
-        id: "BL024B05",
-        name: "Souffle des Anciens",
-        description:
-            "Des visages ancestraux surgissent d'un tourbillon de lignes, leurs expressions marquées par le poids du temps et de l'histoire.",
-        image: "BL024B05.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Visages ancestraux dans un tourbillon de lignes.",
-        categories: [],
-    },
-    {
-        id: "BL024B06",
-        name: "Ascension de l'Éther",
-        description:
-            "Une silhouette éthérée s'élève dans des volutes de fumée bleuâtre, traversant des mondes inconnus entre réalité et rêve.",
-        image: "BL024B06.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Silhouette éthérée montant dans des volutes de fumée.",
-        categories: [],
-    },
 
-    {
-        id: "C111018K006",
-        name: "Courant Subtil",
-        description:
-            "Des vagues abstraites tourbillonnent dans un flux subtil de tons gris et blancs, laissant apparaître un rouge intense à la base, évoquant la force cachée sous la surface.",
-        image: "C111018K006.webp",
-        technique: "Peinture à l'huile",
-        size: "50x40 cm",
-        alt: "Vagues abstraites en gris et blanc avec un point rouge profond.",
-        categories: [],
-    },
+    // {
+    //     id: "C111018K006",
+    //     name: "Courant Subtil",
+    //     description:
+    //         "Des vagues abstraites tourbillonnent dans un flux subtil de tons gris et blancs, laissant apparaître un rouge intense à la base, évoquant la force cachée sous la surface.",
+    //     image: "C111018K006.webp",
+    //     technique: "Peinture à l'huile",
+    //     size: "50x40 cm",
+    //     alt: "Vagues abstraites en gris et blanc avec un point rouge profond.",
+    //     categories: [],
+    // },
     {
         id: "IID019B01",
         name: "Conscience Cosmique",
@@ -430,17 +408,17 @@ export const artworks: ArtPiece[] = [
         alt: "Textures sombres et denses avec des éclats de lumière.",
         categories: [],
     },
-    {
-        id: "SLNW021MX10",
-        name: "Éruption Éthérée",
-        description:
-            "Des explosions de lumière et de couleur jaillissent d'un fond obscur, créant une scène de chaos et de beauté surréalistes.",
-        image: "SLNW021MX10.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Éruption de lumière et de couleur sur un fond obscur.",
-        categories: [],
-    },
+    // {
+    //     id: "SLNW021MX10",
+    //     name: "Éruption Éthérée",
+    //     description:
+    //         "Des explosions de lumière et de couleur jaillissent d'un fond obscur, créant une scène de chaos et de beauté surréalistes.",
+    //     image: "SLNW021MX10.webp",
+    //     technique: "Techniques mixtes",
+    //     size: "50x40 cm",
+    //     alt: "Éruption de lumière et de couleur sur un fond obscur.",
+    //     categories: [],
+    // },
     {
         id: "SLNW021MX12",
         name: "Tempête des Ombres",
@@ -452,50 +430,50 @@ export const artworks: ArtPiece[] = [
         alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
         categories: [],
     },
-    {
-        id: "IID019B03",
-        name: "Déchirure Symétrique",
-        description:
-            "Deux mondes s'effondrent l'un dans l'autre à travers une déchirure symétrique, révélant des formes chaotiques s'entremêlant de chaque côté.",
-        image: "IID019B03.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Deux côtés symétriques montrant des formes chaotiques se déchirant l'un l'autre.",
-        categories: [],
-    },
-    {
-        id: "IID019B04",
-        name: "Révolte Circulaire",
-        description:
-            "Des cercles intrigants forment un motif central en contraste avec un motif chaotique de l'autre côté, symbolisant l'ordre et le chaos en perpétuelle interaction.",
-        image: "IID019B04.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Cercles géométriques en opposition à des motifs chaotiques sur un fond bicolore.",
-        categories: [],
-    },
-    {
-        id: "IP024PK03",
-        name: "Masques de l'Esprit",
-        description:
-            "Une série de masques colorés et expressifs, chacun révélant une émotion ou une facette différente de la psyché humaine dans un style surréaliste.",
-        image: "IP024PK03.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Divers masques colorés et expressifs disposés en cercle.",
-        categories: [],
-    },
-    {
-        id: "SCNW021MX05",
-        name: "Tourment Céleste",
-        description:
-            "Un tourbillon de couleurs sombres et lumineuses, symbolisant un ciel tumultueux et un paysage en proie à une tempête intérieure.",
-        image: "SCNW021MX05.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Paysage abstrait avec des couleurs tourmentées et un ciel tumultueux.",
-        categories: [],
-    },
+    // {
+    //     id: "IID019B03",
+    //     name: "Déchirure Symétrique",
+    //     description:
+    //         "Deux mondes s'effondrent l'un dans l'autre à travers une déchirure symétrique, révélant des formes chaotiques s'entremêlant de chaque côté.",
+    //     image: "IID019B03.webp",
+    //     technique: "Encre sur papier",
+    //     size: "40x30 cm",
+    //     alt: "Deux côtés symétriques montrant des formes chaotiques se déchirant l'un l'autre.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "IID019B04",
+    //     name: "Révolte Circulaire",
+    //     description:
+    //         "Des cercles intrigants forment un motif central en contraste avec un motif chaotique de l'autre côté, symbolisant l'ordre et le chaos en perpétuelle interaction.",
+    //     image: "IID019B04.webp",
+    //     technique: "Encre sur papier",
+    //     size: "40x30 cm",
+    //     alt: "Cercles géométriques en opposition à des motifs chaotiques sur un fond bicolore.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "IP024PK03",
+    //     name: "Masques de l'Esprit",
+    //     description:
+    //         "Une série de masques colorés et expressifs, chacun révélant une émotion ou une facette différente de la psyché humaine dans un style surréaliste.",
+    //     image: "IP024PK03.webp",
+    //     technique: "Techniques mixtes",
+    //     size: "50x40 cm",
+    //     alt: "Divers masques colorés et expressifs disposés en cercle.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "SCNW021MX05",
+    //     name: "Tourment Céleste",
+    //     description:
+    //         "Un tourbillon de couleurs sombres et lumineuses, symbolisant un ciel tumultueux et un paysage en proie à une tempête intérieure.",
+    //     image: "SCNW021MX05.webp",
+    //     technique: "Techniques mixtes",
+    //     size: "50x40 cm",
+    //     alt: "Paysage abstrait avec des couleurs tourmentées et un ciel tumultueux.",
+    //     categories: [],
+    // },
     {
         id: "SNW021MX02",
         name: "Collision d'Étoiles",
@@ -562,26 +540,26 @@ export const artworks: ArtPiece[] = [
         alt: "Formes corporelles abstraites se fragmentant dans un paysage sombre.",
         categories: [],
     },
-    {
-        id: "BK022P01",
-        name: "Nabrok",
-        description:
-            "Une figure puissante aux jambes imposantes, inscrivant son nom sur le côté, dégage une énergie brute et primitive dans une palette de couleurs chaudes.",
-        image: "BK022P01.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Figure aux jambes imposantes avec l'inscription Nabrok sur le côté.",
-        categories: [],
-    },
-    {
-        id: "BL024B09",
-        name: "Course Sanguine",
-        description:
-            "Un corps musclé et déchiré par l'effort traverse un tourbillon de lignes désordonnées, exprimant la vitesse et l'énergie intense de la course.",
-        image: "BL024B09.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Figure humaine en pleine course entourée de lignes abstraites.",
-        categories: [],
-    },
+    // {
+    //     id: "BK022P01",
+    //     name: "Nabrok",
+    //     description:
+    //         "Une figure puissante aux jambes imposantes, inscrivant son nom sur le côté, dégage une énergie brute et primitive dans une palette de couleurs chaudes.",
+    //     image: "BK022P01.webp",
+    //     technique: "Techniques mixtes",
+    //     size: "50x40 cm",
+    //     alt: "Figure aux jambes imposantes avec l'inscription Nabrok sur le côté.",
+    //     categories: [],
+    // },
+    // {
+    //     id: "BL024B09",
+    //     name: "Course Sanguine",
+    //     description:
+    //         "Un corps musclé et déchiré par l'effort traverse un tourbillon de lignes désordonnées, exprimant la vitesse et l'énergie intense de la course.",
+    //     image: "BL024B09.webp",
+    //     technique: "Bic - Dessin automatique",
+    //     size: "40x30 cm",
+    //     alt: "Figure humaine en pleine course entourée de lignes abstraites.",
+    //     categories: [],
+    // },
 ];
