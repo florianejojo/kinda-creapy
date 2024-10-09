@@ -28,18 +28,100 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.illusions],
     },
     {
-        id: "4",
-        name: "Estom avaloar ou Seigneur de la surabondance",
+        id: "SNW021MX06",
+        name: "Filaments d'Énergie",
         description:
-            "Un sentier céleste, guidé par les constellations, traverse une forêt d'illusions visuelles. Ce chemin, souvent emprunté par les rêveurs et les artistes surréalistes, reflète la beauté mystérieuse du cosmos. Chaque pas sur ce sentier mène plus loin dans un monde de fractales et de visions mystiques, où le réel et l'imaginaire se fondent pour révéler la grandeur infinie de l'univers. Ce parcours invite à une exploration profonde de l'inconscient collectif.",
-        image: "IMG_3237.webp",
-        technique: "Posca",
-        size: "25x25 cm",
-        color: "#381314",
+            "Des lignes vibrantes d'énergie orange et bleue se croisent dans un réseau dense, capturant la dynamique du mouvement et de la transformation.",
+        image: "SNW021MX06.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Lignes d'énergie orange et bleue entrelacées dans une composition complexe.",
+        categories: [],
+    },
+    {
+        id: "18",
+        name: "Génith",
+        description:
+            "Dans une explosion de lumière et de couleur, des figures mythologiques se battent pour la domination de l'univers. L'Apothéose de la Fureur est une œuvre qui capture la tension dramatique entre la création et la destruction, où chaque coup porté est une nouvelle explosion de couleur.",
+        image: "IMG_5814.webp",
+        technique: "Peinture à l'huile",
+        size: "24x30",
+        color: "#D93A27",
         isSpinable: false,
-        alt: "Sentier des Astres - ",
+        alt: "Génith - Peinture représentant une bataille mythologique sous une explosion de lumière.",
         categories: [CATEGORIES.beasts],
     },
+    {
+        id: "14",
+        name: "Cascade de montagne",
+        description: "",
+        image: "IMG_5509.webp",
+        technique: "Feu - Cire - Peinture à l'huile",
+        size: "100x80",
+        color: "#880000",
+        isSpinable: false,
+        alt: "Cascade de montagne - Peinture mettant en scène une cascade dans paysage abstrait et surréaliste.",
+        categories: [CATEGORIES.illusions],
+    },
+    {
+        id: "AG024B02",
+        name: "Gardien des Silences",
+        description:
+            "Un arbre solitaire aux branches nues, abritant un petit animal niché à sa base, incarnant la protection et la solitude dans une forêt immobile.",
+        image: "AG024B02.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Arbre solitaire avec un animal caché à sa base, symbole de protection dans la forêt.",
+        categories: [],
+    },
+
+    {
+        id: "SNW021MX07",
+        name: "Réveil de la Terre",
+        description:
+            "Un paysage abstrait et texturé où la terre semble s'animer sous une explosion de couleurs terreuses et nuageuses.",
+        image: "SNW021MX07.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Paysage abstrait avec des textures terreuses et nuageuses.",
+        categories: [],
+    },
+    {
+        id: "BL024B04",
+        name: "Réveil des Anciens",
+        description:
+            "Un visage émerge lentement des profondeurs, ses traits marqués par le temps et les mystères oubliés.",
+        image: "BL024B04.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Visage émergeant des profondeurs, marqué par le temps.",
+        categories: [],
+    },
+
+    {
+        id: "SNW021MX11",
+        name: "Fragmentation du Corps",
+        description:
+            "Des formes corporelles fragmentées se dispersent dans un paysage sombre, symbolisant la désintégration et la reconstruction à travers le temps.",
+        image: "SNW021MX11.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Formes corporelles abstraites se fragmentant dans un paysage sombre.",
+        categories: [],
+    },
+
+    {
+        id: "SCNW021MX09",
+        name: "Cloison de Souvenirs",
+        description:
+            "Des fragments de souvenirs sont encapsulés dans une cloison abstraite, où des couches de couleurs métalliques et de textures superposées racontent une histoire oubliée.",
+        image: "SCNW021MX09.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Cloison abstraite avec des textures métalliques et des couleurs superposées.",
+        categories: [],
+    },
+
     // {
     //     id: 8,
     //     name: "Forêt des Chimères",
@@ -53,46 +135,7 @@ export const artworks: ArtPiece[] = [
     //     alt: "Forêt des Chimères - Dessin automatique.",
     //     categories: [CATEGORIES.trees],
     // },
-    {
-        id: "1",
-        name: "Ouroborosorus Rex",
-        description:
-            "L'Ouroboros, un symbole d'éternité et de cyclicité, serpente à travers une forêt enchantée, où chaque arbre semble sorti d'un surréalisme profond. Dans ce monde mystique, les illusions se mêlent à la réalité, créant un espace où les images doubles se dévoilent aux yeux des initiés. Cet environnement, à la fois fractal et hypnotique, reflète la nature cyclique de la vie et de la mort, invitant à une introspection profonde sur l'existence.",
-        image: "orobouros.webp",
-        technique: "Posca",
-        size: "25x25 cm",
-        color: "#726D92",
-        isSpinable: true,
-        alt: "Ouroborosorus Rex - ",
-        categories: [CATEGORIES.illusions],
-    },
 
-    {
-        id: "2",
-        name: "Quand le désert avance...",
-        description:
-            "Sous la douce lumière de la lune, un sanctuaire sacré se dévoile au cœur d'une forêt de casoar. Les pierres anciennes, gravées de runes, semblent être les gardiennes d'illusions visuelles, où chaque symbole reflète une histoire oubliée des artistes surréalistes. Ce lieu mystique, protégé par des créatures invisibles, inspire un voyage spirituel au-delà du monde physique, dans un espace où la tranquillité et l'émerveillement cohabitent.",
-        image: "IMG_3003.webp",
-        technique: "Posca",
-        size: "24x30 cm",
-        color: "#30180C",
-        isSpinable: false,
-        alt: "Sanctuaire Lunaire - Aquarelle d'un sanctuaire éclairé par la lumière de la lune dans une forêt mystique.",
-        categories: [CATEGORIES.trees, CATEGORIES.illusions],
-    },
-    {
-        id: "5",
-        name: "Cachot des Esprits",
-        description:
-            "Au plus profond de la Forêt des Chimères, un cachot dissimule des secrets millénaires. Les murs humides résonnent d'incantations oubliées, évoquant les légendes d'une époque où les créatures mystiques et les esprits des arbres dominaient le monde. Ce lieu, chargé d'une énergie palpable, incarne l'essence du surréalisme, où chaque ombre cache une illusion, et où chaque coin révèle une nouvelle facette du mystère de la vie.",
-        image: "IMG_3846.webp",
-        technique: "Peinture à l'huile",
-        size: "24x30 cm",
-        color: "#1C1127",
-        isSpinable: false,
-        alt: "Cachot des Esprits - Encre d'un cachot mystique caché dans une forêt.",
-        categories: [CATEGORIES.trees, CATEGORIES.beasts, CATEGORIES.illusions],
-    },
     // {
     //     id: 6,
     //     name: "Temple du Suréel - Série de 111",
@@ -173,18 +216,7 @@ export const artworks: ArtPiece[] = [
         alt: "Banquet à la Madonne - Peinture détaillant une scène de chaos cosmique et d'étreinte surréaliste.",
         categories: [CATEGORIES.beasts],
     },
-    {
-        id: "14",
-        name: "Cascade de montagne",
-        description: "",
-        image: "IMG_5509.webp",
-        technique: "Feu - Cire - Peinture à l'huile",
-        size: "100x80",
-        color: "#880000",
-        isSpinable: false,
-        alt: "Cascade de montagne - Peinture mettant en scène une cascade dans paysage abstrait et surréaliste.",
-        categories: [CATEGORIES.illusions],
-    },
+
     // {
     //     id: 15,
     //     name: "Chants du Bosquet Étoilé",
@@ -199,19 +231,6 @@ export const artworks: ArtPiece[] = [
     //     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     // },
     {
-        id: "16",
-        name: "Arbre sorcier II",
-        description:
-            "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
-        image: "IMG_5809.webp",
-        technique: "Peinture à l'huile",
-        size: "24x30",
-        color: "#4A3436",
-        isSpinable: false,
-        alt: "Arbre sorcier II - Peinture représentant un arbre dansant avec les étoiles dans un ciel cosmique.",
-        categories: [CATEGORIES.trees],
-    },
-    {
         id: "17",
         name: "Artémis",
         description:
@@ -225,31 +244,54 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.beasts],
     },
     {
-        id: "18",
-        name: "Génith",
+        id: "IID019B01",
+        name: "Conscience Cosmique",
         description:
-            "Dans une explosion de lumière et de couleur, des figures mythologiques se battent pour la domination de l'univers. L'Apothéose de la Fureur est une œuvre qui capture la tension dramatique entre la création et la destruction, où chaque coup porté est une nouvelle explosion de couleur.",
-        image: "IMG_5814.webp",
-        technique: "Peinture à l'huile",
-        size: "24x30",
-        color: "#D93A27",
-        isSpinable: false,
-        alt: "Génith - Peinture représentant une bataille mythologique sous une explosion de lumière.",
-        categories: [CATEGORIES.beasts],
+            "Deux créatures énigmatiques se font face dans une symétrie parfaite, leurs esprits reliés par des motifs géométriques complexes représentant une connexion cosmique.",
+        image: "IID019B01.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Deux figures symétriques reliées par des motifs géométriques complexes.",
+        categories: [],
     },
     {
-        id: "19",
-        name: "Truqapattes",
+        id: "IID019B02",
+        name: "Réflexions Fragmentées",
         description:
-            "Dans une mer de verdure, une graine mystérieuse semble vibrer d'une énergie inconnue. Cette œuvre symbolise la création et la fertilité, où la vie naît des ténèbres et grandit vers la lumière. La Graine de Vie est une métaphore du cycle de la vie, capturée dans une vision surréaliste.",
-        image: "IMG_5815.webp",
-        technique: "Peinture à l'huile - Acrylique",
-        size: "21x15",
-        color: "#197F37",
-        isSpinable: false,
-        alt: "Truqapattes -",
-        categories: [CATEGORIES.beasts],
+            "Des silhouettes brisées se regardent à travers une ligne de division nette, symbolisant la fracture entre l'identité et le reflet de soi.",
+        image: "IID019B02.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Silhouettes fragmentées se regardant à travers une division nette.",
+        categories: [],
     },
+    {
+        id: "16",
+        name: "Arbre sorcier II",
+        description:
+            "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
+        image: "IMG_5809.webp",
+        technique: "Peinture à l'huile",
+        size: "24x30",
+        color: "#4A3436",
+        isSpinable: false,
+        alt: "Arbre sorcier II - Peinture représentant un arbre dansant avec les étoiles dans un ciel cosmique.",
+        categories: [CATEGORIES.trees],
+    },
+
+    // {
+    //     id: "19",
+    //     name: "Truqapattes",
+    //     description:
+    //         "Dans une mer de verdure, une graine mystérieuse semble vibrer d'une énergie inconnue. Cette œuvre symbolise la création et la fertilité, où la vie naît des ténèbres et grandit vers la lumière. La Graine de Vie est une métaphore du cycle de la vie, capturée dans une vision surréaliste.",
+    //     image: "IMG_5815.webp",
+    //     technique: "Peinture à l'huile - Acrylique",
+    //     size: "21x15",
+    //     color: "#197F37",
+    //     isSpinable: false,
+    //     alt: "Truqapattes -",
+    //     categories: [CATEGORIES.beasts],
+    // },
 
     // {
     //     id: 10,
@@ -286,17 +328,7 @@ export const artworks: ArtPiece[] = [
         alt: "Paysage surréaliste avec des visages émergents dans une forêt mystique.",
         categories: [],
     },
-    {
-        id: "AG024B02",
-        name: "Gardien des Silences",
-        description:
-            "Un arbre solitaire aux branches nues, abritant un petit animal niché à sa base, incarnant la protection et la solitude dans une forêt immobile.",
-        image: "AG024B02.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Arbre solitaire avec un animal caché à sa base, symbole de protection dans la forêt.",
-        categories: [],
-    },
+
     // {
     //     id: "B001B01",
     //     name: "Porteurs de Mystères",
@@ -330,28 +362,6 @@ export const artworks: ArtPiece[] = [
     //     alt: "Silhouette humanoïde dans un nuage de brumes sombres, symbolisant un rituel mystique.",
     //     categories: [],
     // },
-    {
-        id: "BL024B03",
-        name: "Serment des Créatures",
-        description:
-            "Deux créatures hybrides s'affrontent dans une danse mystique, leurs formes se mélangeant dans une explosion de lignes.",
-        image: "BL024B03.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Deux créatures hybrides dans une danse mystique.",
-        categories: [],
-    },
-    {
-        id: "BL024B04",
-        name: "Réveil des Anciens",
-        description:
-            "Un visage émerge lentement des profondeurs, ses traits marqués par le temps et les mystères oubliés.",
-        image: "BL024B04.webp",
-        technique: "Bic - Dessin automatique",
-        size: "40x30 cm",
-        alt: "Visage émergeant des profondeurs, marqué par le temps.",
-        categories: [],
-    },
 
     // {
     //     id: "C111018K006",
@@ -364,28 +374,7 @@ export const artworks: ArtPiece[] = [
     //     alt: "Vagues abstraites en gris et blanc avec un point rouge profond.",
     //     categories: [],
     // },
-    {
-        id: "IID019B01",
-        name: "Conscience Cosmique",
-        description:
-            "Deux créatures énigmatiques se font face dans une symétrie parfaite, leurs esprits reliés par des motifs géométriques complexes représentant une connexion cosmique.",
-        image: "IID019B01.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Deux figures symétriques reliées par des motifs géométriques complexes.",
-        categories: [],
-    },
-    {
-        id: "IID019B02",
-        name: "Réflexions Fragmentées",
-        description:
-            "Des silhouettes brisées se regardent à travers une ligne de division nette, symbolisant la fracture entre l'identité et le reflet de soi.",
-        image: "IID019B02.webp",
-        technique: "Encre sur papier",
-        size: "40x30 cm",
-        alt: "Silhouettes fragmentées se regardant à travers une division nette.",
-        categories: [],
-    },
+
     {
         id: "SLNW021MX04",
         name: "Fusion Terrestre",
@@ -428,6 +417,18 @@ export const artworks: ArtPiece[] = [
         technique: "Techniques mixtes",
         size: "50x40 cm",
         alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
+        categories: [],
+    },
+
+    {
+        id: "BL024B03",
+        name: "Serment des Créatures",
+        description:
+            "Deux créatures hybrides s'affrontent dans une danse mystique, leurs formes se mélangeant dans une explosion de lignes.",
+        image: "BL024B03.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Deux créatures hybrides dans une danse mystique.",
         categories: [],
     },
     // {
@@ -486,6 +487,19 @@ export const artworks: ArtPiece[] = [
         categories: [],
     },
     {
+        id: "5",
+        name: "Cachot des Esprits",
+        description:
+            "Au plus profond de la Forêt des Chimères, un cachot dissimule des secrets millénaires. Les murs humides résonnent d'incantations oubliées, évoquant les légendes d'une époque où les créatures mystiques et les esprits des arbres dominaient le monde. Ce lieu, chargé d'une énergie palpable, incarne l'essence du surréalisme, où chaque ombre cache une illusion, et où chaque coin révèle une nouvelle facette du mystère de la vie.",
+        image: "IMG_3846.webp",
+        technique: "Peinture à l'huile",
+        size: "24x30 cm",
+        color: "#1C1127",
+        isSpinable: false,
+        alt: "Cachot des Esprits - Encre d'un cachot mystique caché dans une forêt.",
+        categories: [CATEGORIES.trees, CATEGORIES.beasts, CATEGORIES.illusions],
+    },
+    {
         id: "SNW021MX03",
         name: "Crépuscule Rouge",
         description:
@@ -496,50 +510,7 @@ export const artworks: ArtPiece[] = [
         alt: "Paysage abstrait avec des teintes rouges profondes.",
         categories: [],
     },
-    {
-        id: "SNW021MX06",
-        name: "Filaments d'Énergie",
-        description:
-            "Des lignes vibrantes d'énergie orange et bleue se croisent dans un réseau dense, capturant la dynamique du mouvement et de la transformation.",
-        image: "SNW021MX06.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Lignes d'énergie orange et bleue entrelacées dans une composition complexe.",
-        categories: [],
-    },
-    {
-        id: "SNW021MX07",
-        name: "Réveil de la Terre",
-        description:
-            "Un paysage abstrait et texturé où la terre semble s'animer sous une explosion de couleurs terreuses et nuageuses.",
-        image: "SNW021MX07.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Paysage abstrait avec des textures terreuses et nuageuses.",
-        categories: [],
-    },
-    {
-        id: "SCNW021MX09",
-        name: "Cloison de Souvenirs",
-        description:
-            "Des fragments de souvenirs sont encapsulés dans une cloison abstraite, où des couches de couleurs métalliques et de textures superposées racontent une histoire oubliée.",
-        image: "SCNW021MX09.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Cloison abstraite avec des textures métalliques et des couleurs superposées.",
-        categories: [],
-    },
-    {
-        id: "SNW021MX11",
-        name: "Fragmentation du Corps",
-        description:
-            "Des formes corporelles fragmentées se dispersent dans un paysage sombre, symbolisant la désintégration et la reconstruction à travers le temps.",
-        image: "SNW021MX11.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Formes corporelles abstraites se fragmentant dans un paysage sombre.",
-        categories: [],
-    },
+
     // {
     //     id: "BK022P01",
     //     name: "Nabrok",
@@ -562,4 +533,44 @@ export const artworks: ArtPiece[] = [
     //     alt: "Figure humaine en pleine course entourée de lignes abstraites.",
     //     categories: [],
     // },
+    {
+        id: "4",
+        name: "Estom avaloar ou Seigneur de la surabondance",
+        description:
+            "Un sentier céleste, guidé par les constellations, traverse une forêt d'illusions visuelles. Ce chemin, souvent emprunté par les rêveurs et les artistes surréalistes, reflète la beauté mystérieuse du cosmos. Chaque pas sur ce sentier mène plus loin dans un monde de fractales et de visions mystiques, où le réel et l'imaginaire se fondent pour révéler la grandeur infinie de l'univers. Ce parcours invite à une exploration profonde de l'inconscient collectif.",
+        image: "IMG_3237.webp",
+        technique: "Posca",
+        size: "25x25 cm",
+        color: "#381314",
+        isSpinable: false,
+        alt: "Sentier des Astres - ",
+        categories: [CATEGORIES.beasts],
+    },
+    {
+        id: "1",
+        name: "Ouroborosorus Rex",
+        description:
+            "L'Ouroboros, un symbole d'éternité et de cyclicité, serpente à travers une forêt enchantée, où chaque arbre semble sorti d'un surréalisme profond. Dans ce monde mystique, les illusions se mêlent à la réalité, créant un espace où les images doubles se dévoilent aux yeux des initiés. Cet environnement, à la fois fractal et hypnotique, reflète la nature cyclique de la vie et de la mort, invitant à une introspection profonde sur l'existence.",
+        image: "orobouros.webp",
+        technique: "Posca",
+        size: "25x25 cm",
+        color: "#726D92",
+        isSpinable: true,
+        alt: "Ouroborosorus Rex - ",
+        categories: [CATEGORIES.illusions],
+    },
+
+    {
+        id: "2",
+        name: "Quand le désert avance...",
+        description:
+            "Sous la douce lumière de la lune, un sanctuaire sacré se dévoile au cœur d'une forêt de casoar. Les pierres anciennes, gravées de runes, semblent être les gardiennes d'illusions visuelles, où chaque symbole reflète une histoire oubliée des artistes surréalistes. Ce lieu mystique, protégé par des créatures invisibles, inspire un voyage spirituel au-delà du monde physique, dans un espace où la tranquillité et l'émerveillement cohabitent.",
+        image: "IMG_3003.webp",
+        technique: "Posca",
+        size: "24x30 cm",
+        color: "#30180C",
+        isSpinable: false,
+        alt: "Sanctuaire Lunaire - Aquarelle d'un sanctuaire éclairé par la lumière de la lune dans une forêt mystique.",
+        categories: [CATEGORIES.trees, CATEGORIES.illusions],
+    },
 ];
