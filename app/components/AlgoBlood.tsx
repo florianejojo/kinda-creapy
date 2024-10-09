@@ -59,6 +59,7 @@ export const AlgoBlood: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
     const rafRef = useRef<number | null>(null);
     const pixelsRef = useRef<Pixel[]>([]);
+    const [pixelColor, setPixelColor] = useState("yellow");
 
     const [isClient, setIsClient] = useState(false);
 
@@ -75,7 +76,7 @@ export const AlgoBlood: React.FC = () => {
 
         // Crée le pixel initial en bas de l'écran
         pixelsRef.current = [
-            createPixel(canvas.width / 2, canvas.height, 0.1, -0.1, "brown"), // vy négatif pour monter
+            createPixel(canvas.width / 2, canvas.height, 0.1, -0.1, pixelColor), // vy négatif pour monter
         ];
 
         function draw() {
@@ -93,18 +94,25 @@ export const AlgoBlood: React.FC = () => {
 
         rafRef.current = window.requestAnimationFrame(draw);
 
-        const stopTimeout = setTimeout(() => {
+        const colorTimeout = setTimeout(() => {
+            console.log("colorTimeout");
+            setPixelColor("black");
+        }, 1000 * 5);
+
+        const drawingTimeout = setTimeout(() => {
+            console.log("drawingTimeout");
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, 10000);
+        }, 1000000);
 
         return () => {
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
             }
-            clearTimeout(stopTimeout);
+            clearTimeout(drawingTimeout);
+            clearTimeout(colorTimeout);
         };
     }, [isClient]);
 

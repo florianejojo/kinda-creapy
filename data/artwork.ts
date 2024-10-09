@@ -1,21 +1,21 @@
 import { CATEGORIES } from "@/app/types/types";
 
 export type ArtPiece = {
-    id: number;
+    id: string;
     name: string;
     description: string;
     image: string;
     technique: string;
     size: string;
-    color: string;
-    isSpinable: boolean;
+    color?: string;
+    isSpinable?: boolean;
     alt: string;
     categories: CATEGORIES[];
 };
 
 export const artworks: ArtPiece[] = [
     {
-        id: 13,
+        id: "13",
         name: "Métamorphose Sauvage",
         description:
             "Dans les profondeurs de la forêt mystique, la frontière entre l'homme et la bête s'efface, révélant une métamorphose surréaliste. Cette œuvre capture l'instant où l'esprit humain se fond avec celui du loup, symbolisant la dualité de la nature et de l'âme. Les lignes abstraites et les couleurs vibrantes créent une illusion visuelle, où chaque détail se transforme, offrant une nouvelle perspective à chaque regard. C'est une exploration du subconscient, où le réel et l'imaginaire se rencontrent dans un ballet envoûtant de formes et de teintes.",
@@ -28,7 +28,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.illusions],
     },
     {
-        id: 4,
+        id: "4",
         name: "Estom avaloar ou Seigneur de la surabondance",
         description:
             "Un sentier céleste, guidé par les constellations, traverse une forêt d'illusions visuelles. Ce chemin, souvent emprunté par les rêveurs et les artistes surréalistes, reflète la beauté mystérieuse du cosmos. Chaque pas sur ce sentier mène plus loin dans un monde de fractales et de visions mystiques, où le réel et l'imaginaire se fondent pour révéler la grandeur infinie de l'univers. Ce parcours invite à une exploration profonde de l'inconscient collectif.",
@@ -54,7 +54,7 @@ export const artworks: ArtPiece[] = [
     //     categories: [CATEGORIES.trees],
     // },
     {
-        id: 1,
+        id: "1",
         name: "Ouroborosorus Rex",
         description:
             "L'Ouroboros, un symbole d'éternité et de cyclicité, serpente à travers une forêt enchantée, où chaque arbre semble sorti d'un surréalisme profond. Dans ce monde mystique, les illusions se mêlent à la réalité, créant un espace où les images doubles se dévoilent aux yeux des initiés. Cet environnement, à la fois fractal et hypnotique, reflète la nature cyclique de la vie et de la mort, invitant à une introspection profonde sur l'existence.",
@@ -68,7 +68,7 @@ export const artworks: ArtPiece[] = [
     },
 
     {
-        id: 2,
+        id: "2",
         name: "Quand le désert avance...",
         description:
             "Sous la douce lumière de la lune, un sanctuaire sacré se dévoile au cœur d'une forêt de casoar. Les pierres anciennes, gravées de runes, semblent être les gardiennes d'illusions visuelles, où chaque symbole reflète une histoire oubliée des artistes surréalistes. Ce lieu mystique, protégé par des créatures invisibles, inspire un voyage spirituel au-delà du monde physique, dans un espace où la tranquillité et l'émerveillement cohabitent.",
@@ -81,7 +81,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.trees, CATEGORIES.illusions],
     },
     {
-        id: 5,
+        id: "5",
         name: "Cachot des Esprits",
         description:
             "Au plus profond de la Forêt des Chimères, un cachot dissimule des secrets millénaires. Les murs humides résonnent d'incantations oubliées, évoquant les légendes d'une époque où les créatures mystiques et les esprits des arbres dominaient le monde. Ce lieu, chargé d'une énergie palpable, incarne l'essence du surréalisme, où chaque ombre cache une illusion, et où chaque coin révèle une nouvelle facette du mystère de la vie.",
@@ -135,7 +135,7 @@ export const artworks: ArtPiece[] = [
     // },
 
     {
-        id: 11,
+        id: "11",
         name: "Gardien des Ombres",
         description:
             "Dans les profondeurs d'une forêt mystique, le Gardien des Ombres veille sur les secrets anciens. Mi-homme, mi-bête, cette créature protège les âmes perdues et les anciens rituels. Ses yeux, comme des étoiles, éclairent le chemin des voyageurs qui s'égarent dans ce labyrinthe de mystère et d'illusions. Le Gardien est un symbole du surréalisme, une figure qui incarne la dualité de l'existence et la beauté cachée dans les ombres.",
@@ -161,7 +161,7 @@ export const artworks: ArtPiece[] = [
     //     categories: [CATEGORIES.illusions, CATEGORIES.beasts],
     // },
     {
-        id: 13,
+        id: "13",
         name: "Banquet à la Madone",
         description:
             "Les entités primordiales s'embrassent dans une étreinte chaotique, mélangeant destruction et création. Ce baiser, symbole de dualité, incarne la force créatrice du chaos dans l'univers. Une œuvre riche en détails, où chaque forme semble être en mouvement perpétuel, unissant les contraires pour former une harmonie surréaliste.",
@@ -174,7 +174,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.beasts],
     },
     {
-        id: 14,
+        id: "14",
         name: "Cascade de montagne",
         description: "",
         image: "IMG_5509.webp",
@@ -199,7 +199,7 @@ export const artworks: ArtPiece[] = [
     //     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     // },
     {
-        id: 16,
+        id: "16",
         name: "Arbre sorcier II",
         description:
             "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
@@ -212,7 +212,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.trees],
     },
     {
-        id: 17,
+        id: "17",
         name: "Artémis",
         description:
             "Un totem imposant se dresse au milieu d'un paysage désertique, ses formes abstraites racontant les histoires des anciens. Chaque détail du totem représente une génération disparue, un souvenir gravé dans la pierre. Le Totem des Ancêtres est une œuvre qui questionne la mémoire et l'héritage, dans un style visuel riche en symboles.",
@@ -225,7 +225,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.beasts],
     },
     {
-        id: 18,
+        id: "18",
         name: "Génith",
         description:
             "Dans une explosion de lumière et de couleur, des figures mythologiques se battent pour la domination de l'univers. L'Apothéose de la Fureur est une œuvre qui capture la tension dramatique entre la création et la destruction, où chaque coup porté est une nouvelle explosion de couleur.",
@@ -238,7 +238,7 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.beasts],
     },
     {
-        id: 19,
+        id: "19",
         name: "Truqapattes",
         description:
             "Dans une mer de verdure, une graine mystérieuse semble vibrer d'une énergie inconnue. Cette œuvre symbolise la création et la fertilité, où la vie naît des ténèbres et grandit vers la lumière. La Graine de Vie est une métaphore du cycle de la vie, capturée dans une vision surréaliste.",
@@ -264,4 +264,92 @@ export const artworks: ArtPiece[] = [
     //     alt: "Vortex Céleste - Peinture d'un vortex cosmique hypnotique.",
     //     categories: [CATEGORIES.illusions],
     // },
+    {
+        id: "AB024B01",
+        name: "Arbre des Âmes Captives",
+        description:
+            "Une représentation abstraite d'un arbre dont les racines semblent se tordre dans des mouvements fluides, symbolisant les âmes en transition.",
+        image: "AB024B01.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Arbre abstrait aux racines torsadées, symbolisant des âmes en transition.",
+        categories: [],
+    },
+    {
+        id: "AC024PK02",
+        name: "Forêt des Visions",
+        description:
+            "Un paysage surréaliste où des visages semblent émerger d'une forêt de formes organiques, représentant des esprits perdus cherchant la lumière.",
+        image: "AC024PK02.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Paysage surréaliste avec des visages émergents dans une forêt mystique.",
+        categories: [],
+    },
+    {
+        id: "AG024B02",
+        name: "Gardien des Silences",
+        description:
+            "Un arbre solitaire aux branches nues, abritant un petit animal niché à sa base, incarnant la protection et la solitude dans une forêt immobile.",
+        image: "AG024B02.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Arbre solitaire avec un animal caché à sa base, symbole de protection dans la forêt.",
+        categories: [],
+    },
+    {
+        id: "B001B01",
+        name: "Porteurs de Mystères",
+        description:
+            "Des figures élancées traversent un paysage onirique, leurs silhouettes se fondant dans les illusions de la nuit.",
+        image: "B001B01.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Figures élancées dans un paysage surréaliste.",
+        categories: [],
+    },
+    {
+        id: "BL024B01",
+        name: "Chant des Ombres",
+        description:
+            "Une forme humanoïde se dissout dans un tourbillon d'ombres, un chant silencieux résonnant dans le vide.",
+        image: "BL024B01.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Silhouette humanoïde se dissolvant dans des ombres tourbillonnantes.",
+        categories: [],
+    },
+    {
+        id: "BL024B02",
+        name: "Rituel des Brumes",
+        description:
+            "Une silhouette se fond dans un nuage de brumes sombres, évoquant un rituel ancien perdu dans le temps.",
+        image: "BL024B02.webp",
+        technique: "Bic - Techniques mixtes",
+        size: "40x30 cm",
+        alt: "Silhouette humanoïde dans un nuage de brumes sombres, symbolisant un rituel mystique.",
+        categories: [],
+    },
+    {
+        id: "BL024B03",
+        name: "Serment des Créatures",
+        description:
+            "Deux créatures hybrides s'affrontent dans une danse mystique, leurs formes se mélangeant dans une explosion de lignes.",
+        image: "BL024B03.webp",
+        technique: "Encre sur papier",
+        size: "40x30 cm",
+        alt: "Deux créatures hybrides dans une danse mystique.",
+        categories: [],
+    },
+    {
+        id: "BL024B04",
+        name: "Réveil des Anciens",
+        description:
+            "Un visage émerge lentement des profondeurs, ses traits marqués par le temps et les mystères oubliés.",
+        image: "BL024B04.webp",
+        technique: "Bic - Dessin automatique",
+        size: "40x30 cm",
+        alt: "Visage émergeant des profondeurs, marqué par le temps.",
+        categories: [],
+    },
 ];
