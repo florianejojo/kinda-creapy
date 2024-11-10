@@ -2,10 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const { exec } = require("child_process");
 
-// Fonction pour réduire la qualité de l'image et écraser le fichier original
-const reduceImageQuality = (inputPath, quality = 50) => {
-    // Commande ImageMagick pour réduire la qualité de l'image
-    const command = `magick "${inputPath}" -quality ${quality} "${inputPath}"`;
+const reduceImageQuality = (inputPath, quality = 100) => {
+    const command = `magick "${inputPath}" -resize 600x600 -quality ${quality} "${inputPath}" `;
 
     exec(command, (error, stdout, stderr) => {
         if (error) {
@@ -18,7 +16,6 @@ const reduceImageQuality = (inputPath, quality = 50) => {
     });
 };
 
-// Fonction pour parcourir un répertoire et traiter chaque image
 const processImagesInDirectory = (directory, quality) => {
     fs.readdir(directory, (err, files) => {
         if (err) {
@@ -29,7 +26,6 @@ const processImagesInDirectory = (directory, quality) => {
         files.forEach((file) => {
             const ext = path.extname(file).toLowerCase();
 
-            // Vérifier si le fichier est une image (ajouter d'autres extensions si nécessaire)
             if ([".jpg", ".jpeg", ".png", ".webp", ".heic"].includes(ext)) {
                 const filePath = path.join(directory, file);
                 reduceImageQuality(filePath, quality);
@@ -38,7 +34,6 @@ const processImagesInDirectory = (directory, quality) => {
     });
 };
 
-// Appel de la fonction pour traiter toutes les images dans le répertoire
 const directoryPath =
     "/Users/florianelefebvre/Desktop/remy-portfolio/public/images/artpieces";
-processImagesInDirectory(directoryPath, 30); // Réduit la qualité à 30%
+processImagesInDirectory(directoryPath); 
