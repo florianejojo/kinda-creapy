@@ -30,7 +30,7 @@ const createPixel = (
             ctx.fillRect(Math.floor(this.x), Math.floor(this.y), 1, 1);
         },
         divide() {
-            const shouldDivide = Math.random() < 0.01; // 1% de chance de se diviser
+            const shouldDivide = Math.random() < 0.01; // 1% chance to divide
             if (shouldDivide) {
                 return [
                     createPixel(
@@ -64,7 +64,7 @@ export const AlgoBlood: React.FC = () => {
     const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
-        setIsClient(true); // Indique que le composant est monté côté client
+        setIsClient(true);
     }, []);
 
     useEffect(() => {
@@ -74,9 +74,9 @@ export const AlgoBlood: React.FC = () => {
         const ctx = canvas.getContext("2d");
         if (!ctx) return;
 
-        // Crée le pixel initial en bas de l'écran
+        // Creates first pixel
         pixelsRef.current = [
-            createPixel(canvas.width / 2, canvas.height, 0.1, -0.1, pixelColor), // vy négatif pour monter
+            createPixel(canvas.width / 2, canvas.height, 0.1, -0.1, pixelColor), // vy negative to go up
         ];
 
         function draw() {
@@ -95,17 +95,15 @@ export const AlgoBlood: React.FC = () => {
         rafRef.current = window.requestAnimationFrame(draw);
 
         const colorTimeout = setTimeout(() => {
-            console.log("colorTimeout");
             setPixelColor("black");
         }, 1000 * 5);
 
         const drawingTimeout = setTimeout(() => {
-            console.log("drawingTimeout");
             if (rafRef.current) {
                 window.cancelAnimationFrame(rafRef.current);
                 rafRef.current = null;
             }
-        }, 11000);
+        }, 11 * 1000);
 
         return () => {
             if (rafRef.current) {
