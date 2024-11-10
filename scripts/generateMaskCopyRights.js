@@ -5,8 +5,8 @@ const fs = require("fs");
 function applyWatermark(imagePath) {
     const label = "© KINDA CREAPY ©";
     const command = `magick "${imagePath}" \
-    -gravity southeast -pointsize 60 -font Arial -fill "rgba(255, 255, 255, 0.7)" -annotate 90x90+120+60 ${label} \
-    -gravity northwest -pointsize 60 -font Arial -fill "rgba(165, 42, 42, 0.7)" -annotate 90x90+120+60 ${label} \
+    -gravity southeast -pointsize 20 -font Arial -fill "rgba(255, 255, 255, 0.7)" -annotate 90x90+35+14 "${label}"\
+    -gravity northwest -pointsize 20 -font Arial -fill "rgba(165, 42, 42, 0.7)" -annotate 90x90+35+14 "${label}" \
     "${imagePath}"`;
 
     exec(command, (error, stdout, stderr) => {

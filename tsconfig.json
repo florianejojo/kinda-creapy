@@ -28,7 +28,8 @@
         ".next/types/**/*.ts",
         "data/artwork.ts",
         "app/components/utils.js",
-        "sitemap.js"
+        "sitemap.js",
+        "scripts/generateMaskCopyRights.js"
     ],
     "exclude": ["node_modules"]
 }
