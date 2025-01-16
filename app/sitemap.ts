@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { artworks } from "../data/artwork";
+import { artworks } from "./_shared/constants/artwork";
 import { formatNameToId } from "./utils/utils";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
