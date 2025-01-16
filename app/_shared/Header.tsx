@@ -1,5 +1,5 @@
 "use client";
-import { BurgerMenu } from "@/app/components/BurgerMenu";
+import { BurgerMenu } from "@/app/_shared/BurgerMenu";
 import { HEADER_TITLE, PATHS } from "@/app/types/types";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 export const Header = () => {
     const pathname = usePathname();
 
-  
     return (
         <header className="text-center uppercase font-extralight mx-5 my-10">
             <div className="flex flex-row items-center justify-end  text-xl gap-5">
