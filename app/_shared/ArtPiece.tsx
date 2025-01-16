@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArtPiece as ArtPieceType } from "@/data/artwork";
+import { ArtPiece as ArtPieceType } from "@/app/_shared/constants/artwork";
 import { formatNameToId } from "@/app/utils/utils";
-import { Frame } from "@/app/components/Frame";
+import { Frame } from "@/app/_shared/Frame";
 
 type ArtPieceProps = {
     artPiece: ArtPieceType;

@@ -1,10 +1,9 @@
 // app/gallery/[id].tsx
-import { artworks } from "@/data/artwork";
+import { artworks } from "@/app/_shared/constants/artwork";
 import { notFound } from "next/navigation";
-import { Frame } from "@/app/components/Frame";
+import { Frame } from "@/app/_shared/Frame";
 import Link from "next/link";
 import { formatNameToId } from "@/app/utils/utils";
-import { WordByWordText } from "@/app/components/WordByWordText";
 import { Metadata } from "next";
 
 export async function generateMetadata({
@@ -64,7 +63,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
             </div>
 
             <p className="text-xs w-full font-extralight text-justify max-w-smm mx-auto pt-10 text-gray-300 overflow-scroll self-start">
-                <WordByWordText text={artwork.description} interval={50} />
+                <p>{artwork.description}</p>
             </p>
         </div>
     );

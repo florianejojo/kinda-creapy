@@ -3,8 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
-import { Header } from "@/app/components/Header";
-import { AlgoBlood } from "@/app/components/AlgoBlood";
+import { Header } from "@/app/_shared/Header";
+import { AlgoBlood } from "@/app/_shared/AlgoBlood";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
     title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },

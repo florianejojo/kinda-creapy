@@ -1,7 +1,7 @@
 "use client";
 
 
-import { interview } from "@/data/interview";
+import { interview } from "@/app/artist/constants/interview";
 import { useState } from "react";
 
 export default function ArtistPage({
