@@ -11,6 +11,7 @@ export enum PATHS {
     home = "/home",
     artist = "/artist",
     shop = "/shop",
+    gallery = "/gallery",
 }
 
 export enum TECHNIQUES {
@@ -28,4 +29,5 @@ export const HEADER_TITLE = {
     [PATHS.home]: "KINDA CREAPY",
     [PATHS.artist]: "R. VERROEULST",
     [PATHS.shop]: "KINDA CREAPY",
+    [PATHS.gallery]: "Gallery",
 };

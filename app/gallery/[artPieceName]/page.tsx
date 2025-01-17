@@ -42,16 +42,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
 
     return (
         <div className="max-w-md  mx-auto items-center px-5 font-extralight grid grid-rows-[1fr_2fr_2fr] max-h-screen ">
-            <header className="flex self-start justify-between items-center mt-10 border-b">
-                <Link href="/" className="text-md font-extralight">
-                    Retour
-                </Link>
-                <h1 className="text-2xl font-bol text-center ">
-                    {artwork.name}
-                </h1>
-            </header>
-
-            <div className="items-center max-w-sm mx-auto ">
+            <div className="items-center max-w-sm mx-auto border">
                 <Frame
                     image={artwork.image}
                     alt={artwork.alt}
