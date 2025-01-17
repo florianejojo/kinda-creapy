@@ -52,10 +52,6 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                     {artwork.technique} - {artwork.size}
                 </p>
             </div>
-
-            <p className="text-xs w-full font-extralight text-justify max-w-smm mx-auto pt-10 text-gray-300 overflow-scroll self-start">
-                <p>{artwork.description}</p>
-            </p>
         </div>
     );
 }
