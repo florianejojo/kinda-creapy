@@ -1,7 +1,6 @@
 "use client";
 import { ArtPiece } from "@/app/_shared/ArtPiece";
 import { GridFilledLayout } from "@/app/home/GridFilledLayout";
-import { classNames } from "@/app/utils/utils";
 import { artworks } from "@/app/_shared/constants/artwork";
 
 export default function Home() {

@@ -11,11 +11,10 @@ type ArtPieceProps = {
 };
 export const ArtPiece = ({ artPiece, position }: ArtPieceProps) => {
     return (
-        // <Link
-        //     href={`/gallery/${formatNameToId(artPiece.name)}`}
-        //     className={"grid grid-rows-[1fr_auto]"}
-        // >
-        <div>
+        <Link
+            href={`/gallery/${formatNameToId(artPiece.name)}`}
+            className={"grid grid-rows-[1fr_auto]"}
+        >
             <Frame
                 image={artPiece.image}
                 alt={artPiece.alt}
@@ -31,7 +30,6 @@ export const ArtPiece = ({ artPiece, position }: ArtPieceProps) => {
             <p className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
                 {artPiece.technique}
             </p>
-            {/* </Link>  */}
-        </div>
+        </Link>
     );
 };
