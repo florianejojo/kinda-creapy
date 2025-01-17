@@ -28,16 +28,17 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.illusions],
     },
     {
-        id: "SNW021MX06",
-        name: "Filaments d'Énergie",
+        id: "SNW021MX03",
+        name: "Crépuscule Rouge",
         description:
-            "Des lignes vibrantes d'énergie orange et bleue se croisent dans un réseau dense, capturant la dynamique du mouvement et de la transformation.",
-        image: "SNW021MX06.webp",
+            "Un paysage abstrait baigné dans des tons rouges et sombres, évoquant la fin d'une journée mystérieuse et la naissance de la nuit.",
+        image: "SNW021MX03.webp",
         technique: "Techniques mixtes",
         size: "50x40 cm",
-        alt: "Lignes d'énergie orange et bleue entrelacées dans une composition complexe.",
+        alt: "Paysage abstrait avec des teintes rouges profondes.",
         categories: [],
     },
+
     {
         id: "18",
         name: "Génith",
@@ -265,19 +266,6 @@ export const artworks: ArtPiece[] = [
     //     alt: "Silhouettes fragmentées se regardant à travers une division nette.",
     //     categories: [],
     // },
-    {
-        id: "16",
-        name: "Arbre sorcier II",
-        description:
-            "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
-        image: "IMG_5809.webp",
-        technique: "Peinture à l'huile",
-        size: "24x30",
-        color: "#4A3436",
-        isSpinable: false,
-        alt: "Arbre sorcier II - Peinture représentant un arbre dansant avec les étoiles dans un ciel cosmique.",
-        categories: [CATEGORIES.trees],
-    },
 
     // {
     //     id: "19",
@@ -387,6 +375,19 @@ export const artworks: ArtPiece[] = [
         categories: [],
     },
     {
+        id: "16",
+        name: "Arbre sorcier II",
+        description:
+            "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
+        image: "IMG_5809.webp",
+        technique: "Peinture à l'huile",
+        size: "24x30",
+        color: "#4A3436",
+        isSpinable: false,
+        alt: "Arbre sorcier II - Peinture représentant un arbre dansant avec les étoiles dans un ciel cosmique.",
+        categories: [CATEGORIES.trees],
+    },
+    {
         id: "SLNW021MX08",
         name: "Mouvement Sombre",
         description:
@@ -408,17 +409,6 @@ export const artworks: ArtPiece[] = [
     //     alt: "Éruption de lumière et de couleur sur un fond obscur.",
     //     categories: [],
     // },
-    {
-        id: "SLNW021MX12",
-        name: "Tempête des Ombres",
-        description:
-            "Un ciel menaçant roule au-dessus d'un paysage rougeoyant, capturant la puissance brute de la nature dans une tempête imminente.",
-        image: "SLNW021MX12.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
-        categories: [],
-    },
 
     {
         id: "BL024B03",
@@ -429,6 +419,17 @@ export const artworks: ArtPiece[] = [
         technique: "Encre sur papier",
         size: "40x30 cm",
         alt: "Deux créatures hybrides dans une danse mystique.",
+        categories: [],
+    },
+    {
+        id: "SLNW021MX12",
+        name: "Tempête des Ombres",
+        description:
+            "Un ciel menaçant roule au-dessus d'un paysage rougeoyant, capturant la puissance brute de la nature dans une tempête imminente.",
+        image: "SLNW021MX12.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
         categories: [],
     },
     // {
@@ -475,17 +476,7 @@ export const artworks: ArtPiece[] = [
     //     alt: "Paysage abstrait avec des couleurs tourmentées et un ciel tumultueux.",
     //     categories: [],
     // },
-    {
-        id: "SNW021MX02",
-        name: "Collision d'Étoiles",
-        description:
-            "Des formes entrelacées de lumière et d'ombre évoquant une collision cosmique, avec des textures complexes qui donnent une sensation de profondeur.",
-        image: "SNW021MX02.webp",
-        technique: "Techniques mixtes",
-        size: "50x40 cm",
-        alt: "Explosion de formes lumineuses et sombres dans une scène cosmique.",
-        categories: [],
-    },
+
     {
         id: "5",
         name: "Cachot des Esprits",
@@ -500,14 +491,14 @@ export const artworks: ArtPiece[] = [
         categories: [CATEGORIES.trees, CATEGORIES.beasts, CATEGORIES.illusions],
     },
     {
-        id: "SNW021MX03",
-        name: "Crépuscule Rouge",
+        id: "SNW021MX02",
+        name: "Collision d'Étoiles",
         description:
-            "Un paysage abstrait baigné dans des tons rouges et sombres, évoquant la fin d'une journée mystérieuse et la naissance de la nuit.",
-        image: "SNW021MX03.webp",
+            "Des formes entrelacées de lumière et d'ombre évoquant une collision cosmique, avec des textures complexes qui donnent une sensation de profondeur.",
+        image: "SNW021MX02.webp",
         technique: "Techniques mixtes",
         size: "50x40 cm",
-        alt: "Paysage abstrait avec des teintes rouges profondes.",
+        alt: "Explosion de formes lumineuses et sombres dans une scène cosmique.",
         categories: [],
     },
 
@@ -558,6 +549,18 @@ export const artworks: ArtPiece[] = [
         isSpinable: true,
         alt: "Ouroborosorus Rex - ",
         categories: [CATEGORIES.illusions],
+    },
+
+    {
+        id: "SNW021MX06",
+        name: "Filaments d'Énergie",
+        description:
+            "Des lignes vibrantes d'énergie orange et bleue se croisent dans un réseau dense, capturant la dynamique du mouvement et de la transformation.",
+        image: "SNW021MX06.webp",
+        technique: "Techniques mixtes",
+        size: "50x40 cm",
+        alt: "Lignes d'énergie orange et bleue entrelacées dans une composition complexe.",
+        categories: [],
     },
 
     {
