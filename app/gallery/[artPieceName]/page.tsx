@@ -52,6 +52,12 @@ export default function ArtworkPage({ params }: ArtworkProps) {
                     {artwork.technique} - {artwork.size}
                 </p>
             </div>
+            <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+            <stripe-buy-button
+                buy-button-id="buy_btn_1QiK1mC8MWYLO7EXwOEja2w4"
+                publishable-key="pk_live_51QTjHVC8MWYLO7EX74o7ISZOXDPIEPqhlQVtcip6QcgRHbCCiJttWnH8Avzb6jEUZmPHHHe9sdoUennqkIZsEaWF00lCRK30CX"
+            ></stripe-buy-button>
         </div>
     );
 }
