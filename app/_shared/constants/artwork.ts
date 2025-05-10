@@ -11,6 +11,7 @@ export type ArtPiece = {
     isSpinable?: boolean;
     alt: string;
     categories: CATEGORIES[];
+    
 };
 
 export const artworks: ArtPiece[] = [
@@ -26,6 +27,7 @@ export const artworks: ArtPiece[] = [
         isSpinable: false,
         alt: "Métamorphose Sauvage - Techniques mixtes représentant la fusion de l'esprit humain avec celui du loup.",
         categories: [CATEGORIES.illusions],
+       
     },
     {
         id: "SNW021MX03",
