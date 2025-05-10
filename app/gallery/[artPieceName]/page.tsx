@@ -69,9 +69,7 @@ export default function ArtworkPage({ params }: ArtworkProps) {
               {product.description}
             </p>
             <div className="w-full text-end">
-              <Button isActive isLink href={"cart/id"}>
-                Ajouter au panier
-              </Button>
+              <Button isActive>Acheter</Button>
             </div>
           </div>
         </div>
