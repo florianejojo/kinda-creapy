@@ -1,6 +1,8 @@
+import { ArtPiece } from "@/app/_shared/ArtPiece"
 import { Frame } from "@/app/_shared/Frame"
 
 type FeaturedProductCardProps = {
+  artPiece: any
   title: string
   image: string
   price: string
@@ -12,17 +14,12 @@ export const FeaturedProductCard = ({
   image,
   price,
   alt,
+  artPiece,
 }: FeaturedProductCardProps) => (
   <div
-    className="bg-black rounded shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-lg"
+    className=" rounded shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-lg flex items-center "
     style={{ animation: "fadeInUp 0.5s ease-in-out forwards" }}
   >
-    <div className="h-96 w-full bg-slate-400 overflow-hidden flex">
-      <Frame image={image} alt={alt} isLazyLoaded={false} />
-    </div>
-    <div className="p-4">
-      <h3 className="text-lg font-bold mb-2">{title}</h3>
-      <p className="text-gray-600">{price}</p>
-    </div>
+    <ArtPiece artPiece={artPiece} position={1}></ArtPiece>
   </div>
 )

@@ -15,19 +15,13 @@ export default function Home() {
     <div className=" min-h-screen font-sans">
       <HeroSection />
 
-      <section className="py-16 px-6 sm:px-12  mx-auto">
-        <h2 className="text-2xl sm:text-3xl mb-8 text-center">
+      <section className="py-16 px-6 sm:px-12  mx-auto ">
+        <h2 className="text-2xl sm:text-3xl my-24 text-center">
           Nos coups de cœur
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProducts.map(({ image, alt, name }, i) => (
-            <FeaturedProductCard
-              key={i}
-              title={name}
-              image={image}
-              price={"15 $"}
-              alt={alt}
-            />
+          {featuredProducts.map((product, i) => (
+            <FeaturedProductCard price="15" artPiece={product} key={i} />
           ))}
         </div>
       </section>

@@ -3,10 +3,11 @@ import { Button } from "@/app/_shared/Button"
 import Link from "next/link"
 
 // bg-[url('/images/artpieces/IID019B01%202.webp')]
+// bg-[url('/images/artpieces/IMG_4919.webp')]
 export const HeroSection = () => (
   <section
     className="relative bg-transparent
-   bg-cover bg-center text-white py-24 px-6 sm:px-12 bg-[url('/images/artpieces/IMG_4919.webp')]"
+   bg-cover bg-center text-white py-24 px-6 sm:px-12 bg-gray-900"
   >
     <div className="bg-black/50 absolute inset-0" />
     <div className="relative z-10 mx-auto text-center">
