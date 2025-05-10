@@ -15,7 +15,7 @@ export default function Home() {
     <div className=" min-h-screen font-sans">
       <HeroSection />
 
-      <section className="py-16 px-6 sm:px-12 max-w-6xl mx-auto">
+      <section className="py-16 px-6 sm:px-12  mx-auto">
         <h2 className="text-2xl sm:text-3xl mb-8 text-center">
           Nos coups de cœur
         </h2>

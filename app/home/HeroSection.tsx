@@ -1,10 +1,15 @@
+import { AlgoBlood } from "@/app/_shared/AlgoBlood"
 import { Button } from "@/app/_shared/Button"
 import Link from "next/link"
 
+// bg-[url('/images/artpieces/IID019B01%202.webp')]
 export const HeroSection = () => (
-  <section className="relative opacity-50 bg-[url('/images/artpieces/IID019B01%202.webp')] bg-cover bg-center text-white py-24 px-6 sm:px-12">
+  <section
+    className="relative bg-transparent
+   bg-cover bg-center text-white py-24 px-6 sm:px-12 bg-[url('/images/artpieces/IMG_4919.webp')]"
+  >
     <div className="bg-black/50 absolute inset-0" />
-    <div className="relative z-10 max-w-3xl mx-auto text-center">
+    <div className="relative z-10 mx-auto text-center">
       <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-wide">
         Kinda Creapy
       </h1>
@@ -15,12 +20,6 @@ export const HeroSection = () => (
       <Button isLink href={"/shop"}>
         Voir la boutique
       </Button>
-
-      {/* <Link href="/shop"> Voir la boutique</Link>
-      <a
-        href="/shop"
-        className="inline-block px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition"
-      ></a> */}
     </div>
   </section>
 )

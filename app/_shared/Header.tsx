@@ -1,42 +1,88 @@
 "use client"
-import { useFirstSegmentPathName } from "@/app/_shared/hooks/useFirstSegmentPathName"
-import { useHeaderTitle } from "@/app/_shared/hooks/useHeaderTitle"
-import { PATHS } from "@/app/types/types"
-import { faInstagram } from "@fortawesome/free-brands-svg-icons"
-import { faPalette, faUserSecret } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 
 export const Header = () => {
-  const pathName = useFirstSegmentPathName()
-  const title = useHeaderTitle()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const navLinks = [
+    { label: "Accueil", href: "/" },
+    { label: "Boutique", href: "/shop" },
+    { label: "À propos", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ]
 
   return (
-    <header className="text-center uppercase font-extralight mx-5 my-10">
-      <div className="flex flex-row items-center justify-between text-2xl">
-        <Link href={PATHS.home}>
-          {pathName !== PATHS.home && <FontAwesomeIcon icon={faPalette} />}
-        </Link>
+    <header className="bg-[#f8f4ef] shadow-sm sticky top-0 z-50">
+      <div className="mx-auto px-6 py-4 flex justify-between items-center">
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={70}
+          height={70}
+          className="h-10 w-10 rounded-full"
+        />
 
-        <div className="flex flex-row gap-5">
-          {pathName !== PATHS.artist && (
-            <Link href={PATHS.artist}>
-              <FontAwesomeIcon icon={faUserSecret} className="" />
-            </Link>
+        {/* Desktop navigation */}
+        <nav className="hidden md:flex gap-8 text-base font-medium">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-gray-800 hover:text-black transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Mobile menu button */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Menu"
+        >
+          {isOpen ? (
+            // X icon
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M6 18L18 6M6 6l12 12"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          ) : (
+            // Burger icon
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 6h16M4 12h16M4 18h16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
           )}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.instagram.com/kindacreapy.art"
-          >
-            <FontAwesomeIcon icon={faInstagram} className="text-3xl" />
-          </a>
-        </div>
+        </button>
       </div>
 
-      <h1 className="text-3xl font-extralight text-center border-b py-3 mt-10">
-        {title}
-      </h1>
+      {/* Mobile nav */}
+      {isOpen && (
+        <nav className="md:hidden bg-[#f8f4ef] px-6 pb-4">
+          <ul className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="text-gray-800 hover:text-black transition"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
   )
 }

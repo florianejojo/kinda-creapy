@@ -14,10 +14,10 @@ export const FeaturedProductCard = ({
   alt,
 }: FeaturedProductCardProps) => (
   <div
-    className="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-lg"
+    className="bg-black rounded shadow-md overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-lg"
     style={{ animation: "fadeInUp 0.5s ease-in-out forwards" }}
   >
-    <div className="w-full h-64 object-cover">
+    <div className="h-96 w-full bg-slate-400 overflow-hidden flex">
       <Frame image={image} alt={alt} isLazyLoaded={false} />
     </div>
     <div className="p-4">
