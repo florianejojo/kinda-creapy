@@ -7,12 +7,12 @@ import Link from "next/link"
 export const HeroSection = () => (
   <section
     className="relative bg-transparent
-   bg-cover bg-center text-white py-24 px-6 sm:px-12 bg-gray-900"
+   bg-cover bg-center text-white py-24 px-6 sm:px-12 border-b"
   >
-    <div className="bg-black/50 absolute inset-0" />
+    <div className="bg-transparent absolute inset-0" />
     <div className="relative z-10 mx-auto text-center">
-      <h1 className="text-4xl sm:text-5xl font-bold mb-4 tracking-wide">
-        Kinda Creapy
+      <h1 className="text-4xl sm:text-5xl font-extralight mb-4 tracking-wide">
+        KINDA CREAPY
       </h1>
       <p className="text-lg sm:text-xl mb-6">
         Images doubles, illustrations décalées, surrealistes.

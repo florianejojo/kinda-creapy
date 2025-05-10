@@ -2,6 +2,9 @@
 // @ts-nocheck
 import React, { useEffect, useRef, useState } from "react"
 
+const CHANCE_TO_DIVIDE = 0.005
+const TIME_TO_STOP = 13 * 1000
+
 interface Pixel {
   x: number
   y: number
@@ -30,7 +33,7 @@ const createPixel = (
       ctx.fillRect(Math.floor(this.x), Math.floor(this.y), 1, 1)
     },
     divide() {
-      const shouldDivide = Math.random() < 0.01 // 1% chance to divide
+      const shouldDivide = Math.random() < CHANCE_TO_DIVIDE // 1% chance to divide
       if (shouldDivide) {
         return [
           createPixel(
@@ -103,7 +106,7 @@ export const AlgoBlood: React.FC = () => {
         window.cancelAnimationFrame(rafRef.current)
         rafRef.current = null
       }
-    }, 11 * 10000)
+    }, TIME_TO_STOP)
 
     return () => {
       if (rafRef.current) {

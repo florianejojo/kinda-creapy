@@ -22,7 +22,9 @@ export default function RootLayout({
       <Analytics />
       <SpeedInsights />
       <body className={inter.className}>
-        <div className="absolute z-0">{/* <AlgoBlood /> */}</div>
+        <div className="absolute z-0">
+          <AlgoBlood />
+        </div>
         <div className="relative z-10 ">
           <Header />
         </div>
