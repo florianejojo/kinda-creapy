@@ -6,7 +6,7 @@ type ButtonProps = {
   href?: string
   onClick?: () => void
   isActive: boolean
-  size: "sm" | "md" | "lg"
+  size?: "sm" | "md" | "lg"
 }
 
 export const Button: React.FC<ButtonProps> = ({

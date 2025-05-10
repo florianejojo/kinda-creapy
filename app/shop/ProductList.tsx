@@ -1,5 +1,6 @@
 import { artworks } from "@/app/_shared/constants/artwork"
 import { ProductCard } from "@/app/shop/ProductCard"
+import { formatNameToId } from "@/app/utils/utils"
 
 export const ProductList = () => {
   const categories = ["Tout", "Affiches", "Illustrations", "Objets"]
@@ -31,6 +32,7 @@ export const ProductList = () => {
               title={artPiece.name}
               image={artPiece.image}
               price={"15"}
+              id={formatNameToId(artPiece.name)}
             />
           ))}
         </div>
