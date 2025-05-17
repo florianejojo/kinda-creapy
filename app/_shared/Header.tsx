@@ -39,7 +39,7 @@ export const Header = () => {
 
         {/* Mobile menu button */}
         <button
-          className="md:hidden"
+          className="md:hidden text-black"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Menu"
         >

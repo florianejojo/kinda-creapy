@@ -1,48 +1,38 @@
-"use client"
-import { artworks } from "@/app/_shared/constants/artwork"
 import { ProductCard } from "@/app/shop/ProductCard"
+import { UploadImagesButton } from "@/app/shop/UploadImagesButton"
 import { formatNameToId } from "@/app/utils/utils"
 import { supabase } from "@/lib/supabaseClient"
 import { useEffect, useState } from "react"
 
-export const ProductList = () => {
+export const ProductList = async () => {
   const categories = ["Tout", "Affiches", "Illustrations", "Objets"]
-  const [products, setProducts] = useState<[]>([])
 
-  useEffect(() => {
-    const fetchArtworks = async () => {
-      const { data, error } = await supabase.from("products")
-        .select(`*,  products_images (
-      url,
-      alt
-    )`)
-      console.log({ data, error })
-      // .order("id", { ascending: true }) // optionnel
+  const { data: products, error } = await supabase
+    .from("products")
+    .select(`*, images (url, alt)`)
 
-      if (error) console.error("Erreur Supabase :", error)
-      else setProducts(data || [])
-    }
+  if (error) {
+    console.error("Erreur Supabase :", error)
+    return <div>Erreur lors du chargement des produits</div>
+  }
 
-    fetchArtworks()
-  }, [])
-
-  useEffect(() => {
-    console.log({ products })
-  }, [products])
+  // bg-[#f8f4ef]
 
   return (
-    <section className="bg-[#f8f4ef] min-h-screen py-12 px-4 sm:px-8">
+    <section
+      className="
+   
+
+    min-h-screen py-12 px-4 sm:px-8"
+    >
       <div className="max-w-7xl mx-auto">
+        {/* <UploadImagesButton /> */}
         <h1 className="text-3xl font-bold text-center mb-8 text-black">
           Boutique
         </h1>
 
-        {products.map(({ name }) => {
-          return <div className="flex justify-center mb-4">{name}</div>
-        })}
-
         {/* Filtres */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((cat, i) => (
             <button
               key={i}
@@ -51,19 +41,24 @@ export const ProductList = () => {
               {cat}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Grille de produits */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {artworks.map((artPiece, i) => (
-            <ProductCard
-              key={i}
-              title={artPiece.name}
-              image={artPiece.image}
-              price={"15"}
-              id={formatNameToId(artPiece.name)}
-            />
-          ))}
+          {products.map((product, i) => {
+            console.log("ici", product.images[0])
+
+            // return null
+            return (
+              <ProductCard
+                key={i}
+                title={product.title}
+                images={product.images}
+                price={15}
+                id={formatNameToId(product.id)}
+              />
+            )
+          })}
         </div>
       </div>
     </section>

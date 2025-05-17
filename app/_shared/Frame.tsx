@@ -4,14 +4,30 @@ import Image from "next/image"
 import imageMap from "@/imageImports"
 
 type FrameProps = {
-  image: string
+  url: string
   alt: string
   isLazyLoaded: boolean
+  image?: {
+    url: string
+    alt: string
+  }
 }
 
-export const Frame = ({ image, alt, isLazyLoaded }: FrameProps) => {
-  const img = imageMap[image as keyof typeof imageMap]
+export const Frame = ({ url, alt, isLazyLoaded, image }: FrameProps) => {
+  const img = imageMap[url as keyof typeof imageMap]
 
+  if (image) {
+    return (
+      <Image
+        src={image.url}
+        fill
+        alt={image.alt}
+        loading={isLazyLoaded ? "lazy" : "eager"}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className="object-cover"
+      />
+    )
+  }
   return (
     img && (
       <Image

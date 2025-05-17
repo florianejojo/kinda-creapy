@@ -1,17 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    eslint: {
-        ignoreDuringBuilds: true,
-    },
-    async redirects() {
-        return [
-            {
-                source: "/",
-                destination: "/home",
-                permanent: true,
-            },
-        ];
-    },
-};
+  images: {
+    domains: [new URL(process.env.NEXT_PUBLIC_SUPABASE_URL).hostname],
+  },
 
-export default nextConfig;
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/home",
+        permanent: true,
+      },
+    ]
+  },
+}
+
+export default nextConfig
