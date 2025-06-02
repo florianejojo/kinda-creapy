@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { supabase } from "@/lib/supabaseClient"
-import { artworks } from "@/app/_shared/constants/artwork"
+import { artworks } from "@/app/_src/shared/constants/artwork"
 
 export function UploadImagesButton() {
   const [status, setStatus] = useState<"idle" | "uploading" | "done">("idle")
@@ -21,10 +21,9 @@ export function UploadImagesButton() {
   const handleUpload = async () => {
     setStatus("uploading")
     setMessage(null)
-    // remplir la db avec artworks
     artworks.forEach(async (artwork) => {
       await supabase.from("images").insert({
-        url: `https://lcsdfaptnbdpgwehjjvm.supabase.co/storage/v1/object/public/products-images//${artwork.image}`,
+        url: `${process.env.NEXT_PUBLIC_SUPABASE_URL_BUCKET}${artwork.image}`,
         alt: artwork.alt,
         product_id: artwork.id,
         name: artwork.name + " full",

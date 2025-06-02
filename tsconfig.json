@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/_shared/constants/artwork.ts",
+    "app/_src/shared/constants/artwork.ts",
     "app/_shared/utils.js",
     "sitemap.js",
     "scripts/generateMaskCopyRights.js",

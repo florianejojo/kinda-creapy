@@ -5,7 +5,7 @@ type ButtonProps = {
   isLink?: boolean
   href?: string
   onClick?: () => void
-  isActive: boolean
+  isActive?: boolean
   size?: "sm" | "md" | "lg"
 }
 
@@ -14,7 +14,7 @@ export const Button: React.FC<ButtonProps> = ({
   isLink = false,
   href = "#",
   onClick,
-  isActive,
+  isActive = false,
   size = "md",
 }) => {
   const baseClasses = `inline-block px-6 py-3 bg-white text-black  rounded-full hover:bg-gray-200 transition

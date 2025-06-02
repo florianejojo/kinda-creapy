@@ -4,7 +4,7 @@ import Image from "next/image"
 import imageMap from "@/imageImports"
 
 type FrameProps = {
-  url: string
+  url?: string
   alt: string
   isLazyLoaded: boolean
   image?: {

@@ -1,9 +1,5 @@
-import { AlgoBlood } from "@/app/_shared/AlgoBlood"
-import { Button } from "@/app/_shared/Button"
-import Link from "next/link"
+import { Button } from "@/app/_src/shared/ui/Button"
 
-// bg-[url('/images/artpieces/IID019B01%202.webp')]
-// bg-[url('/images/artpieces/IMG_4919.webp')]
 export const HeroSection = () => (
   <section
     className="relative bg-transparent
@@ -18,7 +14,7 @@ export const HeroSection = () => (
         Images doubles, illustrations décalées, surrealistes.
       </p>
 
-      <Button isLink href={"/shop"}>
+      <Button isLink href={"/gallery"}>
         Voir la boutique
       </Button>
     </div>

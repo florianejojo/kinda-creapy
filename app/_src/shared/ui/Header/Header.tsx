@@ -1,50 +1,44 @@
 "use client"
-import Image from "next/image"
-import { useState } from "react"
+
+import { useHeaderViewModel } from "@/app/_src/shared/ui/Header/useHeaderViewModel"
+import Link from "next/link"
 
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const navLinks = [
-    { label: "Accueil", href: "/" },
-    { label: "Boutique", href: "/shop" },
-    { label: "À propos", href: "/about" },
-    { label: "Contact", href: "/contact" },
-  ]
+  const { homeNavLink, otherNavLinks, isOpen, setIsOpen } = useHeaderViewModel()
 
   return (
-    <header className="bg-[#f8f4ef] shadow-sm sticky top-0 z-50">
-      <div className="mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-black">KINDA CREAPY</div>
-        {/* <Image
-          src="/logo.png"
-          alt="Logo"
-          width={70}
-          height={70}
-          className="h-10 w-10 rounded-full"
-        /> */}
+    <header className="bg-[#f8f4ef] shadow-sm top-0 z-50 w-full">
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+        {/* Logo */}
+        <Link
+          href={homeNavLink.href}
+          className="text-xl font-bold text-gray-900"
+        >
+          KINDA CREAPY
+        </Link>
 
-        {/* Desktop navigation */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex gap-8 text-base font-medium">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-gray-800 hover:text-black transition-colors duration-200"
-            >
-              {link.label}
-            </a>
-          ))}
+          {otherNavLinks
+            .filter((link) => link.label !== "Accueil")
+            .map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-gray-800 hover:text-black transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
         </nav>
 
-        {/* Mobile menu button */}
+        {/* Mobile toggle */}
         <button
           className="md:hidden text-black"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Menu"
         >
           {isOpen ? (
-            // X icon
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M6 18L18 6M6 6l12 12"
@@ -54,7 +48,6 @@ export const Header = () => {
               />
             </svg>
           ) : (
-            // Burger icon
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path
                 d="M4 6h16M4 12h16M4 18h16"
@@ -71,14 +64,15 @@ export const Header = () => {
       {isOpen && (
         <nav className="md:hidden bg-[#f8f4ef] px-6 pb-4">
           <ul className="flex flex-col gap-4">
-            {navLinks.map((link) => (
+            {otherNavLinks.map((link) => (
               <li key={link.href}>
-                <a
+                <Link
                   href={link.href}
                   className="text-gray-800 hover:text-black transition"
+                  onClick={() => setIsOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

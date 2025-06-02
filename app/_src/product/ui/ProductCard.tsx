@@ -1,8 +1,5 @@
-import { ArtPiece } from "@/app/_shared/ArtPiece"
-import { Button } from "@/app/_shared/Button"
-import { Frame } from "@/app/_shared/Frame"
-import { formatNameToId } from "@/app/utils/utils"
-import Image from "next/image"
+import { Frame } from "@/app/_src/product/ui/Frame"
+import { Button } from "@/app/_src/shared/ui/Button"
 
 type ProductCardProps = {
   title: string
