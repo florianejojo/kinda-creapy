@@ -5,6 +5,7 @@ export const productActions = ({
 }: {
   set: (
     partial: Partial<{
+      products: Product[]
       featuredProducts: Product[]
       fetchingStatus: "idle" | "loading" | "error" | "success"
       errorMessage: string | null
@@ -13,6 +14,8 @@ export const productActions = ({
 }) => ({
   setFeaturedProducts: (products: Product[]) =>
     set({ featuredProducts: products }),
+
+  setProducts: (products: Product[]) => set({ products }),
 
   setFetchingStatus: (status: "idle" | "loading" | "error" | "success") =>
     set({ fetchingStatus: status }),

@@ -63,7 +63,7 @@ export const Header = () => {
       {/* Mobile nav */}
       {isOpen && (
         <nav className="md:hidden bg-[#f8f4ef] px-6 pb-4">
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-4 ">
             {otherNavLinks.map((link) => (
               <li key={link.href}>
                 <Link
