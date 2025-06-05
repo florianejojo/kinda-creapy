@@ -5,7 +5,7 @@ import { useProductStore } from "@/app/_src/product/productStore"
 import { ProductList } from "@/app/_src/product/ui/ProductList"
 import { useEffect } from "react"
 
-export default function GalleryPage({}: { params: { categoryId: string } }) {
+export default function GalleryPage() {
   const { products } = useProductStore()
 
   useEffect(() => {

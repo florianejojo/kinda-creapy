@@ -1,8 +1,10 @@
 "use client"
 
+import { buyProductUseCase } from "@/app/_src/cart/features/buyProduct/buyProduct.useCase"
+import { Button } from "@/app/_src/shared/ui/Button"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
+import { use, useState } from "react"
 
 type ProductOption = {
   id: string
@@ -26,14 +28,6 @@ export const ProductCard = ({
   options,
 }: ProductCardProps) => {
   const [selectedOptionId, setSelectedOptionId] = useState(options[0]?.id || "")
-
-  const selectedOption = options.find((opt) => opt.id === selectedOptionId)
-
-  const handleBuy = () => {
-    if (!selectedOption) return
-    console.log("Buy product:", id, "option:", selectedOption)
-    // Ici, tu pourras appeler une action Zustand ou API pour ajouter au panier
-  }
 
   return (
     <div className="rounded shadow-md overflow-hidden p-4 bg-white flex flex-col gap-3 max-w-xs">
@@ -64,19 +58,17 @@ export const ProductCard = ({
       </select>
 
       {/* Actions */}
-      <div className="flex gap-2">
-        <Link
-          href={`/gallery/${id}`}
-          className="w-full text-center bg-white border border-black text-black text-sm py-2 rounded hover:bg-gray-100 transition"
-        >
+      <div className="grid grid-cols-2 gap-4">
+        <Button isLink href={`/gallery/${id}`}>
           Voir
-        </Link>
-        <button
-          onClick={handleBuy}
-          className="w-full bg-black text-white text-sm py-2 rounded hover:opacity-90 transition"
+        </Button>
+        <Button
+          isLink
+          isActive
+          href={`/checkout?productId=${selectedOptionId}`}
         >
           Acheter
-        </button>
+        </Button>
       </div>
     </div>
   )
