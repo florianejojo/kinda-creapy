@@ -12,10 +12,6 @@ export default function GalleryPage() {
     displayProductsUseCase()
   }, [])
 
-  useEffect(() => {
-    console.log({ products })
-  }, [products])
-
   return (
     <div className=" min-h-40 flex items-center flex-col justify-between">
       <h2 className="text-3xl text-stone-50">Boutique</h2>

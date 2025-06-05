@@ -7,7 +7,7 @@ import Link from "next/link"
 import { use, useState } from "react"
 
 type ProductOption = {
-  id: string
+  product_id: string
   label: string
   price: number
 }
@@ -27,7 +27,9 @@ export const ProductCard = ({
   alt = "",
   options,
 }: ProductCardProps) => {
-  const [selectedOptionId, setSelectedOptionId] = useState(options[0]?.id || "")
+  const [selectedOptionId, setSelectedOptionId] = useState(
+    options[0]?.product_id || ""
+  )
 
   return (
     <div className="rounded shadow-md overflow-hidden p-4 bg-white flex flex-col gap-3 max-w-xs">
@@ -44,32 +46,37 @@ export const ProductCard = ({
       {/* Titre */}
       <h2 className="text-base font-semibold">{title}</h2>
 
-      {/* Dropdown */}
-      <select
-        value={selectedOptionId}
-        onChange={(e) => setSelectedOptionId(e.target.value)}
-        className="border border-gray-300 rounded px-3 py-2 text-sm text-black"
-      >
-        {options.map((opt) => (
-          <option key={opt.id} value={opt.id}>
-            {opt.label} — {opt.price.toFixed(2)} €
-          </option>
-        ))}
-      </select>
-
-      {/* Actions */}
-      <div className="grid grid-cols-2 gap-4">
-        <Button isLink href={`/gallery/${id}`}>
-          Voir
-        </Button>
-        <Button
-          isLink
-          isActive
-          href={`/checkout?productId=${selectedOptionId}`}
-        >
-          Acheter
-        </Button>
-      </div>
+      {!options.length ? (
+        <div className="text-red-700 text-right">SOLD OUT</div>
+      ) : (
+        <>
+          {/* Dropdown */}
+          <select
+            value={selectedOptionId}
+            onChange={(e) => setSelectedOptionId(e.target.value)}
+            className="border border-gray-300 rounded px-3 py-2 text-sm text-black"
+          >
+            {options.map((option) => (
+              <option key={option.product_id} value={option.product_id}>
+                {option.label} — {option.price.toFixed(2)} €
+              </option>
+            ))}
+          </select>
+          {/* Actions */}
+          <div className="grid grid-cols-2 gap-4">
+            <Button isLink href={`/gallery/${id}`}>
+              Voir
+            </Button>
+            <Button
+              isLink
+              isActive
+              href={`/checkout?productId=${selectedOptionId}`}
+            >
+              Acheter
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -12,18 +12,19 @@ export const productApi = {
   },
 
   getProducts: async (): Promise<{ data: Product[] }> => {
-    const { data: products, error } = await supabase.from("products").select(
-      `*,
-        stocks (
-          id,
-          quantity,
-          price
-        )
-      `
+    const { data: products, error } = await supabase.from("products").select(`
+    *,
+    images (url, alt),
+    stocks (
+      id,
+      quantity,
+      price,
+      version: versions (label) 
     )
+  `)
 
     return {
-      data: products?.filter((product) => product.stocks.length) as Product[],
+      data: products || [],
     }
   },
 }

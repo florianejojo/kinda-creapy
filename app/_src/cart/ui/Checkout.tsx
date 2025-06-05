@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 )
 
-export const Checkout = () => {
+export const Checkout = ({ productId }) => {
   const [clientSecret, setClientSecret] = useState<string | null>(null)
   const checkoutRef = useRef(null)
 

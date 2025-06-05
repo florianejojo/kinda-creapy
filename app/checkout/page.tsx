@@ -1,9 +1,14 @@
-import { Checkout } from "@/app/_src/cart/ui/Checkout"
+"use client"
 
-export default function Page() {
+import { Checkout } from "@/app/_src/cart/ui/Checkout"
+import { useSearchParams } from "next/navigation"
+
+export default function CheckoutPage() {
+  const searchParams = useSearchParams()
+  const productId = searchParams.get("productId")
   return (
-    <main className="min-h-screen flex justify-center items-center p-4">
-      <Checkout />
-    </main>
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <Checkout productId={productId} />
+    </div>
   )
 }

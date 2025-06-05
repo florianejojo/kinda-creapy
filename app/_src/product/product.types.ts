@@ -6,4 +6,12 @@ export type Product = {
     url: string
     alt: string
   }[]
+  stocks: {
+    id: string
+    quantity: number
+    price: number
+    version: {
+      label: string
+    }
+  }[]
 }
