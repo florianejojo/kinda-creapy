@@ -2,12 +2,13 @@ import { create } from "zustand"
 
 import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
 
-export type ProductPriceStore = {
+export type PricesStore = {
   fetchingStatus: FETCH_STATUS
   errorMessage: string | null
+  getProductPrice: (productId: string) => Promise<number>
 }
 
-export const useBuyProductStore = create<ProductPriceStore>((set) => ({
+export const usePricesStore = create<PricesStore>((set) => ({
   fetchingStatus: FETCH_STATUS.idle,
   errorMessage: null,
 
@@ -15,16 +16,15 @@ export const useBuyProductStore = create<ProductPriceStore>((set) => ({
     set({ fetchingStatus: FETCH_STATUS.loading, errorMessage: null })
 
     try {
-      // Simulate an API call to fetch product price
-      const response = await fetch(`/api/products/${productId}/price`)
-      if (!response.ok) {
-        throw new Error("Failed to fetch product price")
-      }
+      const response = await fetch("/api/stripe/price", {
+        method: "POST",
+        body: JSON.stringify({ priceId: productId }),
+      })
       const data = await response.json()
 
       set({ fetchingStatus: FETCH_STATUS.success, errorMessage: null })
-      return data.price
-    } catch (error) {
+      return data.price.unit_amount_decimal / 100
+    } catch (error: any) {
       set({
         fetchingStatus: FETCH_STATUS.error,
         errorMessage: error.message || "Failed to fetch product price",
@@ -33,5 +33,3 @@ export const useBuyProductStore = create<ProductPriceStore>((set) => ({
     }
   },
 }))
-
-//

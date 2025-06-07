@@ -10,6 +10,7 @@ export type Product = {
     id: string
     quantity: number
     stripePriceId: string
+    price: number
     version: {
       label: string
     }

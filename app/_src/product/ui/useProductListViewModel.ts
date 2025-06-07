@@ -1,7 +1,6 @@
 import { displayProductsUseCase } from "@/app/_src/product/features/displayFeaturedProducts/displayProducts.useCase"
 import { useProductStore } from "@/app/_src/product/productStore"
-import { PATHS } from "@/app/types/types"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 
 export type ProductInSell = {
   id: string
@@ -21,8 +20,6 @@ export const useProductListViewModel = (): {
 } => {
   const { products } = useProductStore()
 
-  //   const {prices} = usePricesStore()
-
   useEffect(() => {
     displayProductsUseCase()
   }, [])
@@ -37,7 +34,7 @@ export const useProductListViewModel = (): {
       options: product.stocks.map((productInStock) => ({
         stockId: productInStock.id,
         optionLabel: productInStock.version.label,
-        price: 15,
+        price: productInStock.price || 0, // Default to 0 if price is not set
       })),
     })),
   }

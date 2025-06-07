@@ -18,7 +18,6 @@ export const productApi = {
     stocks (
       id,
       quantity,
-      price,
       version: versions (label),
       stripe_price_id_test,
       stripe_price_id_live
@@ -36,7 +35,6 @@ export const productApi = {
               version: {
                 label: stockLine.version.label,
               },
-              price: stockLine.price,
               stripePriceId:
                 process.env.NEXT_PUBLIC_ENV === "production"
                   ? stockLine.stripe_price_id_live

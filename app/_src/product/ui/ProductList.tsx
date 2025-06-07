@@ -1,6 +1,5 @@
 "use client"
 
-import { Product } from "@/app/_src/product/product.types"
 import { ProductCard } from "@/app/_src/product/ui/ProductCard"
 import { useProductListViewModel } from "@/app/_src/product/ui/useProductListViewModel"
 
@@ -15,9 +14,11 @@ export const ProductList = () => {
               <ProductCard
                 key={product.id}
                 id="art1"
-                title="Sombre Reflet"
+                name="Sombre Reflet"
                 imageUrl={product.imageUrl}
                 options={product.options}
+                alt={product.alt}
+                description={product.description}
               />
             )
           })}
