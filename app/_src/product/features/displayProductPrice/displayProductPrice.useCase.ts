@@ -1,4 +1,3 @@
-import { pricesApi } from "@/app/_src/product/features/displayProductPrice/pricesApi"
 import { productApi } from "@/app/_src/product/product.api"
 import { useProductStore } from "@/app/_src/product/productStore"
 import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
@@ -11,18 +10,6 @@ export const displayProductsUseCase = async () => {
 
   try {
     const response = await productApi.getProducts()
-
-    const pricesByProductInStock: { [productInStockId: string]: string } = {}
-
-    for (const product of response.data) {
-      for (const stock of product.stocks) {
-        if (stock.stripePriceId) {
-          pricesByProductInStock[stock.id] = stock.stripePriceId
-        }
-      }
-    }
-
-    console.log({ response, pricesByProductInStock })
 
     if (response.data) {
       setProducts(response.data)

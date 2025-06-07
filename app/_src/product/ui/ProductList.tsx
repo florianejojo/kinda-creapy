@@ -2,12 +2,10 @@
 
 import { Product } from "@/app/_src/product/product.types"
 import { ProductCard } from "@/app/_src/product/ui/ProductCard"
+import { useProductListViewModel } from "@/app/_src/product/ui/useProductListViewModel"
 
-type ProductListProps = {
-  products: Product[]
-}
-
-export const ProductList = ({ products }: ProductListProps) => {
+export const ProductList = () => {
+  const { products } = useProductListViewModel()
   return (
     <section className="min-h-screen py-12 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
@@ -18,14 +16,8 @@ export const ProductList = ({ products }: ProductListProps) => {
                 key={product.id}
                 id="art1"
                 title="Sombre Reflet"
-                imageUrl={product.images[0].url}
-                options={product.stocks.map((productInStock) => {
-                  return {
-                    product_id: productInStock.id,
-                    label: productInStock.version.label,
-                    price: productInStock.price,
-                  }
-                })}
+                imageUrl={product.imageUrl}
+                options={product.options}
               />
             )
           })}

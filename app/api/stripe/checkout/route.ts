@@ -1,16 +1,15 @@
 import Stripe from "stripe"
 import { NextResponse } from "next/server"
+import { stripe } from "@/lib/stripe"
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
-
-export async function POST() {
+export async function POST(stripePriceId) {
   try {
     const session = await stripe.checkout.sessions.create({
       ui_mode: "embedded",
       mode: "payment",
       line_items: [
         {
-          price: "price_1RWKMhC5XgGQx5sC1XzC4ZAj",
+          price: stripePriceId,
           quantity: 1,
         },
       ],

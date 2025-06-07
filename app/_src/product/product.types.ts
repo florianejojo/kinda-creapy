@@ -9,7 +9,7 @@ export type Product = {
   stocks: {
     id: string
     quantity: number
-    price: number
+    stripePriceId: string
     version: {
       label: string
     }

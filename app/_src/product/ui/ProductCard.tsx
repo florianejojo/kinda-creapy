@@ -1,34 +1,21 @@
 "use client"
 
-import { buyProductUseCase } from "@/app/_src/cart/features/buyProduct/buyProduct.useCase"
+import { ProductInSell } from "@/app/_src/product/ui/useProductListViewModel"
 import { Button } from "@/app/_src/shared/ui/Button"
 import Image from "next/image"
-import Link from "next/link"
-import { use, useState } from "react"
+import { useState } from "react"
 
-type ProductOption = {
-  product_id: string
-  label: string
-  price: number
-}
-
-type ProductCardProps = {
-  id: string
-  title: string
-  imageUrl: string
-  alt?: string
-  options: ProductOption[]
-}
+type ProductCardProps = ProductInSell
 
 export const ProductCard = ({
   id,
-  title,
+  name,
   imageUrl,
   alt = "",
   options,
 }: ProductCardProps) => {
   const [selectedOptionId, setSelectedOptionId] = useState(
-    options[0]?.product_id || ""
+    options[0]?.stockId || ""
   )
 
   return (
@@ -37,14 +24,14 @@ export const ProductCard = ({
       <div className="relative aspect-[3/4] w-full">
         <Image
           src={imageUrl}
-          alt={alt || title}
+          alt={alt || name}
           fill
           className="object-cover rounded"
         />
       </div>
 
       {/* Titre */}
-      <h2 className="text-base font-semibold">{title}</h2>
+      <h2 className="text-base font-semibold">{name}</h2>
 
       {!options.length ? (
         <div className="text-red-700 text-right">SOLD OUT</div>
@@ -57,8 +44,8 @@ export const ProductCard = ({
             className="border border-gray-300 rounded px-3 py-2 text-sm text-black"
           >
             {options.map((option) => (
-              <option key={option.product_id} value={option.product_id}>
-                {option.label} — {option.price.toFixed(2)} €
+              <option key={option.stockId} value={option.stockId}>
+                {option.optionLabel} — {option.price.toFixed(2)} €
               </option>
             ))}
           </select>

@@ -19,12 +19,35 @@ export const productApi = {
       id,
       quantity,
       price,
-      version: versions (label) 
+      version: versions (label),
+      stripe_price_id_test,
+      stripe_price_id_live
     )
   `)
+    const data =
+      products?.map((product) => {
+        return {
+          ...product,
+          coucou: "coucou",
+          stocks: product.stocks.map((stockLine) => {
+            return {
+              id: stockLine.id,
+              quantity: stockLine.quantity,
+              version: {
+                label: stockLine.version.label,
+              },
+              price: stockLine.price,
+              stripePriceId:
+                process.env.NEXT_PUBLIC_ENV === "production"
+                  ? stockLine.stripe_price_id_live
+                  : stockLine.stripe_price_id_test,
+            }
+          }),
+        }
+      }) || []
 
     return {
-      data: products || [],
+      data,
     }
   },
 }
