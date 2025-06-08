@@ -57,7 +57,7 @@ export const ProductCard = ({
             <Button
               isLink
               isActive
-              href={`/checkout?productId=${selectedOptionId}`}
+              href={`/checkout?stockId=${selectedOptionId}`}
             >
               Acheter
             </Button>

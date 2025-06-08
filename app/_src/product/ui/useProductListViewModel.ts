@@ -24,6 +24,10 @@ export const useProductListViewModel = (): {
     displayProductsUseCase()
   }, [])
 
+  useEffect(() => {
+    console.log({ products })
+  }, [products])
+
   return {
     products: products.map((product) => ({
       id: product.id,

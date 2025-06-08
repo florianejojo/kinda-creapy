@@ -1,24 +1,36 @@
 "use client"
 
+import { productApi } from "@/app/_src/product/product.api"
+import { useProductStore } from "@/app/_src/product/productStore"
 import {
   EmbeddedCheckoutProvider,
   EmbeddedCheckout,
 } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
+import { useSearchParams } from "next/navigation"
 import { useEffect, useState, useRef } from "react"
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 )
 
-export const Checkout = ({ productId }) => {
+export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null)
   const checkoutRef = useRef(null)
+
+  const searchParams = useSearchParams()
+  const stockId = searchParams.get("stockId")
 
   useEffect(() => {
     try {
       const createSession = async () => {
-        const res = await fetch("/api/stripe/checkout", { method: "POST" })
+        const stripePriceId = await productApi.getPriceByStockId(stockId || "")
+        const res = await fetch("/api/stripe/checkout", {
+          method: "POST",
+          body: JSON.stringify({
+            priceId: stripePriceId,
+          }),
+        })
         const { clientSecret } = await res.json()
         setClientSecret(clientSecret)
       }
@@ -29,7 +41,8 @@ export const Checkout = ({ productId }) => {
     }
   }, [])
 
-  if (!clientSecret) return <p>Chargement du paiement...</p>
+  if (!clientSecret)
+    return <p className="text-black">Chargement du paiement... {stockId}</p>
 
   return (
     <EmbeddedCheckoutProvider stripe={stripePromise} options={{ clientSecret }}>
