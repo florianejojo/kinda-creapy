@@ -3,7 +3,7 @@ import { NextResponse } from "next/server"
 import { stripe } from "@/lib/stripe"
 
 export async function POST(request: Request) {
-  const { priceId } = await request.json() // ✅ Ici tu lis le payload JSON
+  const { priceId } = await request.json()
   console.log("Payload reçu :", priceId)
 
   try {

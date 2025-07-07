@@ -1,12 +1,14 @@
 import { Product } from "@/app/_src/product/product.types"
 import { supabase } from "@/lib/supabaseClient"
 
-// interface
-
 interface ProductApi {
   getFeaturedProducts: () => Promise<{ data: Product[] }>
   getProducts: () => Promise<{ data: Product[] }>
   getPriceByStockId: (stockId: string) => Promise<Product | null>
+  createNewProduct: (newProduct: {
+    title: string
+    images: any[]
+  }) => Promise<Product | null>
 }
 
 const getStripePriceId = (stockLine) => {
@@ -67,8 +69,6 @@ export const productApi: ProductApi = {
       .select(`*`)
       .eq("id", stockId)
       .single()
-
-    console.log({ productInStock })
 
     const stripePriceId = await getStripePriceId(productInStock)
 
