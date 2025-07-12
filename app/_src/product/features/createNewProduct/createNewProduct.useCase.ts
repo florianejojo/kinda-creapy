@@ -15,20 +15,20 @@ export const createNewProductUseCase = async ({ images, title }: Product) => {
   //   setFetchingStatus(FETCH_STATUS.loading)
   const handleImageUpload = async () => {
     const file = images[0]
+    console.log({ file })
     if (!file) return
 
     try {
-      const { publicUrl } = await bucketApi.uploadImage({
-        file: images[0],
+      const image = await bucketApi.uploadImage({
+        file,
         title,
       })
-      console.log("URL publique de l'image :", publicUrl)
+      console.log("URL publique de l'image :", image)
       // Tu peux stocker `publicUrl` dans ta base produits ensuite
     } catch (err) {
       console.error(err)
     }
   }
-  console.log({ images })
 
   await handleImageUpload()
 

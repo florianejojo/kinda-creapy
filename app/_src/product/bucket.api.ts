@@ -1,11 +1,14 @@
 export const bucketApi = {
   uploadImage: async ({ title, file }: { title: string; file: File }) => {
+    const formData = new FormData()
+    formData.append("title", title)
+    formData.append("file", file)
+
     const res = await fetch("/api/bucket/insert", {
       method: "POST",
-      body: JSON.stringify({ title, file }),
+      body: formData,
     })
 
-    const { product } = await res.json()
-    return product
+    return res
   },
 }

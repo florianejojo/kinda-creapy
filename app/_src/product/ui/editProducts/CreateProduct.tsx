@@ -4,7 +4,7 @@ import { createNewProductUseCase } from "@/app/_src/product/features/createNewPr
 import { InputField } from "@/app/_src/product/ui/editProducts/InputField"
 import { InputImage } from "@/app/_src/product/ui/editProducts/InputImage"
 import { Button } from "@/app/_src/shared/ui/Button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 interface ArtVersion {
   id: string
@@ -35,10 +35,6 @@ export const CreateProduct = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([])
 
   const createProduct = async () => {
-    console.log({
-      title,
-      images: [file],
-    })
     if (!title || !file) {
       setError("Veuillez remplir tous les champs.")
       return
@@ -50,6 +46,10 @@ export const CreateProduct = () => {
     })
   }
 
+  useEffect(() => {
+    console.log({ file })
+  }, [file])
+
   return (
     <div className="p-4 space-y-4   border-2 text-black">
       <h2>Ajouter un nouveau produit</h2>
@@ -60,10 +60,7 @@ export const CreateProduct = () => {
         onChange={(title) => setTitle(title)}
       />
       <InputImage onChange={(file) => setFile(file)} />
-      <Button onClick={createProduct}>
-        Ajouter
-        {/* {isSubmitting ? "Ajout en cours..." : "Ajouter"} */}
-      </Button>
+      <Button onClick={createProduct}>Ajouter</Button>
     </div>
   )
 }

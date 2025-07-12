@@ -13,6 +13,7 @@ export const InputImage = ({ onChange }: ImageInputProps) => {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0] || null
+    console.log(e.target.files[0])
     onChange(file)
 
     if (file) {
