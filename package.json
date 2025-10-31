@@ -1,42 +1,42 @@
 {
-    "name": "remy-portfolio",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "next dev",
-        "build": "next build",
-        "start": "next start",
-        "lint": "next lint",
-        "images": "node /Users/florianelefebvre/Desktop/remy-portfolio/convertImagesToWebp.js node /Users/florianelefebvre/Desktop/remy-portfolio/generateImagesImports.js"
-    },
-    "dependencies": {
-        "@fortawesome/fontawesome-svg-core": "^6.6.0",
-        "@fortawesome/free-brands-svg-icons": "^6.6.0",
-        "@fortawesome/free-regular-svg-icons": "^6.6.0",
-        "@fortawesome/free-solid-svg-icons": "^6.6.0",
-        "@fortawesome/react-fontawesome": "^0.2.2",
-        "@headlessui/react": "^2.1.2",
-        "@stripe/react-stripe-js": "^3.7.0",
-        "@stripe/stripe-js": "^7.3.1",
-        "@supabase/supabase-js": "^2.49.4",
-        "@vercel/analytics": "^1.3.1",
-        "@vercel/speed-insights": "^1.0.12",
-        "next": "14.2.4",
-        "react": "^18",
-        "react-dom": "^18",
-        "sharp": "^0.33.5",
-        "stripe": "^18.2.1",
-        "zustand": "^5.0.5"
-    },
-    "devDependencies": {
-        "@types/node": "^20",
-        "@types/react": "^18",
-        "@types/react-dom": "^18",
-        "eslint": "^8",
-        "eslint-config-next": "14.2.4",
-        "postcss": "^8",
-        "tailwindcss": "^3.4.1",
-        "ts-node": "^10.9.2",
-        "typescript": "^5.8.3"
-    }
+  "name": "remy-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "images": "node /Users/florianelefebvre/Desktop/remy-portfolio/convertImagesToWebp.js node /Users/florianelefebvre/Desktop/remy-portfolio/generateImagesImports.js"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-regular-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@headlessui/react": "^2.1.2",
+    "@stripe/react-stripe-js": "^3.7.0",
+    "@stripe/stripe-js": "^7.3.1",
+    "@supabase/supabase-js": "^2.49.4",
+    "@vercel/analytics": "^1.3.1",
+    "@vercel/speed-insights": "^1.0.12",
+    "next": "14.2.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "sharp": "^0.33.5",
+    "stripe": "^18.2.1",
+    "zustand": "^5.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
 }

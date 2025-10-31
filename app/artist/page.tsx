@@ -3,11 +3,7 @@
 import { interview } from "@/app/artist/constants/interview"
 import { useState } from "react"
 
-export default function ArtistPage({
-  params,
-}: {
-  params: { categoryId: string }
-}) {
+export default function ArtistPage({ params }: { params: { categoryId: string } }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
   const toggleAnswer = (index: number) => {

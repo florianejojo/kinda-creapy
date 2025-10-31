@@ -14,9 +14,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ price })
   } catch (error) {
     console.error("Stripe error:", error)
-    return NextResponse.json(
-      { error: "Erreur lors de la récupération du prix" },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: "Erreur lors de la récupération du prix" }, { status: 500 })
   }
 }

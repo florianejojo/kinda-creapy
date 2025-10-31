@@ -3,8 +3,7 @@ import { useProductStore } from "@/app/_src/product/productStore"
 import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
 
 export const displayFeaturedProductsUseCase = async () => {
-  const { setFeaturedProducts, setFetchingStatus, setErrorMessage } =
-    useProductStore.getState()
+  const { setFeaturedProducts, setFetchingStatus, setErrorMessage } = useProductStore.getState()
 
   setFetchingStatus(FETCH_STATUS.loading)
 

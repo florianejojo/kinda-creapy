@@ -17,11 +17,10 @@ export const productActions = ({
       featuredProducts: Product[]
       fetchingStatus: FETCH_STATUS
       errorMessage: string | null
-    }>
+    }>,
   ) => void
 }) => ({
-  setFeaturedProducts: (products: Product[]) =>
-    set({ featuredProducts: products }),
+  setFeaturedProducts: (products: Product[]) => set({ featuredProducts: products }),
 
   setProducts: (products: Product[]) => set({ products }, false, "setProducts"),
 

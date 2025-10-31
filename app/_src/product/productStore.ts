@@ -35,6 +35,6 @@ export const useProductStore = create<ProductStore>()(
         products: state.products,
         featuredProducts: state.featuredProducts,
       }),
-    }
-  )
+    },
+  ),
 )

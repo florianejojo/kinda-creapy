@@ -7,8 +7,7 @@ import { Header } from "@/app/_src/shared/ui/Header/Header"
 
 export const metadata: Metadata = {
   title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },
-  description:
-    "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
+  description: "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
   icons: "remy_verroeulst.png",
 }
 

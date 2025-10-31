@@ -9,25 +9,20 @@ export async function POST(req: NextRequest) {
     const file = formData.get("file") as File
 
     if (!file || !title) {
-      return NextResponse.json(
-        { error: "title ou file manquant" },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: "title ou file manquant" }, { status: 400 })
     }
 
-    const { data, error } = await supabase.storage
-      .from("images")
-      .upload(title, file, {
-        cacheControl: "3600",
-        // replace file with same name
-        upsert: true,
-        contentType: file.type,
-      })
+    const { data, error } = await supabase.storage.from("images").upload(title, file, {
+      cacheControl: "3600",
+      // replace file with same name
+      upsert: true,
+      contentType: file.type,
+    })
 
     if (error) {
       return NextResponse.json(
         { error: error.error, message: error.message },
-        { status: error.statusCode }
+        { status: error.statusCode },
       )
     }
 

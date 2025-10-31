@@ -78,9 +78,7 @@ export default async function ArtworkPage({ params }: ArtworkProps) {
               {product.technique} - {product.size}
             </p>
             <p className="text-xl font-medium text-gray-800">{"15 E"}</p>
-            <p className="text-base text-gray-700 leading-relaxed">
-              {product.description}
-            </p>
+            <p className="text-base text-gray-700 leading-relaxed">{product.description}</p>
             <div className="w-full text-end">
               <Button isActive>Acheter</Button>
             </div>

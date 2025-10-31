@@ -18,9 +18,7 @@ export default function Home() {
       <HeroSection />
 
       <section className="py-16 px-6 sm:px-12 mx-auto max-w-7xl">
-        <h2 className="text-md sm:text-3xl m-8 text-center font-extralight">
-          Nos coups de cœur
-        </h2>
+        <h2 className="text-md sm:text-3xl m-8 text-center font-extralight">Nos coups de cœur</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProducts.map((product, i) => (
             <FeaturedProductCard

@@ -15,13 +15,7 @@ interface Pixel {
   divide: () => Pixel[]
 }
 
-const createPixel = (
-  x: number,
-  y: number,
-  vx: number,
-  vy: number,
-  color: string
-): Pixel => {
+const createPixel = (x: number, y: number, vx: number, vy: number, color: string): Pixel => {
   return {
     x,
     y,
@@ -41,14 +35,14 @@ const createPixel = (
             this.y,
             this.vx + Math.random() - 0.5,
             this.vy + Math.random() - 0.5,
-            this.color
+            this.color,
           ),
           createPixel(
             this.x,
             this.y,
             this.vx + Math.random() - 0.5,
             this.vy + Math.random() - 0.5,
-            this.color
+            this.color,
           ),
         ]
       } else {

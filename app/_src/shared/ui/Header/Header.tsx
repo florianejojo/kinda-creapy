@@ -10,10 +10,7 @@ export const Header = () => {
     <header className="bg-[#f8f4ef] shadow-sm top-0 z-50 w-full">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link
-          href={homeNavLink.href}
-          className="text-xl font-bold text-gray-900"
-        >
+        <Link href={homeNavLink.href} className="text-xl font-bold text-gray-900">
           KINDA CREAPY
         </Link>
 

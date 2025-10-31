@@ -26,7 +26,7 @@ export async function POST(request: Request) {
   } catch (e) {
     return NextResponse.json(
       { error: "Erreur serveur lors de la création de la session", e },
-      { status: 500 }
+      { status: 500 },
     )
   }
 }

@@ -49,15 +49,9 @@ export const FeaturedProductCard = ({
         )}
       </div>
 
-      <h2 className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-        {title}
-      </h2>
-      <p className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-        {size}
-      </p>
-      <p className="text-xs font-extralight text-right w-full pt-2 text-gray-300">
-        {technique}
-      </p>
+      <h2 className="text-xs font-extralight text-right w-full pt-2 text-gray-300">{title}</h2>
+      <p className="text-xs font-extralight text-right w-full pt-2 text-gray-300">{size}</p>
+      <p className="text-xs font-extralight text-right w-full pt-2 text-gray-300">{technique}</p>
       <div className="text-right">
         <Button size="sm" isLink href={`/gallery/${id}`}>
           voir

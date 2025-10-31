@@ -26,23 +26,14 @@ export const Button: React.FC<ButtonProps> = ({
 
   if (isLink) {
     return (
-      <a
-        href={href}
-        className={`${baseClasses} `}
-        data-is-active={isActive}
-        data-size={size}
-      >
+      <a href={href} className={`${baseClasses} `} data-is-active={isActive} data-size={size}>
         {children}
       </a>
     )
   }
 
   return (
-    <button
-      onClick={onClick}
-      className={`${baseClasses}`}
-      data-is-active={isActive}
-    >
+    <button onClick={onClick} className={`${baseClasses}`} data-is-active={isActive}>
       {children}
     </button>
   )

@@ -1,8 +1,4 @@
 import { bucketApi } from "@/app/_src/product/bucket.api"
-import { productApi } from "@/app/_src/product/product.api"
-import { useProductStore } from "@/app/_src/product/productStore"
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
-import { useState } from "react"
 
 type Product = {
   title: string

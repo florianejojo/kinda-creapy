@@ -7,27 +7,14 @@ import { useState } from "react"
 
 type ProductCardProps = ProductInSell
 
-export const ProductCard = ({
-  id,
-  name,
-  imageUrl,
-  alt = "",
-  options,
-}: ProductCardProps) => {
-  const [selectedOptionId, setSelectedOptionId] = useState(
-    options[0]?.stockId || ""
-  )
+export const ProductCard = ({ id, name, imageUrl, alt = "", options }: ProductCardProps) => {
+  const [selectedOptionId, setSelectedOptionId] = useState(options[0]?.stockId || "")
 
   return (
     <div className="rounded shadow-md overflow-hidden p-4 bg-white flex flex-col gap-3 max-w-xs">
       {/* Image */}
       <div className="relative aspect-[3/4] w-full">
-        <Image
-          src={imageUrl}
-          alt={alt || name}
-          fill
-          className="object-cover rounded"
-        />
+        <Image src={imageUrl} alt={alt || name} fill className="object-cover rounded" />
       </div>
 
       {/* Titre */}
@@ -54,11 +41,7 @@ export const ProductCard = ({
             <Button isLink href={`/gallery/${id}`}>
               Voir
             </Button>
-            <Button
-              isLink
-              isActive
-              href={`/checkout?stockId=${selectedOptionId}`}
-            >
+            <Button isLink isActive href={`/checkout?stockId=${selectedOptionId}`}>
               Acheter
             </Button>
           </div>

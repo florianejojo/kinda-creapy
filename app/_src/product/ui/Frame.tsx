@@ -1,7 +1,7 @@
 "use client"
 
-import Image from "next/image"
 import imageMap from "@/imageImports"
+import Image from "next/image"
 
 type FrameProps = {
   url?: string

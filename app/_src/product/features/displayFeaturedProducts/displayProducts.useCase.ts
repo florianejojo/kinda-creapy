@@ -4,8 +4,7 @@ import { useProductStore } from "@/app/_src/product/productStore"
 import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
 
 export const displayProductsUseCase = async () => {
-  const { setProducts, setFetchingStatus, setErrorMessage } =
-    useProductStore.getState()
+  const { setProducts, setFetchingStatus, setErrorMessage } = useProductStore.getState()
 
   const { getProductPrice } = usePricesStore.getState()
   setFetchingStatus(FETCH_STATUS.loading)
@@ -32,22 +31,20 @@ export const displayProductsUseCase = async () => {
         const updatedStocks = await Promise.all(
           product.stocks.map(async (stock) => {
             const stripePriceId = pricesByProductInStock[stock.id]
-            const price = stripePriceId
-              ? await getProductPrice(stripePriceId)
-              : 0
+            const price = stripePriceId ? await getProductPrice(stripePriceId) : 0
 
             return {
               ...stock,
               price,
             }
-          })
+          }),
         )
 
         return {
           ...product,
           stocks: updatedStocks,
         }
-      })
+      }),
     )
 
     if (response.data) {
