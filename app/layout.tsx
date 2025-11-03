@@ -1,9 +1,10 @@
-import type { Metadata } from "next"
-import "./globals.css"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/react"
 import { AlgoBlood } from "@/app/_src/shared/ui/AlgoBlood"
 import { Header } from "@/app/_src/shared/ui/Header/Header"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import type { Metadata } from "next"
+import { Toaster } from "sonner"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },
@@ -20,15 +21,16 @@ export default function RootLayout({
     <html lang="fr">
       <Analytics />
       <SpeedInsights />
-      <body>
+      <body className="flex flex-col min-h-screen">
         <div className="absolute z-0">
           <AlgoBlood />
         </div>
         <div className="relative z-10">
           <Header />
         </div>
-        <main className="relative z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10  tracking-widest mx-auto">
+        <main className="relative z-10 flex-1 items-center justify-between m-5 md:p-10  tracking-widest mx-auto">
           {children}
+          <Toaster position="top-right" richColors closeButton />
         </main>
       </body>
     </html>
