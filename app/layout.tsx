@@ -19,19 +19,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <Analytics />
-      <SpeedInsights />
-      <body className="flex flex-col min-h-screen">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+      </head>
+      <body className="flex flex-col min-h-vdh">
         <div className="absolute z-0">
           <AlgoBlood />
         </div>
+
         <div className="relative z-10">
           <Header />
         </div>
-        <main className="relative z-10 flex-1 items-center justify-between m-5 md:p-10  tracking-widest mx-auto">
+
+        <main className="relative z-10 flex-1 items-center justify-between m-5 md:p-10 tracking-widest">
           {children}
-          <Toaster position="top-right" richColors closeButton />
         </main>
+
+        <Toaster position="top-right" richColors closeButton />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

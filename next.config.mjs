@@ -8,6 +8,16 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
 
+  experimental: {
+    serverActions: {
+      allowedOrigins: [
+      'http://localhost:3000',  
+      'https://kindacreapy.art',
+    ],
+      bodySizeLimit: `30mb`,
+    },
+  },
+
   async redirects() {
     return [
       {
