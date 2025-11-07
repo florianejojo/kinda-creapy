@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
+import React from "react"
 
 import { Product } from "@/models/product_model"
 
@@ -12,19 +12,17 @@ import ProductSelect from "./product_select"
 type ProductSelectFormProps = {
   currentProduct: Product | null
   setCurrentProduct: (product: Product | null) => void
+  isLoading: boolean
 }
 
 const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
   currentProduct,
   setCurrentProduct,
+  isLoading,
 }) => {
   const { findProductById } = useProductStore()
 
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-
   const handleSelect = async (productId: string | null) => {
-    setIsLoading(true)
-
     if (productId) {
       const product = findProductById(productId)
 
@@ -34,8 +32,6 @@ const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
     } else {
       setCurrentProduct(null)
     }
-
-    setIsLoading(false)
   }
 
   return (
@@ -45,7 +41,7 @@ const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
           htmlFor="product-title"
           className={`block font-semibold  text-gray-100 dark:text-gray-300`}
         >
-          Selectionne un produit
+          {isLoading ? "Chargement des produits..." : "Selectionne un produit"}
         </label>
       </div>
       <ProductSelect

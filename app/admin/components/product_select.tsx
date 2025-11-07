@@ -25,7 +25,11 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
         value={currentProductId ?? ""}
         onChange={(e) => onSelect(e.target.value || null)}
         disabled={isDisabled}
-        className="block w-full h-11 px-3 pr-9 rounded border border-gray-300 dark:border-gray-700 bg-white dark:bg-zinc-800 text-base text-gray-900 dark:text-gray-100 appearance-none focus:outline-none focus:ring-2 focus:ring-gray-500/40"
+        className={`block w-full h-11 px-3 pr-9 rounded border border-gray-300 dark:border-gray-700 text-base text-gray-900 dark:text-gray-100 appearance-none focus:outline-none focus:ring-2 focus:ring-gray-500/40 ${
+          isDisabled
+            ? "bg-gray-300 dark:bg-zinc-700 cursor-not-allowed"
+            : "bg-white dark:bg-zinc-800"
+        }`}
       >
         <option value="">Nouveau produit</option>
         {products.map((p) => (
