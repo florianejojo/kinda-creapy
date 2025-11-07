@@ -81,37 +81,49 @@ export const ProductImagesForm = ({
       {currentProduct.images.length > 0 && (
         <div className="w-full overflow-x-auto">
           <div className="flex gap-4">
-            {currentProduct.images.map((it, idx) => (
-              <div key={idx} className="w-full">
-                <div className="rounded shadow border border-stone-200 bg-white p-2">
-                  <Image
-                    src={it.url}
-                    alt={`Preview ${idx + 1}`}
-                    width={1}
-                    height={1}
-                    unoptimized
-                    style={{ width: "100%", height: "auto", display: "block" }}
-                    className="rounded"
-                  />
-                  <div className="mt-2 flex gap-2">
-                    <button
-                      type="button"
-                      onClick={() => openReplace(idx)}
-                      className="px-3 py-1.5 bg-stone-800 text-white rounded text-xs hover:bg-stone-700 transition"
-                    >
-                      Remplacer
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => removeAt(idx)}
-                      className="px-3 py-1.5 bg-stone-100 text-stone-700 rounded text-xs hover:bg-stone-200 transition"
-                    >
-                      Supprimer
-                    </button>
+            {currentProduct.images.map((it, idx) => {
+              const ext = it.file?.name?.split(".").pop()?.toLowerCase()
+              const isHeic = ext === "heic"
+
+              return (
+                <div key={idx} className="w-full">
+                  <div className="rounded shadow border border-stone-200 bg-white p-2">
+                    {isHeic ? (
+                      <div className="w-full h-40 flex items-center justify-center bg-stone-100 rounded text-sm text-stone-600 text-center px-2">
+                        Aperçu indisponible pour les images HEIC — conversion automatique côté
+                        serveur
+                      </div>
+                    ) : (
+                      <Image
+                        src={it.url}
+                        alt={`Preview ${idx + 1}`}
+                        width={1}
+                        height={1}
+                        unoptimized
+                        style={{ width: "100%", height: "auto", display: "block" }}
+                        className="rounded"
+                      />
+                    )}
+                    <div className="mt-2 flex gap-2">
+                      <button
+                        type="button"
+                        onClick={() => openReplace(idx)}
+                        className="px-3 py-1.5 bg-stone-800 text-white rounded text-xs hover:bg-stone-700 transition"
+                      >
+                        Remplacer
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => removeAt(idx)}
+                        className="px-3 py-1.5 bg-stone-100 text-stone-700 rounded text-xs hover:bg-stone-200 transition"
+                      >
+                        Supprimer
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       )}

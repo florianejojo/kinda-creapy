@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabaseClient"
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
+import { normalizeImageFile } from "../utils"
 
 export async function POST(req: NextRequest) {
   try {
@@ -29,8 +30,9 @@ export async function POST(req: NextRequest) {
 
     const uploadedPaths: string[] = []
 
-    for (const file of files) {
-      const ext = (file.name.split(".").pop() || "jpg").toLowerCase()
+    for (const original of files) {
+      const file = await normalizeImageFile(original)
+      const ext = (file.name.split(".").pop() || "png").toLowerCase()
       const filename = `${crypto.randomUUID()}.${ext}`
       const path = `${productId}/images/${filename}`
 

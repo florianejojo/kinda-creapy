@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabaseClient"
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
+import { normalizeImageFile } from "../../utils"
 
 export async function DELETE(_: NextRequest, context: { params: Promise<{ id: string }> }) {
   const { id } = await context.params
@@ -60,9 +61,10 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
   const newlyUploaded: string[] = []
 
   for (let i = 0; i < incomingList.length; i++) {
-    const file = filesByIndex.get(i)
-    if (file) {
-      const ext = (file.name.split(".").pop() || "jpg").toLowerCase()
+    const originalFile = filesByIndex.get(i)
+    if (originalFile) {
+      const file = await normalizeImageFile(originalFile)
+      const ext = (file.name.split(".").pop() || "png").toLowerCase()
       const filename = `${crypto.randomUUID()}.${ext}`
       const path = `${id}/images/${filename}`
 
