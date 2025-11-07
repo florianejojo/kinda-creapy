@@ -8,12 +8,12 @@ export async function POST(req: NextRequest) {
 
     const raw = form.get("data")
     if (typeof raw !== "string") {
-      return NextResponse.json({ success: false, error: "Invalid payload" }, { status: 400 })
+      return NextResponse.json({ error: "Invalid payload" }, { status: 400 })
     }
 
     const dto = JSON.parse(raw) as ProductDTO
     if (!dto.title || typeof dto.price !== "number") {
-      return NextResponse.json({ success: false, error: "Missing title or price" }, { status: 400 })
+      return NextResponse.json({ error: "Missing title or price" }, { status: 400 })
     }
 
     const files: File[] = []
@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     }
 
     if (!files.length) {
-      return NextResponse.json({ success: false, error: "No images provided" }, { status: 400 })
+      return NextResponse.json({ error: "No images provided" }, { status: 400 })
     }
 
     const productId = crypto.randomUUID()
@@ -34,22 +34,22 @@ export async function POST(req: NextRequest) {
       const filename = `${crypto.randomUUID()}.${ext}`
       const path = `products/${productId}/${filename}`
 
-      const { error: upErr } = await supabase.storage.from("images").upload(path, file, {
+      const { error } = await supabase.storage.from("images").upload(path, file, {
         upsert: true,
         contentType: file.type,
       })
 
-      if (upErr) {
+      if (error) {
         if (uploadedPaths.length) {
           await supabase.storage.from("images").remove(uploadedPaths)
         }
-        return NextResponse.json({ success: false, error: upErr.message }, { status: 500 })
+        return NextResponse.json({ error: error.message }, { status: 500 })
       }
 
       uploadedPaths.push(path)
     }
 
-    const { data: product, error: dbErr } = await supabase
+    const { data: product, error } = await supabase
       .from("products")
       .insert({
         id: productId,
@@ -62,18 +62,15 @@ export async function POST(req: NextRequest) {
       .select("id, title, description, images, price, sold")
       .single()
 
-    if (dbErr) {
+    if (error) {
       if (uploadedPaths.length) {
         await supabase.storage.from("images").remove(uploadedPaths)
       }
-      return NextResponse.json({ success: false, error: dbErr.message }, { status: 500 })
+      return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true, data: product }, { status: 201 })
+    return NextResponse.json(product.id, { status: 201 })
   } catch (err: any) {
-    return NextResponse.json(
-      { success: false, error: err?.message ?? "Unknown error" },
-      { status: 500 },
-    )
+    return NextResponse.json({ error: err?.message ?? "Unknown error" }, { status: 500 })
   }
 }

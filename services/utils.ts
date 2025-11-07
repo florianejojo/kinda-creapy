@@ -21,12 +21,12 @@ export async function handleResponse<T>(
         return { success: false, error: all.join("; ") }
       }
 
-      if (json.message) {
-        const msg = Array.isArray(json.message) ? json.message.join("; ") : json.message
+      if (json.error) {
+        const msg = Array.isArray(json.error) ? json.error.join("; ") : json.error
         return { success: false, error: msg }
       }
 
-      return { success: false, error: json.message ?? response.statusText }
+      return { success: false, error: json.error ?? response.statusText }
     } catch {
       return { success: false, error: response.statusText }
     }
