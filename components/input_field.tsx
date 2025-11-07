@@ -2,6 +2,7 @@ import InfoIcon from "@mui/icons-material/Info"
 import React from "react"
 
 import LoadingCircle from "./loading_circle"
+import Spacer from "./spacer"
 
 interface InputFieldProps {
   id: string
@@ -42,7 +43,7 @@ const InputField: React.FC<InputFieldProps> = ({
         <div className={`flex items-center justify-between mb-${raw ? "1" : "2"}`}>
           <label
             htmlFor={id}
-            className={`block text-${size} font-semibold  text-gray-700 dark:text-gray-300`}
+            className={`block text-${size} font-semibold  text-gray-300 dark:text-gray-300`}
           >
             {label}
           </label>
@@ -58,6 +59,7 @@ const InputField: React.FC<InputFieldProps> = ({
           )}
         </div>
       )}
+      <Spacer size={4} />
       <div className="relative">
         <input
           id={id}
