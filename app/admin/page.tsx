@@ -5,6 +5,7 @@ import CustomSwitch from "@/components/switch"
 import { Product } from "@/models/product_model"
 import { useProductStore } from "@/stores/product_store"
 import { useEffect, useState } from "react"
+import LogoutButton from "./components/logout_button"
 import ProductDeleteButton from "./components/product_delete_button"
 import ProductDescriptionForm from "./components/product_description_form"
 import { ProductImagesForm } from "./components/product_images_form"
@@ -13,12 +14,7 @@ import ProductSubmit from "./components/product_submit"
 import ProductTitleForm from "./components/product_title_form"
 
 export default function Page() {
-  const {
-    removeProduct,
-    fetchProducts,
-    isLoading: productLoading,
-    error: productError,
-  } = useProductStore()
+  const { removeProduct, fetchProducts, isLoading: productLoading } = useProductStore()
 
   const [currentProduct, setCurrentProduct] = useState<Product | null>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -40,7 +36,12 @@ export default function Page() {
 
   return (
     <div className="w-full max-w-2xl bg-cream-100 mx-auto">
-      <ProductSelectForm currentProduct={currentProduct} setCurrentProduct={setCurrentProduct} />
+      <LogoutButton />
+      <ProductSelectForm
+        currentProduct={currentProduct}
+        setCurrentProduct={setCurrentProduct}
+        isLoading={productLoading}
+      />
       <Spacer size={12} />
       <div className="w-full flex items-start gap-2">
         <ProductTitleForm

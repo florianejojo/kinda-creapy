@@ -6,7 +6,15 @@ class NavigationService {
   }
 
   static navigateToLogin(params?: string): void {
-    this.navigate("/auth/login", params)
+    this.navigate("/admin/login", params)
+  }
+
+  static navigateToAdmin(params?: string): void {
+    this.navigate("/admin", params)
+  }
+
+  static navigateToMain(params?: string): void {
+    this.navigate("/", params)
   }
 }
 
