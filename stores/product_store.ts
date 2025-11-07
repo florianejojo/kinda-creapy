@@ -40,6 +40,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
     const normalized = data?.map((product) => ({
       ...product,
       images: product.images.map((path: string) => ({
+        path,
         url: supabase.storage.from("images").getPublicUrl(path).data.publicUrl,
       })),
     }))

@@ -1,5 +1,6 @@
 export type ProductImage = {
-  file: File
+  file?: File
+  path?: string
   url: string
 }
 
