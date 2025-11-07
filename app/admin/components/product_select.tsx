@@ -30,7 +30,7 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
         <option value="">Nouveau produit</option>
         {products.map((p) => (
           <option key={p.id} value={p.id}>
-            {p.title}
+            {p.title} - {p.price} €{p.sold ? " (vendu)" : ""}
           </option>
         ))}
       </select>
