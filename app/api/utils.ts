@@ -1,4 +1,6 @@
 import convert from "heic-convert"
+import { jwtVerify } from "jose"
+import { NextResponse, type NextRequest } from "next/server"
 
 export async function normalizeImageFile(file: File): Promise<File> {
   const isHeic =
@@ -19,4 +21,22 @@ export async function normalizeImageFile(file: File): Promise<File> {
   const blob = new Blob([out], { type: "image/jpeg" })
   const safeName = file.name.replace(/\.(heic|heif)$/i, "") + ".jpg"
   return new File([blob], safeName, { type: "image/jpeg" })
+}
+
+type Handler = (req: NextRequest, ctx: { params: any }) => Promise<Response> | Response
+
+export function withAdminAuth(handler: Handler): Handler {
+  return async (req, ctx) => {
+    const token = req.cookies.get("admin_token")?.value
+    const secret = process.env.ADMIN_JWT_SECRET
+    if (!secret) return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 })
+    if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+
+    try {
+      await jwtVerify(token, new TextEncoder().encode(secret))
+      return handler(req, ctx)
+    } catch {
+      return NextResponse.json({ error: "Invalid or expired token" }, { status: 401 })
+    }
+  }
 }

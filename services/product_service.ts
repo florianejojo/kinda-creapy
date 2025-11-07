@@ -1,4 +1,4 @@
-import { Product, ProductDTO } from "@/models/product_model"
+import { ProductDTO } from "@/models/product_model"
 
 import { CatchErrors } from "@/utils/error"
 import { handleResponse } from "./utils"
@@ -20,21 +20,6 @@ class ProductService {
     })
 
     return formData
-  }
-
-  @CatchErrors
-  public async fetchProducts(): Promise<{
-    success: boolean
-    data?: Product[]
-    error?: string
-  }> {
-    const response = await fetch(`/api/products`, {
-      method: "GET",
-      headers: this.headers,
-      credentials: "include",
-    })
-
-    return handleResponse<Product[]>(response)
   }
 
   @CatchErrors

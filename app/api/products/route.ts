@@ -1,9 +1,9 @@
 import { supabase } from "@/lib/supabaseClient"
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
-import { normalizeImageFile } from "../utils"
+import { normalizeImageFile, withAdminAuth } from "../utils"
 
-export async function POST(req: NextRequest) {
+export const POST = withAdminAuth(async (req: NextRequest) => {
   try {
     const form = await req.formData()
 
@@ -71,4 +71,4 @@ export async function POST(req: NextRequest) {
   } catch (err: any) {
     return NextResponse.json({ error: err?.message ?? "Unknown error" }, { status: 500 })
   }
-}
+})

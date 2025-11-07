@@ -19,7 +19,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (searchParams.get("session") === "expired") {
-      toast.error("Session expired")
+      setTimeout(() => {
+        toast.error("Session expirée")
+      }, 0)
     }
   }, [searchParams])
 
