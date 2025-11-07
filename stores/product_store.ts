@@ -35,12 +35,17 @@ export const useProductStore = create<ProductStore>((set, get) => ({
 
     set({ isLoading: true })
 
-    const { data, error } = await supabase
-      .from("products")
-      .select("id,title,description,images,price,sold")
+    const { data, error } = await supabase.from("products").select("*")
+
+    const normalized = data?.map((product) => ({
+      ...product,
+      images: product.images.map((path: string) => ({
+        url: supabase.storage.from("images").getPublicUrl(path).data.publicUrl,
+      })),
+    }))
 
     set({
-      products: error ? [] : data ?? [],
+      products: error ? [] : normalized ?? [],
       error: error?.message ?? null,
       isLoading: false,
     })
