@@ -4,6 +4,8 @@ import React, { useState } from "react"
 
 import ConfirmationModal from "@/components/delete_confirmation"
 import { Product } from "@/models/product_model"
+import productService from "@/services/product_service"
+import { toast } from "sonner"
 
 type ProductDeleteButtonProps = {
   currentProduct: Product
@@ -15,16 +17,18 @@ const ProductDeleteButton: React.FC<ProductDeleteButtonProps> = ({ currentProduc
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleDelete = async () => {
+    if (!currentProduct.id) return
+
     setIsSubmitting(true)
 
-    // const { success, error } = await deleteItem(item.id, itemType);
+    const { success, error } = await productService.deleteProduct(currentProduct.id)
 
-    // if (success) {
-    //   onDelete();
-    //   toast.success('Produit supprimé');
-    // } else {
-    //   toast.error(error || 'Échec de la suppression';
-    // }
+    if (success) {
+      onDelete()
+      toast.success("Produit supprimé")
+    } else {
+      toast.error(error || "Échec de la suppression")
+    }
 
     setIsSubmitting(false)
     setIsModalOpen(false)
