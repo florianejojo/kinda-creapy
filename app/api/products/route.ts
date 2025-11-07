@@ -49,18 +49,14 @@ export async function POST(req: NextRequest) {
       uploadedPaths.push(path)
     }
 
-    const { data: product, error } = await supabase
-      .from("products")
-      .insert({
-        id: productId,
-        title: dto.title,
-        description: dto.description ?? null,
-        images: uploadedPaths,
-        price: dto.price,
-        sold: dto.sold,
-      })
-      .select("id, title, description, images, price, sold")
-      .single()
+    const { error } = await supabase.from("products").insert({
+      id: productId,
+      title: dto.title,
+      description: dto.description ?? null,
+      images: uploadedPaths,
+      price: dto.price,
+      sold: dto.sold,
+    })
 
     if (error) {
       if (uploadedPaths.length) {
@@ -69,7 +65,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 })
     }
 
-    return NextResponse.json(product.id, { status: 201 })
+    return NextResponse.json(productId, { status: 201 })
   } catch (err: any) {
     return NextResponse.json({ error: err?.message ?? "Unknown error" }, { status: 500 })
   }
