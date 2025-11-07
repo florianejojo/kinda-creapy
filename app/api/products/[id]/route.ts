@@ -19,7 +19,7 @@ export async function DELETE(_: NextRequest, context: { params: Promise<{ id: st
 
   const paths: string[] = product?.images ?? []
   if (paths.length) {
-    await supabase.storage.from("images").remove(paths)
+    await supabase.storage.from("products").remove(paths)
   }
 
   return new NextResponse(null, { status: 204 })
@@ -64,14 +64,14 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
     if (file) {
       const ext = (file.name.split(".").pop() || "jpg").toLowerCase()
       const filename = `${crypto.randomUUID()}.${ext}`
-      const path = `products/${id}/${filename}`
+      const path = `${id}/images/${filename}`
 
       const { error: upErr } = await supabase.storage
-        .from("images")
+        .from("products")
         .upload(path, file, { upsert: true, contentType: file.type })
 
       if (upErr) {
-        if (newlyUploaded.length) await supabase.storage.from("images").remove(newlyUploaded)
+        if (newlyUploaded.length) await supabase.storage.from("products").remove(newlyUploaded)
         return NextResponse.json({ error: upErr.message }, { status: 500 })
       }
       newlyUploaded.push(path)
@@ -96,19 +96,19 @@ export async function PUT(req: NextRequest, context: { params: Promise<{ id: str
     .eq("id", id)
 
   if (updErr) {
-    if (newlyUploaded.length) await supabase.storage.from("images").remove(newlyUploaded)
+    if (newlyUploaded.length) await supabase.storage.from("products").remove(newlyUploaded)
     return NextResponse.json({ error: updErr.message }, { status: 500 })
   }
 
   if (toRemove.length) {
-    await supabase.storage.from("images").remove(toRemove)
+    await supabase.storage.from("products").remove(toRemove)
   }
 
   return new NextResponse(null, { status: 204 })
 }
 
 function pathFromPublicUrl(url: string): string | null {
-  const marker = "/storage/v1/object/public/images/"
+  const marker = "/storage/v1/object/public/products/"
   const i = url.indexOf(marker)
   if (i === -1) return null
   return url.slice(i + marker.length)

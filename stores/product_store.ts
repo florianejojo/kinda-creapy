@@ -41,7 +41,7 @@ export const useProductStore = create<ProductStore>((set, get) => ({
       ...product,
       images: product.images.map((path: string) => ({
         path,
-        url: supabase.storage.from("images").getPublicUrl(path).data.publicUrl,
+        url: supabase.storage.from("products").getPublicUrl(path).data.publicUrl,
       })),
     }))
 

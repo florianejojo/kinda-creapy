@@ -32,16 +32,16 @@ export async function POST(req: NextRequest) {
     for (const file of files) {
       const ext = (file.name.split(".").pop() || "jpg").toLowerCase()
       const filename = `${crypto.randomUUID()}.${ext}`
-      const path = `products/${productId}/${filename}`
+      const path = `${productId}/images/${filename}`
 
-      const { error } = await supabase.storage.from("images").upload(path, file, {
+      const { error } = await supabase.storage.from("products").upload(path, file, {
         upsert: true,
         contentType: file.type,
       })
 
       if (error) {
         if (uploadedPaths.length) {
-          await supabase.storage.from("images").remove(uploadedPaths)
+          await supabase.storage.from("products").remove(uploadedPaths)
         }
         return NextResponse.json({ error: error.message }, { status: 500 })
       }
@@ -60,7 +60,7 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       if (uploadedPaths.length) {
-        await supabase.storage.from("images").remove(uploadedPaths)
+        await supabase.storage.from("products").remove(uploadedPaths)
       }
       return NextResponse.json({ error: error.message }, { status: 500 })
     }

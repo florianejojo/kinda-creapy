@@ -8,4 +8,4 @@ create table public.products (
 );
 
 insert into storage.buckets (id, name, public)
-values ('images', 'images', true);
+values ('products', 'products', true);
