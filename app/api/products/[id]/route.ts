@@ -1,7 +1,6 @@
-import { supabase } from "@/lib/supabaseClient"
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
-import { normalizeImageFile, withAdminAuth } from "../../utils"
+import { normalizeImageFile, supabase, withAdminAuth } from "../../utils"
 
 export const DELETE = withAdminAuth(
   async (_req: NextRequest, context: { params: Promise<{ id: string }> }) => {

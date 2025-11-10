@@ -1,6 +1,10 @@
+import { PUBLIC_ENV } from "@/env.client"
+import { ENV } from "@/env.server"
+import { createClient } from "@supabase/supabase-js"
 import convert from "heic-convert"
 import { jwtVerify } from "jose"
 import { NextResponse, type NextRequest } from "next/server"
+import "server-only"
 
 export async function normalizeImageFile(file: File): Promise<File> {
   const isHeic =
@@ -28,7 +32,7 @@ type Handler = (req: NextRequest, ctx: { params: any }) => Promise<Response> | R
 export function withAdminAuth(handler: Handler): Handler {
   return async (req, ctx) => {
     const token = req.cookies.get("admin_token")?.value
-    const secret = process.env.ADMIN_JWT_SECRET
+    const secret = ENV.ADMIN_JWT_SECRET
     if (!secret) return NextResponse.json({ error: "Server misconfiguration" }, { status: 500 })
     if (!token) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
 
@@ -40,3 +44,8 @@ export function withAdminAuth(handler: Handler): Handler {
     }
   }
 }
+
+const supabaseUrl = PUBLIC_ENV.NEXT_PUBLIC_SUPABASE_URL
+const supabaseSecretKey = ENV.SUPABASE_SECRET_KEY
+
+export const supabase = createClient(supabaseUrl, supabaseSecretKey)
