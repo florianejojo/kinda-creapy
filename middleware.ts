@@ -1,13 +1,14 @@
 import { jwtVerify } from "jose"
 import type { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
+import { ENV } from "./env.server"
 
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   if (!pathname.startsWith("/admin")) return NextResponse.next()
 
   const token = req.cookies.get("admin_token")?.value
-  const secret = new TextEncoder().encode(process.env.ADMIN_JWT_SECRET!)
+  const secret = new TextEncoder().encode(ENV.ADMIN_JWT_SECRET)
 
   if (pathname === "/admin/login") {
     if (!token) return NextResponse.next()

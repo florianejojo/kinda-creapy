@@ -1,11 +1,12 @@
+import { artworks } from "@/app/_src/shared/constants/artwork"
+import { PUBLIC_ENV } from "@/env.client"
 import { MetadataRoute } from "next"
 import { formatNameToId } from "./utils/utils"
-import { artworks } from "@/app/_src/shared/constants/artwork"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const artWorkEntries: MetadataRoute.Sitemap = artworks.map((artwork) => {
     return {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/gallery/${formatNameToId(artwork.name)}`,
+      url: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/gallery/${formatNameToId(artwork.name)}`,
 
       lastModified: new Date(), // lastModified: new Date(artwork.updatedAt),
       // changeFrequency
@@ -15,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/artwork/home/all`,
+      url: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/artwork/home/all`,
       lastModified: new Date(),
     },
     ...artWorkEntries,

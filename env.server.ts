@@ -3,6 +3,8 @@ import { z } from "zod"
 
 const ServerSchema = z.object({
   NODE_ENV: z.enum(["development", "production"]),
+  NEXT_PUBLIC_SUPABASE_URL: z.url(),
+  NEXT_PUBLIC_SITE_URL: z.url(),
   ADMIN_JWT_SECRET: z.string().min(32),
   ADMIN_PASSWORD: z.string().min(8),
   SUPABASE_ADMIN_EMAIL: z.email(),

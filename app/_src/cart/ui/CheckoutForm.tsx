@@ -1,13 +1,13 @@
 "use client"
 
 import { productApi } from "@/app/_src/product/product.api"
-import { useProductStore } from "@/app/_src/product/productStore"
-import { EmbeddedCheckoutProvider, EmbeddedCheckout } from "@stripe/react-stripe-js"
+import { PUBLIC_ENV } from "@/env.client"
+import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!)
+const stripePromise = loadStripe(PUBLIC_ENV.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export const CheckoutForm = () => {
   const [clientSecret, setClientSecret] = useState<string | null>(null)

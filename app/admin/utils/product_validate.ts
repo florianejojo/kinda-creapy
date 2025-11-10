@@ -1,3 +1,4 @@
+import { PUBLIC_ENV } from "@/env.client"
 import { Product } from "@/models/product_model"
 
 export const validateProduct = (product: Product): string | null => {
@@ -22,7 +23,7 @@ export const validateProduct = (product: Product): string | null => {
       if (!image.file.type.startsWith("image/")) {
         return `L’image ${index + 1} doit être un fichier image (JPEG, PNG, etc.).`
       }
-      const limit = parseInt(process.env.NEXT_PUBLIC_MAX_FILE_SIZE_MB as string)
+      const limit = PUBLIC_ENV.NEXT_PUBLIC_MAX_FILE_SIZE_MB
       if (image.file.size > limit * 1024 * 1024) {
         return `La taille du fichier dépasse la limite de ${limit} Mo.`
       }

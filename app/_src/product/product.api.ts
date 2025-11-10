@@ -1,4 +1,5 @@
 import { Product } from "@/app/_src/product/product.types"
+import { PUBLIC_ENV } from "@/env.client"
 import { supabase } from "@/lib/supabaseClient"
 
 interface ProductApi {
@@ -9,7 +10,7 @@ interface ProductApi {
 }
 
 const getStripePriceId = (stockLine) => {
-  return process.env.NEXT_PUBLIC_ENV === "production"
+  return PUBLIC_ENV.NODE_ENV === "production"
     ? stockLine.stripe_price_id_live
     : stockLine.stripe_price_id_test
 }

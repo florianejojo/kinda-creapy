@@ -1,29 +1,31 @@
 "use client"
 
-import { useState } from "react"
-import { supabase } from "@/lib/supabaseClient"
 import { artworks } from "@/app/_src/shared/constants/artwork"
+import { PUBLIC_ENV } from "@/env.client"
+import { supabase } from "@/lib/supabaseClient"
+import { useState } from "react"
 
 export function UploadImagesButton() {
   const [status, setStatus] = useState<"idle" | "uploading" | "done">("idle")
   const [message, setMessage] = useState<string | null>(null)
 
-  const handleConnect = async () => {
-    await supabase.auth.signInWithPassword({
-      email: process.env.NEXT_PUBLIC_SUPABASE_ADMIN_EMAIL || "",
-      password: process.env.NEXT_PUBLIC_SUPABASE_ADMIN_KEY || "",
-    })
-    const session = await supabase.auth.getSession()
+  // This is a big security mistake
+  // const handleConnect = async () => {
+  //   await supabase.auth.signInWithPassword({
+  //     email: process.env.NEXT_PUBLIC_SUPABASE_ADMIN_EMAIL || "",
+  //     password: process.env.NEXT_PUBLIC_SUPABASE_ADMIN_KEY || "",
+  //   })
+  //   const session = await supabase.auth.getSession()
 
-    console.log("auth.uid =", session?.data?.session?.user?.id)
-  }
+  //   console.log("auth.uid =", session?.data?.session?.user?.id)
+  // }
 
   const handleUpload = async () => {
     setStatus("uploading")
     setMessage(null)
     artworks.forEach(async (artwork) => {
       await supabase.from("images").insert({
-        url: `${process.env.NEXT_PUBLIC_SUPABASE_URL_BUCKET}${artwork.image}`,
+        url: `${PUBLIC_ENV.NEXT_PUBLIC_SUPABASE_URL_BUCKET}${artwork.image}`,
         alt: artwork.alt,
         product_id: artwork.id,
         name: artwork.name + " full",
@@ -38,7 +40,7 @@ export function UploadImagesButton() {
     <div className="my-6 flex flex-col items-start gap-2">
       <button
         className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
-        onClick={handleConnect}
+        onClick={() => {}}
         disabled={status === "uploading"}
       >
         Se connecter

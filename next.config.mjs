@@ -10,10 +10,7 @@ const nextConfig = {
 
   experimental: {
     serverActions: {
-      allowedOrigins: [
-      'http://localhost:3000',  
-      'https://kindacreapy.art',
-    ],
+      allowedOrigins: [process.env.NEXT_PUBLIC_SITE_URL],
       bodySizeLimit: `30mb`,
     },
   },

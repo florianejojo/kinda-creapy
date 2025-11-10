@@ -1,3 +1,4 @@
+import { PUBLIC_ENV } from "@/env.client"
 import { MetadataRoute } from "next"
 
 export default function robots(): MetadataRoute.Robots {
@@ -9,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/privacy", "/admin"],
       },
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
+    sitemap: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
   }
 }

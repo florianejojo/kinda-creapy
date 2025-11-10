@@ -1,4 +1,3 @@
-import { PUBLIC_ENV } from "@/env.client"
 import { ENV } from "@/env.server"
 import { createClient } from "@supabase/supabase-js"
 import convert from "heic-convert"
@@ -45,7 +44,7 @@ export function withAdminAuth(handler: Handler): Handler {
   }
 }
 
-const supabaseUrl = PUBLIC_ENV.NEXT_PUBLIC_SUPABASE_URL
+const supabaseUrl = ENV.NEXT_PUBLIC_SUPABASE_URL
 const supabaseSecretKey = ENV.SUPABASE_SECRET_KEY
 
 export const supabase = createClient(supabaseUrl, supabaseSecretKey)
