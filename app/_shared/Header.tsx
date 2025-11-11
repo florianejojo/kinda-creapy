@@ -1,5 +1,4 @@
 "use client";
-import { BurgerMenu } from "@/app/_shared/BurgerMenu";
 import { useFirstSegmentPathName } from "@/app/_shared/hooks/useFirstSegmentPathName";
 import { useHeaderTitle } from "@/app/_shared/hooks/useHeaderTitle";
 import { HEADER_TITLE, PATHS } from "@/app/types/types";
