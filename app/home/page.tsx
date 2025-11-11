@@ -1,36 +1,20 @@
-"use client"
-
-import { displayFeaturedProductsUseCase } from "@/app/_src/product/features/displayFeaturedProducts/displayFeaturedProducts.useCase"
-import { useProductStore } from "@/app/_src/product/productStore"
-import { FeaturedProductCard } from "@/app/_src/product/ui/FeaturedProductCard"
-import { HeroSection } from "@/app/_src/promotion/ui/HeroSection"
-import { useEffect } from "react"
+"use client";
+import { ArtPiece } from "@/app/_shared/ArtPiece";
+import { GridFilledLayout } from "@/app/home/GridFilledLayout";
+import { artworks } from "@/app/_shared/constants/artwork";
 
 export default function Home() {
-  const { featuredProducts } = useProductStore()
+    const gridItem = " w-80 h-auto flex items-end";
 
-  useEffect(() => {
-    displayFeaturedProductsUseCase()
-  }, [])
+    const elements = artworks.map((artPiece, index) => {
+        return (
+            <div className={gridItem} key={artPiece.id}>
+                <div className="hover:transition-transform transform hover:scale-105 duration-300">
+                    <ArtPiece artPiece={artPiece} position={index} />
+                </div>
+            </div>
+        );
+    });
 
-  return (
-    <div className="font-san w-full">
-      <HeroSection />
-
-      <section className="py-16 px-6 sm:px-12 mx-auto max-w-7xl">
-        <h2 className="text-md sm:text-3xl m-8 text-center font-extralight">Nos coups de cœur</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProducts.map((product, i) => (
-            <FeaturedProductCard
-              key={product.id}
-              id={product.id}
-              alt={product.images[0].alt}
-              url={product.images[0].url}
-              title={product.title}
-            />
-          ))}
-        </div>
-      </section>
-    </div>
-  )
+    return <GridFilledLayout elements={elements} />;
 }

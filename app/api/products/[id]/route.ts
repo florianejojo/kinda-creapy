@@ -1,12 +1,12 @@
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
-import { normalizeImageFile, supabase, withAdminAuth } from "../../utils"
+import { normalizeImageFile, supabaseAdmin, withAdminAuth } from "../../utils"
 
 export const DELETE = withAdminAuth(
   async (_req: NextRequest, context: { params: Promise<{ id: string }> }) => {
     const { id } = await context.params
 
-    const { data: product, error: readErr } = await supabase
+    const { data: product, error: readErr } = await supabaseAdmin
       .from("products")
       .select("images")
       .eq("id", id)
@@ -15,12 +15,12 @@ export const DELETE = withAdminAuth(
     if (readErr) return NextResponse.json({ error: readErr.message }, { status: 500 })
     if (!product) return NextResponse.json({ error: "Product not found" }, { status: 404 })
 
-    const { error: delErr } = await supabase.from("products").delete().eq("id", id)
+    const { error: delErr } = await supabaseAdmin.from("products").delete().eq("id", id)
     if (delErr) return NextResponse.json({ error: delErr.message }, { status: 500 })
 
     const paths: string[] = product?.images ?? []
     if (paths.length) {
-      await supabase.storage.from("products").remove(paths)
+      await supabaseAdmin.storage.from("products").remove(paths)
     }
 
     return new NextResponse(null, { status: 204 })
@@ -48,7 +48,7 @@ export const PUT = withAdminAuth(
       if (m && v instanceof File) filesByIndex.set(Number(m[1]), v)
     }
 
-    const { data: current, error: readErr } = await supabase
+    const { data: current, error: readErr } = await supabaseAdmin
       .from("products")
       .select("images")
       .eq("id", id)
@@ -70,12 +70,13 @@ export const PUT = withAdminAuth(
         const filename = `${crypto.randomUUID()}.${ext}`
         const path = `${id}/images/${filename}`
 
-        const { error: upErr } = await supabase.storage
+        const { error: upErr } = await supabaseAdmin.storage
           .from("products")
           .upload(path, file, { upsert: true, contentType: file.type })
 
         if (upErr) {
-          if (newlyUploaded.length) await supabase.storage.from("products").remove(newlyUploaded)
+          if (newlyUploaded.length)
+            await supabaseAdmin.storage.from("products").remove(newlyUploaded)
           return NextResponse.json({ error: upErr.message }, { status: 500 })
         }
         newlyUploaded.push(path)
@@ -94,18 +95,18 @@ export const PUT = withAdminAuth(
     const keepSet = new Set(finalPaths)
     const toRemove = prevPaths.filter((p) => !keepSet.has(p))
 
-    const { error: updErr } = await supabase
+    const { error: updErr } = await supabaseAdmin
       .from("products")
       .update({ ...dto, images: finalPaths })
       .eq("id", id)
 
     if (updErr) {
-      if (newlyUploaded.length) await supabase.storage.from("products").remove(newlyUploaded)
+      if (newlyUploaded.length) await supabaseAdmin.storage.from("products").remove(newlyUploaded)
       return NextResponse.json({ error: updErr.message }, { status: 500 })
     }
 
     if (toRemove.length) {
-      await supabase.storage.from("products").remove(toRemove)
+      await supabaseAdmin.storage.from("products").remove(toRemove)
     }
 
     return new NextResponse(null, { status: 204 })

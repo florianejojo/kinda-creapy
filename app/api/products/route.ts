@@ -1,6 +1,6 @@
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
-import { normalizeImageFile, supabase, withAdminAuth } from "../utils"
+import { normalizeImageFile, supabaseAdmin, withAdminAuth } from "../utils"
 
 export const POST = withAdminAuth(async (req: NextRequest) => {
   try {
@@ -35,22 +35,22 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
       const filename = `${crypto.randomUUID()}.${ext}`
       const path = `${productId}/images/${filename}`
 
-      const { error } = await supabase.storage.from("products").upload(path, file, {
+      const { error } = await supabaseAdmin.storage.from("products").upload(path, file, {
         upsert: true,
         contentType: file.type,
       })
 
       if (error) {
         if (uploadedPaths.length) {
-          await supabase.storage.from("products").remove(uploadedPaths)
+          await supabaseAdmin.storage.from("products").remove(uploadedPaths)
         }
-        return NextResponse.json({ error: error.message }, { status: 500 })
+        return NextResponse.json({ error: error.message }, { status: error.status })
       }
 
       uploadedPaths.push(path)
     }
 
-    const { error } = await supabase.from("products").insert({
+    const { error } = await supabaseAdmin.from("products").insert({
       id: productId,
       title: dto.title,
       description: dto.description ?? null,
@@ -61,7 +61,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
 
     if (error) {
       if (uploadedPaths.length) {
-        await supabase.storage.from("products").remove(uploadedPaths)
+        await supabaseAdmin.storage.from("products").remove(uploadedPaths)
       }
       return NextResponse.json({ error: error.message }, { status: 500 })
     }

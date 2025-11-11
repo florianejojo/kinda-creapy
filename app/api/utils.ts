@@ -47,4 +47,6 @@ export function withAdminAuth(handler: Handler): Handler {
 const supabaseUrl = ENV.NEXT_PUBLIC_SUPABASE_URL
 const supabaseSecretKey = ENV.SUPABASE_SECRET_KEY
 
-export const supabase = createClient(supabaseUrl, supabaseSecretKey)
+export const supabaseAdmin = createClient(supabaseUrl, supabaseSecretKey, {
+  auth: { persistSession: false },
+})
