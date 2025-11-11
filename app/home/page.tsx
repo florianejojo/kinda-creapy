@@ -1,10 +1,10 @@
 "use client"
 
-import { HeroSection } from "@/app/_src/promotion/ui/HeroSection"
-import { FeaturedProductCard } from "@/app/_src/product/ui/FeaturedProductCard"
-import { useProductStore } from "@/app/_src/product/productStore"
-import { useEffect } from "react"
 import { displayFeaturedProductsUseCase } from "@/app/_src/product/features/displayFeaturedProducts/displayFeaturedProducts.useCase"
+import { useProductStore } from "@/app/_src/product/productStore"
+import { FeaturedProductCard } from "@/app/_src/product/ui/FeaturedProductCard"
+import { HeroSection } from "@/app/_src/promotion/ui/HeroSection"
+import { useEffect } from "react"
 
 export default function Home() {
   const { featuredProducts } = useProductStore()
@@ -14,7 +14,7 @@ export default function Home() {
   }, [])
 
   return (
-    <div className=" min-h-screen font-san w-full">
+    <div className="font-san w-full">
       <HeroSection />
 
       <section className="py-16 px-6 sm:px-12 mx-auto max-w-7xl">
