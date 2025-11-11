@@ -52,7 +52,7 @@ export const GridFilledLayout = ({ elements }: GridFilledLayoutProps) => {
                 return (
                     <div
                         key={index}
-                        className={`flex flex-col gap-20  w-full h-full`}
+                        className={`flex flex-col gap-20 w-full h-full`}
                     >
                         {col}
                     </div>
