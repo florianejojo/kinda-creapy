@@ -205,7 +205,7 @@ export const artworks: ArtPiece[] = [
     //     categories: [CATEGORIES.illusions, CATEGORIES.beasts],
     // },
     {
-        id: "13",
+        id: "14",
         name: "Banquet à la Madone",
         description:
             "Les entités primordiales s'embrassent dans une étreinte chaotique, mélangeant destruction et création. Ce baiser, symbole de dualité, incarne la force créatrice du chaos dans l'univers. Une œuvre riche en détails, où chaque forme semble être en mouvement perpétuel, unissant les contraires pour former une harmonie surréaliste.",
