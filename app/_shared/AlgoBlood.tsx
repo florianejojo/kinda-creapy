@@ -1,5 +1,4 @@
 "use client";
-// @ts-nocheck
 import React, { useEffect, useRef, useState } from "react";
 
 interface Pixel {
