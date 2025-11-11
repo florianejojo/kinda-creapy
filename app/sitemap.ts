@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/artwork/home/all`,
+      url: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/artwork/home`,
       lastModified: new Date(),
     },
     ...artWorkEntries,

@@ -10,6 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/privacy", "/admin"],
       },
     ],
-    sitemap: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
+    // sitemap: `${PUBLIC_ENV.NEXT_PUBLIC_SITE_URL}/sitemap.xml`,
   }
 }

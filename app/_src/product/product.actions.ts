@@ -22,7 +22,7 @@ export const productActions = ({
 }) => ({
   setFeaturedProducts: (products: Product[]) => set({ featuredProducts: products }),
 
-  setProducts: (products: Product[]) => set({ products }, false, "setProducts"),
+  setProducts: (products: Product[]) => set({ products }),
 
   setFetchingStatus: (status: FETCH_STATUS) => set({ fetchingStatus: status }),
 

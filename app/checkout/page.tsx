@@ -1,12 +1,10 @@
-import { CheckoutForm } from "@/app/_src/cart/ui/CheckoutForm"
+import CheckoutPage from "@/app/checkout/CheckoutPage"
+import { Suspense } from "react"
 
-export default function CheckoutPage() {
+export default function Page() {
   return (
-    <div className="min-h-screen bg-stone-50 flex items-center justify-center p-6">
-      <div className="w-full max-w-md bg-white shadow-xl rounded-xl p-6">
-        <h2 className="text-2xl font-bold mb-6 text-center text-black">Paiement</h2>
-        <CheckoutForm />
-      </div>
-    </div>
+    <Suspense fallback={<div />}>
+      <CheckoutPage />
+    </Suspense>
   )
 }

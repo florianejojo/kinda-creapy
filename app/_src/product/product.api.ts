@@ -5,17 +5,26 @@ import { supabase } from "@/lib/supabaseClient"
 interface ProductApi {
   getFeaturedProducts: () => Promise<{ data: Product[] }>
   getProducts: () => Promise<{ data: Product[] }>
-  getPriceByStockId: (stockId: string) => Promise<Product | null>
-  createNewProduct: (newProduct: { title: string; images: any[] }) => Promise<Product | null>
+  getPriceByStockId: (stockId: string) => Promise<string>
+  // createNewProduct: (newProduct: { title: string; images: any[] }) => Promise<Product | null>
 }
 
-const getStripePriceId = (stockLine) => {
+const getStripePriceId = (stockLine: {
+  stripe_price_id_live: string
+  stripe_price_id_test: string
+}) => {
   return PUBLIC_ENV.NODE_ENV === "production"
     ? stockLine.stripe_price_id_live
     : stockLine.stripe_price_id_test
 }
 
-const formatStockLine = (stockLine) => {
+const formatStockLine = (stockLine: {
+  id: string
+  quantity: number
+  version: { label: string }
+  stripe_price_id_live: string
+  stripe_price_id_test: string
+}) => {
   return {
     id: stockLine.id,
     quantity: stockLine.quantity,
@@ -52,7 +61,15 @@ export const productApi: ProductApi = {
       products?.map((product) => {
         return {
           ...product,
-          stocks: product.stocks.map((stockLine) => formatStockLine(stockLine)),
+          stocks: product.stocks.map(
+            (stockLine: {
+              id: string
+              quantity: number
+              version: { label: string }
+              stripe_price_id_live: string
+              stripe_price_id_test: string
+            }) => formatStockLine(stockLine),
+          ),
         }
       }) || []
 
@@ -61,7 +78,7 @@ export const productApi: ProductApi = {
     }
   },
 
-  getPriceByStockId: async (stockId) => {
+  getPriceByStockId: async (stockId: string): Promise<string> => {
     const { data: productInStock, error } = await supabase
       .from("stocks")
       .select(`*`)

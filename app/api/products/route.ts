@@ -44,7 +44,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
         if (uploadedPaths.length) {
           await supabaseAdmin.storage.from("products").remove(uploadedPaths)
         }
-        return NextResponse.json({ error: error.message }, { status: error.status })
+        return NextResponse.json({ error: error.message }, { status: 400 })
       }
 
       uploadedPaths.push(path)
