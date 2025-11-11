@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="fr">
-            <Analytics />
-            <SpeedInsights />
             <body className={inter.className}>
+                <Analytics />
+                <SpeedInsights />
                 <div className="absolute z-0">
                     <AlgoBlood />
                 </div>
