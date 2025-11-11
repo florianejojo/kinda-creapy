@@ -25,7 +25,7 @@ export default function RootLayout({
                 <div className="absolute z-0">
                     <AlgoBlood />
                 </div>
-                <div className="relative z-10 ">
+                <div className="relative z-10">
                     <Header />
                 </div>
                 <main className="relative z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10 tracking-widest sm:max-w-7xl mx-auto">
