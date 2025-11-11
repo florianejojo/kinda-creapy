@@ -1,7 +1,7 @@
 "use client";
 import { useFirstSegmentPathName } from "@/app/_shared/hooks/useFirstSegmentPathName";
 import { useHeaderTitle } from "@/app/_shared/hooks/useHeaderTitle";
-import { HEADER_TITLE, PATHS } from "@/app/types/types";
+import { PATHS } from "@/app/types/types";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faPalette, faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
