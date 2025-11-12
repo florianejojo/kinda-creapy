@@ -7,5 +7,8 @@ create table public.products (
   sold boolean default false
 );
 
+alter table products enable row level security;
+create policy "Public can read products" on products for select to public using (true);
+
 insert into storage.buckets (id, name, public)
 values ('products', 'products', true);
