@@ -11,7 +11,7 @@ import ProductDescriptionForm from "./components/product_description_form"
 import { ProductImagesForm } from "./components/product_images_form"
 import ProductSelectForm from "./components/product_select_form"
 import ProductSubmit from "./components/product_submit"
-import ProductTitleForm from "./components/product_title_form"
+import { ProductTitleForm } from "./components/product_title_form"
 
 export default function Page() {
   const { removeProduct, fetchProducts, isLoading: productLoading } = useProductStore()
@@ -60,10 +60,7 @@ export default function Page() {
             updateCurrentProduct={updateCurrentProduct}
           />
           <Spacer size={12} />
-          <ProductImagesForm
-            currentProduct={currentProduct}
-            updateCurrentProduct={updateCurrentProduct}
-          />
+          <ProductImagesForm product={currentProduct} updateProduct={updateCurrentProduct} />
           <Spacer size={12} />
           <InputNumber
             id="price"

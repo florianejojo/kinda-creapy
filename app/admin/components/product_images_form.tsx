@@ -1,18 +1,16 @@
 "use client"
 
+import { Button } from "@/components/button"
 import { Product, ProductImage } from "@/models/product_model"
 import Image from "next/image"
 import { useCallback, useRef } from "react"
 
 type ProductImagesFormProps = {
-  currentProduct: Product
-  updateCurrentProduct: (product: Partial<Product>) => void
+  product: Product
+  updateProduct: (product: Partial<Product>) => void
 }
 
-export const ProductImagesForm = ({
-  currentProduct,
-  updateCurrentProduct,
-}: ProductImagesFormProps) => {
+export const ProductImagesForm = ({ product, updateProduct }: ProductImagesFormProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const replaceIndexRef = useRef<number | null>(null)
 
@@ -25,25 +23,25 @@ export const ProductImagesForm = ({
         const url = URL.createObjectURL(file)
         newImages.push({ file, url })
       }
-      updateCurrentProduct({ images: [...(currentProduct.images || []), ...newImages] })
+      updateProduct({ images: [...(product.images || []), ...newImages] })
     },
-    [currentProduct],
+    [product, updateProduct],
   )
 
   const replaceAt = useCallback(
     async (idx: number, file: File) => {
       if (!file.type.startsWith("image/")) return
       const url = URL.createObjectURL(file)
-      const next = [...currentProduct.images]
+      const next = [...product.images]
       next[idx] = { file, url }
-      updateCurrentProduct({ images: next })
+      updateProduct({ images: next })
     },
-    [currentProduct],
+    [product, updateProduct],
   )
 
   const removeAt = (idx: number) => {
-    const next = currentProduct.images.filter((_, i) => i !== idx)
-    updateCurrentProduct({ images: next })
+    const next = product.images.filter((_, i) => i !== idx)
+    updateProduct({ images: next })
   }
 
   const handleInputChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,24 +67,43 @@ export const ProductImagesForm = ({
     fileInputRef.current?.click()
   }
 
+  const swapToFront = (idx: number) => {
+    if (idx === 0) return
+    const next = [...product.images]
+    const [image] = next.splice(idx, 1)
+    next.unshift(image)
+    updateProduct({ images: next })
+  }
+
   return (
     <div className="flex flex-col items-start gap-2">
       <label
         htmlFor="product-title"
-        className={`block font-semibold  text-gray-100 dark:text-gray-300`}
+        className="block font-semibold text-gray-100 dark:text-gray-300"
       >
         Images
       </label>
 
-      {currentProduct.images.length > 0 && (
+      {product.images.length > 0 && (
         <div className="w-full overflow-x-auto">
           <div className="flex gap-4">
-            {currentProduct.images.map((it, idx) => {
-              const ext = it.file?.name?.split(".").pop()?.toLowerCase()
+            {product.images.map((image, idx) => {
+              const ext = image.file?.name?.split(".").pop()?.toLowerCase()
               const isHeic = ext === "heic"
 
               return (
-                <div key={idx} className="w-full">
+                <div
+                  data-is-primary={idx === 0}
+                  key={image.url ?? idx}
+                  className="w-full data-[is-primary=false]:hover:border data-[is-primary=false]:hover:border-red-700 cursor-pointer"
+                  onClick={() => {
+                    swapToFront(idx)
+                  }}
+                >
+                  <div className="h-6">
+                    {idx === 0 && <p className="text-red-500 text-xs">Image principale</p>}
+                  </div>
+
                   <div className="rounded shadow border border-stone-200 bg-white p-2">
                     {isHeic ? (
                       <div className="w-full h-40 flex items-center justify-center bg-stone-100 rounded text-sm text-stone-600 text-center px-2">
@@ -95,7 +112,7 @@ export const ProductImagesForm = ({
                       </div>
                     ) : (
                       <Image
-                        src={it.url}
+                        src={image.url}
                         alt={`Preview ${idx + 1}`}
                         width={1}
                         height={1}
@@ -105,20 +122,21 @@ export const ProductImagesForm = ({
                       />
                     )}
                     <div className="mt-2 flex gap-2">
-                      <button
-                        type="button"
-                        onClick={() => openReplace(idx)}
-                        className="px-3 py-1.5 bg-stone-800 text-white rounded text-xs hover:bg-stone-700 transition"
+                      <Button
+                        onClick={(e) => {
+                          openReplace(idx)
+                        }}
+                        variant="secondary"
                       >
                         Remplacer
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => removeAt(idx)}
-                        className="px-3 py-1.5 bg-stone-100 text-stone-700 rounded text-xs hover:bg-stone-200 transition"
+                      </Button>
+                      <Button
+                        onClick={(e) => {
+                          removeAt(idx)
+                        }}
                       >
                         Supprimer
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </div>
@@ -127,13 +145,10 @@ export const ProductImagesForm = ({
           </div>
         </div>
       )}
-      <button
-        type="button"
-        onClick={openAdd}
-        className="px-3 py-2 bg-stone-800 text-white rounded text-sm hover:bg-stone-700 transition"
-      >
-        {currentProduct.images.length === 0 ? "Ajouter une image" : "Ajouter une autre image"}
-      </button>
+
+      <Button onClick={openAdd}>
+        {product.images.length === 0 ? "Ajouter une image" : "Ajouter une autre image"}
+      </Button>
 
       <input
         ref={fileInputRef}

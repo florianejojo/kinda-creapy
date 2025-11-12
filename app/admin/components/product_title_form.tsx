@@ -9,10 +9,19 @@ interface ProductTitleFormProps {
   updateCurrentProduct: (product: Partial<Product>) => void
 }
 
-const ProductTitleForm: React.FC<ProductTitleFormProps> = ({
+export const ProductTitleForm: React.FC<ProductTitleFormProps> = ({
   currentProduct,
   updateCurrentProduct,
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const title = e.target.value
+    if (!currentProduct) {
+      const newProduct = initializeProduct(title)
+      updateCurrentProduct(newProduct)
+    } else {
+      updateCurrentProduct({ title })
+    }
+  }
   return (
     <div className="w-full">
       <div className={`flex items-center justify-between mb-1`}>
@@ -26,20 +35,10 @@ const ProductTitleForm: React.FC<ProductTitleFormProps> = ({
       <InputField
         id="product-title"
         value={currentProduct?.title || ""}
-        onChange={(e) => {
-          const title = e.target.value
-          if (!currentProduct) {
-            const newProduct = initializeProduct(title)
-            updateCurrentProduct(newProduct)
-          } else {
-            updateCurrentProduct({ title })
-          }
-        }}
+        onChange={handleChange}
         required
         raw
       />
     </div>
   )
 }
-
-export default ProductTitleForm

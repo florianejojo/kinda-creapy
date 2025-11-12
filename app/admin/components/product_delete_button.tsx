@@ -6,6 +6,7 @@ import ConfirmationModal from "@/components/delete_confirmation"
 import { Product } from "@/models/product_model"
 import productService from "@/services/product_service"
 import { toast } from "sonner"
+import { Button } from "@/components/button"
 
 type ProductDeleteButtonProps = {
   currentProduct: Product
@@ -36,15 +37,15 @@ const ProductDeleteButton: React.FC<ProductDeleteButtonProps> = ({ currentProduc
 
   return (
     <div className="ml-4 self-end flex flex-col justify-between items-end">
-      <button
-        className={`text-sm px-4 py-2 hover:bg-red-600 text-gray-100 rounded 
-        bg-transparent dark:text-white border border-gray-200 dark:border-gray-700
-        ${!currentProduct ? "opacity-50 cursor-not-allowed" : ""}`}
+      <Button
+        // className={`text-sm px-4 py-2 hover:bg-red-600 text-gray-100 rounded
+        // bg-transparent dark:text-white border border-gray-200 dark:border-gray-700
+        // ${!currentProduct ? "opacity-50 cursor-not-allowed" : ""}`}
         onClick={() => setIsModalOpen(true)}
         disabled={!currentProduct || isSubmitting}
       >
         {isSubmitting ? "Suppression..." : "Supprimer"}
-      </button>
+      </Button>
 
       <ConfirmationModal
         isOpen={isModalOpen}
