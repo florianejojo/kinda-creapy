@@ -37,6 +37,14 @@ export default function Page() {
   return (
     <div className="w-full max-w-2xl bg-cream-100 mx-auto">
       <LogoutButton />
+      {currentProduct?.title && (
+        <ProductSubmit
+          isSubmitting={isSubmitting}
+          setIsSubmitting={setIsSubmitting}
+          currentProduct={currentProduct}
+          setCurrentProduct={setCurrentProduct}
+        />
+      )}
       <ProductSelectForm
         currentProduct={currentProduct}
         setCurrentProduct={setCurrentProduct}
@@ -76,14 +84,6 @@ export default function Page() {
             onChange={(checked) => updateCurrentProduct({ sold: checked })}
           />
           <Spacer size={12} />
-          {currentProduct.title && (
-            <ProductSubmit
-              isSubmitting={isSubmitting}
-              setIsSubmitting={setIsSubmitting}
-              currentProduct={currentProduct}
-              setCurrentProduct={setCurrentProduct}
-            />
-          )}
         </>
       )}
     </div>
