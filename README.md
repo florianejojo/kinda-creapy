@@ -19,39 +19,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Personal objectives
 
-- Implement and find a good balance between clean archi and simple archi
-- Implement well understandable, maintenable, scalable archi using known principles
-  - SOLID
-  - clean archi
-  - software craftmanship
+- Easily maintenable code
 - Try stripe
 - Try supabase
-- Make a useful project for someone
-
-## Branch
-
-### v2-with-payments
-
-- Buy products and get delivered
-- Add products to sell
-- See orders
-
-#### New stack :
-
-- Supabase
-- Stripe
-- Next js
-
-#### Archi :
-
-- app/\_src/domain/ui/Component
-  - View only
-- app/\_src/domain/ui/useComponentViewModel
-  - Get data from store
-  - Call product useCases
-  - Gather view Logic
-- app/\_src/domain/features/featureName
-
-- app/page/page.tsx
-  - Highest level of page
--
+- Help someone with a real project

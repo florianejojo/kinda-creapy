@@ -38,8 +38,6 @@ type ArtworkProps = {
 }
 
 export default async function ArtworkPage({ params }: ArtworkProps) {
-  console.log("ici", "params.artWorkId", params.artWorkId, "SNW021MX03")
-
   const { data: product, error } = await supabase
     .from("products")
     .select(`*, images (url, alt)`)

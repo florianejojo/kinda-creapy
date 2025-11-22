@@ -10,6 +10,7 @@ const ServerSchema = z.object({
   SUPABASE_ADMIN_EMAIL: z.email(),
   SUPABASE_SECRET_KEY: z.string().min(32),
   STRIPE_SECRET_KEY: z.string().min(32),
+  MAX_FILE_SIZE_MB: z.string(),
 })
 
 const parsed = ServerSchema.safeParse(process.env)
