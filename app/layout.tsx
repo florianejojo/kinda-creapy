@@ -1,12 +1,17 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+
+import { Lato } from "next/font/google"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import { Header } from "@/app/_shared/Header"
+import { Header } from "@/app/_shared/header-"
 import { AlgoBlood } from "@/app/_shared/AlgoBlood"
 import { Toaster } from "sonner"
-const inter = Inter({ subsets: ["latin"] })
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"], // choisis ce que tu veux
+  variable: "--font-lato",
+})
 export const metadata: Metadata = {
   title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },
   description: "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
@@ -19,12 +24,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={inter.className}>
+      <body className={lato.className}>
         <Analytics />
         <SpeedInsights />
-        <div className="absolute z-0">
-          <AlgoBlood />
-        </div>
+        <div className="absolute z-0">{/* <AlgoBlood /> */}</div>
         <div className="relative z-10">
           <Header />
         </div>

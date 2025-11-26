@@ -14,7 +14,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       {/* Image */}
       <div className="relative aspect-3/4 w-full">
         <Image
-          src={product.images[0].url}
+          placeholder="blur"
+          src={""}
           alt={product.title}
           fill
           className="object-cover rounded"

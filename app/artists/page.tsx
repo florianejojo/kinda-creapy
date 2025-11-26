@@ -1,10 +1,14 @@
 "use client"
 
-import { interview } from "@/app/artist/constants/interview"
+import { Artist } from "@/app/_shared/shared.enums"
+import { Tab } from "@/app/_shared/shared.types"
+import { SubHeader } from "@/app/_shared/sub-header"
+import { interview } from "@/app/artists/constants/interview"
 import { useState } from "react"
 
 export default function ArtistPage({ params }: { params: { categoryId: string } }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [activeArtist, setActiveArtist] = useState<Tab>(Artist.barniak)
 
   const toggleAnswer = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index)
@@ -12,6 +16,13 @@ export default function ArtistPage({ params }: { params: { categoryId: string } 
 
   return (
     <div className="bg-black text-white-100 min-h-screen p-8 bg-transparent">
+      <SubHeader
+        title="Artistes"
+        tabs={Object.values(Artist)}
+        activeTab={activeArtist}
+        setActiveTab={setActiveArtist}
+        description=""
+      />
       <div className="max-w-7xl mx-auto">
         <div className="p-5 bg-transparent rounded-lg shadow-lg">
           {interview.map((item, index) => (
