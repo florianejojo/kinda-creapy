@@ -1,3 +1,5 @@
+import { PAGES } from "@/app/_shared/shared.const"
+
 export type NavItem = { name: string; description?: string; path?: PATHS }
 
 export enum CATEGORIES {
@@ -38,3 +40,5 @@ export enum FETCH_STATUS {
   error = "error",
   success = "success",
 }
+
+export type PageKey = keyof typeof PAGES

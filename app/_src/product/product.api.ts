@@ -1,4 +1,4 @@
-import { Product } from "@/app/_src/product/product.types"
+import { Product } from "@/app/products/products.types"
 import { PUBLIC_ENV } from "@/env.client"
 import { supabase } from "@/lib/supabaseClient"
 

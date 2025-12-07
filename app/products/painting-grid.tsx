@@ -1,12 +1,10 @@
 "use client"
 
-import { Category } from "@/app/_shared/shared.enums"
-import { SubHeader } from "@/app/_shared/sub-header"
+import { SubHeader } from "@/app/_shared/components/SubHeader"
 import PaintingCard from "@/app/products/painting-card"
-import { categoryDescriptions, paintings } from "@/app/_shared/data/categories-data"
 import { useState } from "react"
-import { Tab } from "@/app/_shared/shared.types"
-import { PAGE_LABELS } from "@/app/_shared/shared.const"
+import { Category, Tab } from "@/app/_shared/shared.types"
+import { categoryDescriptions, PAGE_LABELS, paintings } from "@/app/_shared/shared.const"
 import { Product } from "@/app/products/products.types"
 
 export default function PaintingGrid() {

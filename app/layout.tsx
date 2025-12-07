@@ -4,9 +4,9 @@ import { Lato } from "next/font/google"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import { Header } from "@/app/_shared/header"
-import { AlgoBlood } from "@/app/_shared/AlgoBlood"
+import { Header } from "@/app/_shared/components/header"
 import { Toaster } from "sonner"
+import { AlgoBlood } from "@/app/_shared/components/AlgoBlood"
 
 const lato = Lato({
   subsets: ["latin"],

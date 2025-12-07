@@ -1,7 +1,7 @@
 "use client"
 
 import { PAGE_LABELS } from "@/app/_shared/shared.const"
-import { SubHeader } from "@/app/_shared/sub-header"
+import { SubHeader } from "@/app/_shared/components/SubHeader"
 import { PageLayout } from "@/app/page-layout"
 import type React from "react"
 

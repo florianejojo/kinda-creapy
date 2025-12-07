@@ -1,9 +1,8 @@
 "use client"
 
-import { PAGE_LABELS, PAGES } from "@/app/_shared/shared.const"
-import { Artist } from "@/app/_shared/shared.enums"
-import { Tab } from "@/app/_shared/shared.types"
-import { SubHeader } from "@/app/_shared/sub-header"
+import { PAGE_LABELS } from "@/app/_shared/shared.const"
+import { Artist, Tab } from "@/app/_shared/shared.types"
+import { SubHeader } from "@/app/_shared/components/SubHeader"
 import { interview } from "@/app/artists/constants/interview"
 import { PageLayout } from "@/app/page-layout"
 import { useState } from "react"
