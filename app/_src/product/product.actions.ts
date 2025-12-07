@@ -1,5 +1,5 @@
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
-import { Product } from "./product.types"
+import { FETCH_STATUS } from "@/app/_shared/shared.types"
+import { Product } from "@/app/products/products.types"
 
 export const productActions = ({
   set,

@@ -29,35 +29,31 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
         />
 
         <div className="absolute inset-0 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
-          <button
-            onClick={prevImage}
-            className="bg-black/20 hover:bg-black/40 text-white p-2 transition"
-          >
+          <button onClick={prevImage} className="bg-black/20 hover:bg-black/40  p-2 transition">
             {"<"}
           </button>
-          <button
-            onClick={nextImage}
-            className="bg-black/20 hover:bg-black/40 text-white p-2 transition"
-          >
+          <button onClick={nextImage} className="bg-black/20 hover:bg-black/40  p-2 transition">
             {">"}
           </button>
         </div>
 
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-          {painting.images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`w-2 h-2 transition-all ${
-                index === currentImageIndex ? "bg-white w-4" : "bg-white/40"
-              }`}
-            />
-          ))}
-        </div>
+        {painting.images.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+            {painting.images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentImageIndex(index)}
+                className={`w-2 h-2 transition-all ${
+                  index === currentImageIndex ? "bg-white w-4" : "bg-white/40"
+                }`}
+              />
+            ))}
+          </div>
+        )}
 
         {!painting.available && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <span className="text-white text-sm tracking-wide">Non disponible</span>
+            <span className="text-sm tracking-wide">Vendue</span>
           </div>
         )}
       </div>
@@ -69,18 +65,25 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
           <p className="text-xs text-muted-foreground tracking-wide mt-1">{painting.dimensions}</p>
         </div>
 
-        <p className="text-sm text-muted-foreground leading-relaxed">{painting.description}</p>
+        <p className="text-sm text-muted-foreground line-clamp-3">{painting.description}</p>
 
         <div className="space-y-2 pt-4 border-t border-border">
-          {painting.available && painting.prices.original > 0 && (
+          {painting.prices.original > 0 && (
             <div className="flex justify-between items-baseline text-sm">
               <span className="text-foreground">Peinture originale</span>
-              <span className="text-foreground font-medium">{painting.prices.original}€</span>
+              {
+                <span className="text-foreground font-medium">
+                  {painting.available ? painting.prices.original + "€" : "Vendue"}
+                </span>
+              }
             </div>
           )}
 
           <button
-            onClick={() => setShowPrices(!showPrices)}
+            onClick={() => {
+              setShowPrices(!showPrices)
+              console.log("Toggled showPrices to", !showPrices)
+            }}
             className="w-full text-left flex justify-between items-center text-sm py-2 hover:opacity-60 transition"
           >
             <span className="text-foreground">Impressions</span>

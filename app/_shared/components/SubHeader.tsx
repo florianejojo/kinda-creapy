@@ -16,14 +16,16 @@ export const SubHeader = ({
   setActiveTab,
 }: SubHeaderProps) => {
   return (
-    <div className="w-full flex items-center flex-col justify-center pt-16">
-      <h1 className="text-center">{title}</h1>
-      <div className={`flex gap-10 my-10 border-b border-border w-full justify-center h-12`}>
+    <div className="pt-8 w-full flex items-center flex-col justify-center sm:pt-16">
+      <h1 className="text-xl sm:text-4xl text-center">{title}</h1>
+      <div
+        className={`flex gap-4 my-4 sm:gap-10 sm:my-10 border-b border-border w-full justify-center h-12`}
+      >
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab && setActiveTab(tab)}
-            className={`pb-6 text-sm font-light transition
+            className={`sm:pb-6 text-sm sm:text-lg font-light transition
 
                ${activeTab === tab ? "border-b" : "hover:cursor-pointer"}`}
           >
@@ -31,12 +33,11 @@ export const SubHeader = ({
           </button>
         ))}
       </div>
-      <h2 className="text-2xl mb-4">{activeTab}</h2>
-      {description && (
-        <div className="mb-12 max-w-xl text-center px-4">
-          <p className="text-sm font-extralight tracking-widest">{description}</p>
-        </div>
-      )}
+      <div></div>
+
+      <div className="max-w-xl text-center h-14 px-4">
+        {description && <p className="text-sm font-extralight sm:tracking-widest">{description}</p>}
+      </div>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import { PAGE_LABELS } from "@/app/_shared/shared.const"
-import { SubHeader } from "@/app/_shared/sub-header"
+import { SubHeader } from "@/app/_shared/components/SubHeader"
 import { PageLayout } from "@/app/page-layout"
 import type React from "react"
 
@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div>
             <p className="font-light tracking-wide text-foreground mb-1">Instagram</p>
             <div className="space-y-1">
-              <p>@kindacreapy</p>
+              <p>@kindacreapy.art</p>
             </div>
           </div>
         </div>

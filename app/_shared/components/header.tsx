@@ -5,11 +5,11 @@ import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
-import { PAGE_LABELS, PageKey, PAGES } from "@/app/_shared/shared.const"
+import { PAGE_LABELS, PAGES } from "@/app/_shared/shared.const"
+import { PageKey } from "@/app/_shared/shared.types"
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  console.log(Object.keys(PAGES))
   return (
     <header className="sticky top-0 z-50 border-b border-border">
       <div className="max-w-7xl mx-auto lg:px-8">
@@ -50,7 +50,7 @@ export const Header = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 border-t border-border border px-6">
+          <div className="md:hidden py-4 space-y-3 border-t border-border px-6">
             {(Object.keys(PAGES) as PageKey[]).map((pageKey) => {
               const page = PAGES[pageKey]
 
@@ -59,6 +59,7 @@ export const Header = () => {
                   key={page.path}
                   href={page.path}
                   className="block text-sm text-foreground hover:opacity-60 transition"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {PAGE_LABELS.fr[pageKey]}
                 </Link>

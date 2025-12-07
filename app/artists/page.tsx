@@ -1,9 +1,8 @@
 "use client"
 
-import { PAGE_LABELS, PAGES } from "@/app/_shared/shared.const"
-import { Artist } from "@/app/_shared/shared.enums"
-import { Tab } from "@/app/_shared/shared.types"
-import { SubHeader } from "@/app/_shared/sub-header"
+import { PAGE_LABELS } from "@/app/_shared/shared.const"
+import { Artist, Tab } from "@/app/_shared/shared.types"
+import { SubHeader } from "@/app/_shared/components/SubHeader"
 import { interview } from "@/app/artists/constants/interview"
 import { PageLayout } from "@/app/page-layout"
 import { useState } from "react"
@@ -58,7 +57,7 @@ export default function ArtistPage({ params }: { params: { categoryId: string } 
 
               {activeIndex === index && (
                 <div className="mt-2 px-4 py-3  text-gray-300 rounded-lg shadow-md">
-                  <p className="text-sm leading-relaxed">{item.answer}</p>
+                  <p className="text-sm ">{item.answer}</p>
                 </div>
               )}
             </div>
