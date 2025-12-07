@@ -6,6 +6,7 @@ import PaintingCard from "@/app/creations/painting-card"
 import { categoryDescriptions, paintings } from "@/app/_shared/data/categories-data"
 import { useState } from "react"
 import { Tab } from "@/app/_shared/shared.types"
+import { PAGE_LABELS } from "@/app/_shared/shared.const"
 
 export default function PaintingGrid() {
   const [activeCategory, setActiveCategory] = useState<Tab>(Category.all)
@@ -18,7 +19,7 @@ export default function PaintingGrid() {
   return (
     <section className="w-full">
       <SubHeader
-        title="Oeuvres"
+        title={PAGE_LABELS.fr.creations}
         tabs={Object.values(Category)}
         activeTab={activeCategory}
         setActiveTab={setActiveCategory}

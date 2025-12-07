@@ -5,34 +5,36 @@ import { useState } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
+import { PAGE_LABELS, PageKey, PAGES } from "@/app/_shared/shared.const"
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
+  console.log(Object.keys(PAGES))
   return (
-    <header className="sticky top-0 z-50 bg-background border-b border-border ">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="sticky top-0 z-50 border-b border-border">
+      <div className="max-w-7xl mx-auto lg:px-8">
+        <div className="flex items-center justify-between h-16 px-6">
           <Link
             href="/"
-            className="text-xl font-display font-light tracking-wider text-foreground hover:opacity-60 transition"
+            className="text-2xl font-display font-light tracking-wider hover:opacity-60 transition"
           >
             KINDA CREAPY
           </Link>
 
           <nav className="hidden md:flex items-center gap-12">
-            <Link href="/" className="text-sm text-foreground hover:opacity-60 transition">
-              Oeuvres
-            </Link>
-            <Link href="/lexicon" className="text-sm text-foreground hover:opacity-60 transition">
-              Lexique
-            </Link>
-            <Link href="/artists" className="text-sm text-foreground hover:opacity-60 transition">
-              Artistes
-            </Link>
-            <Link href="/contact" className="text-sm text-foreground hover:opacity-60 transition">
-              Contact
-            </Link>
+            {(Object.keys(PAGES) as PageKey[]).map((pageKey) => {
+              const page = PAGES[pageKey]
+
+              return (
+                <Link
+                  key={page.path}
+                  href={page.path}
+                  className="text-sm hover:opacity-60 transition"
+                >
+                  {PAGE_LABELS.fr[pageKey]}
+                </Link>
+              )
+            })}
           </nav>
 
           <button
@@ -48,31 +50,20 @@ export const Header = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 space-y-3 border-t border-border pt-4">
-            <Link
-              href="/creations"
-              className="block text-sm text-foreground hover:opacity-60 transition"
-            >
-              Oeuvres
-            </Link>
-            {/* <Link
-              href="/lexicon"
-              className="block text-sm text-foreground hover:opacity-60 transition"
-            >
-              Lexique
-            </Link> */}
-            <Link
-              href="/artists"
-              className="block text-sm text-foreground hover:opacity-60 transition"
-            >
-              Artistes
-            </Link>
-            {/* <Link
-              href="/contact"
-              className="block text-sm text-foreground hover:opacity-60 transition"
-            >
-              Contact
-            </Link> */}
+          <div className="md:hidden py-4 space-y-3 border-t border-border border px-6">
+            {(Object.keys(PAGES) as PageKey[]).map((pageKey) => {
+              const page = PAGES[pageKey]
+
+              return (
+                <Link
+                  key={page.path}
+                  href={page.path}
+                  className="block text-sm text-foreground hover:opacity-60 transition"
+                >
+                  {PAGE_LABELS.fr[pageKey]}
+                </Link>
+              )
+            })}
           </div>
         )}
       </div>

@@ -24,17 +24,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr" className="bg-background text-foreground antialiased">
-      <body className={`${lato.variable}`}>
+    <html lang="fr">
+      <body className={lato.variable}>
         <Analytics />
         <SpeedInsights />
         <div className="absolute z-0">{/* <AlgoBlood /> */}</div>
         <div className="relative z-10">
           <Header />
         </div>
-        <main className="relative z-10 flex min-h-screen flex-col items-center justify-between m-5 md:p-10 tracking-widest sm:max-w-7xl mx-auto">
-          {children}
-        </main>
+        <main>{children}</main>
         <Toaster position="top-right" richColors closeButton />
       </body>
     </html>

@@ -1,26 +1,28 @@
 import { Tab } from "@/app/_shared/shared.types"
 
+type SubHeaderProps = {
+  title: string
+  description?: string
+  tabs?: Tab[]
+  activeTab?: Tab
+  setActiveTab?: (tab: Tab) => void
+}
+
 export const SubHeader = ({
   title,
-  tabs,
+  tabs = [],
   description,
   activeTab,
   setActiveTab,
-}: {
-  title: string
-  description: string
-  tabs: Tab[]
-  activeTab: Tab
-  setActiveTab: (tab: Tab) => void
-}) => {
+}: SubHeaderProps) => {
   return (
-    <div className="w-full flex items-center flex-col justify-center font-serif">
-      <h1 className="text-4xl font-serif text-center">{title}</h1>
-      <div className={`flex gap-6 my-10 border-b border-b-gray-500 w-full justify-center`}>
+    <div className="w-full flex items-center flex-col justify-center pt-16">
+      <h1 className="text-center">{title}</h1>
+      <div className={`flex gap-10 my-10 border-b border-border w-full justify-center h-12`}>
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => setActiveTab && setActiveTab(tab)}
             className={`pb-6 text-sm font-light transition
 
                ${activeTab === tab ? "border-b" : "hover:cursor-pointer"}`}
@@ -31,8 +33,8 @@ export const SubHeader = ({
       </div>
       <h2 className="text-2xl mb-4">{activeTab}</h2>
       {description && (
-        <div className="mb-12 max-w-2xl text-center">
-          <p className="text-sm font-ex ">{description}</p>
+        <div className="mb-12 max-w-xl text-center">
+          <p className="text-md font-extralight tracking-widest">{description}</p>
         </div>
       )}
     </div>

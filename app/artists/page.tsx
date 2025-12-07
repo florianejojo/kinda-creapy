@@ -1,9 +1,11 @@
 "use client"
 
+import { PAGE_LABELS, PAGES } from "@/app/_shared/shared.const"
 import { Artist } from "@/app/_shared/shared.enums"
 import { Tab } from "@/app/_shared/shared.types"
 import { SubHeader } from "@/app/_shared/sub-header"
 import { interview } from "@/app/artists/constants/interview"
+import { PageLayout } from "@/app/page-layout"
 import { useState } from "react"
 
 export default function ArtistPage({ params }: { params: { categoryId: string } }) {
@@ -15,23 +17,23 @@ export default function ArtistPage({ params }: { params: { categoryId: string } 
   }
 
   return (
-    <div className="bg-black text-white-100 min-h-screen p-8 bg-transparent">
+    <div>
       <SubHeader
-        title="Artistes"
+        title={PAGE_LABELS.fr.artists}
         tabs={Object.values(Artist)}
         activeTab={activeArtist}
         setActiveTab={setActiveArtist}
         description=""
       />
-      <div className="max-w-7xl mx-auto">
-        <div className="p-5 bg-transparent rounded-lg shadow-lg">
+      <PageLayout>
+        <div className="p-5 rounded-lg">
           {interview.map((item, index) => (
             <div key={index} className="mb-6">
               <button
                 onClick={() => {
                   toggleAnswer(index)
                 }}
-                className="w-full text-left px-4 py-3 border-slate-800 border text-gray-100 rounded-lg shadow-md transition-all duration-300 ease-in-out hover:border-3"
+                className="w-full text-left px-4 py-3 border border-border rounded-lg transition-all duration-300 ease-in-out hover:border-3"
               >
                 <span className="flex justify-between items-center">
                   <h2 className="text-lg ">{item.question}</h2>
@@ -62,7 +64,7 @@ export default function ArtistPage({ params }: { params: { categoryId: string } 
             </div>
           ))}
         </div>
-      </div>
+      </PageLayout>
     </div>
   )
 }
