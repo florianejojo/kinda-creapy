@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Header } from "@/app/_shared/header-"
+import { Header } from "@/app/_shared/header"
 import { lexique } from "@/app/lexicon/lexique-data"
 
 export default function LexiquePage() {

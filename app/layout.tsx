@@ -4,12 +4,13 @@ import { Lato } from "next/font/google"
 import "./globals.css"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import { Header } from "@/app/_shared/header-"
+import { Header } from "@/app/_shared/header"
 import { AlgoBlood } from "@/app/_shared/AlgoBlood"
 import { Toaster } from "sonner"
+
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["300", "400", "700"], // choisis ce que tu veux
+  weight: ["300", "400", "700"],
   variable: "--font-lato",
 })
 export const metadata: Metadata = {
@@ -23,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
-      <body className={lato.className}>
+    <html lang="fr" className="bg-background text-foreground antialiased">
+      <body className={`${lato.variable}`}>
         <Analytics />
         <SpeedInsights />
         <div className="absolute z-0">{/* <AlgoBlood /> */}</div>
