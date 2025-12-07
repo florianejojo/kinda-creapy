@@ -11,6 +11,6 @@ export type Product = {
     original: number
     printXXL: number
     printA3: number
-    printA5: number
+    printA4: number
   }
 }

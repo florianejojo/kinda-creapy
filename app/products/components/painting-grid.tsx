@@ -1,7 +1,7 @@
 "use client"
 
 import { SubHeader } from "@/app/_shared/components/SubHeader"
-import PaintingCard from "@/app/products/painting-card"
+import PaintingCard from "@/app/products/components/painting-card"
 import { useEffect, useState } from "react"
 import { Category, Tab } from "@/app/_shared/shared.types"
 import { categoryDescriptions, PAGE_LABELS, paintings } from "@/app/_shared/shared.const"

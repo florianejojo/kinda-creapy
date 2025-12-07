@@ -12,6 +12,6 @@ export const mapProducts = (products: ProductModel[]): Product[] => {
     dimensions: "50x40 cm",
     description: product.description || "",
     available: !product.sold,
-    prices: { original: product.price, printXXL: 200, printA3: 60, printA5: 45 },
+    prices: { original: product.price, printXXL: 200, printA3: 60, printA4: 45 },
   }))
 }

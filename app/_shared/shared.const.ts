@@ -1,5 +1,4 @@
 import { ArtPiece, CATEGORIES, Category, Locale, PageKey, PATHS } from "@/app/_shared/shared.types"
-import { getDefaultPrices } from "@/app/_shared/utils/getPrices"
 import { Product } from "@/app/products/products.types"
 
 export const LOCALES = ["en", "fr"] as const
@@ -43,7 +42,9 @@ export const categoryDescriptions = {
 
   [Category.trees]:
     "Les arbres sont les gardiens de mondes anciens et futurs. Chaque peinture dans cette série révèle un aspect différent de ces créatures vivantes, du sage au mystérieux, de l'accueillant au secret.",
-  [Category.all]: "",
+
+  [Category.all]:
+    "Chaque pièce ouvre une fenêtre sur un imaginaire riche, parfois doux, parfois vibrant, toujours profondément vivant.",
 }
 
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -65,7 +66,8 @@ export const artworks: ArtPiece[] = [
     isSpinable: false,
     alt: "Métamorphose Sauvage - Techniques mixtes représentant la fusion de l'esprit humain avec celui du loup.",
     categories: [CATEGORIES.illusions, CATEGORIES.beasts],
-    isAvailable: true,
+    isAvailable: false,
+    price: 160,
   },
   {
     id: "SNW021MX03",
@@ -78,6 +80,7 @@ export const artworks: ArtPiece[] = [
     alt: "Paysage abstrait avec des teintes rouges profondes.",
     categories: [CATEGORIES.illusions],
     isAvailable: false,
+    price: 130,
   },
 
   {
@@ -93,6 +96,7 @@ export const artworks: ArtPiece[] = [
     alt: "Génith - Peinture représentant une bataille mythologique sous une explosion de lumière.",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: true,
+    price: 180,
   },
   {
     id: "36",
@@ -106,6 +110,7 @@ export const artworks: ArtPiece[] = [
     alt: "Cascade de montagne - Peinture mettant en scène une cascade dans paysage abstrait et surréaliste.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 200,
   },
   {
     id: "AG024B02",
@@ -118,6 +123,7 @@ export const artworks: ArtPiece[] = [
     alt: "Arbre solitaire avec un animal caché à sa base, symbole de protection dans la forêt.",
     categories: [CATEGORIES.trees, CATEGORIES.beasts],
     isAvailable: false,
+    price: 95,
   },
 
   {
@@ -131,6 +137,7 @@ export const artworks: ArtPiece[] = [
     alt: "Paysage abstrait avec des textures terreuses et nuageuses.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 140,
   },
   {
     id: "BL024B04",
@@ -143,6 +150,7 @@ export const artworks: ArtPiece[] = [
     alt: "Visage émergeant des profondeurs, marqué par le temps.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 90,
   },
 
   {
@@ -156,6 +164,7 @@ export const artworks: ArtPiece[] = [
     alt: "Formes corporelles abstraites se fragmentant dans un paysage sombre.",
     categories: [CATEGORIES.illusions],
     isAvailable: false,
+    price: 125,
   },
 
   {
@@ -169,6 +178,7 @@ export const artworks: ArtPiece[] = [
     alt: "Cloison abstraite avec des textures métalliques et des couleurs superposées.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 135,
   },
 
   {
@@ -184,6 +194,7 @@ export const artworks: ArtPiece[] = [
     alt: "Gardien des Ombres - Encre et lavis représentant une créature mi-homme mi-bête dans une forêt mystique.",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: false,
+    price: 190,
   },
   {
     id: "14",
@@ -198,6 +209,7 @@ export const artworks: ArtPiece[] = [
     alt: "Banquet à la Madonne - Peinture détaillant une scène de chaos cosmique et d'étreinte surréaliste.",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: true,
+    price: 175,
   },
 
   {
@@ -213,6 +225,7 @@ export const artworks: ArtPiece[] = [
     alt: "Artémis -",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: true,
+    price: 150,
   },
 
   {
@@ -226,6 +239,7 @@ export const artworks: ArtPiece[] = [
     alt: "Paysage surréaliste avec des visages émergents dans une forêt mystique.",
     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     isAvailable: false,
+    price: 110,
   },
 
   {
@@ -239,6 +253,7 @@ export const artworks: ArtPiece[] = [
     alt: "Paysage abstrait de terre rouge et eau bleue en fusion.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 145,
   },
   {
     id: "16",
@@ -247,12 +262,13 @@ export const artworks: ArtPiece[] = [
       "Les racines d'un arbre millénaire se mêlent aux constellations dans une danse cosmique. Cette œuvre symbolise l'interconnexion entre la terre et le ciel, où les formes terrestres s'élèvent pour se fondre dans l'infini cosmique. Une fusion de la nature et du mystique, dans un style onirique et captivant.",
     image: "IMG_5809.webp",
     technique: "Peinture à l'huile",
-    size: "24x30",
+    size: "24x30 cm",
     color: "#4A3436",
     isSpinable: false,
     alt: "Arbre sorcier II - Peinture représentant un arbre dansant avec les étoiles dans un ciel cosmique.",
     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     isAvailable: true,
+    price: 155,
   },
   {
     id: "SLNW021MX08",
@@ -265,6 +281,7 @@ export const artworks: ArtPiece[] = [
     alt: "Textures sombres et denses avec des éclats de lumière.",
     categories: [CATEGORIES.illusions],
     isAvailable: false,
+    price: 120,
   },
 
   {
@@ -278,6 +295,7 @@ export const artworks: ArtPiece[] = [
     alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
     categories: [CATEGORIES.illusions],
     isAvailable: true,
+    price: 150,
   },
 
   {
@@ -293,6 +311,7 @@ export const artworks: ArtPiece[] = [
     alt: "Cachot des Esprits - Encre d'un cachot mystique caché dans une forêt.",
     categories: [CATEGORIES.trees, CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: true,
+    price: 170,
   },
   {
     id: "SNW021MX02",
@@ -305,6 +324,7 @@ export const artworks: ArtPiece[] = [
     alt: "Explosion de formes lumineuses et sombres dans une scène cosmique.",
     categories: [CATEGORIES.illusions],
     isAvailable: false,
+    price: 135,
   },
 
   {
@@ -320,6 +340,7 @@ export const artworks: ArtPiece[] = [
     alt: "Sentier des Astres - ",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
     isAvailable: true,
+    price: 80,
   },
   {
     id: "1",
@@ -334,6 +355,7 @@ export const artworks: ArtPiece[] = [
     alt: "Ouroborosorus Rex - ",
     categories: [CATEGORIES.illusions, CATEGORIES.beasts, CATEGORIES.trees],
     isAvailable: true,
+    price: 90,
   },
 
   {
@@ -349,6 +371,7 @@ export const artworks: ArtPiece[] = [
     alt: "Sanctuaire Lunaire - Aquarelle d'un sanctuaire éclairé par la lumière de la lune dans une forêt mystique.",
     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     isAvailable: true,
+    price: 100,
   },
 ]
 
@@ -365,6 +388,11 @@ export const paintings: Product[] = artworks.map((artwork) => {
     dimensions: artwork.size,
     description: artwork.description,
     available: artwork.isAvailable ?? true,
-    prices: getDefaultPrices(artwork.size),
+    prices: {
+      original: artwork.price,
+      printXXL: 200,
+      printA3: 60,
+      printA4: 45,
+    },
   }
 })

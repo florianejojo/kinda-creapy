@@ -2,8 +2,8 @@
 
 import { useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
-import InputField from "@/components/input_field"
-import LoadingCircle from "@/components/loading_circle"
+import InputField from "@/app/_shared/components/input_field"
+import LoadingCircle from "@/app/_shared/components/loading_circle"
 import authService from "@/services/auth"
 import NavigationService from "@/utils/navigation"
 import { toast } from "sonner"

@@ -1,12 +1,14 @@
 import { ProductDTO } from "@/models/product_model"
 import { NextRequest, NextResponse } from "next/server"
-import { normalizeImageFile, supabaseAdmin, withAdminAuth } from "../utils"
+import { supabaseAdmin, withAdminAuth } from "@/app/api/withAdminAuth"
+import { normalizeImageFile } from "@/app/api/normalizeImageFile"
 
 export const POST = withAdminAuth(async (req: NextRequest) => {
   try {
     const form = await req.formData()
 
     const raw = form.get("data")
+    console.log({ raw })
     if (typeof raw !== "string") {
       return NextResponse.json({ error: "Invalid payload" }, { status: 400 })
     }
@@ -44,7 +46,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
         if (uploadedPaths.length) {
           await supabaseAdmin.storage.from("products").remove(uploadedPaths)
         }
-        return NextResponse.json({ error: error.message }, { status: 400 })
+        return NextResponse.json({ error: error }, { status: 403 })
       }
 
       uploadedPaths.push(path)
@@ -68,6 +70,7 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
 
     return NextResponse.json(productId, { status: 201 })
   } catch (err: any) {
+    console.log({ err })
     return NextResponse.json({ error: err?.message ?? "Unknown error" }, { status: 500 })
   }
 })

@@ -62,6 +62,7 @@ export type ArtPiece = {
   alt: string
   categories: CATEGORIES[]
   isAvailable: boolean
+  price: number
 }
 
 export type NavItem = { name: string; description?: string; path?: PATHS }

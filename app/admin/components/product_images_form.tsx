@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/button"
+import { Button } from "@/app/_shared/components/button"
 import { Product, ProductImage } from "@/models/product_model"
 import Image from "next/image"
 import { useCallback, useRef } from "react"

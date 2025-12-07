@@ -2,7 +2,7 @@ import React from "react"
 
 import { initializeProduct, Product } from "@/models/product_model"
 
-import InputField from "@/components/input_field"
+import InputField from "@/app/_shared/components/input_field"
 
 interface ProductTitleFormProps {
   currentProduct: Product | null

@@ -2,11 +2,11 @@
 
 import React, { useState } from "react"
 
-import ConfirmationModal from "@/components/delete_confirmation"
+import ConfirmationModal from "@/app/_shared/components/delete_confirmation"
 import { Product } from "@/models/product_model"
 import productService from "@/services/product_service"
 import { toast } from "sonner"
-import { Button } from "@/components/button"
+import { Button } from "@/app/_shared/components/button"
 
 type ProductDeleteButtonProps = {
   currentProduct: Product

@@ -16,7 +16,7 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: { default: "Kinda Creapy", template: "%s - Kinda Creapy" },
   description: "Oeuvres de Remy Verroeulst, Artiste Peintre surréaliste entre Lille et Huelgoat",
-  icons: "remy_verroeulst.png",
+  icons: "logo.png",
 }
 export default function RootLayout({
   children,

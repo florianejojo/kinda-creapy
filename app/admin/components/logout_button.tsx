@@ -1,6 +1,6 @@
 "use client"
 
-import LoadingCircle from "@/components/loading_circle"
+import LoadingCircle from "@/app/_shared/components/loading_circle"
 import authService from "@/services/auth"
 import NavigationService from "@/utils/navigation"
 import { useState } from "react"

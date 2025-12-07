@@ -21,11 +21,11 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
 
   return (
     <div className="space-y-6">
-      <div className="relative bg-secondary aspect-square overflow-hidden group">
+      <div className="relative aspect-square overflow-hidden group">
         <img
           src={painting.images[currentImageIndex] || "/placeholder.svg"}
           alt={painting.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain border border-border"
         />
 
         <div className="absolute inset-0 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity">
@@ -52,7 +52,7 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
         )}
 
         {!painting.available && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-sm tracking-wide">Vendue</span>
           </div>
         )}
@@ -62,7 +62,6 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
         <div>
           <h3 className="text-lg font-display text-foreground">{painting.title}</h3>
           <p className="text-xs text-muted-foreground tracking-wide mt-1">Par {painting.artist}</p>
-          <p className="text-xs text-muted-foreground tracking-wide mt-1">{painting.dimensions}</p>
         </div>
 
         <p className="text-sm text-muted-foreground line-clamp-3">{painting.description}</p>
@@ -70,7 +69,7 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
         <div className="space-y-2 pt-4 border-t border-border">
           {painting.prices.original > 0 && (
             <div className="flex justify-between items-baseline text-sm">
-              <span className="text-foreground">Peinture originale</span>
+              <span className="text-foreground">Oeuvre originale</span>
               {
                 <span className="text-foreground font-medium">
                   {painting.available ? painting.prices.original + "€" : "Vendue"}
@@ -98,8 +97,8 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
                 <span className="text-foreground">{painting.prices.printA3}€</span>
               </div>
               <div className="flex justify-between items-baseline text-sm">
-                <span className="text-muted-foreground">Print A5</span>
-                <span className="text-foreground">{painting.prices.printA5}€</span>
+                <span className="text-muted-foreground">Print A4</span>
+                <span className="text-foreground">{painting.prices.printA4}€</span>
               </div>
             </div>
           )}

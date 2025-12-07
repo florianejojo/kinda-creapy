@@ -2,8 +2,8 @@ import React from "react"
 
 import { Product, ProductDTO } from "@/models/product_model"
 
-import LoadingCircle from "@/components/loading_circle"
-import Spacer from "@/components/spacer"
+import LoadingCircle from "@/app/_shared/components/loading_circle"
+import Spacer from "@/app/_shared/components/spacer"
 
 import productService from "@/services/product_service"
 
