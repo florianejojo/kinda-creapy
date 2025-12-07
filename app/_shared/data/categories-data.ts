@@ -2,7 +2,6 @@ import { artworks } from "@/app/_shared/constants/artwork"
 import { Category } from "@/app/_shared/shared.enums"
 import { Product } from "@/app/products/products.types"
 import { CATEGORIES } from "@/app/types/types"
-import { Product as ProductModel } from "@/models/product_model"
 
 export const categories = Object.values(Category).map((category) => category)
 

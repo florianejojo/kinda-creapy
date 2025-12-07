@@ -50,7 +50,7 @@ export const Header = () => {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-3 border-t border-border border px-6">
+          <div className="md:hidden py-4 space-y-3 border-t border-border px-6">
             {(Object.keys(PAGES) as PageKey[]).map((pageKey) => {
               const page = PAGES[pageKey]
 
@@ -59,6 +59,7 @@ export const Header = () => {
                   key={page.path}
                   href={page.path}
                   className="block text-sm text-foreground hover:opacity-60 transition"
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {PAGE_LABELS.fr[pageKey]}
                 </Link>

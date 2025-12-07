@@ -1,6 +1,6 @@
 import { create } from "zustand"
 
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
+import { FETCH_STATUS } from "@/app/types/types"
 
 export type PricesStore = {
   fetchingStatus: FETCH_STATUS

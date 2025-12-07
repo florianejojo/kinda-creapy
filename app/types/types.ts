@@ -31,3 +31,10 @@ export const HEADER_TITLE = {
   [PATHS.shop]: "KINDA CREAPY",
   [PATHS.gallery]: "Gallery",
 }
+
+export enum FETCH_STATUS {
+  idle = "idle",
+  loading = "loading",
+  error = "error",
+  success = "success",
+}

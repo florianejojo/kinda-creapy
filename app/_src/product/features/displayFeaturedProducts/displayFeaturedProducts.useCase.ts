@@ -1,6 +1,6 @@
 import { productApi } from "@/app/_src/product/product.api"
 import { useProductStore } from "@/app/_src/product/productStore"
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
+import { FETCH_STATUS } from "@/app/types/types"
 
 export const displayFeaturedProductsUseCase = async () => {
   const { setFeaturedProducts, setFetchingStatus, setErrorMessage } = useProductStore.getState()

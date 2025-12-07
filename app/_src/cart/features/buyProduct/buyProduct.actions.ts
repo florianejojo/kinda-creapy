@@ -1,5 +1,5 @@
 import { ProductStore } from "@/app/_src/cart/features/buyProduct/buyProduct.store"
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
+import { FETCH_STATUS } from "@/app/types/types"
 
 export type BuyProductActionProps = {
   set: (partial: Partial<ProductStore>) => void

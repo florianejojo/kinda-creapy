@@ -1,7 +1,7 @@
 import { usePricesStore } from "@/app/_src/prices/features/getPrices/getPrices.store"
 import { productApi } from "@/app/_src/product/product.api"
 import { useProductStore } from "@/app/_src/product/productStore"
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
+import { FETCH_STATUS } from "@/app/types/types"
 
 export const displayProductsUseCase = async () => {
   const { setProducts, setFetchingStatus, setErrorMessage } = useProductStore.getState()

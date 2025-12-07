@@ -50,7 +50,7 @@ export default function ContactPage() {
           <div>
             <p className="font-light tracking-wide text-foreground mb-1">Instagram</p>
             <div className="space-y-1">
-              <p>@kindacreapy</p>
+              <p>@kindacreapy.art</p>
             </div>
           </div>
         </div>

@@ -28,7 +28,9 @@ export default function RootLayout({
       <body className={lato.variable}>
         <Analytics />
         <SpeedInsights />
-        <div className="absolute z-0">{/* <AlgoBlood /> */}</div>
+        <div className="absolute z-0">
+          <AlgoBlood />
+        </div>
         <div className="relative z-10">
           <Header />
         </div>

@@ -2,7 +2,7 @@ import { create } from "zustand"
 import { persist } from "zustand/middleware"
 import { Product } from "./product.types"
 import { productActions } from "@/app/_src/product/product.actions"
-import { FETCH_STATUS } from "@/app/_src/shared/shared.types"
+import { FETCH_STATUS } from "@/app/types/types"
 
 type ProductActions = {
   setFeaturedProducts: (products: Product[]) => void
