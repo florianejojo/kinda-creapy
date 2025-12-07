@@ -5,13 +5,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: supa.protocol.replace(':', ''),
-        hostname: supa.hostname,       
-        port: supa.port || undefined, 
-        pathname: '/storage/v1/object/public/**',
+        protocol: supa.protocol.replace(":", ""),
+        hostname: supa.hostname,
+        port: supa.port || undefined,
+        pathname: "/storage/v1/object/public/**",
       },
     ],
-    unoptimized: process.env.NODE_ENV !== 'production',
+    unoptimized: process.env.NODE_ENV !== "production",
   },
 
   eslint: {
@@ -29,7 +29,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/home",
+        destination: "products",
         permanent: true,
       },
     ]

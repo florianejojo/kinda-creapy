@@ -4,13 +4,6 @@ import { Product } from "@/app/products/products.types"
 
 export const LOCALES = ["en", "fr"] as const
 
-export const HEADER_TITLE = {
-  [PATHS.home]: "KINDA CREAPY",
-  [PATHS.artist]: "R. VERROEULST",
-  [PATHS.shop]: "KINDA CREAPY",
-  [PATHS.gallery]: "Gallery",
-}
-
 export const PAGES = {
   products: {
     path: "/products",
@@ -21,6 +14,9 @@ export const PAGES = {
   contact: {
     path: "/contact",
   },
+  admin: {
+    path: "/admin",
+  },
 } as const
 
 export const PAGE_LABELS: Record<Locale, Record<PageKey, string>> = {
@@ -28,11 +24,13 @@ export const PAGE_LABELS: Record<Locale, Record<PageKey, string>> = {
     products: "Nos Créations",
     contact: "Contact",
     artists: "Artistes",
+    admin: "Admin",
   },
   en: {
     products: "Creations",
     contact: "Contact",
     artists: "Artists",
+    admin: "Admin",
   },
 }
 

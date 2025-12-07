@@ -21,7 +21,6 @@ export enum CATEGORIES {
 }
 
 export enum PATHS {
-  home = "/home",
   artist = "/artist",
   shop = "/shop",
   gallery = "/gallery",

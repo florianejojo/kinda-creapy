@@ -2,18 +2,27 @@
 
 import { SubHeader } from "@/app/_shared/components/SubHeader"
 import PaintingCard from "@/app/products/painting-card"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Category, Tab } from "@/app/_shared/shared.types"
 import { categoryDescriptions, PAGE_LABELS, paintings } from "@/app/_shared/shared.const"
+import { useProductStore } from "@/stores/product_store"
 import { Product } from "@/app/products/products.types"
+import { mapProducts } from "@/app/products/utils/mapProducts"
 
 export default function PaintingGrid() {
   const [activeCategory, setActiveCategory] = useState<Tab>(Category.all)
+  const { fetchProducts, products } = useProductStore()
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
+  const concatPaintings = [...mapProducts(products), ...paintings]
 
   const filteredPaintings =
     activeCategory === Category.all
-      ? paintings
-      : paintings.filter((p) => p.category === activeCategory)
+      ? concatPaintings
+      : concatPaintings.filter((p) => p.category === activeCategory)
 
   return (
     <section className="w-full">

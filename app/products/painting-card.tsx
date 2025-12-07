@@ -80,10 +80,7 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
           )}
 
           <button
-            onClick={() => {
-              setShowPrices(!showPrices)
-              console.log("Toggled showPrices to", !showPrices)
-            }}
+            onClick={() => setShowPrices(!showPrices)}
             className="w-full text-left flex justify-between items-center text-sm py-2 hover:opacity-60 transition"
           >
             <span className="text-foreground">Impressions</span>
