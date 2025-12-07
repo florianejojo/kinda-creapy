@@ -2,8 +2,8 @@ export const LOCALES = ["en", "fr"] as const
 export type Locale = (typeof LOCALES)[number]
 
 export const PAGES = {
-  creations: {
-    path: "/creations",
+  products: {
+    path: "/products",
   },
   artists: {
     path: "/artists",
@@ -13,16 +13,16 @@ export const PAGES = {
   },
 } as const
 
-export type PageKey = keyof typeof PAGES // "creations" | "about" | "contact" | "artists"
+export type PageKey = keyof typeof PAGES
 
 export const PAGE_LABELS: Record<Locale, Record<PageKey, string>> = {
   fr: {
-    creations: "Nos Créations",
+    products: "Nos Créations",
     contact: "Contact",
     artists: "Artistes",
   },
   en: {
-    creations: "Creations",
+    products: "Creations",
     contact: "Contact",
     artists: "Artists",
   },

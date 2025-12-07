@@ -1,25 +1,10 @@
 "use client"
 
+import { Product } from "@/app/products/products.types"
 import { useState } from "react"
 
-interface Painting {
-  id: number
-  title: string
-  artist: string
-  images: string[]
-  dimensions: string
-  description: string
-  available: boolean
-  prices: {
-    original: number
-    printXXL: number
-    printA3: number
-    printA5: number
-  }
-}
-
 interface PaintingCardProps {
-  painting: Painting
+  painting: Product
 }
 
 export default function PaintingCard({ painting }: PaintingCardProps) {

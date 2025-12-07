@@ -1,4 +1,4 @@
-import PaintingGrid from "@/app/creations/painting-grid"
+import PaintingGrid from "@/app/products/painting-grid"
 
 export default function Creations() {
   return (
