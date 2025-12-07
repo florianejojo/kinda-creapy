@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars } from "@fortawesome/free-solid-svg-icons"
 import { faXmark } from "@fortawesome/free-solid-svg-icons"
 import { PAGE_LABELS, PAGES } from "@/app/_shared/shared.const"
-import { PageKey } from "@/app/types/types"
+import { PageKey } from "@/app/_shared/shared.types"
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)

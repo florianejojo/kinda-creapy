@@ -44,7 +44,7 @@ export default function LexiquePage() {
           {displayItems.map((item, itemIndex) => (
             <div key={itemIndex} className="pb-8 border-b border-border last:border-b-0">
               <h3 className="text-xl font-display font-light text-foreground mb-3">{item.title}</h3>
-              <p className="text-sm leading-relaxed text-foreground/80">{item.description}</p>
+              <p className="text-sm text-foreground/80">{item.description}</p>
             </div>
           ))}
         </div>

@@ -1,5 +1,5 @@
 import { LOCALES } from "@/app/_shared/shared.const"
-import { CATEGORIES } from "@/app/types/types"
+import { PAGES } from "@/app/_shared/shared.const"
 
 // ---- ENUMS ----
 
@@ -12,6 +12,37 @@ export enum Category {
 
 export enum Artist {
   barniak = "Barniak",
+}
+
+export enum CATEGORIES {
+  trees = "Arbres",
+  beasts = "Bestiaires",
+  illusions = "Illusions",
+}
+
+export enum PATHS {
+  home = "/home",
+  artist = "/artist",
+  shop = "/shop",
+  gallery = "/gallery",
+}
+
+export enum TECHNIQUES {
+  acrylique = "Acrylique",
+  oil = "Huile",
+  fire = "Feu",
+  posca = "Posca",
+  mixte = "Mixte",
+  automatic = "Automatique",
+  bic = "Bic",
+  wax = "Wax",
+}
+
+export enum FETCH_STATUS {
+  idle = "idle",
+  loading = "loading",
+  error = "error",
+  success = "success",
 }
 
 // ---- TYPES ----
@@ -33,3 +64,7 @@ export type ArtPiece = {
   categories: CATEGORIES[]
   isAvailable: boolean
 }
+
+export type NavItem = { name: string; description?: string; path?: PATHS }
+
+export type PageKey = keyof typeof PAGES

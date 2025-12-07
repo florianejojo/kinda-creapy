@@ -1,9 +1,15 @@
-import { ArtPiece, Category, Locale } from "@/app/_shared/shared.types"
+import { ArtPiece, CATEGORIES, Category, Locale, PageKey, PATHS } from "@/app/_shared/shared.types"
 import { getDefaultPrices } from "@/app/_shared/utils/getPrices"
 import { Product } from "@/app/products/products.types"
-import { CATEGORIES, PageKey } from "@/app/types/types"
 
 export const LOCALES = ["en", "fr"] as const
+
+export const HEADER_TITLE = {
+  [PATHS.home]: "KINDA CREAPY",
+  [PATHS.artist]: "R. VERROEULST",
+  [PATHS.shop]: "KINDA CREAPY",
+  [PATHS.gallery]: "Gallery",
+}
 
 export const PAGES = {
   products: {
@@ -179,7 +185,7 @@ export const artworks: ArtPiece[] = [
     isSpinable: false,
     alt: "Gardien des Ombres - Encre et lavis représentant une créature mi-homme mi-bête dans une forêt mystique.",
     categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: true,
+    isAvailable: false,
   },
   {
     id: "14",
@@ -263,18 +269,18 @@ export const artworks: ArtPiece[] = [
     isAvailable: false,
   },
 
-  {
-    id: "BL024B03",
-    name: "Serment des Créatures",
-    description:
-      "Deux créatures hybrides s'affrontent dans une danse mystique, leurs formes se mélangeant dans une explosion de lignes.",
-    image: "BL024B03.webp",
-    technique: "Encre sur papier",
-    size: "40x30 cm",
-    alt: "Deux créatures hybrides dans une danse mystique.",
-    categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: true,
-  },
+  // {
+  //   id: "BL024B03",
+  //   name: "Serment des Créatures",
+  //   description:
+  //     "Deux créatures hybrides s'affrontent dans une danse mystique, leurs formes se mélangeant dans une explosion de lignes.",
+  //   image: "BL024B03.webp",
+  //   technique: "Encre sur papier",
+  //   size: "40x30 cm",
+  //   alt: "Deux créatures hybrides dans une danse mystique.",
+  //   categories: [CATEGORIES.beasts, CATEGORIES.illusions],
+  //   isAvailable: true,
+  // },
   {
     id: "SLNW021MX12",
     name: "Tempête des Ombres",

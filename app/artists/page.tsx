@@ -57,7 +57,7 @@ export default function ArtistPage({ params }: { params: { categoryId: string } 
 
               {activeIndex === index && (
                 <div className="mt-2 px-4 py-3  text-gray-300 rounded-lg shadow-md">
-                  <p className="text-sm leading-relaxed">{item.answer}</p>
+                  <p className="text-sm ">{item.answer}</p>
                 </div>
               )}
             </div>
