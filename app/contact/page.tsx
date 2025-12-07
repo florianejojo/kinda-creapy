@@ -37,10 +37,25 @@ export default function ContactPage() {
     <div>
       <SubHeader
         title={PAGE_LABELS.fr.contact}
-        description="Nous serions ravi d'entendre parler de vous. Envoyez-nous un message et nous vous répondrons dès que possible."
+        description="Nous serions ravi d'entendre parler de vous. Envoyez-nous un message."
       />
       <PageLayout>
-        {submitted ? (
+        <div className="space-y-6 text-sm text-foreground/80">
+          <div>
+            <p className="font-light tracking-wide text-foreground mb-1">Email</p>
+            <a href="mailto:kindacreapy.art@gmail.com" className="hover:opacity-60 transition">
+              kindacreapy.art@gmail.com
+            </a>
+          </div>
+          <div>
+            <p className="font-light tracking-wide text-foreground mb-1">Instagram</p>
+            <div className="space-y-1">
+              <p>@kindacreapy</p>
+            </div>
+          </div>
+        </div>
+
+        {/* {submitted ? (
           <div className="p-6 border border-border bg-background/50 text-center">
             <p className="text-foreground font-light tracking-wide">
               Merci pour votre message ! Nous vous répondrons très bientôt.
@@ -139,7 +154,7 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </PageLayout>
     </div>
   )

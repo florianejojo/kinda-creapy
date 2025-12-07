@@ -33,8 +33,8 @@ export const SubHeader = ({
       </div>
       <h2 className="text-2xl mb-4">{activeTab}</h2>
       {description && (
-        <div className="mb-12 max-w-xl text-center">
-          <p className="text-md font-extralight tracking-widest">{description}</p>
+        <div className="mb-12 max-w-xl text-center px-4">
+          <p className="text-sm font-extralight tracking-widest">{description}</p>
         </div>
       )}
     </div>
