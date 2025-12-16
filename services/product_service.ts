@@ -27,6 +27,7 @@ class ProductService {
     product: ProductDTO,
   ): Promise<{ success: boolean; data?: string; error?: string }> {
     const formData = this.createProductFormData(product)
+    console.log({ formData })
 
     const response = await fetch(`/api/products`, {
       method: "POST",

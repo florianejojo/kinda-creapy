@@ -1,5 +1,6 @@
 "use client"
 
+import { Select, SelectOption } from "@/app/_shared/components/select"
 import { useProductStore } from "@/stores/product_store"
 import React from "react"
 
@@ -10,7 +11,7 @@ type ProductSelectProps = {
   isDisabled?: boolean
 }
 
-const ProductSelect: React.FC<ProductSelectProps> = ({
+export const ProductSelect: React.FC<ProductSelectProps> = ({
   id,
   currentProductId,
   onSelect,
@@ -18,39 +19,19 @@ const ProductSelect: React.FC<ProductSelectProps> = ({
 }) => {
   const { products } = useProductStore()
 
-  return (
-    <div className="relative w-full">
-      <select
-        id={id}
-        value={currentProductId ?? ""}
-        onChange={(e) => onSelect(e.target.value || null)}
-        disabled={isDisabled}
-        className={`block w-full h-11 px-3 pr-9 rounded border border-gray-300 dark:border-gray-700 text-base text-gray-900 dark:text-gray-100 appearance-none focus:outline-none focus:ring-2 focus:ring-gray-500/40 ${
-          isDisabled
-            ? "bg-gray-300 dark:bg-zinc-700 cursor-not-allowed"
-            : "bg-white dark:bg-zinc-800"
-        }`}
-      >
-        <option value="">Nouveau produit</option>
-        {products.map((p) => (
-          <option key={p.id} value={p.id}>
-            {p.title} - {p.price} €{p.sold ? " (vendu)" : ""}
-          </option>
-        ))}
-      </select>
+  const options: SelectOption<string>[] = products.map((p) => ({
+    value: p.id || "",
+    label: `${p.title} - ${p.price} €${p.sold ? " (vendu)" : ""}`,
+  }))
 
-      <div className="pointer-events-none absolute inset-y-0 right-2 flex items-center">
-        <svg
-          aria-hidden="true"
-          className="h-4 w-4 text-gray-500 dark:text-gray-400"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path d="M5.23 7.21a.75.75 0 011.06.02L10 10.2l3.71-2.97a.75.75 0 111.04 1.08l-4.24 3.4a.75.75 0 01-.94 0l-4.24-3.4a.75.75 0 01-.02-1.06z" />
-        </svg>
-      </div>
-    </div>
+  return (
+    <Select
+      id={id}
+      value={currentProductId ?? ""}
+      onChange={(value) => onSelect(value || null)}
+      options={options}
+      placeholder="Nouveau produit"
+      disabled={isDisabled}
+    />
   )
 }
-
-export default ProductSelect

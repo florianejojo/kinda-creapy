@@ -1,3 +1,5 @@
+import { Artist, Category } from "@/app/_shared/shared.types"
+
 export type ProductImage = {
   file?: File
   path?: string
@@ -11,6 +13,12 @@ export type Product = {
   images: ProductImage[]
   price: number
   sold: boolean
+  width_mm?: number
+  height_mm?: number
+  technique?: string
+  artist?: Artist
+  is_visible?: boolean
+  category?: Category
 }
 
 export type ProductDTO = Product
@@ -19,7 +27,12 @@ export function initializeProduct(title: string): Product {
   return {
     title: title,
     images: [],
-    price: 1,
+    price: 100,
+    height_mm: 100,
+    width_mm: 100,
     sold: false,
+    is_visible: false,
+    description: "",
+    technique: "",
   }
 }

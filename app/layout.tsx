@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className={lato.variable}>
+      <body className={lato.variable} suppressHydrationWarning>
         <Analytics />
         <SpeedInsights />
         {/* <div className="absolute z-0">

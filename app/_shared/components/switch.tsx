@@ -12,18 +12,19 @@ interface CustomSwitchProps<T> {
 const CustomSwitch: React.FC<CustomSwitchProps<any>> = ({ id, label, checked, onChange }) => {
   return (
     <div className="flex items-center">
-      {label && (
-        <label htmlFor={id} className="font-semibold text-gray-100 dark:text-gray-300">
-          {label}
-        </label>
-      )}
-      <Spacer size={12} horizontal={true} />
       <Switch
         id={id}
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
         sx={{ "& .MuiSwitch-track": { backgroundColor: "#aaa" } }}
       />
+      <Spacer size={12} horizontal={true} />
+
+      {label && (
+        <label htmlFor={id} className="font-semibold text-gray-100 dark:text-gray-300">
+          {label}
+        </label>
+      )}
     </div>
   )
 }

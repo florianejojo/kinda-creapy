@@ -145,10 +145,11 @@ export const ProductImagesForm = ({ product, updateProduct }: ProductImagesFormP
           </div>
         </div>
       )}
-
-      <Button onClick={openAdd}>
-        {product.images.length === 0 ? "Ajouter une image" : "Ajouter une autre image"}
-      </Button>
+      <div className="mt-4">
+        <Button onClick={openAdd}>
+          {product.images.length === 0 ? "Ajouter une image" : "Ajouter une autre image"}
+        </Button>
+      </div>
 
       <input
         ref={fileInputRef}

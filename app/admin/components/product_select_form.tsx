@@ -2,20 +2,20 @@
 
 import React from "react"
 
-import { Product } from "@/models/product_model"
+import { initializeProduct, Product } from "@/models/product_model"
 
 import { useProductStore } from "@/stores/product_store"
 
 import { toast } from "sonner"
-import ProductSelect from "./product_select"
+import { ProductSelect } from "./product_select"
 
 type ProductSelectFormProps = {
-  currentProduct: Product | null
-  setCurrentProduct: (product: Product | null) => void
+  currentProduct: Product
+  setCurrentProduct: (product: Product) => void
   isLoading: boolean
 }
 
-const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
+export const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
   currentProduct,
   setCurrentProduct,
   isLoading,
@@ -30,7 +30,7 @@ const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
 
       setCurrentProduct(product)
     } else {
-      setCurrentProduct(null)
+      setCurrentProduct(initializeProduct(""))
     }
   }
 
@@ -53,5 +53,3 @@ const ProductSelectForm: React.FC<ProductSelectFormProps> = ({
     </div>
   )
 }
-
-export default ProductSelectForm

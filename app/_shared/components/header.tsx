@@ -25,10 +25,10 @@ export const Header = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-border">
       <div className="max-w-7xl mx-auto lg:px-8">
-        <div className="flex items-center justify-between h-16 px-6">
+        <div className="flex items-center justify-between h-16 sm:px-6 px-2">
           <Link
             href={PAGES.products.path}
-            className="text-2xl font-display font-light tracking-wider hover:opacity-60 transition"
+            className="text-2xl font-display font-light tracking-wider hover:opacity-60 transition ml-2"
           >
             KINDA CREAPY
           </Link>
@@ -58,7 +58,7 @@ export const Header = () => {
             {mobileMenuOpen ? (
               <FontAwesomeIcon icon={faXmark} className="w-6 h-6 text-foreground" />
             ) : (
-              <FontAwesomeIcon icon={faBars} className="w-6 h-6 text-foreground" />
+              <FontAwesomeIcon icon={faBars} className="text-2xl text-foreground" />
             )}
           </button>
         </div>

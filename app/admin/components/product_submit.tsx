@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Product, ProductDTO } from "@/models/product_model"
+import { initializeProduct, Product, ProductDTO } from "@/models/product_model"
 
 import LoadingCircle from "@/app/_shared/components/loading_circle"
 import Spacer from "@/app/_shared/components/spacer"
@@ -9,16 +9,16 @@ import productService from "@/services/product_service"
 
 import { useProductStore } from "@/stores/product_store"
 import { toast } from "sonner"
-import { validateProduct } from "../utils/product_validate"
+import { validateProduct } from "../utils/validateProduct"
 
 interface ProductSubmitProps {
   currentProduct: Product
   isSubmitting: boolean
   setIsSubmitting: React.Dispatch<React.SetStateAction<boolean>>
-  setCurrentProduct: (product: Product | null) => void
+  setCurrentProduct: (product: Product) => void
 }
 
-const ProductSubmit: React.FC<ProductSubmitProps> = ({
+export const ProductSubmit: React.FC<ProductSubmitProps> = ({
   currentProduct,
   isSubmitting,
   setIsSubmitting,
@@ -47,7 +47,7 @@ const ProductSubmit: React.FC<ProductSubmitProps> = ({
 
     updateOrAddProduct({ ...currentProduct, id: productId })
 
-    setCurrentProduct(null)
+    setCurrentProduct(initializeProduct(""))
   }
 
   const submitProduct = async (productData: ProductDTO) => {
@@ -76,11 +76,20 @@ const ProductSubmit: React.FC<ProductSubmitProps> = ({
   return (
     <button
       type="submit"
-      className={`select-none m-auto mt-4 w-full font-semibold py-2 px-4 rounded border border-gray-200 dark:border-gray-700 ${
+      className={[
+        "select-none m-auto mt-4 w-full font-semibold",
+        "py-2 px-4 rounded-md border",
+        "transition-colors",
+        "focus:outline-none focus:ring-2 focus:ring-ring/40",
+
         isSubmitting
-          ? "bg-gray-300 text-gray-500 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed"
-          : "bg-transparent dark:text-white hover:text-red-600 dark:hover:text-red-600 hover:bg-[#383838] dark:hover:bg-[#ccc]"
-      }`}
+          ? ["border-border", "bg-muted text-muted-foreground", "cursor-not-allowed"].join(" ")
+          : [
+              "border-border",
+              "bg-transparent text-foreground",
+              "hover:bg-accent hover:text-accent-foreground",
+            ].join(" "),
+      ].join(" ")}
       disabled={isSubmitting}
       onClick={handleSubmit}
     >
@@ -93,10 +102,8 @@ const ProductSubmit: React.FC<ProductSubmitProps> = ({
       ) : currentProduct.id ? (
         `Mettre à jour "${currentProduct.title}"`
       ) : (
-        `Créer "${currentProduct.title}"`
+        "Créer"
       )}
     </button>
   )
 }
-
-export default ProductSubmit

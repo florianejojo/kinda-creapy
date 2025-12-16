@@ -30,5 +30,13 @@ export const validateProduct = (product: Product): string | null => {
     }
   }
 
+  if (!product.height_mm || !product.width_mm) {
+    return "Hauteur et largeur du produit sont requises."
+  }
+
+  if (!product.artist || product.artist.trim() === "") {
+    return "L'artiste du produit est requis."
+  }
+
   return null
 }
