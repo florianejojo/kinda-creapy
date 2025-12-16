@@ -12,13 +12,10 @@ import { ProductImagesForm } from "./components/product_images_form"
 import { ProductSelectForm } from "./components/product_select_form"
 import { ProductSubmit } from "./components/product_submit"
 import { ProductTitleForm } from "./components/product_title_form"
-import { Artist } from "@/app/_shared/shared.types"
-import { ProductArtistForm } from "@/app/admin/components/product_artist_form"
 import { Select } from "@/app/_shared/components/select"
 import InputField from "@/app/_shared/components/input_field"
-import { init } from "next/dist/compiled/webpack/webpack"
-import { SubHeader } from "@/app/_shared/components/SubHeader"
 import { PageLayout } from "@/app/page-layout"
+import { Artist } from "@/app/artists/artists.enum"
 
 export default function Page() {
   const { removeProduct, fetchProducts, isLoading: productLoading } = useProductStore()

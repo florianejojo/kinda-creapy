@@ -3,7 +3,7 @@ import React from "react"
 import { initializeProduct, Product } from "@/models/product_model"
 
 import InputField from "@/app/_shared/components/input_field"
-import { Artist } from "@/app/_shared/shared.types"
+import { Artist } from "@/app/artists/artists.enum"
 
 interface ProductArtistFormProps {
   currentProduct: Product | null

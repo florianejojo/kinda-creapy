@@ -61,7 +61,16 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
       <div className="space-y-4">
         <div>
           <h3 className="text-lg font-display text-foreground">{painting.title}</h3>
-          <p className="text-xs text-muted-foreground tracking-wide mt-1">Par {painting.artist}</p>
+          {painting.artist && (
+            <p className="text-xs text-muted-foreground tracking-wide mt-1 capitalize">
+              Par {painting.artist}
+            </p>
+          )}
+          {painting.dimensions && (
+            <p className="text-xs text-muted-foreground tracking-wide mt-1">
+              {painting.dimensions}
+            </p>
+          )}
         </div>
 
         <p className="text-sm text-muted-foreground line-clamp-3">{painting.description}</p>

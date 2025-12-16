@@ -1,5 +1,6 @@
 import { LOCALES } from "@/app/_shared/shared.const"
 import { PAGES } from "@/app/_shared/shared.const"
+import { Artist } from "@/app/artists/artists.enum"
 
 // ---- ENUMS ----
 
@@ -8,13 +9,6 @@ export enum Category {
   illusions = "Illusions",
   beasts = "Bestiaire",
   trees = "Arbres",
-}
-
-export enum Artist {
-  barniak = "Barniak",
-  serom = "Serom",
-  reveor = "Révéor",
-  desroseaux = "Desroseaux",
 }
 
 export enum CATEGORIES {

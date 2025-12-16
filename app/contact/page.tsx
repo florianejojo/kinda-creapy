@@ -40,7 +40,7 @@ export default function ContactPage() {
         description="Nous serions ravi d'entendre parler de vous. Envoyez-nous un message."
       />
       <PageLayout>
-        <div className="space-y-6 text-sm text-foreground/80">
+        <div className="space-y-6 text-sm text-foreground/80 font-bold">
           <div>
             <p className="font-light tracking-wide text-foreground mb-1">Email</p>
             <a href="mailto:kindacreapy.art@gmail.com" className="hover:opacity-60 transition">

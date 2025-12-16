@@ -19,7 +19,7 @@ export const SubHeader = ({
     <div className="pt-8 w-full flex items-center flex-col justify-center sm:pt-16">
       <h1 className="text-xl sm:text-4xl text-center">{title}</h1>
       <div
-        className={`flex  my-4 sm:gap-10 sm:my-10 border-b border-border w-full justify-center h-12`}
+        className={`flex my-4 gap-6 sm:gap-10 sm:my-10 border-b border-border w-full justify-center h-12`}
       >
         {tabs.map((tab) => (
           <button
@@ -34,10 +34,11 @@ export const SubHeader = ({
         ))}
       </div>
       <div></div>
-
-      <div className="max-w-xl text-center h-14 px-4">
-        {description && <p className="text-sm font-extralight sm:tracking-widest">{description}</p>}
-      </div>
+      {description && (
+        <div className="max-w-xl text-center h-14 px-4">
+          <p className="text-sm font-extralight sm:tracking-widest">{description}</p>
+        </div>
+      )}
     </div>
   )
 }

@@ -1,4 +1,5 @@
-import { Artist, Category } from "@/app/_shared/shared.types"
+import { Category } from "@/app/_shared/shared.types"
+import { Artist } from "@/app/artists/artists.enum"
 
 export type ProductImage = {
   file?: File

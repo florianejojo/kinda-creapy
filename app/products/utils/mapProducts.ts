@@ -1,6 +1,7 @@
 import { Product as ProductModel } from "@/models/product_model"
 import { Product } from "@/app/products/products.types"
-import { Artist, Category } from "@/app/_shared/shared.types"
+import { Category } from "@/app/_shared/shared.types"
+import { Artist } from "@/app/artists/artists.enum"
 
 export const mapProducts = (products: ProductModel[]): Product[] => {
   return products
