@@ -11,6 +11,16 @@ export enum Category {
   trees = "Arbres",
 }
 
+<<<<<<< HEAD
+=======
+export enum Artist {
+  barniak = "Barniak",
+  serom = "Serom",
+  reveor = "Révéor",
+  desroseaux = "Desroseaux",
+}
+
+>>>>>>> b6358c0 (feat(Admin): Add new fields to products)
 export enum CATEGORIES {
   trees = "Arbres",
   beasts = "Bestiaires",

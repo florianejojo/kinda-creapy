@@ -19,7 +19,11 @@ export const SubHeader = ({
     <div className="pt-8 w-full flex items-center flex-col justify-center sm:pt-16">
       <h1 className="text-xl sm:text-4xl text-center">{title}</h1>
       <div
+<<<<<<< HEAD
         className={`flex my-4 gap-6 sm:gap-10 sm:my-10 border-b border-border w-full justify-center h-12`}
+=======
+        className={`flex  my-4 sm:gap-10 sm:my-10 border-b border-border w-full justify-center h-12`}
+>>>>>>> b6358c0 (feat(Admin): Add new fields to products)
       >
         {tabs.map((tab) => (
           <button
