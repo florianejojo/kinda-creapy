@@ -1,11 +1,7 @@
 import { Product as ProductModel } from "@/models/product_model"
 import { Product } from "@/app/products/products.types"
-<<<<<<< HEAD
 import { Category } from "@/app/_shared/shared.types"
 import { Artist } from "@/app/artists/artists.enum"
-=======
-import { Artist, Category } from "@/app/_shared/shared.types"
->>>>>>> b6358c0 (feat(Admin): Add new fields to products)
 
 export const mapProducts = (products: ProductModel[]): Product[] => {
   return products
