@@ -6,7 +6,7 @@ import { useProductStore } from "@/stores/product_store"
 import { useEffect, useState } from "react"
 import LogoutButton from "./components/logout_button"
 import ProductDeleteButton from "./components/product_delete_button"
-import ProductDescriptionForm from "./components/product_description_form"
+import { ProductDescriptionForm } from "./components/product_description_form"
 import { ProductImagesForm } from "./components/product_images_form"
 import { ProductSelectForm } from "./components/product_select_form"
 import { ProductSubmit } from "./components/product_submit"
@@ -25,10 +25,6 @@ export default function Page() {
   useEffect(() => {
     fetchProducts()
   }, [])
-
-  useEffect(() => {
-    console.log({ currentProduct })
-  }, [currentProduct])
 
   const handleProductDelete = () => {
     if (!currentProduct || !currentProduct.id) return
@@ -51,15 +47,40 @@ export default function Page() {
           isLoading={productLoading}
         />
 
-        <div className="w-full flex items-start gap-2">
+        <div className="w-full flex justify-center items-end">
           <ProductTitleForm
             currentProduct={currentProduct}
             updateCurrentProduct={updateCurrentProduct}
           />
 
           {currentProduct && currentProduct.id && (
-            <ProductDeleteButton currentProduct={currentProduct} onDelete={handleProductDelete} />
+            <div className="flex items-baseline h-full">
+              <ProductDeleteButton currentProduct={currentProduct} onDelete={handleProductDelete} />
+              <CustomSwitch
+                id="isVisible"
+                label={"Visible"}
+                checked={currentProduct.is_visible || false}
+                onChange={(checked) => updateCurrentProduct({ is_visible: checked })}
+              />
+            </div>
           )}
+        </div>
+
+        <div>
+          <div className={`flex items-center justify-between mb-1`}>
+            <label htmlFor="product-artist">Artist</label>
+          </div>
+
+          <Select<Artist>
+            options={Object.keys(Artist).map((key) => ({
+              label: Artist[key as keyof typeof Artist],
+              value: key as Artist,
+            }))}
+            id="artist"
+            value={(currentProduct.artist as Artist) || ""}
+            onChange={(value) => updateCurrentProduct({ artist: value as Artist })}
+            placeholder="Sélectionner un artiste"
+          />
         </div>
 
         <>
@@ -91,55 +112,66 @@ export default function Page() {
 
           <ProductImagesForm product={currentProduct} updateProduct={updateCurrentProduct} />
 
-          <InputNumber
-            id="price"
-            label="Prix"
-            value={currentProduct.price}
-            onChange={(value) => updateCurrentProduct({ price: value })}
-          />
-
-          <CustomSwitch
-            id="sold"
-            label="Vendu"
-            checked={currentProduct.sold || false}
-            onChange={(checked) => updateCurrentProduct({ sold: checked })}
-          />
-          <CustomSwitch
-            id="isVisible"
-            label="Visible sur le site"
-            checked={currentProduct.is_visible || false}
-            onChange={(checked) => updateCurrentProduct({ is_visible: checked })}
-          />
-          <div>
-            <div className={`flex items-center justify-between mb-1`}>
-              <label htmlFor="product-artist">Artist</label>
+          <div className={`flex items-center justify-between mb-1`}>
+            <label htmlFor="product-artist">Versions</label>
+          </div>
+          <div className="grid grid-cols-2 gap-4 ">
+            <div className="border-r p-4 grid gap-4">
+              <p className="mb-4 font-bold">Oeuvre originale</p>
+              <CustomSwitch
+                id="sold"
+                label={"Vendue : " + (currentProduct.sold ? "Oui" : "Non")}
+                checked={currentProduct.sold}
+                onChange={(checked) => updateCurrentProduct({ sold: checked })}
+              />
+              <InputNumber
+                id="price"
+                label="Prix"
+                value={currentProduct.price}
+                onChange={(value) => updateCurrentProduct({ price: value })}
+              />
+              <InputNumber
+                id="width_mm"
+                label="Largeur (cm)"
+                value={currentProduct.width_mm ? currentProduct.width_mm / 10 : 0}
+                onChange={(value) => updateCurrentProduct({ width_mm: value * 10 })}
+              />
+              <InputNumber
+                id="height_mm"
+                label="Hauteur (cm)"
+                value={currentProduct.height_mm ? currentProduct.height_mm / 10 : 0}
+                onChange={(value) => updateCurrentProduct({ height_mm: value * 10 })}
+              />
             </div>
 
-            <Select<Artist>
-              options={Object.keys(Artist).map((key) => ({
-                label: Artist[key as keyof typeof Artist],
-                value: key as Artist,
-              }))}
-              id="artist"
-              value={(currentProduct.artist as Artist) || ""}
-              onChange={(value) => updateCurrentProduct({ artist: value as Artist })}
-              placeholder="Sélectionner un artiste"
-            />
-          </div>
+            <div className="p-4 grid gap-4">
+              <p className="mb-4 font-bold">Tirages Limités</p>
+              <CustomSwitch
+                id="sold_limited"
+                label={"Tous vendus : " + (currentProduct.sold_limited ? " Oui" : " Non")}
+                checked={currentProduct.sold_limited}
+                onChange={(checked) => updateCurrentProduct({ sold_limited: checked })}
+              />
+              <InputNumber
+                id="price_limited"
+                label="Prix"
+                value={currentProduct.price_limited || 0}
+                onChange={(value) => updateCurrentProduct({ price_limited: value })}
+              />
 
-          <div className="flex gap-4">
-            <InputNumber
-              id="width_mm"
-              label="Largeur (cm)"
-              value={currentProduct.width_mm ? currentProduct.width_mm / 10 : 0}
-              onChange={(value) => updateCurrentProduct({ width_mm: value * 10 })}
-            />
-            <InputNumber
-              id="height_mm"
-              label="Hauteur (cm)"
-              value={currentProduct.height_mm ? currentProduct.height_mm / 10 : 0}
-              onChange={(value) => updateCurrentProduct({ height_mm: value * 10 })}
-            />
+              <InputNumber
+                id="width_limited_mm"
+                label="Largeur (cm)"
+                value={currentProduct.width_limited_mm ? currentProduct.width_limited_mm / 10 : 0}
+                onChange={(value) => updateCurrentProduct({ width_limited_mm: value * 10 })}
+              />
+              <InputNumber
+                id="height_limited_mm"
+                label="Hauteur (cm)"
+                value={currentProduct.height_limited_mm ? currentProduct.height_limited_mm / 10 : 0}
+                onChange={(value) => updateCurrentProduct({ height_limited_mm: value * 10 })}
+              />
+            </div>
           </div>
 
           <ProductSubmit

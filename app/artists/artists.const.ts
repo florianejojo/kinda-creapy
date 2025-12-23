@@ -44,17 +44,17 @@ les images doubles, en miroir, qui s’imbriquent, se répondent, celles qui se 
 Mes inspirations, je les puise principalement dans la nature au sens large, je suis nature m’en immerge et m’en inspire,
 et dans mes nuits, souvent agitées et riches de chimères.»`,
 
-  [Artist.desroseaux]: `Elle aime s’entourer de formes,de motifs, de textures,de graphismes, de toute une foultitude d’objets hétéroclites.
-c’est une collectionneuse qui se sent vivante quand elle parvient à recréer un cosmos chez/et en elle.
-La «collectionnite» c’est un peu ça, c’est retranscrire le macro en micro.et inversement.
-Angèle a questionne la limite entre collection et accumulation…
-Bon clairement à l’écouter, elle est tombée dedans quand elle était petite.
-Même si sa compulsion a cessé, une collection ça s’entretient, ça s’affine.
- « Alors quand tes collections sont nombreuses et que tes passions sont exponentielles bah forcément ça déborde.»
-Vous l’aurez compris cette artiste aime les objets, la vie qui les anime, leur histoire, l’évocation qu’ils nous procurent.
- De son cabinet de curiosités, elle tire des photographies, assemble des sculptures, crée de mini paysages, fait des peintures d’objets…
-Elle travaille beaucoup avec le glanage le recyclage, en intérieur comme en extérieur.
-Une autre flèche dans son carquois, c’est l’écriture. 
-Peut-être que c’est sa première passion d’ailleurs. 
-Le travail d’A.D est plein de poésie, dans un univers brut et sensible, mélant engagement et fragilité de la vie pour se souvenir que tout est lié et que nous ne sommes juste qu’ une pièce du puzzle.`,
+  //   [Artist.desroseaux]: `Elle aime s’entourer de formes,de motifs, de textures,de graphismes, de toute une foultitude d’objets hétéroclites.
+  // c’est une collectionneuse qui se sent vivante quand elle parvient à recréer un cosmos chez/et en elle.
+  // La «collectionnite» c’est un peu ça, c’est retranscrire le macro en micro.et inversement.
+  // Angèle a questionne la limite entre collection et accumulation…
+  // Bon clairement à l’écouter, elle est tombée dedans quand elle était petite.
+  // Même si sa compulsion a cessé, une collection ça s’entretient, ça s’affine.
+  //  « Alors quand tes collections sont nombreuses et que tes passions sont exponentielles bah forcément ça déborde.»
+  // Vous l’aurez compris cette artiste aime les objets, la vie qui les anime, leur histoire, l’évocation qu’ils nous procurent.
+  //  De son cabinet de curiosités, elle tire des photographies, assemble des sculptures, crée de mini paysages, fait des peintures d’objets…
+  // Elle travaille beaucoup avec le glanage le recyclage, en intérieur comme en extérieur.
+  // Une autre flèche dans son carquois, c’est l’écriture.
+  // Peut-être que c’est sa première passion d’ailleurs.
+  // Le travail d’A.D est plein de poésie, dans un univers brut et sensible, mélant engagement et fragilité de la vie pour se souvenir que tout est lié et que nous ne sommes juste qu’ une pièce du puzzle.`,
 }

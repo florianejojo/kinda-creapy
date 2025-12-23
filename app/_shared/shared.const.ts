@@ -388,11 +388,13 @@ export const paintings: Product[] = artworks.map((artwork) => {
     dimensions: artwork.size,
     description: artwork.description,
     available: artwork.isAvailable ?? true,
+    availableLimited: artwork.isAvailable ?? true,
     prices: {
       original: artwork.price,
-      printXXL: 200,
-      printA3: 60,
-      printA4: 45,
+      limited: 45,
+      printA5: 15,
+      printA3: 35,
+      printA4: 25,
     },
   }
 })

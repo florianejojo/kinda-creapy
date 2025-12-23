@@ -87,29 +87,41 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
             </div>
           )}
 
-          <button
-            onClick={() => setShowPrices(!showPrices)}
-            className="w-full text-left flex justify-between items-center text-sm py-2 hover:opacity-60 transition"
-          >
-            <span className="text-foreground">Impressions</span>
-            <span className="text-xs text-muted-foreground">{showPrices ? "−" : "+"}</span>
-          </button>
-
-          {showPrices && (
-            <div className="space-y-2 pt-2 pl-0">
-              <div className="flex justify-between items-baseline text-sm">
-                <span className="text-muted-foreground">Print XXL (1,5m)</span>
-                <span className="text-foreground">{painting.prices.printXXL}€</span>
-              </div>
-              <div className="flex justify-between items-baseline text-sm">
-                <span className="text-muted-foreground">Print A3</span>
-                <span className="text-foreground">{painting.prices.printA3}€</span>
-              </div>
-              <div className="flex justify-between items-baseline text-sm">
-                <span className="text-muted-foreground">Print A4</span>
-                <span className="text-foreground">{painting.prices.printA4}€</span>
-              </div>
+          {painting.prices.limited > 0 ? (
+            <div className="flex justify-between items-baseline text-sm">
+              <span className="text-foreground">Tirages limités à 30 exemplaires</span>
+              {
+                <span className="text-foreground font-medium">
+                  {painting.availableLimited ? painting.prices.limited + "€" : "Vendus"}
+                </span>
+              }
             </div>
+          ) : (
+            <>
+              <button
+                onClick={() => setShowPrices(!showPrices)}
+                className="w-full text-left flex justify-between items-center text-sm py-2 hover:opacity-60 transition"
+              >
+                <span className="text-foreground">Tirages classiques</span>
+                <span className="text-xs text-muted-foreground">{showPrices ? "−" : "+"}</span>
+              </button>
+              {showPrices && (
+                <div className="space-y-2 pt-2 pl-0">
+                  <div className="flex justify-between items-baseline text-sm">
+                    <span className="text-muted-foreground">Print A3</span>
+                    <span className="text-foreground">{painting.prices.printA3}€</span>
+                  </div>
+                  <div className="flex justify-between items-baseline text-sm">
+                    <span className="text-muted-foreground">Print A4</span>
+                    <span className="text-foreground">{painting.prices.printA4}€</span>
+                  </div>
+                  <div className="flex justify-between items-baseline text-sm">
+                    <span className="text-muted-foreground">Print A5</span>
+                    <span className="text-foreground">{painting.prices.printA5}€</span>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

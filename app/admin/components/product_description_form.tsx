@@ -3,18 +3,17 @@ import React from "react"
 import { Product } from "@/models/product_model"
 
 import { Box, TextField } from "@mui/material"
+import { MAX_DESCRIPTION_CHAR_LENGTH } from "@/app/admin/admin.const"
 
 interface ProductDescriptionFormProps {
   currentProduct: Product
   updateCurrentProduct: (product: Partial<Product>) => void
 }
 
-const ProductDescriptionForm: React.FC<ProductDescriptionFormProps> = ({
+export const ProductDescriptionForm: React.FC<ProductDescriptionFormProps> = ({
   currentProduct,
   updateCurrentProduct,
 }) => {
-  const MAX_LENGTH = 500
-
   return (
     <div className="w-full">
       <div className={`flex items-center justify-between mb-1`}>
@@ -30,7 +29,9 @@ const ProductDescriptionForm: React.FC<ProductDescriptionFormProps> = ({
           id="product-description"
           value={currentProduct.description}
           onChange={(e) =>
-            updateCurrentProduct({ description: e.target.value.slice(0, MAX_LENGTH) })
+            updateCurrentProduct({
+              description: e.target.value.slice(0, MAX_DESCRIPTION_CHAR_LENGTH),
+            })
           }
           multiline
           minRows={4}
@@ -59,11 +60,9 @@ const ProductDescriptionForm: React.FC<ProductDescriptionFormProps> = ({
             pointerEvents: "none",
           }}
         >
-          {`${currentProduct.description?.length || 0}/${MAX_LENGTH}`}
+          {`${currentProduct.description?.length || 0}/${MAX_DESCRIPTION_CHAR_LENGTH}`}
         </span>
       </Box>
     </div>
   )
 }
-
-export default ProductDescriptionForm

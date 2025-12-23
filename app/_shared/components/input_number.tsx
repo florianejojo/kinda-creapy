@@ -55,7 +55,7 @@ const InputNumber: React.FC<InputNumberProps> = ({
   }
 
   return (
-    <div className="w-44">
+    <div className="w-full">
       {label && (
         <label htmlFor={id} className="block font-semibold mb-1 text-gray-100 dark:text-gray-300">
           {label}

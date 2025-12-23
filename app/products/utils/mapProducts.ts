@@ -21,7 +21,14 @@ export const mapProducts = (products: ProductModel[]): Product[] => {
             : "",
         description: product.description || "",
         available: !product.sold,
-        prices: { original: product.price, printXXL: 200, printA3: 60, printA4: 45 },
+        availableLimited: !product.sold_limited,
+        prices: {
+          original: product.price,
+          limited: product.price_limited || 0,
+          printA3: 35,
+          printA4: 25,
+          printA5: 15,
+        },
         isVisible: product.is_visible,
       }
     })
