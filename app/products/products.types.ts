@@ -6,7 +6,9 @@ export type Product = {
   images: string[]
   dimensions: string
   description: string
+  // original available for sale
   available: boolean
+  // limited edition available for sale
   availableLimited: boolean
   prices: {
     original: number

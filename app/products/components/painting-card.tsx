@@ -1,6 +1,9 @@
 "use client"
 
+import { Button } from "@/app/_shared/components/button"
+import { ModalChoseOption } from "@/app/products/components/modal-chose-option"
 import { Product } from "@/app/products/products.types"
+import { Modal } from "@mui/material"
 import { useState } from "react"
 
 interface PaintingCardProps {
@@ -10,6 +13,7 @@ interface PaintingCardProps {
 export default function PaintingCard({ painting }: PaintingCardProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [showPrices, setShowPrices] = useState(false)
+  const [isModalOptionsOpened, setIsModalOptionsOpened] = useState(false)
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % painting.images.length)
@@ -74,6 +78,20 @@ export default function PaintingCard({ painting }: PaintingCardProps) {
         </div>
 
         <p className="text-sm text-muted-foreground line-clamp-3">{painting.description}</p>
+
+        <ModalChoseOption
+          painting={painting}
+          isOpen={isModalOptionsOpened}
+          onPick={() => setIsModalOptionsOpened(false)}
+        ></ModalChoseOption>
+
+        <Button
+          onClick={() => {
+            setIsModalOptionsOpened(true)
+          }}
+        >
+          Acheter
+        </Button>
 
         <div className="space-y-2 pt-4 border-t border-border">
           {painting.prices.original > 0 && (
