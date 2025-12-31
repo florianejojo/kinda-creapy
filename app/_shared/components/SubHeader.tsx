@@ -35,7 +35,7 @@ export const SubHeader = ({
       </div>
       <div></div>
       {description && (
-        <div className="max-w-xl text-center h-14 px-4">
+        <div className="max-w-xl text-center h-24 px-4 overflow-scroll no-scrollbar">
           <p className="text-sm font-extralight sm:tracking-widest">{description}</p>
         </div>
       )}

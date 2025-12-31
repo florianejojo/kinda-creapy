@@ -2,7 +2,7 @@ import PaintingGrid from "@/app/products/components/painting-grid"
 
 export default function Creations() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen">
       <PaintingGrid />
     </main>
   )

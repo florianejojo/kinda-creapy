@@ -21,11 +21,9 @@
   --border: oklch(0.3 0.008 60);
   --input: oklch(0.3 0.008 60);
   --ring: oklch(0.72 0.05 40);
- 
 }
 
 @theme {
-
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -53,12 +51,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-
 }
 
 @layer base {
   html {
-    @apply antialiased bg-background text-foreground ;
+    @apply antialiased bg-background text-foreground;
   }
 
   body {
@@ -79,5 +76,14 @@
 
   p {
     @apply leading-relaxed;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE & Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
