@@ -12,10 +12,10 @@ interface InputNumberProps {
   decimals?: number
 }
 
-const InputNumber: React.FC<InputNumberProps> = ({
+export const InputNumber: React.FC<InputNumberProps> = ({
   id,
   label,
-  value = 1,
+  value = 0,
   onChange,
   min = 0,
   max = 1000000,
@@ -23,7 +23,9 @@ const InputNumber: React.FC<InputNumberProps> = ({
   disabled = false,
   decimals = 2,
 }) => {
-  const [inputValue, setInputValue] = useState(value.toFixed(decimals).replace(/\.?0+$/, ""))
+  const [inputValue, setInputValue] = useState<string>(
+    value.toFixed(decimals).replace(/\.?0+$/, ""),
+  )
 
   useEffect(() => {
     setInputValue(value.toFixed(decimals).replace(/\.?0+$/, ""))
@@ -43,6 +45,8 @@ const InputNumber: React.FC<InputNumberProps> = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
+
+    if (newValue === "") onChange(0)
 
     if (/^-?\d*[.,]?\d*$/.test(newValue)) {
       setInputValue(newValue.replace(",", "."))
@@ -97,5 +101,3 @@ const InputNumber: React.FC<InputNumberProps> = ({
     </div>
   )
 }
-
-export default InputNumber

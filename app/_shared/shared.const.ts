@@ -69,35 +69,7 @@ export const artworks: ArtPiece[] = [
     isAvailable: false,
     price: 160,
   },
-  {
-    id: "SNW021MX03",
-    name: "Crépuscule Rouge",
-    description:
-      "Un paysage abstrait baigné dans des tons rouges et sombres, évoquant la fin d'une journée mystérieuse et la naissance de la nuit.",
-    image: "SNW021MX03.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Paysage abstrait avec des teintes rouges profondes.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: false,
-    price: 130,
-  },
 
-  {
-    id: "18",
-    name: "Génith",
-    description:
-      "Dans une explosion de lumière et de couleur, des figures mythologiques se battent pour la domination de l'univers. L'Apothéose de la Fureur est une œuvre qui capture la tension dramatique entre la création et la destruction, où chaque coup porté est une nouvelle explosion de couleur.",
-    image: "IMG_5814.webp",
-    technique: "Peinture à l'huile",
-    size: "24x30",
-    color: "#D93A27",
-    isSpinable: false,
-    alt: "Génith - Peinture représentant une bataille mythologique sous une explosion de lumière.",
-    categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: true,
-    price: 180,
-  },
   {
     id: "36",
     name: "Cascade de montagne",
@@ -127,19 +99,6 @@ export const artworks: ArtPiece[] = [
   },
 
   {
-    id: "SNW021MX07",
-    name: "Réveil de la Terre",
-    description:
-      "Un paysage abstrait et texturé où la terre semble s'animer sous une explosion de couleurs terreuses et nuageuses.",
-    image: "SNW021MX07.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Paysage abstrait avec des textures terreuses et nuageuses.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: true,
-    price: 140,
-  },
-  {
     id: "BL024B04",
     name: "Réveil des Anciens",
     description:
@@ -153,49 +112,6 @@ export const artworks: ArtPiece[] = [
     price: 90,
   },
 
-  {
-    id: "SNW021MX11",
-    name: "Fragmentation du Corps",
-    description:
-      "Des formes corporelles fragmentées se dispersent dans un paysage sombre, symbolisant la désintégration et la reconstruction à travers le temps.",
-    image: "SNW021MX11.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Formes corporelles abstraites se fragmentant dans un paysage sombre.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: false,
-    price: 125,
-  },
-
-  {
-    id: "SCNW021MX09",
-    name: "Cloison de Souvenirs",
-    description:
-      "Des fragments de souvenirs sont encapsulés dans une cloison abstraite, où des couches de couleurs métalliques et de textures superposées racontent une histoire oubliée.",
-    image: "SCNW021MX09.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Cloison abstraite avec des textures métalliques et des couleurs superposées.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: true,
-    price: 135,
-  },
-
-  {
-    id: "11",
-    name: "Gardien des Ombres",
-    description:
-      "Dans les profondeurs d'une forêt mystique, le Gardien des Ombres veille sur les secrets anciens. Mi-homme, mi-bête, cette créature protège les âmes perdues et les anciens rituels. Ses yeux, comme des étoiles, éclairent le chemin des voyageurs qui s'égarent dans ce labyrinthe de mystère et d'illusions. Le Gardien est un symbole du surréalisme, une figure qui incarne la dualité de l'existence et la beauté cachée dans les ombres.",
-    image: "IMG_4939.webp",
-    technique: "Cire - Peinture mixte",
-    size: "60x60 cm",
-    color: "#875D57",
-    isSpinable: false,
-    alt: "Gardien des Ombres - Encre et lavis représentant une créature mi-homme mi-bête dans une forêt mystique.",
-    categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: false,
-    price: 190,
-  },
   {
     id: "14",
     name: "Banquet à la Madone",
@@ -213,22 +129,6 @@ export const artworks: ArtPiece[] = [
   },
 
   {
-    id: "17",
-    name: "Artémis",
-    description:
-      "Un totem imposant se dresse au milieu d'un paysage désertique, ses formes abstraites racontant les histoires des anciens. Chaque détail du totem représente une génération disparue, un souvenir gravé dans la pierre. Le Totem des Ancêtres est une œuvre qui questionne la mémoire et l'héritage, dans un style visuel riche en symboles.",
-    image: "IMG_5812.webp",
-    technique: "Peinture à l'huile",
-    size: "24x30",
-    color: "#003466",
-    isSpinable: false,
-    alt: "Artémis -",
-    categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: true,
-    price: 150,
-  },
-
-  {
     id: "AC024PK02",
     name: "Forêt des Visions",
     description:
@@ -240,20 +140,6 @@ export const artworks: ArtPiece[] = [
     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     isAvailable: false,
     price: 110,
-  },
-
-  {
-    id: "SLNW021MX04",
-    name: "Fusion Terrestre",
-    description:
-      "Un paysage surréaliste où les couches de terre rouge et les masses d'eau bleue se fondent dans un tourbillon abstrait de textures et de mouvements.",
-    image: "SLNW021MX04.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Paysage abstrait de terre rouge et eau bleue en fusion.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: true,
-    price: 145,
   },
   {
     id: "16",
@@ -269,33 +155,6 @@ export const artworks: ArtPiece[] = [
     categories: [CATEGORIES.trees, CATEGORIES.illusions],
     isAvailable: true,
     price: 155,
-  },
-  {
-    id: "SLNW021MX08",
-    name: "Mouvement Sombre",
-    description:
-      "Un ensemble de textures sombres et denses créent une sensation de profondeur et de mystère, où l'obscurité rencontre des touches de lumière.",
-    image: "SLNW021MX08.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Textures sombres et denses avec des éclats de lumière.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: false,
-    price: 120,
-  },
-
-  {
-    id: "SLNW021MX12",
-    name: "Tempête des Ombres",
-    description:
-      "Un ciel menaçant roule au-dessus d'un paysage rougeoyant, capturant la puissance brute de la nature dans une tempête imminente.",
-    image: "SLNW021MX12.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Paysage avec un ciel menaçant au-dessus de terres rouges.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: true,
-    price: 150,
   },
 
   {
@@ -313,35 +172,7 @@ export const artworks: ArtPiece[] = [
     isAvailable: true,
     price: 170,
   },
-  {
-    id: "SNW021MX02",
-    name: "Collision d'Étoiles",
-    description:
-      "Des formes entrelacées de lumière et d'ombre évoquant une collision cosmique, avec des textures complexes qui donnent une sensation de profondeur.",
-    image: "SNW021MX02.webp",
-    technique: "Techniques mixtes",
-    size: "50x40 cm",
-    alt: "Explosion de formes lumineuses et sombres dans une scène cosmique.",
-    categories: [CATEGORIES.illusions],
-    isAvailable: false,
-    price: 135,
-  },
 
-  {
-    id: "4",
-    name: "Estom avaloar ou Seigneur de la surabondance",
-    description:
-      "Un sentier céleste, guidé par les constellations, traverse une forêt d'illusions visuelles. Ce chemin, souvent emprunté par les rêveurs et les artistes surréalistes, reflète la beauté mystérieuse du cosmos. Chaque pas sur ce sentier mène plus loin dans un monde de fractales et de visions mystiques, où le réel et l'imaginaire se fondent pour révéler la grandeur infinie de l'univers. Ce parcours invite à une exploration profonde de l'inconscient collectif.",
-    image: "IMG_3237.webp",
-    technique: "Posca",
-    size: "25x25 cm",
-    color: "#381314",
-    isSpinable: false,
-    alt: "Sentier des Astres - ",
-    categories: [CATEGORIES.beasts, CATEGORIES.illusions],
-    isAvailable: true,
-    price: 80,
-  },
   {
     id: "1",
     name: "Ouroborosorus Rex",

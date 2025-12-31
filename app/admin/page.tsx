@@ -1,5 +1,5 @@
 "use client"
-import InputNumber from "@/app/_shared/components/input_number"
+import { InputNumber } from "@/app/_shared/components/input_number"
 import CustomSwitch from "@/app/_shared/components/switch"
 import { initializeProduct, Product } from "@/models/product_model"
 import { useProductStore } from "@/stores/product_store"
