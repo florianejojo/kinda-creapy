@@ -1,4 +1,4 @@
-import { CheckoutForm } from "@/app/_src/cart/ui/CheckoutForm"
+import { CheckoutForm } from "@/app/checkout/CheckoutForm"
 
 export default function CheckoutPage() {
   return (

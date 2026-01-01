@@ -1,6 +1,6 @@
 "use client"
 
-import { productApi } from "@/app/_src/product/product.api"
+import { productApi } from "@/app/checkout/product.api"
 import { PUBLIC_ENV } from "@/env.client"
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"

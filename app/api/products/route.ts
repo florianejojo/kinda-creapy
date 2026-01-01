@@ -8,7 +8,6 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
     const form = await req.formData()
 
     const raw = form.get("data")
-    console.log({ raw })
     if (typeof raw !== "string") {
       return NextResponse.json({ error: "Invalid payload" }, { status: 400 })
     }
@@ -59,6 +58,16 @@ export const POST = withAdminAuth(async (req: NextRequest) => {
       images: uploadedPaths,
       price: dto.price,
       sold: dto.sold,
+      sold_limited: dto.sold_limited,
+      price_limited: dto.price_limited ?? null,
+      width_mm: dto.width_mm ?? null,
+      height_mm: dto.height_mm ?? null,
+      width_limited_mm: dto.width_limited_mm ?? null,
+      height_limited_mm: dto.height_limited_mm ?? null,
+      technique: dto.technique ?? null,
+      artist: dto.artist ?? null,
+      is_visible: dto.is_visible ?? false,
+      category: dto.category ?? null,
     })
 
     if (error) {

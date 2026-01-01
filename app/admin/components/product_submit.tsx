@@ -61,13 +61,11 @@ export const ProductSubmit: React.FC<ProductSubmitProps> = ({
   }
 
   const handleSubmit = async () => {
+    console.log({ currentProduct })
     if (!validateAndHandleError(currentProduct)) return
-
-    const productData = currentProduct
-    const response = await submitProduct(productData)
-
+    const response = await submitProduct(currentProduct)
     if (response.success) {
-      handleResponseSuccess(productData, response)
+      handleResponseSuccess(currentProduct, response)
     } else {
       toast.error(response.error ?? "Erreur inconnue")
     }
