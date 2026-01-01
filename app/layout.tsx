@@ -35,12 +35,12 @@ export default function RootLayout({
           <AlgoBlood />
         </div>
 
-        <div className="relative z-20 grid min-h-screen grid-rows-[auto_1fr]">
-          <div className="fixed top-0 left-0 right-0 z-50 backdrop-blur">
+        <div className="relative z-20 grid h-dvh grid-rows-[auto_1fr]">
+          <div className="sticky top-0 left-0 right-0 z-50 backdrop-blur">
             <Header />
           </div>
 
-          <main className="flex-1 mt-6">{children}</main>
+          <main className="flex-1 min-h-0 ">{children}</main>
         </div>
 
         <Toaster position="top-right" richColors closeButton />

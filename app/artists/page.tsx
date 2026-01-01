@@ -12,7 +12,7 @@ export default function ArtistPage() {
   const [activeArtist, setActiveArtist] = useState<Tab>(Artist.barniak)
 
   return (
-    <div>
+    <div className="grid grid-rows-[auto_1fr] h-full min-h-0">
       <SubHeader
         title={PAGE_LABELS.fr.artists}
         tabs={Object.values(Artist)}
@@ -20,8 +20,8 @@ export default function ArtistPage() {
         setActiveTab={setActiveArtist}
       />
       <PageLayout>
-        <div className="text-sm/8 md:text-lg/12 font-extralight text-justify px-6">
-          {artists[activeArtist as Artist]}
+        <div className="text-sm/8 md:text-lg/12 font-extralight text-justify md:w-4xl px-6 overflow-auto h-full min-h-0 no-scrollbar ">
+          <div className="max-w-90 m-auto">{artists[activeArtist as Artist]}</div>
         </div>
       </PageLayout>
     </div>
