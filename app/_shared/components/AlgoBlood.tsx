@@ -96,7 +96,7 @@ export const AlgoBlood: React.FC = () => {
         window.cancelAnimationFrame(rafRef.current)
         rafRef.current = null
       }
-    }, 11 * 1000)
+    }, 7 * 1000)
 
     return () => {
       if (rafRef.current) {
