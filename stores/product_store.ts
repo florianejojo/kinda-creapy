@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabaseClient"
-import { Product } from "@/models/product_model"
+import { Product, productFromRow } from "@/models/product_model"
 import { create } from "zustand"
 
 interface ProductStore {
@@ -37,16 +37,15 @@ export const useProductStore = create<ProductStore>((set, get) => ({
 
     const { data, error } = await supabase.from("products").select("*")
 
-    const normalized = data?.map((product) => ({
-      ...product,
-      images: product.images.map((path: string) => ({
-        path,
-        url: supabase.storage.from("products").getPublicUrl(path).data.publicUrl,
-      })),
-    }))
+    const normalized = data?.map((row) =>
+      productFromRow(
+        row,
+        (path) => supabase.storage.from("products").getPublicUrl(path).data.publicUrl,
+      ),
+    )
 
     set({
-      products: error ? [] : normalized ?? [],
+      products: error ? [] : (normalized ?? []),
       error: error?.message ?? null,
       isLoading: false,
     })

@@ -1,6 +1,11 @@
 import { Product } from "@/app/products/products.types"
 import { PUBLIC_ENV } from "@/env.client"
-import { supabase } from "@/lib/supabaseClient"
+import { supabase as typedSupabase } from "@/lib/supabaseClient"
+import type { SupabaseClient } from "@supabase/supabase-js"
+
+// TODO(lot 4) : ce fichier interroge `stocks`, `versions` et `images`, absentes des migrations.
+// Seule exception volontaire au typage de la base : à supprimer ou réécrire sur `variants`.
+const supabase = typedSupabase as unknown as SupabaseClient
 
 interface ProductApi {
   getFeaturedProducts: () => Promise<{ data: Product[] }>

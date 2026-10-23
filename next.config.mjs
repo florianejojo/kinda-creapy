@@ -14,10 +14,6 @@ const nextConfig = {
     unoptimized: process.env.NODE_ENV !== "production",
   },
 
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-
   experimental: {
     serverActions: {
       allowedOrigins: [process.env.NEXT_PUBLIC_SITE_URL],

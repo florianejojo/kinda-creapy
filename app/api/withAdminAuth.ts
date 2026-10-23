@@ -1,5 +1,6 @@
 import { ENV } from "@/env.server"
 import { createClient } from "@supabase/supabase-js"
+import type { Database } from "@/lib/database.types"
 import { jwtVerify } from "jose"
 import { NextResponse, type NextRequest } from "next/server"
 import "server-only"
@@ -25,6 +26,6 @@ export function withAdminAuth(handler: Handler): Handler {
 const supabaseUrl = ENV.NEXT_PUBLIC_SUPABASE_URL
 const supabaseSecretKey = ENV.SUPABASE_SECRET_KEY
 
-export const supabaseAdmin = createClient(supabaseUrl, supabaseSecretKey, {
+export const supabaseAdmin = createClient<Database>(supabaseUrl, supabaseSecretKey, {
   auth: { persistSession: false },
 })

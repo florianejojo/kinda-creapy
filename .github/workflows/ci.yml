@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - uses: supabase/setup-cli@v1
+        with:
+          version: 2.58.5
+
+      # Rejoue toutes les migrations sur une base vide : une migration cassée fait échouer la CI
+      - name: Start Supabase (applies migrations)
+        run: supabase start -x studio,imgproxy,edge-runtime,logflare,vector
+
+      # Les types doivent correspondre aux migrations : une table utilisée sans migration ne compile pas
+      - name: Database types are up to date
+        run: |
+          yarn -s db:types
+          git diff --exit-code lib/database.types.ts || {
+            echo "::error::lib/database.types.ts n'est pas à jour. Lance 'yarn db:types' et commite le résultat."
+            exit 1
+          }
+
+      - run: yarn -s typecheck
+
+      - run: yarn -s lint
+
+      - name: Build
+        run: |
+          eval "$(supabase status -o env | sed 's/^/export SB_/')"
+          export NODE_ENV=production
+          export NEXT_PUBLIC_SUPABASE_URL="$SB_API_URL"
+          export NEXT_PUBLIC_SUPABASE_URL_BUCKET="$SB_API_URL/storage/v1/object/public/products"
+          export NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY="$SB_PUBLISHABLE_KEY"
+          export NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY="pk_test_ci_placeholder_0000000000000000"
+          export NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+          export NEXT_PUBLIC_MAX_FILE_SIZE_MB=10
+          export ADMIN_JWT_SECRET="ci_placeholder_secret_0000000000000000"
+          export ADMIN_PASSWORD="ci_placeholder"
+          export SUPABASE_ADMIN_EMAIL="ci@example.com"
+          export SUPABASE_SECRET_KEY="$SB_SECRET_KEY"
+          export STRIPE_SECRET_KEY="sk_test_ci_placeholder_0000000000000000"
+          export MAX_FILE_SIZE_MB=10
+          yarn -s build
