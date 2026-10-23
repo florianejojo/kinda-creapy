@@ -1,5 +1,6 @@
 import { Category } from "@/app/_shared/shared.types"
 import { Artist } from "@/app/artists/artists.enum"
+import type { Tables } from "@/lib/database.types"
 
 export type ProductImage = {
   file?: File
@@ -27,6 +28,31 @@ export type Product = {
 }
 
 export type ProductDTO = Product
+
+// La base renvoie `null` là où le modèle attend `undefined`
+export function productFromRow(
+  row: Tables<"products">,
+  publicUrl: (path: string) => string,
+): Product {
+  return {
+    id: row.id,
+    title: row.title,
+    description: row.description ?? undefined,
+    images: row.images.map((path) => ({ path, url: publicUrl(path) })),
+    price: row.price,
+    price_limited: row.price_limited ?? undefined,
+    sold: row.sold ?? false,
+    sold_limited: row.sold_limited ?? false,
+    width_mm: row.width_mm ?? undefined,
+    height_mm: row.height_mm ?? undefined,
+    width_limited_mm: row.width_limited_mm ?? undefined,
+    height_limited_mm: row.height_limited_mm ?? undefined,
+    technique: row.technique ?? undefined,
+    artist: (row.artist as Artist) ?? undefined,
+    is_visible: row.is_visible ?? undefined,
+    category: (row.category as Category) ?? undefined,
+  }
+}
 
 export function initializeProduct(title: string): Product {
   return {

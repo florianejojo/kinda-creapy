@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "images": "node /Users/florianelefebvre/Desktop/remy-portfolio/convertImagesToWebp.js node /Users/florianelefebvre/Desktop/remy-portfolio/generateImagesImports.js"
+    "lint": "eslint .",
+    "images": "node /Users/florianelefebvre/Desktop/remy-portfolio/convertImagesToWebp.js node /Users/florianelefebvre/Desktop/remy-portfolio/generateImagesImports.js",
+    "typecheck": "tsc --noEmit",
+    "db:types": "supabase gen types typescript --local --schema public > lib/database.types.ts"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -45,6 +47,7 @@
     "eslint": "^9.39.0",
     "eslint-config-next": "^16.0.1",
     "postcss": "^8.5.6",
+    "prettier": "3.6.2",
     "tailwindcss": "^4.1.16",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
